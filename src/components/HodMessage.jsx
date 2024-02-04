@@ -6,7 +6,7 @@ const HodMessage = () => {
     <div className="bg-white w-full px-24 py-8 md:px-20 sm:px-16">
       <div className="flex justify-end mb-4">
         <h1 className="text-black sm:text-2xl lg:text-5xl md:text-4xl text-4xl font-bold font-bebasneue">
-          .HOD MESSAGE
+          . HOD MESSAGE
         </h1>
       </div>
 
