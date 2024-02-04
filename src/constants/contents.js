@@ -6,33 +6,33 @@ export const sampleText = `
 export const studentsData = [
   {
     name: "Muhammed Ali",
-    batch: "2021-25 Batch",
-    cgpa: "CGPA 9.3",
-    image: "./student1.jpg",
+    batch: "2021-25",
+    cgpa: 9.3,
+    image: "./student-1.jpg",
+  },
+  {
+    name: "Muhammed Ali",
+    batch: "2021-25",
+    cgpa: 9.3,
+    image: "./student-1.jpg",
+  },
+  {
+    name: "Muhammed Ali",
+    batch: "2021-25",
+    cgpa: 9.3,
+    image: "./student-1.jpg",
   },
   {
     name: "VISWAJITH",
-    batch: "2021-25 Batch",
-    cgpa: "CGPA 9.3",
-    image: "./student1.jpg",
+    batch: "2021-25",
+    cgpa: 9.3,
+    image: "./student-1.jpg",
   },
   {
-    name: "VISWAJITH",
-    batch: "2021-25 Batch",
-    cgpa: "CGPA 9.3",
-    image: "./student1.jpg",
-  },
-  {
-    name: "VISWAJITH",
-    batch: "2021-25 Batch",
-    cgpa: "CGPA 9.3",
-    image: "./student1.jpg",
-  },
-  {
-    name: "jerald",
-    batch: "2021-25 Batch",
-    cgpa: "CGPA 9.3",
-    image: "./student1.jpg",
+    name: "Muhammed Ali",
+    batch: "2021-25",
+    cgpa: 9.3,
+    image: "./student-1.jpg",
   },
 ];
 
