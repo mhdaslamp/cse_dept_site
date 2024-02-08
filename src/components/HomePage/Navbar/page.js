@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const toggleNavbar = () => {
@@ -17,11 +16,17 @@ function Navbar() {
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <div className="flex gap-4">
                 {/* LOGO */}
-                <Link href="/">
-                  <h2 className="text-2xl text-black font-bold">LOGO</h2>
-                </Link>
+
+                <Image
+                  src="/logo.png"
+                  alt="Logo image"
+                  width={90}
+                  height={50}
+                  className=""
+                />
+
                 <p
-                  className={`text-sm text-left text-white ${
+                  className={`text-sm text-left mt-2 text-white ${
                     navbar ? "hidden md:block" : "block"
                   }`}
                 >
@@ -52,29 +57,29 @@ function Navbar() {
           </div>
           <div>
             <div
-              className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+              className={`flex-1 justify-self-center pb-3  md:block md:pb-0 md:mt-0 ${
                 navbar ? "p-12 md:p-0 block" : "hidden"
               }`}
             >
               <ul className="h-screen md:h-auto items-center justify-center md:flex ">
                 <li className="pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-purple-900  border-purple-900  md:hover:text-purple-600 md:hover:bg-transparent">
                   <Link href="#about" onClick={() => setNavbar(!navbar)}>
-                    About
+                    HOME
                   </Link>
                 </li>
                 <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-purple-900  md:hover:text-purple-600 md:hover:bg-transparent">
                   <Link href="#blog" onClick={() => setNavbar(!navbar)}>
-                    Blogs
+                    ABOUT
                   </Link>
                 </li>
                 <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-purple-900  md:hover:text-purple-600 md:hover:bg-transparent">
                   <Link href="#contact" onClick={() => setNavbar(!navbar)}>
-                    Contact
+                    NOTIFICATION
                   </Link>
                 </li>
                 <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-purple-900  md:hover:text-purple-600 md:hover:bg-transparent">
                   <Link href="#projects" onClick={() => setNavbar(!navbar)}>
-                    Projects
+                    DEPT CLUB
                   </Link>
                 </li>
               </ul>
