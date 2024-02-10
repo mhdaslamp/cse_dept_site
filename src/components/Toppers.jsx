@@ -3,9 +3,9 @@ import studentsData from "../constants/contents";
 
 function StudentCard({ name, batch, cgpa, image }) {
   return (
-    <div className="student-card text-center">
-      <img src={image} alt={name} />
-      <div className="student-details bg-white">
+    <div className="student-card text-center flex flex-col items-center">
+      <img src={image} alt={name} className="w-full" />
+      <div className="student-details bg-white w-full">
         <p>{name}</p>
         <p className="text-gray-500 text-sm">{batch} Batch</p>
         <p className="text-gray-500 text-sm">CGPA {cgpa}</p>

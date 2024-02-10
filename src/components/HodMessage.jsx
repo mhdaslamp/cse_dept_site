@@ -10,8 +10,8 @@ const HodMessage = () => {
         </h1>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between">
-        <div className="md:mr-5 md:container md:flex md:items-center">
+      <div className="flex flex-col md:flex-row justify-center">
+        <div className="md:mr-5 md:container md:flex md:items-center justify-center">
           <div className="image-container">
             <img src="/hodImage.jpg" alt="Image of HOD" className="Hod-image" />
             <div className="image-text text-center place-content-center">
