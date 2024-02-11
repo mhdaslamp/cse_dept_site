@@ -12,3 +12,18 @@ body{
     text-wrap: balance;
   }
 }
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    position:absolute;
+    top:0;
+    z-index:-1;
+  } 
