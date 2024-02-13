@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { MdOutlineNotifications } from "react-icons/md";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -8,14 +8,17 @@ import Navbar from "../HomePage/Navbar/page";
 
 function Home() {
   useEffect(() => {
-    AOS.init({ duration: 2000 });
+    AOS.init({ duration: 1000 });
   }, []);
   return (
     <div className="relative h-screen overflow-hidden">
-      <div className={`absolute w-full z-10`}>
+      <div className={`absolute w-full z-10`} data-aos="fade-down">
         <Navbar />
       </div>
-      <div className="content absolute bottom-0 left-0 w-full p-12 text-white">
+      <div
+        className="content absolute bottom-0 left-0 w-full p-12 text-white"
+        data-aos="fade-right"
+      >
         <h1 className="text-4xl font-bold">COMPUTER SCIENCE AND ENGINEERING</h1>
         <p className="font-bold">
           GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
@@ -29,7 +32,7 @@ function Home() {
             color: "#FFFFFF",
           }}
           size={26} // Adjust the size as needed
-          data-aos="fade-up-left"
+          data-aos="fade-left"
         />
       </a>
 
