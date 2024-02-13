@@ -16,13 +16,18 @@ function Home() {
         <Navbar />
       </div>
       <div
-        className="content absolute bottom-0 left-0 w-full p-12 text-white"
+        className="flex gap-2 content absolute bottom-0 left-0 w-full p-12 text-white"
         data-aos="fade-right"
       >
-        <h1 className="text-4xl font-bold">COMPUTER SCIENCE AND ENGINEERING</h1>
-        <p className="font-bold">
-          GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
-        </p>
+        <div className="w-3 h-3 mt-3 bg-white"></div>
+        <div>
+          <h1 className="text-4xl font-bold">
+            COMPUTER SCIENCE AND ENGINEERING
+          </h1>
+          <p className="font-bold">
+            GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
+          </p>
+        </div>
       </div>
       <a>
         <MdOutlineNotifications
