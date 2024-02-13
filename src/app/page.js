@@ -7,8 +7,10 @@ export default function Home() {
   return (
     <main>
       <CourseOfferedSection />
+
       <HodMessage />
       <Toppers />
+
       <Footer />
     </main>
   );
