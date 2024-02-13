@@ -1,9 +1,15 @@
-import React from "react";
-import { IoIosNotifications } from "react-icons/io";
-// import Styles from "globals.css";
+"use client"
+
+import React,{useEffect} from "react";
+import { MdOutlineNotifications } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Navbar from "../HomePage/Navbar/page";
 
 function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
     <div className="relative h-screen overflow-hidden">
       <div className={`absolute w-full z-10`}>
@@ -16,9 +22,14 @@ function Home() {
         </p>
       </div>
       <a>
-        <IoIosNotifications
-          className="bottom-48 absolute mt-48 right-1 box-content px-3 py-2 border-2 border-black bg-white rounded-lg"
-          size={30}
+        <MdOutlineNotifications
+          className="bottom-48 absolute mt-48 right-0 box-content px-3 py-2 w-12 rounded-sm"
+          style={{
+            backgroundColor: "rgba(136, 103, 80, 0.8)",
+            color: "#FFFFFF",
+          }}
+          size={26} // Adjust the size as needed
+          data-aos="fade-up-left"
         />
       </a>
 
