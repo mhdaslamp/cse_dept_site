@@ -55,7 +55,7 @@ const DeptLogo = () => {
                     src="/cse.png"
                     width={480}
                     height={280}
-                    alt="CSE Image"
+                    alt="cse Image"
                     className="cse-image"
                 />
             </div>
