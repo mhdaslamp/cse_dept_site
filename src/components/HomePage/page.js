@@ -1,24 +1,43 @@
-import React from "react";
-import { IoIosNotifications } from "react-icons/io";
-// import Styles from "globals.css";
+"use client";
+
+import React, { useEffect } from "react";
+import { MdOutlineNotifications } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Navbar from "../HomePage/Navbar/page";
 
 function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <div className="relative h-screen overflow-hidden">
-      <div className={`absolute w-full z-10`}>
+      <div className={`absolute w-full z-10`} data-aos="fade-down">
         <Navbar />
       </div>
-      <div className="content absolute bottom-0 left-0 w-full p-12 text-white">
-        <h1 className="text-4xl font-bold">COMPUTER SCIENCE AND ENGINEERING</h1>
-        <p className="font-bold">
-          GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
-        </p>
+      <div
+        className="flex gap-2 content absolute bottom-0 left-0 w-full p-12 text-white"
+        data-aos="fade-right"
+      >
+        <div className="w-3 h-3 mt-3 bg-white"></div>
+        <div>
+          <h1 className="text-4xl font-bold">
+            COMPUTER SCIENCE AND ENGINEERING
+          </h1>
+          <p className="font-bold">
+            GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
+          </p>
+        </div>
       </div>
       <a>
-        <IoIosNotifications
-          className="bottom-48 absolute mt-48 right-1 box-content px-3 py-2 border-2 border-black bg-white rounded-lg"
-          size={30}
+        <MdOutlineNotifications
+          className="bottom-48 absolute mt-48 right-0 box-content px-3 py-2 w-12 rounded-sm"
+          style={{
+            backgroundColor: "rgba(136, 103, 80, 0.8)",
+            color: "#FFFFFF",
+          }}
+          size={26} // Adjust the size as needed
+          data-aos="fade-left"
         />
       </a>
 
