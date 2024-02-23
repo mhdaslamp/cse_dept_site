@@ -13,7 +13,7 @@ function NavbarItem({ href, label, setNavbar }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered && (
-        <div className="dot w-3 absolute top-2 left-0 h-3 bg-white rounded"></div>
+        <div className="dot w-2 h-2 absolute top-5 left-0  bg-white rounded"></div>
       )}
       <Link href={href} onClick={() => setNavbar(false)}>
         {label}
