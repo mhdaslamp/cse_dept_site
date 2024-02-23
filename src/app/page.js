@@ -9,8 +9,10 @@ export default function Home() {
     <main>
       <HomePage />
       <CourseOfferedSection />
+
       <HodMessage />
       <Toppers />
+
       <Footer />
     </main>
   );
