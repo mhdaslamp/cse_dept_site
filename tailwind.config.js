@@ -13,7 +13,10 @@ module.exports = {
       },
       fontSize: {
         "5.5xl": "3.5rem"
-      }
+      },
+      colors:{
+        'newblue':'#0D38B1',
+      },
     },
   },
   plugins: [],
