@@ -17,19 +17,19 @@ export const studentsData = [
     image: "./student-1.jpg",
   },
   {
-    name: "Muhammed Ali",
+    name: "Viswajith vp",
     batch: "2021-25",
     cgpa: 9.3,
     image: "./student-1.jpg",
   },
   {
-    name: "VISWAJITH",
+    name: "Bimal",
     batch: "2021-25",
     cgpa: 9.3,
     image: "./student-1.jpg",
   },
   {
-    name: "Muhammed Ali",
+    name: "Hashiq",
     batch: "2021-25",
     cgpa: 9.3,
     image: "./student-1.jpg",
