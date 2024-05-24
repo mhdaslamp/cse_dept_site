@@ -11,7 +11,7 @@ export const studentsData = [
     image: "./student-1.jpg",
   },
   {
-    name: "Muhammed Ali",
+    name: "Jerald Joyson",
     batch: "2021-25",
     cgpa: 9.3,
     image: "./student-1.jpg",
