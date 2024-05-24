@@ -5,7 +5,7 @@ import studentsData from "../constants/contents";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function StudentCard({ name, batch, cgpa, image, index }) {
+function StudentCard({ , batch, cgpa, image, index }) {
   return (
     <div
       className="student-card text-center flex flex-col items-center"
