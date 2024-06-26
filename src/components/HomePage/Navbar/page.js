@@ -73,7 +73,7 @@ function Navbar() {
               navbar ? "p-12 md:p-0 block" : "hidden md:block"
             }`}
           >
-            <ul className="md:h-auto items-center justify-center md:flex lg:mt-5">
+            <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5">
               <NavbarItem href="#about" label="HOME" setNavbar={setNavbar} />
               <NavbarItem href="#blog" label="ABOUT" setNavbar={setNavbar} />
               <NavbarItem
