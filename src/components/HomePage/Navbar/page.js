@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { IoMenu } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
 
 function NavbarItem({ href, label, setNavbar }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -42,6 +44,7 @@ function Navbar() {
                 height={60}
                 className=" w-24 h-14  "
               />
+
               <p
                 className={`text-sm text-left  text-white  mt-4 ${
                   navbar ? "hidden md:block" : "block"
@@ -53,19 +56,13 @@ function Navbar() {
             {/* HAMBURGER BUTTON FOR MOBILE */}
             <div className="md:hidden">
               <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2 text-gray-700 rounded-md outline-none"
                 onClick={toggleNavbar}
               >
                 {navbar ? (
-                  <Image src="/close.svg" width={30} height={30} alt="logo" />
+                  <AiOutlineClose className="text-white w-10 h-10" />
                 ) : (
-                  <Image
-                    src="/hamburger-menu.svg"
-                    width={30}
-                    height={30}
-                    alt="logo"
-                    className="focus:border-none active:border-none"
-                  />
+                  <IoMenu className="text-white w-10 h-10" />
                 )}
               </button>
             </div>
