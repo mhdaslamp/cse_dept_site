@@ -63,9 +63,15 @@ function Navbar() {
                 onClick={toggleNavbar}
               >
                 {navbar ? (
-                  <AiOutlineClose className="text-white w-10 h-10" />
+                  // <AiOutlineClose className="text-white w-10 h-10" />
+                  <div className="p-2 text-white bg-black w-16 h-10 flex justify-center text-center">
+                    <h1 className="text-[16px]">CLOSE</h1>
+                  </div>
                 ) : (
-                  <IoMenu className="text-white w-10 h-10" />
+                  // <IoMenu className="text-white w-10 h-10" />
+                  <div className="p-2 text-black bg-white w-16 h-10 flex justify-center text-center">
+                    <h1 className="text-[16px]">MENU</h1>
+                  </div>
                 )}
               </button>
             </div>
