@@ -2,22 +2,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { IoMenu } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
+import { FaArrowRightLong } from "react-icons/fa6";
 
-function NavbarItem({ href, label, setNavbar }) {
+function NavbarItem({ href, label, setNavbar, showArrow }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <li
-      className="flex relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent"
+      className="flex justify-between items-center relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {isHovered && (
-        <div className="dot w-2 h-2 absolute top-5 left-0  bg-white rounded"></div>
-      )}
-      <Link href={href} onClick={() => setNavbar(false)}>
-        {label}
-      </Link>
+      <div className="flex items-center">
+        {isHovered && (
+          <div className="dot w-2 h-2 absolute top-5 left-0 bg-white rounded"></div>
+        )}
+        <Link href={href} onClick={() => setNavbar(false)}>
+          {label}
+        </Link>
+      </div>
+      {showArrow && <FaArrowRightLong className="ml-2 block md:hidden" />}
     </li>
   );
 }
@@ -29,10 +35,10 @@ function Navbar() {
   };
 
   return (
-    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 mt-8 rounded max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 rounded-xl max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
+      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 h-20">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
             <div className="flex gap-4">
               {/* LOGO */}
               <Image
@@ -40,10 +46,10 @@ function Navbar() {
                 alt="Logo image"
                 width={80}
                 height={60}
-                className=" w-24 h-18"
+                className="w-24 h-14"
               />
               <p
-                className={`text-sm text-left mt-4 text-white  ${
+                className={`text-sm text-left text-white mt-4 ${
                   navbar ? "hidden md:block" : "block"
                 }`}
               >
@@ -53,42 +59,48 @@ function Navbar() {
             {/* HAMBURGER BUTTON FOR MOBILE */}
             <div className="md:hidden">
               <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2 text-gray-700 rounded-md outline-none"
                 onClick={toggleNavbar}
               >
                 {navbar ? (
-                  <Image src="/close.svg" width={30} height={30} alt="logo" />
+                  <AiOutlineClose className="text-white w-10 h-10" />
                 ) : (
-                  <Image
-                    src="/hamburger-menu.svg"
-                    width={30}
-                    height={30}
-                    alt="logo"
-                    className="focus:border-none active:border-none"
-                  />
+                  <IoMenu className="text-white w-10 h-10" />
                 )}
               </button>
             </div>
           </div>
         </div>
-        <div>
+        <div className="mb-2 h-96 md:h-auto">
           <div
-            className={`flex-1 justify-self-center md:block md:pb-0 md:mt-0 ${
-              navbar ? "p-12 md:p-0 block" : "hidden"
+            className={`flex-1 justify-self-center md:block md:pb-0 md:mt-0 h-96 md:h-auto ${
+              navbar ? "p-12 md:p-0 block" : "hidden md:block"
             }`}
           >
-            <ul className="h-screen md:h-auto lg:gap-8 items-center justify-center md:flex mt-5 ">
-              <NavbarItem href="#about" label="HOME" setNavbar={setNavbar} />
-              <NavbarItem href="#blog" label="ABOUT" setNavbar={setNavbar} />
+            <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5">
+              <NavbarItem
+                href="#about"
+                label="HOME"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#blog"
+                label="ABOUT"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
               <NavbarItem
                 href="#contact"
                 label="NOTIFICATION"
                 setNavbar={setNavbar}
+                showArrow={navbar}
               />
               <NavbarItem
                 href="#projects"
                 label="DEPT CLUB"
                 setNavbar={setNavbar}
+                showArrow={navbar}
               />
             </ul>
           </div>
@@ -99,27 +111,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-{
-  /* <li className="flex relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent">
-                <div className="dot w-3 hidden absolute top-2 left-0 h-3 bg-white rounded"></div>
-                <Link href="#about" onClick={() => setNavbar(!navbar)}>
-                  HOME
-                </Link>
-              </li>
-              <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0 md:hover:bg-transparent">
-                <Link href="#blog" onClick={() => setNavbar(!navbar)}>
-                  ABOUT
-                </Link>
-              </li>
-              <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0 md:hover:bg-transparent">
-                <Link href="#contact" onClick={() => setNavbar(!navbar)}>
-                  NOTIFICATION
-                </Link>
-              </li>
-              <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0 md:hover:bg-transparent">
-                <Link href="#projects" onClick={() => setNavbar(!navbar)}>
-                  DEPT CLUB
-                </Link>
-              </li> */
-}
