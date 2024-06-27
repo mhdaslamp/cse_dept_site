@@ -4,22 +4,26 @@ import Link from "next/link";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
+import { FaArrowRightLong } from "react-icons/fa6";
 
-function NavbarItem({ href, label, setNavbar }) {
+function NavbarItem({ href, label, setNavbar, showArrow }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <li
-      className="flex relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent"
+      className="flex justify-between items-center relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {isHovered && (
-        <div className="dot w-2 h-2 absolute top-5 left-0 bg-white rounded"></div>
-      )}
-      <Link href={href} onClick={() => setNavbar(false)}>
-        {label}
-      </Link>
+      <div className="flex items-center">
+        {isHovered && (
+          <div className="dot w-2 h-2 absolute top-5 left-0 bg-white rounded"></div>
+        )}
+        <Link href={href} onClick={() => setNavbar(false)}>
+          {label}
+        </Link>
+      </div>
+      {showArrow && <FaArrowRightLong className="ml-2 block md:hidden" />}
     </li>
   );
 }
@@ -74,17 +78,29 @@ function Navbar() {
             }`}
           >
             <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5">
-              <NavbarItem href="#about" label="HOME" setNavbar={setNavbar} />
-              <NavbarItem href="#blog" label="ABOUT" setNavbar={setNavbar} />
+              <NavbarItem
+                href="#about"
+                label="HOME"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#blog"
+                label="ABOUT"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
               <NavbarItem
                 href="#contact"
                 label="NOTIFICATION"
                 setNavbar={setNavbar}
+                showArrow={navbar}
               />
               <NavbarItem
                 href="#projects"
                 label="DEPT CLUB"
                 setNavbar={setNavbar}
+                showArrow={navbar}
               />
             </ul>
           </div>
