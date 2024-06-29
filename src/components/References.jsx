@@ -46,7 +46,7 @@ export default function References() {
    },[])
   return (
     <div className="text-black "  ref={animatedRef} >
-      <div className="lg:flex-row flex flex-col lg:px-20 justify-between">
+      <div className="lg:flex-row flex flex-col-reverse lg:px-20 justify-between">
 
       <div className="lg:block flex flex-col justify-center items-center w-screen">
         <h1 ref={text1} className=" self-start lg:block lg:px-0 px-10 font-bold mt-[1rem] mb-[1rem] font-bebasneue text-[56px]">.REFERENCES</h1>
@@ -66,7 +66,7 @@ export default function References() {
       <div className="flex gap-[2rem] w-full">
   <div className=" w-[100%] ">
     <div className="flex  flex-row flex-wrap lg:flex-nowrap gap-[0.8rem] ">
-      <div ref={item1} className="group  lg:basis-auto basis-full relative h-[500px] lg:w-[30rem] hover:w-[45rem]   opacity-0  overflow-hidden transition-all duration-[1s] rounded-xl">
+      <div ref={item1} className="group  lg:basis-auto basis-full relative lg:h-[500px] h-[350px] lg:w-[30rem] hover:w-[45rem]   opacity-0  overflow-hidden transition-all duration-[1s] rounded-xl">
         <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 z-1 w-full h-[50%] "></div>
         <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 bottom-0 z-1 w-full h-[50%] "></div>
 
@@ -100,7 +100,7 @@ export default function References() {
           </div>
         </div>
       </div>
-      <div ref={items2} className="group lg:basis-auto basis-1/3 opacity-0 lg:hover:w-[45rem] relative h-[500px] min-w-[48%] lg:w-[20rem] lg:min-w-min  overflow-hidden transition-all duration-[1s] rounded-xl">
+      <div ref={items2} className="group lg:basis-auto basis-1/3 opacity-0 lg:hover:w-[45rem] relative lg:h-[500px] h-[350px] min-w-[48%] lg:w-[20rem] lg:min-w-min  overflow-hidden transition-all duration-[1s] rounded-xl">
       <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 z-1 w-full h-[50%] "></div>
 
 <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 bottom-0 z-1 w-full h-[50%] "></div>
@@ -121,7 +121,7 @@ export default function References() {
           </div>
         </div>
       </div>
-      <div ref={item3} className="group lg:basis-auto basis-1/3 lg:hover:w-[45rem] relative h-[500px] min-w-[48%] lg:w-[20rem] lg:min-w-min opacity-0 overflow-hidden transition-all duration-[1s] rounded-xl">
+      <div ref={item3} className="group lg:basis-auto basis-1/3 lg:hover:w-[45rem] relative lg:h-[500px] h-[350px] min-w-[48%] lg:w-[20rem] lg:min-w-min opacity-0 overflow-hidden transition-all duration-[1s] rounded-xl">
       <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 z-1 w-full h-[50%] "></div>
 
 <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 bottom-0 z-1 w-full h-[50%] "></div>
