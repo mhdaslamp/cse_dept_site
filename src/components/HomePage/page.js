@@ -11,7 +11,7 @@ function Home() {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden ">
       <div className={`absolute w-full z-10`} data-aos="fade-down">
         <Navbar />
       </div>
@@ -41,7 +41,7 @@ function Home() {
         />
       </a>
 
-      <div className="overflow-hidden relative w-full h-screen">
+      <div className="overflow-hidden relative min-w-screen h-screen">
         <video
           src="bg.mp4"
           autoPlay

@@ -45,12 +45,12 @@ export default function References() {
       
    },[])
   return (
-    <div className="text-black"  ref={animatedRef}>
-      <div className="flex mx-[96px] justify-between">
+    <div className="text-black "  ref={animatedRef} >
+      <div className="lg:flex-row flex flex-col-reverse lg:px-20 justify-between">
 
-      <div>
-        <h1 ref={text1} className=" font-bold mt-[1rem] mb-[1rem] font-bebasneue text-[56px]">.REFERENCES</h1>
-      <div ref={comp} className="grid  grid-cols-[repeat(3,150px)] grid-rows-[repeat(3,150px)] gap-[24px]  grid-flow-row ">
+      <div className="lg:block flex flex-col justify-center items-center w-screen">
+        <h1 ref={text1} className=" self-start lg:block lg:px-0 px-10 font-bold mt-[1rem] mb-[1rem] font-bebasneue text-[56px]">.REFERENCES</h1>
+      <div ref={comp} className=" grid  lg:grid-cols-[repeat(3,150px)] lg:grid-rows-[repeat(3,150px)] grid-cols-[repeat(3,30%)] grid-rows-[repeat(3,200px)] gap-[24px]  grid-flow-row lg:w-min w-full px-10 lg-px-0">
       {imag.map((sr,index)=>(
         <div key={index}  className="items relative flex rounded justify-center items-center  hover:border-[1px] hover:border-newblue">
           <img className="absolute h-full inset-0  w-full " src={sr.hvr} alt="" />
@@ -61,12 +61,12 @@ export default function References() {
         
       </div>
 
-      <div className="w-[60%] ">
-        <div ref={text2} className="flex justify-end"><p className="text-[56px] font-bebasneue mt-[1rem] mb-[1rem] font-bold">.NEW POSTS</p></div>
+      <div className="lg:w-[60%] w-full px-10 lg:px-0 ">
+        <div ref={text2} className="flex lg:justify-end "><p className="text-[56px] font-bebasneue mt-[1rem] mb-[1rem] font-bold">.NEW POSTS</p></div>
       <div className="flex gap-[2rem] w-full">
   <div className=" w-[100%] ">
-    <div className="flex  [&>div:hover]:w-[45rem] gap-[0.8rem] ">
-      <div ref={item1} className="group relative h-[500px] w-[30rem] opacity-0  overflow-hidden transition-all duration-[0.8s] rounded-xl">
+    <div className="flex  flex-row flex-wrap lg:flex-nowrap gap-[0.8rem] ">
+      <div ref={item1} className="group  lg:basis-auto basis-full relative lg:h-[500px] h-[350px] lg:w-[30rem] hover:w-[45rem]   opacity-0  overflow-hidden transition-all duration-[1s] rounded-xl">
         <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 z-1 w-full h-[50%] "></div>
         <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 bottom-0 z-1 w-full h-[50%] "></div>
 
@@ -100,7 +100,7 @@ export default function References() {
           </div>
         </div>
       </div>
-      <div ref={items2} className="group opacity-0 relative h-[500px] w-[20rem]  overflow-hidden transition-all duration-[0.8s] rounded-xl">
+      <div ref={items2} className="group lg:basis-auto basis-1/3 opacity-0 lg:hover:w-[45rem] relative lg:h-[500px] h-[350px] min-w-[48%] lg:w-[20rem] lg:min-w-min  overflow-hidden transition-all duration-[1s] rounded-xl">
       <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 z-1 w-full h-[50%] "></div>
 
 <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 bottom-0 z-1 w-full h-[50%] "></div>
@@ -121,7 +121,7 @@ export default function References() {
           </div>
         </div>
       </div>
-      <div ref={item3} className="group relative h-[500px] w-[20rem] opacity-0 overflow-hidden transition-all duration-[0.8s] rounded-xl">
+      <div ref={item3} className="group lg:basis-auto basis-1/3 lg:hover:w-[45rem] relative lg:h-[500px] h-[350px] min-w-[48%] lg:w-[20rem] lg:min-w-min opacity-0 overflow-hidden transition-all duration-[1s] rounded-xl">
       <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 z-1 w-full h-[50%] "></div>
 
 <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)]  inset-x-0 bottom-0 z-1 w-full h-[50%] "></div>
