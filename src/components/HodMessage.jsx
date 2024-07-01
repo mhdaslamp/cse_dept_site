@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { hodName, sampleText } from "../constants/contents";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Image from "next/image";
 const TypingEffect = ({ text, speed }) => {
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);
@@ -55,7 +55,11 @@ const HodMessage = () => {
           style={{ flex: "1" }}
         >
           <div className="image-container">
-            <img src="/hodImage.jpg" alt="Image of HOD" className="Hod-image" />
+            <img
+              src="/hodImage.jpg"
+              alt="Image of HOD"
+              className="Hod-image"
+            />
 
             <div className="image-text text-center place-content-center ">
               <p className="mt-2">{hodName}</p>

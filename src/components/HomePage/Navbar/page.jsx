@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import NavbarItem from "./NavbarItem/page";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
