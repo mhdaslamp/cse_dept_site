@@ -66,7 +66,7 @@ const Toppers = () => {
         data-aos="fade-up"
       >
         <div className="flex justify-start mb-4 pl-5">
-          <h1 className="text-black sm:text-2xl lg:text-5xl md:text-4xl text-4xl font-bold font-bebasneue">
+          <h1 className="text-black lg:text-5xl text-4xl font-bold font-bebasneue">
             . TOPPERS
           </h1>
         </div>
