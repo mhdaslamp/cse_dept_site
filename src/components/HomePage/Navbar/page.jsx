@@ -2,29 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
-
-function NavbarItem({ href, label, setNavbar, showArrow }) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <li
-      className="flex justify-between items-center relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="flex items-center">
-        {isHovered && (
-          <div className="dot w-2 h-2 absolute top-5 left-0 bg-white rounded"></div>
-        )}
-        <Link href={href} onClick={() => setNavbar(false)}>
-          {label}
-        </Link>
-      </div>
-      {showArrow && <FaArrowRightLong className="ml-2 block md:hidden" />}
-    </li>
-  );
-}
+import NavbarItem from "./NavbarItem/page";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -61,12 +39,10 @@ function Navbar() {
                 onClick={toggleNavbar}
               >
                 {navbar ? (
-                  // <AiOutlineClose className="text-white w-10 h-10" />
                   <div className="p-2 text-white bg-black w-16 h-10 flex justify-center text-center">
                     <h1 className="text-[16px]">CLOSE</h1>
                   </div>
                 ) : (
-                  // <IoMenu className="text-white w-10 h-10" />
                   <div className="p-2 text-black bg-white w-16 h-10 flex justify-center text-center">
                     <h1 className="text-[16px]">MENU</h1>
                   </div>
@@ -99,12 +75,14 @@ function Navbar() {
                 label="ACADEMICS"
                 setNavbar={setNavbar}
                 showArrow={navbar}
+                hasDropdown={true} // Indicates this item has a dropdown
               />
               <NavbarItem
                 href="#projects"
                 label="PEOPLE"
                 setNavbar={setNavbar}
                 showArrow={navbar}
+                hasDropdown={true} // Indicates this item has a dropdown
               />
               <NavbarItem
                 href="#projects"
