@@ -1,15 +1,19 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineNotifications } from "react-icons/md";
+import { IoIosNotifications } from "react-icons/io";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./Navbar/page";
 
 function Home() {
+  const [hover, setHover] = useState(false);
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
   return (
     <div className="relative h-screen overflow-hidden">
       <div className={`absolute w-full z-10`} data-aos="fade-down">
@@ -20,7 +24,7 @@ function Home() {
         data-aos="fade-right"
       >
         <div className="lg:w-3 lg:h-3 w-2 h-2 mt-3 bg-white"></div>
-        <div className="">
+        <div>
           <h1 className="lg:text-4xl font-bold text-[20px]">
             COMPUTER SCIENCE AND ENGINEERING
           </h1>
@@ -29,18 +33,28 @@ function Home() {
           </p>
         </div>
       </div>
-      <a>
-        <MdOutlineNotifications
-          className="bottom-48 absolute mt-48 right-0 box-content px-3 py-2 w-12 rounded-sm"
-          style={{
-            backgroundColor: "transparent",
-            color: "#FFFFFF",
-          }}
-          size={26} // Adjust the size as needed
-          data-aos="fade-left"
-        />
-      </a>
-
+      <div
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className="bottom-48 absolute mt-48 right-0 box-content px-3 py-2 w-12 rounded-sm bg-slate-400 bg-opacity-40 cursor-pointer"
+        data-aos="fade-left"
+      >
+        {!hover ? (
+          <MdOutlineNotifications
+            style={{
+              color: "#FFFFFF",
+            }}
+            size={26} // Adjust the size as needed
+          />
+        ) : (
+          <IoIosNotifications
+            style={{
+              color: "#FFFFFF",
+            }}
+            size={26} // Adjust the size as needed
+          />
+        )}
+      </div>
       <div className="overflow-hidden relative w-full h-screen">
         <video
           src="bg.mp4"
