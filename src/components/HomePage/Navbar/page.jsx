@@ -2,8 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { IoMenu } from "react-icons/io5";
-import { AiOutlineClose } from "react-icons/ai";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 function NavbarItem({ href, label, setNavbar, showArrow }) {
@@ -38,7 +36,7 @@ function Navbar() {
     <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 h-20">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20 ">
+          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
             <div className="flex gap-4">
               {/* LOGO */}
               <Image
