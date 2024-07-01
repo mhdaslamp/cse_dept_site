@@ -33,8 +33,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 h-20">
+    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
+      <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8 h-20">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
             <div className="flex gap-4">
@@ -81,7 +81,7 @@ function Navbar() {
               navbar ? "p-12 md:p-0 block" : "hidden md:block"
             }`}
           >
-            <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5 ">
+            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
                 href="#about"
                 label="HOME"
@@ -90,19 +90,37 @@ function Navbar() {
               />
               <NavbarItem
                 href="#blog"
-                label="ABOUT"
+                label="ABOUT US"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
                 href="#contact"
-                label="NOTIFICATION"
+                label="ACADEMICS"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
                 href="#projects"
-                label="DEPT CLUB"
+                label="PEOPLE"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#projects"
+                label="ACTIVITIES"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#projects"
+                label="PLACEMENTS"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#projects"
+                label="CONTACT US"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
