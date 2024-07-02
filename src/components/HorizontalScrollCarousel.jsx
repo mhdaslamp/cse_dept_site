@@ -1,22 +1,31 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const HorizontalScrollCarousel = () => {
+  const isMobile = useMediaQuery({ query: "(min-width: 768px)" });
+
+  return (
+    <div className="bg-neutral-800">
+      {isMobile ? <HorizontalScroll /> : <VerticalScroll />}
+    </div>
+  );
+};
+export default HorizontalScrollCarousel;
+
+const HorizontalScroll = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-67%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
+    <section ref={targetRef} className="relative h-[300vh] bg-[#161616]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div
-          style={{ x }}
-          className="flex gap-1 h-screen w-auto border-2 border-red-500 p-8"
-        >
+        <motion.div style={{ x }} className="flex gap-0 h-screen w-auto p-8">
           <Card
             card={{
               url: "/ImageScroll/image1.png",
@@ -63,14 +72,63 @@ const HorizontalScrollCarousel = () => {
   );
 };
 
-export default HorizontalScrollCarousel;
+const VerticalScroll = () => {
+  return (
+    <section className="relative h-full bg-neutral-900">
+      <div className="flex flex-col h-auto w-screen items-center overflow-hidden ">
+        <motion.div>
+          <Card
+            card={{
+              url: "/ImageScroll/image1.png",
+              height: "450px",
+              width: "350px",
+              title: "Title 1",
+              id: 1,
+            }}
+            position="top-[50%] right-0 -translate-y-1/2 "
+          />
+          <Card
+            card={{
+              url: "/ImageScroll/image2.png",
+              height: "350px",
+              width: "350px",
+              title: "Title 2",
+              id: 2,
+            }}
+            position="top-[50%] left-0 -translate-y-1/2 "
+          />
+          <Card
+            card={{
+              url: "/ImageScroll/image1.png",
+              height: "450px",
+              width: "350px",
+              title: "Title 3",
+              id: 3,
+            }}
+            position="top-[50%] right-0 -translate-y-1/2 "
+          />
+          <Card
+            card={{
+              url: "/ImageScroll/image2.png",
+              height: "350px",
+              width: "350px",
+              title: "Title 4",
+              id: 4,
+            }}
+            position="top-[50%] left-0 -translate-y-1/2 "
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const Card = ({ card, position }) => {
   return (
-    <div className="main-card w-[800px] h-auto relative border-2 border-emerald-500">
+    <div className="main-card w-[400px] h-[500px] md:w-[800px] xl:w-[800px] md:h-auto xl:h-auto relative">
       <div
         key={card.id}
-        className={`group absolute overflow-hidden bg-neutral-200 ${position} border-2 border-orange-500`}
+        className={`group absolute overflow-hidden bg-neutral-200 ${position} border-2`}
         style={{ height: card.height, width: card.width }}
       >
         <div
