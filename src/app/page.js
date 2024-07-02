@@ -11,8 +11,8 @@ export default function Home() {
     <main>
       <HomePage />
       <CourseOfferedSection />
-      <HodMessage />
       <HorizontalScrollCarousel />
+      <HodMessage />
       <Toppers />
       <References />
       <Footer />
