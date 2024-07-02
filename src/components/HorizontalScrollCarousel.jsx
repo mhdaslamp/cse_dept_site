@@ -1,14 +1,27 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 const HorizontalScrollCarousel = () => {
-  const isMobile = useMediaQuery({ query: "(min-width: 768px)" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile(); // Initial check
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
 
   return (
     <div className="bg-neutral-800">
-      {isMobile ? <HorizontalScroll /> : <VerticalScroll />}
+      {isMobile ? <VerticalScroll /> : <HorizontalScroll />}
     </div>
   );
 };
@@ -80,42 +93,42 @@ const VerticalScroll = () => {
           <Card
             card={{
               url: "/ImageScroll/image1.png",
-              height: "450px",
-              width: "350px",
+              height: "390px",
+              width: "310px",
               title: "Title 1",
               id: 1,
             }}
-            position="top-[50%] right-0 -translate-y-1/2 "
+            position="top-[50%] right-10 -translate-y-1/2 "
           />
           <Card
             card={{
               url: "/ImageScroll/image2.png",
               height: "350px",
-              width: "350px",
+              width: "310px",
               title: "Title 2",
               id: 2,
             }}
-            position="top-[50%] left-0 -translate-y-1/2 "
+            position="top-[50%] left-10 -translate-y-1/2 "
           />
           <Card
             card={{
               url: "/ImageScroll/image1.png",
-              height: "450px",
-              width: "350px",
+              height: "390px",
+              width: "310px",
               title: "Title 3",
               id: 3,
             }}
-            position="top-[50%] right-0 -translate-y-1/2 "
+            position="top-[50%] right-10 -translate-y-1/2 "
           />
           <Card
             card={{
               url: "/ImageScroll/image2.png",
               height: "350px",
-              width: "350px",
+              width: "310px",
               title: "Title 4",
               id: 4,
             }}
-            position="top-[50%] left-0 -translate-y-1/2 "
+            position="top-[50%] left-10 -translate-y-1/2 "
           />
         </motion.div>
       </div>
