@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 import Navbar from "./Navbar/page";
 
 function Home() {
-  const [hover, setHover] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -34,20 +34,20 @@ function Home() {
         </div>
       </div>
       <div
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
         className="bottom-48 absolute mt-48 right-0 box-content px-3 py-2 w-12 rounded-sm bg-slate-400 bg-opacity-40 cursor-pointer"
         data-aos="fade-left"
       >
-        {!hover ? (
-          <MdOutlineNotifications
+        {isHover ? (
+          <IoIosNotifications
             style={{
-              color: "#FFFFFF",
+              color: "blue",
             }}
             size={26} // Adjust the size as needed
           />
         ) : (
-          <IoIosNotifications
+          <MdOutlineNotifications
             style={{
               color: "#FFFFFF",
             }}
