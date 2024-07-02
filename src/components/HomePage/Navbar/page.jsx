@@ -4,6 +4,22 @@ import Link from "next/link";
 import { useState } from "react";
 import NavbarItem from "./NavbarItem/page";
 
+const peopleDropdownItems = [
+  { label: "Teaching Staffs", href: "#teaching-staffs" },
+  { label: "Technical Staffs", href: "#technical-staffs" },
+  { label: "Association Member", href: "#association-member" },
+  { label: "Students", href: "#students" },
+  { label: "Alumni", href: "#alumni" },
+];
+
+const academicsDropdownItems = [
+  { label: "PO, PsO and PEO", href: "#po-pso-peo" },
+  { label: "Programmes and Syllabi", href: "#programmes-syllabi" },
+  { label: "Courses", href: "#courses" },
+  { label: "Labs", href: "#labs" },
+  { label: "Library", href: "#library" },
+];
+
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const toggleNavbar = () => {
@@ -59,45 +75,47 @@ function Navbar() {
           >
             <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
-                href="#about"
+                href="#home"
                 label="HOME"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
-                href="#blog"
+                href="#about"
                 label="ABOUT US"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
-                href="#contact"
+                href="#academics"
                 label="ACADEMICS"
                 setNavbar={setNavbar}
                 showArrow={navbar}
-                hasDropdown={true} // Indicates this item has a dropdown
+                hasDropdown={true}
+                dropdownItems={academicsDropdownItems}
               />
               <NavbarItem
-                href="#projects"
+                href="#people"
                 label="PEOPLE"
                 setNavbar={setNavbar}
                 showArrow={navbar}
-                hasDropdown={true} // Indicates this item has a dropdown
+                hasDropdown={true}
+                dropdownItems={peopleDropdownItems}
               />
               <NavbarItem
-                href="#projects"
+                href="#activities"
                 label="ACTIVITIES"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
-                href="#projects"
+                href="#placements"
                 label="PLACEMENTS"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
-                href="#projects"
+                href="#contact"
                 label="CONTACT US"
                 setNavbar={setNavbar}
                 showArrow={navbar}
