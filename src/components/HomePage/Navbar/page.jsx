@@ -35,10 +35,10 @@ function Navbar() {
   };
 
   return (
-    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 rounded-xl max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
+    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 h-20">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
+          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20 ">
             <div className="flex gap-4">
               {/* LOGO */}
               <Image
@@ -63,21 +63,27 @@ function Navbar() {
                 onClick={toggleNavbar}
               >
                 {navbar ? (
-                  <AiOutlineClose className="text-white w-10 h-10" />
+                  // <AiOutlineClose className="text-white w-10 h-10" />
+                  <div className="p-2 text-white bg-black w-16 h-10 flex justify-center text-center">
+                    <h1 className="text-[16px]">CLOSE</h1>
+                  </div>
                 ) : (
-                  <IoMenu className="text-white w-10 h-10" />
+                  // <IoMenu className="text-white w-10 h-10" />
+                  <div className="p-2 text-black bg-white w-16 h-10 flex justify-center text-center">
+                    <h1 className="text-[16px]">MENU</h1>
+                  </div>
                 )}
               </button>
             </div>
           </div>
         </div>
-        <div className="mb-2 h-96 md:h-auto">
+        <div className="mb-2 h-96 md:h-auto ">
           <div
             className={`flex-1 justify-self-center md:block md:pb-0 md:mt-0 h-96 md:h-auto ${
               navbar ? "p-12 md:p-0 block" : "hidden md:block"
             }`}
           >
-            <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5">
+            <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
                 href="#about"
                 label="HOME"
