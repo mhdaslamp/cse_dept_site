@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { hodName, sampleText } from "../constants/contents";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Image from "next/image";
 const TypingEffect = ({ text, speed }) => {
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);

@@ -2,31 +2,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { IoMenu } from "react-icons/io5";
-import { AiOutlineClose } from "react-icons/ai";
-import { FaArrowRightLong } from "react-icons/fa6";
+import NavbarItem from "./NavbarItem/page";
 
-function NavbarItem({ href, label, setNavbar, showArrow }) {
-  const [isHovered, setIsHovered] = useState(false);
+const peopleDropdownItems = [
+  { label: "Teaching Staffs", href: "#teaching-staffs" },
+  { label: "Technical Staffs", href: "#technical-staffs" },
+  { label: "Association Member", href: "#association-member" },
+  { label: "Students", href: "#students" },
+  { label: "Alumni", href: "#alumni" },
+];
 
-  return (
-    <li
-      className="flex justify-between items-center relative pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 md:hover:bg-transparent"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="flex items-center">
-        {isHovered && (
-          <div className="dot w-2 h-2 absolute top-5 left-0 bg-white rounded"></div>
-        )}
-        <Link href={href} onClick={() => setNavbar(false)}>
-          {label}
-        </Link>
-      </div>
-      {showArrow && <FaArrowRightLong className="ml-2 block md:hidden" />}
-    </li>
-  );
-}
+const academicsDropdownItems = [
+  { label: "PO, PsO and PEO", href: "#po-pso-peo" },
+  { label: "Programmes and Syllabi", href: "#programmes-syllabi" },
+  { label: "Courses", href: "#courses" },
+  { label: "Labs", href: "#labs" },
+  { label: "Library", href: "#library" },
+];
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -35,10 +27,10 @@ function Navbar() {
   };
 
   return (
-    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 max-w-screen-xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 h-20">
+    <nav className="border border-gray-400 bg-slate-400 bg-opacity-30 lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
+      <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8 h-20">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20 ">
+          <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
             <div className="flex gap-4">
               {/* LOGO */}
               <Image
@@ -63,12 +55,10 @@ function Navbar() {
                 onClick={toggleNavbar}
               >
                 {navbar ? (
-                  // <AiOutlineClose className="text-white w-10 h-10" />
                   <div className="p-2 text-white bg-black w-16 h-10 flex justify-center text-center">
                     <h1 className="text-[16px]">CLOSE</h1>
                   </div>
                 ) : (
-                  // <IoMenu className="text-white w-10 h-10" />
                   <div className="p-2 text-black bg-white w-16 h-10 flex justify-center text-center">
                     <h1 className="text-[16px]">MENU</h1>
                   </div>
@@ -83,28 +73,50 @@ function Navbar() {
               navbar ? "p-12 md:p-0 block" : "hidden md:block"
             }`}
           >
-            <ul className="md:h-auto gap-8 items-center justify-center md:flex lg:mt-5 ">
+            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
-                href="#about"
+                href="#home"
                 label="HOME"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
-                href="#blog"
-                label="ABOUT"
+                href="#about"
+                label="ABOUT US"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#academics"
+                label="ACADEMICS"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+                hasDropdown={true}
+                dropdownItems={academicsDropdownItems}
+              />
+              <NavbarItem
+                href="#people"
+                label="PEOPLE"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+                hasDropdown={true}
+                dropdownItems={peopleDropdownItems}
+              />
+              <NavbarItem
+                href="#activities"
+                label="ACTIVITIES"
+                setNavbar={setNavbar}
+                showArrow={navbar}
+              />
+              <NavbarItem
+                href="#placements"
+                label="PLACEMENTS"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
               <NavbarItem
                 href="#contact"
-                label="NOTIFICATION"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-              />
-              <NavbarItem
-                href="#projects"
-                label="DEPT CLUB"
+                label="CONTACT US"
                 setNavbar={setNavbar}
                 showArrow={navbar}
               />
