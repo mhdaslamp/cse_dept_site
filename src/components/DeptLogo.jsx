@@ -7,31 +7,38 @@ import { useEffect, useState } from "react";
 const DeptLogo = () => {
     const [capPosition, setCapPosition] = useState({ left: 0, top: 0 });
     const [show, setShow] = useState(false)
-    let scroll = window !== 'undefined' && window.innerWidth >= 640 ? 1200 : 1800;
+    const [scroll, setScroll] = useState(0);
+
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > scroll) {
-                setShow(true)
-                const cseImage = document.querySelector('.cse-image');
-                const capImage = document.querySelector('.cap-image');
-                if (cseImage && capImage) {
-                    const cse = cseImage.getBoundingClientRect();
-                    const cseImageTop = cse.top + window.scrollY - 100;
-                    if (window.scrollY + 200 < cseImageTop) {
-                        setCapPosition({ left: cse.left - 50, top: 200 + window.scrollY });
-                    }
-                }
-            } else {
-                setShow(false)
+      if (window) {
+        setScroll(window.innerWidth >= 640 ? 1200 : 1800);
+      }
+      const handleScroll = () => {
+        if (window.scrollY > scroll) {
+          setShow(true);
+          const cseImage = document.querySelector(".cse-image");
+          const capImage = document.querySelector(".cap-image");
+          if (cseImage && capImage) {
+            const cse = cseImage.getBoundingClientRect();
+            const cseImageTop = cse.top + window.scrollY - 100;
+            if (window.scrollY + 200 < cseImageTop) {
+              setCapPosition({
+                left: cse.left - 50,
+                top: 200 + window.scrollY,
+              });
             }
-        };
+          }
+        } else {
+          setShow(false);
+        }
+      };
 
-        window.addEventListener('scroll', handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, [scroll]);
 
 
     return (
