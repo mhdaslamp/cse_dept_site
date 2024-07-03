@@ -3,8 +3,14 @@ import { twMerge } from "tailwind-merge";
 
 function CourseOfferedSection() {
   return (
-    <section className="relative bg-[#161616ef] text-white w-full py-20 px-24">
-      <Image src="/bg.png" alt="department pic" priority={false} fill className="object-cover -z-10" />
+    <section className="relative bg-[#161616ef] text-white w-full py-20 px-24 min-h-screen flex items-center">
+      <Image
+        src="/bg.png"
+        alt="department pic"
+        priority={false}
+        fill
+        className="object-cover -z-10"
+      />
       <div className="flex items-center mx-auto w-fit xl:gap-32 lg:gap-24 gap-12">
         <div className="grid grid-cols-3">
           <Courses
@@ -18,7 +24,7 @@ function CourseOfferedSection() {
             year={1999}
             intake={66}
             reverse
-                />
+          />
           <Courses
             title="PhD Computer Science And Engineering"
             year={1999}
