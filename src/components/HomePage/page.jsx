@@ -26,7 +26,7 @@ function Home() {
         <div className="lg:w-3 lg:h-3 w-2 h-2 mt-3 bg-white"></div>
         <div>
           <h1 className="lg:text-4xl font-bold text-[20px]">
-            COMPUTER SCIENCE AND ENGINEERINGs
+            COMPUTER SCIENCE AND ENGINEERING
           </h1>
           <p className="font-bold lg:text-[18px] text-[10px]">
             GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
