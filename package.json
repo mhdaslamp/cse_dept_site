@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
+    "@rooks/use-boundingclientrect": "^4.11.2",
     "aos": "^2.3.4",
     "framer-motion": "^11.0.3",
     "gsap": "^3.12.5",
