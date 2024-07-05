@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Image from "next/image";
 import studentsData from "../../constants/contents";
-import { HiArrowLeft } from "react-icons/hi2";
-import { HiArrowRight } from "react-icons/hi2";
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import "./Toppers.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -17,9 +17,11 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
     >
       <div className="student-card h-[200px] sm:h-[300px] md:h-[300px] lg:h-[300px]">
         <div className="student-card-inner text-center w-full items-center mt-8 md:mt-0 flex flex-row sm:flex-col md:flex-col xl:flex-col">
-          <img
+          <Image
             src={image}
             alt={name}
+            width={140}
+            height={180}
             className="w-[140px] h-[180px] sm:h-[200px] md:h-[200px] lg:h-[200px] sm:w-full md:w-full lg:w-full"
           />
           <div className="student-details bg-white w-[200px] sm:w-full md:w-full lg:w-full h-[180px] sm:h-auto md:h-auto lg:h-auto flex flex-col sm:block justify-end sm:justify-center relative md:justify-center lg:justify-center items-center">
