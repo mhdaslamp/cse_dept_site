@@ -11,12 +11,11 @@ export default function Home() {
   return (
     <main>
       <HomePage />
-      <CourseOfferedSection />
-
-      <HodMessage />
       <DeptInfo />
       <DeptLogo />
       <Toppers />
+      <CourseOfferedSection />
+      <HodMessage />
       <References />
       <Footer />
     </main>
