@@ -5,6 +5,7 @@ import { hodName, sampleText } from "../constants/contents";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+
 const TypingEffect = ({ text, speed }) => {
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);
@@ -29,6 +30,7 @@ const HodMessage = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
   const [typingStarted, setTypingStarted] = useState(false);
 
   useEffect(() => {
@@ -55,9 +57,11 @@ const HodMessage = () => {
           style={{ flex: "1" }}
         >
           <div className="image-container flex justify-center items-center md:block xl:block">
-            <img
+            <Image
               src="/hodImage.jpg"
               alt="Image of HOD"
+              width={200}
+              height={200}
               className="Hod-image max-w-[200px] max-h-[200px] mb-5 md:mb-0 xl:mb-0"
             />
 
