@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import studentsData from "../../constants/contents";
-import { HiArrowLeft } from "react-icons/hi2";
-import { HiArrowRight } from "react-icons/hi2";
+import Image from "next/image";
+import { studentsData } from "../../constants/contents";
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import "./Toppers.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -11,26 +11,28 @@ import "aos/dist/aos.css";
 function StudentCard({ name, batch, sem, cgpa, image, index }) {
   return (
     <div
-      className="w-auto h-auto"
+      className="sm:w-auto md:w-full xl:w-full h-auto"
       data-aos="fade-up"
       data-aos-delay={`${(index + 1) * 600}`}
     >
       <div className="student-card h-[200px] sm:h-[300px] md:h-[300px] lg:h-[300px]">
-        <div className="student-card-inner relative text-center w-full items-center mt-8 md:mt-0 flex flex-row sm:flex-col md:flex-col xl:flex-col">
-          <div className="absolute top-2 right-1 sm:hidden md:hidden lg:hidden w-[80px] h-[27px] grid grid-cols-2 ">
-            <p className=" w-full flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
-              <HiArrowLeft size={22} />
-            </p>
-            <p className=" w-full flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
-              <HiArrowRight size={22} />
-            </p>
-          </div>
-          <img
-            src={image}
+        <div className="student-card-inner text-center w-full items-center mt-8 md:mt-0 flex flex-row sm:flex-col md:flex-col xl:flex-col">
+          <Image
+            src={image.startsWith("/") ? image : `/${image}`}
             alt={name}
+            width={140}
+            height={180}
             className="w-[140px] h-[180px] sm:h-[200px] md:h-[200px] lg:h-[200px] sm:w-full md:w-full lg:w-full"
           />
-          <div className="student-details bg-white w-[200px] sm:w-full md:w-full lg:w-full h-[180px] sm:h-auto md:h-auto lg:h-auto flex flex-col sm:block justify-end sm:justify-center md:justify-center lg:justify-center items-center">
+          <div className="student-details bg-white w-[200px] sm:w-full md:w-full lg:w-full h-[180px] sm:h-auto md:h-auto lg:h-auto flex flex-col sm:block justify-end sm:justify-center relative md:justify-center lg:justify-center items-center">
+            <div className="absolute top-2 right-1 sm:hidden md:hidden lg:hidden w-[80px] h-[27px] grid grid-cols-2 ">
+              <p className=" w-full flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
+                <HiArrowLeft size={22} />
+              </p>
+              <p className=" w-full flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
+                <HiArrowRight size={22} />
+              </p>
+            </div>
             <p className="text-black text-base font-semibold">{name}</p>
             <p className="text-gray-500 text-sm">{batch} Batch</p>
             <p className="text-gray-500 text-sm">CGPA {cgpa}</p>
@@ -71,7 +73,7 @@ const Toppers = () => {
           </h1>
         </div>
 
-        <div className="justify-center mx-auto w-full grid grid-cols-1 gap-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 md:gap-8 sm:gap-5 px-[10px] sm:px-[15px] md:px-[20px] lg:px-[20px]">
+        <div className="w-full grid grid-cols-1 gap-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 md:gap-8 sm:gap-5 px-[10px] sm:px-[15px] md:px-[20px] lg:px-[20px] justify-items-center">
           {studentsData.map((student, index) => (
             <StudentCard key={index} {...student} index={index} />
           ))}
