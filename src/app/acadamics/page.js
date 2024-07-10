@@ -1,21 +1,15 @@
-import React from 'react'
-import Navbar from '@/components/HomePage/Navbar/page';
-import Footer from '@/components/Footer';
-import AcadamicsIntro from '@/components/AcadamicsIntro';
-import AcadamicsPrograms from '@/components/AcadamicsPrograms';
+import React from "react";
+import Navbar from "@/components/HomePage/Navbar/page";
+import Footer from "@/components/Footer";
+import AcadamicsIntro from "@/components/AcadamicsIntro";
+import AcadamicsPrograms from "@/components/AcadamicsPrograms";
 
 const Acadamics = () => {
   return (
     <div className="">
-      {/* <Navbar/> */}
-      <AcadamicsIntro/>
-      <AcadamicsPrograms/>
-      
-
-
-
-      
-
+      <Navbar />
+      <AcadamicsIntro />
+      <AcadamicsPrograms />
 
       {/* <div className="">
 
@@ -224,13 +218,9 @@ const Acadamics = () => {
 
         </div>
       </div> */}
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Acadamics
-
-
-
-  
+export default Acadamics;
