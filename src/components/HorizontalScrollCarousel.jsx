@@ -1,7 +1,7 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 
 const HorizontalScrollCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
