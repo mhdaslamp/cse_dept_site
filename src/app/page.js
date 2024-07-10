@@ -7,6 +7,7 @@ import Toppers from "@/components/Toppers/Toppers";
 import HomePage from "@/components/HomePage/page";
 import References from "@/components/References";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel";
+import Acadamics from "./acadamics/page";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <CourseOfferedSection />
       <HodMessage />
       <Toppers />
+      <Acadamics />
       <References />
       <Footer />
     </main>

@@ -87,7 +87,7 @@ function Navbar() {
                 showArrow={navbar}
               />
               <NavbarItem
-                href="#academics"
+                href="/acadamics"
                 label="ACADEMICS"
                 setNavbar={setNavbar}
                 showArrow={navbar}
