@@ -94,6 +94,8 @@ const DeptLogo = () => {
                     </div>
                 </div>
             </div>
+
+            
         </div>
     )
 }
