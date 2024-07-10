@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import studentsData from "../../constants/contents";
+import { studentsData } from "../../constants/contents";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import "./Toppers.css";
 import AOS from "aos";
@@ -11,14 +11,14 @@ import "aos/dist/aos.css";
 function StudentCard({ name, batch, sem, cgpa, image, index }) {
   return (
     <div
-      className="w-auto h-auto"
+      className="sm:w-auto md:w-full xl:w-full h-auto"
       data-aos="fade-up"
       data-aos-delay={`${(index + 1) * 600}`}
     >
       <div className="student-card h-[200px] sm:h-[300px] md:h-[300px] lg:h-[300px]">
         <div className="student-card-inner text-center w-full items-center mt-8 md:mt-0 flex flex-row sm:flex-col md:flex-col xl:flex-col">
           <Image
-            src={image}
+            src={image.startsWith("/") ? image : `/${image}`}
             alt={name}
             width={140}
             height={180}
