@@ -19,7 +19,7 @@ export default function Home() {
       <CourseOfferedSection />
       <HodMessage />
       <Toppers />
-      <Acadamics />
+      {/* <Acadamics /> */}
       <References />
       <Footer />
     </main>

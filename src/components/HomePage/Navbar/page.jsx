@@ -75,7 +75,7 @@ function Navbar() {
           >
             <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
-                href="#home"
+                href="/"
                 label="HOME"
                 setNavbar={setNavbar}
                 showArrow={navbar}

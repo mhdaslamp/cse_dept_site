@@ -16,9 +16,9 @@ function Home() {
 
   return (
     <div className="relative h-screen overflow-hidden">
-      <div className={`absolute w-full z-10`} data-aos="fade-down">
+      {/* <div className={`absolute w-full z-10`} data-aos="fade-down">
         <Navbar />
-      </div>
+      </div> */}
       <div
         className="flex gap-2 content absolute bottom-0 left-0 w-full p-8 lg:p-12 text-white"
         data-aos="fade-right"
