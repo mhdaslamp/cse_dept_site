@@ -13,9 +13,9 @@ export default function Home() {
       <HomePage />
       <DeptInfo />
       <DeptLogo />
-      <Toppers />
       <CourseOfferedSection />
       <HodMessage />
+      <Toppers />
       <References />
       <Footer />
     </main>
