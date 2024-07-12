@@ -16,9 +16,6 @@ function Home() {
 
   return (
     <div className="relative h-screen overflow-hidden">
-      {/* <div className={`absolute w-full z-10`} data-aos="fade-down">
-        <Navbar />
-      </div> */}
       <div
         className="flex gap-2 content absolute bottom-0 left-0 w-full p-8 lg:p-12 text-white"
         data-aos="fade-right"
@@ -39,21 +36,12 @@ function Home() {
         className="bottom-48 absolute mt-48 right-0 box-content px-3 py-2 w-12 rounded-sm bg-slate-400 bg-opacity-40 cursor-pointer"
         data-aos="fade-left"
       >
-        {isHover ? (
-          <IoIosNotifications
-            style={{
-              color: "blue",
-            }}
-            size={26} // Adjust the size as needed
-          />
-        ) : (
-          <MdOutlineNotifications
-            style={{
-              color: "#FFFFFF",
-            }}
-            size={26} // Adjust the size as needed
-          />
-        )}
+        <MdOutlineNotifications
+          style={{
+            color: "#FFFFFF",
+          }}
+          size={26} // Adjust the size as needed
+        />
       </div>
       <div className="overflow-hidden relative w-full h-screen">
         <video
