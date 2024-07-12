@@ -1,6 +1,6 @@
 
 import React from "react";
-import background1 from "../../public/mtech-logo.svg";
+import background2 from "../../public/btech-logo.svg";
 import Image from "next/image";
 
 
@@ -98,11 +98,11 @@ const AcadamicsCoursesBtech = () => {
       </div>
     </div>
 
-    <div className="bg-[#E1E1FC] relative">
+    <div className="bg-[#FEE2DF] relative">
       <div className="sticky top-0 h-screen block">
         <Image 
           className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-contain" 
-          src={background1} 
+          src={background2} 
           alt="Background"
         />
       </div>
