@@ -85,7 +85,7 @@ function Home() {
             </div>
             <div>
               <p>SERIES EXAM STARTS IN DECEMBER</p>
-              <p>20 2023 FOR S3 AND S5 STUDENTS</p>
+              <p> 2023 FOR S3 AND S5 STUDENTS</p>
             </div>
           </div>
         )}
