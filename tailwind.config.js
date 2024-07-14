@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
       fontFamily: {
         montserrat: "var(--font-montserrat), monospace",
         bebasneue: "var(--font-bebasneue), monospace",
