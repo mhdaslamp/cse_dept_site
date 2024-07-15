@@ -14,7 +14,7 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
     <div data-aos="fade-up" data-aos-delay={`${(index + 1) * 200}`}>
       <div className="student-card">
         <div className="flex flex-row sm:flex-col bg-white justify-start items-center h-[136px] relative sm:h-auto w-auto sm:w-[200px]">
-          <div className="stud-image w-[150px] h-[136px] sm:w-[200px] sm:h-[200px]">
+          <div className="stud-image w-[150px] h-[136px] sm:w-[200px] sm:h-[200px] transition-all duration-[1s]">
             <img
               src={image}
               alt={name}
@@ -23,10 +23,10 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
           </div>
           <div className="stud-details w-full h-auto text-center flex flex-col">
             <div className="sm:hidden  w-full h-auto flex flex-row justify-end">
-              <p className=" w-[40px] flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
+              <p className=" w-[40px] flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all duration-300">
                 <HiArrowLeft size={22} />
               </p>
-              <p className=" w-[40px] flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
+              <p className=" w-[40px] flex p-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all duration-300">
                 <HiArrowRight size={22} />
               </p>
             </div>
@@ -56,10 +56,10 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
 
 const Toppers = () => {
   useEffect(() => {
-    AOS.init({ duration: 500 });
+    AOS.init({ duration: 1000 });
   }, []);
   return (
-    <div className="container mx-auto bg-white py-20 px-4 sm:px-6">
+    <div className="container mx-auto bg-white py-20 px-4 sm:px-6 h-full">
       <div
         className=" bg-[#e9e9e8] w-full h-full p-4 sm:p-6"
         data-aos="fade-up"
