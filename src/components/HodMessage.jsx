@@ -7,26 +7,18 @@ import "aos/dist/aos.css";
 import Image from "next/image";
 
 const HodMessage = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
   const hod = hodData[0];
 
   return (
-    <div className="bg-white container mx-auto py-20 px-4 h-full md:h-[80vh]">
-      <div className="w-full h-auto text-right" data-aos="fade-up">
+    <div className="bg-white container mx-auto py-20 px-4 h-full md:h-[70vh]">
+      <div className="w-full h-auto text-right">
         <h1 className="text-black w-auto h-auto text-4xl lg:text-5xl font-semibold font-bebasneue">
           . HOD MESSAGE
         </h1>
       </div>
       <div className="flex flex-col md:flex-row w-full h-auto md:p-5 xl:p-10">
         {/* Image of hod and its desigination */}
-        <div
-          className="flex-auto w-full md:w-2/6 h-2/4 pt-5 md:pt-0 items-center justify-center "
-          data-aos="fade-right"
-          data-aos-delay="400"
-        >
+        <div className="flex-auto w-full md:w-2/6 h-2/4 pt-5 md:pt-0 items-center justify-center ">
           <div className="w-full h-auto flex justify-center items-center">
             <img
               src={hod.image}
@@ -45,12 +37,8 @@ const HodMessage = () => {
           </div>
         </div>
         {/* message of hod */}
-        <div
-          className="flex-auto justify-start w-full md:w-4/6 h-2/4 pt-5 md:pt-0 md:pl-5"
-          data-aos="fade-left"
-          data-aos-delay="400"
-        >
-          <p className="text-gray-500 text-[16px] sm:text-[17px] lg:text-[20px] xl:text-[25px] leading-[28px] md:leading-[30px] lg:leading-[40px] transition duration-300 ease-in-out hover:scale-105">
+        <div className="flex-auto justify-start w-full md:w-4/6 h-2/4 pt-5 md:pt-0 md:pl-5">
+          <p className="text-gray-500 text-[16px] sm:text-[17px] lg:text-[18px] xl:text-[22px] leading-[28px] md:leading-[30px] lg:leading-[40px] transition duration-300 ease-in-out hover:scale-105">
             {hod.message}
           </p>
         </div>

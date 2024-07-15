@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import React, { useEffect } from "react";
 import { studentsData } from "../constants/contents";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
@@ -11,7 +9,7 @@ import "aos/dist/aos.css";
 
 function StudentCard({ name, batch, sem, cgpa, image, index }) {
   return (
-    <div data-aos="fade-up" data-aos-delay={`${(index + 1) * 200}`}>
+    <div>
       <div className="student-card">
         <div className="flex flex-row sm:flex-col bg-white justify-start items-center h-[136px] relative sm:h-auto w-auto sm:w-[200px]">
           <div className="stud-image w-[150px] h-[136px] sm:w-[200px] sm:h-[200px] transition-all duration-[1s]">
@@ -55,15 +53,9 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
 }
 
 const Toppers = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
   return (
     <div className="container mx-auto bg-white py-20 px-4 sm:px-6 h-full">
-      <div
-        className=" bg-[#e9e9e8] w-full h-full p-4 sm:p-6"
-        data-aos="fade-up"
-      >
+      <div className=" bg-[#e9e9e8] w-full h-auto p-4 sm:p-6">
         <div className="flex justify-start w-full h-full">
           <h1 className="text-black font-bold font-bebasneue lg:text-5xl text-4xl ">
             . TOPPERS
