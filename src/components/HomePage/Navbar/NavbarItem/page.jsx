@@ -35,9 +35,9 @@ function NavbarItem({
         )}
       </div>
       {isHovered && hasDropdown && dropdownItems && (
-        <ul className="absolute left-0 mt-2 bg-[#6b6d71] py-2 shadow-lg w-52">
+        <ul style={{ background: 'rgba(255, 255, 255, 0.10)', backdropFilter: 'blur(30px)' }} className="absolute left-0 mt-2  py-2 shadow-lg w-52">
           {dropdownItems.map((item, index) => (
-            <li key={index} className="py-2 px-4 hover:bg-[#7f8184]">
+            <li key={index} className="py-2 px-4 hover:bg-slate-500 hover:bg-opacity-10 hover:scale-95">
               <Link href={item.href} onClick={() => setNavbar(false)}>
                 {item.label}
               </Link>
@@ -50,4 +50,3 @@ function NavbarItem({
 }
 
 export default NavbarItem;
-                                                                  

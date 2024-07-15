@@ -71,14 +71,15 @@ function Home() {
           onClick={handleClick}
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
-          className="absolute bottom-48 right-0 mt-48 box-content px-3 py-2 w-12 rounded-sm bg-slate-400 bg-opacity-40 cursor-pointer"
+          className="absolute bottom-48 right-0 mt-48 box-content px-3 py-2 w-12 rounded-sm  cursor-pointer"
+          style={{ background: 'rgba(255, 255, 255, 0.10)', backdropFilter: 'blur(30px)' }}
           data-aos="fade-left"
         >
           <MdOutlineNotifications style={{ color: "#FFFFFF" }} size={26} />
         </div>
 
         {isVisible && (
-          <div className="content bg-slate-400 text-white h-24 bottom-48 absolute mt-48 right-5 box-content px-3 py-2 rounded-sm cursor-pointer">
+          <div style={{ background: 'rgba(255, 255, 255, 0.10)', backdropFilter: 'blur(30px)' }} className="text-white h-24 bottom-48 absolute mt-48 right-5 box-content px-3 py-2 rounded-sm cursor-pointer">
             <div className="flex gap-3 mb-3">
               <h2 className="text-[20px]">NOTIFICATION</h2>
               <MdOutlineNotifications style={{ color: "#FFFFFF" }} size={26} />
