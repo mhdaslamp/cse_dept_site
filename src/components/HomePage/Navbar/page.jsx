@@ -22,35 +22,35 @@ const academicsDropdownItems = [
 ];
 
 function Navbar() {
-  const [navbar, setNavbar] = useState(false);
+  const [open, setOpen] = useState(false);
   const toggleNavbar = () => {
-    setNavbar(!navbar);
+    setOpen(!open);
   };
 
   return (
     <nav
       style={
-        navbar
+        open
           ? { background: "white" }
           : {
               background: "rgba(255, 255, 255, 0.10)",
               backdropFilter: "blur(30px)",
             }
       }
-      className={`md:flex lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20 `}
+      className="md:flex lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20"
     >
-      <div className="flex items-center justify-between py-3 px-4 md:px-8 h-20  mx-auto ">
+      <div className="flex items-center justify-between py-3 px-4 md:px-8 h-20 mx-auto">
         <div className="flex gap-4 items-center">
           <Image
-            src={navbar ? "/logo(black).png" : "/logo.png"}
+            src={open ? "/logo(black).png" : "/logo.png"}
             alt="Logo image"
             width={80}
             height={60}
-            className={`w-24 h-14 mb-3`}
+            className="w-24 h-14 mb-3"
           />
           <p
             className={`text-sm text-left text-white mt-2 ${
-              navbar ? "hidden md:block" : "block"
+              open ? "hidden md:block" : "block"
             }`}
           >
             COMPUTER SCIENCE <br /> AND ENGINEERING
@@ -61,7 +61,7 @@ function Navbar() {
             className="p-2 rounded-md outline-none"
             onClick={toggleNavbar}
           >
-            {navbar ? (
+            {open ? (
               <div className="p-2 text-white bg-black w-16 h-10 flex justify-center text-center">
                 <h1 className="text-[16px]">CLOSE</h1>
               </div>
@@ -74,56 +74,56 @@ function Navbar() {
         </div>
       </div>
       <div
-        className={`flex-1 h-screen bg-white p-2 px-8 text-black 
-          ${navbar ? "p-5 block" : "hidden"} 
-          md:bg-transparent md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
+        className={`fixed top-20 h-screen p-3 px-6 left-0 right-0 bg-white text-black transition-transform duration-500 ease-in-out ${
+          open ? "transform translate-x-0" : "transform -translate-x-full"
+        } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0`}
       >
-        <ul className="items md:h-20 md:pl-28 gap-2 items-center justify-center md:flex lg:pt-6 md:text-white text-black ">
+        <ul className="items md:h-20 md:pl-28 gap-2 items-center justify-center md:flex lg:pt-6 md:text-white text-black">
           <NavbarItem
             href="/"
             label="HOME"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
           />
           <NavbarItem
             href="#about"
             label="ABOUT US"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
           />
           <NavbarItem
             href="/academics"
             label="ACADEMICS"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
             hasDropdown={true}
             dropdownItems={academicsDropdownItems}
           />
           <NavbarItem
             href="#people"
             label="PEOPLE"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
             hasDropdown={true}
             dropdownItems={peopleDropdownItems}
           />
           <NavbarItem
             href="#activities"
             label="ACTIVITIES"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
           />
           <NavbarItem
             href="#placements"
             label="PLACEMENTS"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
           />
           <NavbarItem
             href="#contact"
             label="CONTACT US"
-            setNavbar={setNavbar}
-            showArrow={navbar}
+            setNavbar={setOpen}
+            showArrow={open}
           />
         </ul>
         <div className="mt-72 md:hidden absolute">
@@ -135,9 +135,9 @@ function Navbar() {
                 <span className="underline font-semibold">CSE STUDENTS</span>
               </h2>
             </div>
-            <div className="flex ml-20 gap-1">
-              <AiFillInstagram className="w-6 h-5 hover:scale-95" />
-              <FaLinkedin className="w-4 h-5 hover:scale-95" />
+            <div className="flex ml-24 mr-2 gap-1">
+              <AiFillInstagram className="w-6 h-6 hover:scale-95" />
+              <FaLinkedin className="w-5 h-6 hover:scale-95" />
             </div>
           </div>
         </div>
