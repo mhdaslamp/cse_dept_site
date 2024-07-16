@@ -27,7 +27,13 @@ function Navbar() {
   };
 
   return (
-    <nav style={{ background: 'rgba(255, 255, 255, 0.10)', backdropFilter: 'blur(30px)' }} className="bg-slate-400 bg-opacity-10 lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20">
+    <nav
+      style={{
+        background: "rgba(255, 255, 255, 0.10)",
+        backdropFilter: "blur(30px)",
+      }}
+      className="bg-slate-400 bg-opacity-10 lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20"
+    >
       <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8 h-20">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
@@ -69,9 +75,10 @@ function Navbar() {
         </div>
         <div className="mb-2 h-96 md:h-auto ">
           <div
-            className={`flex-1 justify-self-center md:block md:pb-0 md:mt-0 h-96 md:h-auto ${
-              navbar ? "p-12 md:p-0 block" : "hidden md:block"
-            }`}
+            className={`flex-1 justify-self-center h-[100px]
+     md:bg-none
+    ${navbar ? "p-12 block" : "hidden"} 
+    md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
           >
             <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
