@@ -75,10 +75,11 @@ function Navbar() {
         </div>
         <div className="mb-2 h-96 md:h-auto ">
           <div
-            className={`flex-1 justify-self-center h-[100px]
-     md:bg-none
-    ${navbar ? "p-12 block" : "hidden"} 
-    md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
+            className={`flex-1 justify-self-center h-[100px] text-black 
+              bg-blue-300 
+              md:bg-transparent 
+              ${navbar ? "p-12 block" : "hidden"} 
+              md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
           >
             <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
               <NavbarItem
