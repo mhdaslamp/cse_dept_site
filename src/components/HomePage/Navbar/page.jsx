@@ -44,7 +44,7 @@ function Navbar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
             <div className="flex gap-4">
-              {/* LOGO white*/}
+              {/* LOGOs*/}
               {!navbar ? (
                 <Image
                   src="/logo.png"
@@ -93,75 +93,76 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="md:mb-2 h-96 md:h-auto m-0">
-          <div
-            className={`flex-1 h-[800px] bg-white text-black 
-              ${navbar ? "p-12 block" : "hidden"} 
+
+        <div
+          className={`flex-1 h-screen bg-white text-black 
+              ${navbar ? "p-5 block" : "hidden"} 
               md:bg-transparent md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
-          >
-            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5   md:text-white text-black">
-              <NavbarItem
-                href="/"
-                label="HOME"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-              />
-              <NavbarItem
-                href="#about"
-                label="ABOUT US"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-              />
-              <NavbarItem
-                href="/acadamics"
-                label="ACADEMICS"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-                hasDropdown={true}
-                dropdownItems={academicsDropdownItems}
-              />
-              <NavbarItem
-                href="#people"
-                label="PEOPLE"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-                hasDropdown={true}
-                dropdownItems={peopleDropdownItems}
-              />
-              <NavbarItem
-                href="#activities"
-                label="ACTIVITIES"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-              />
-              <NavbarItem
-                href="#placements"
-                label="PLACEMENTS"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-              />
-              <NavbarItem
-                href="#contact"
-                label="CONTACT US"
-                setNavbar={setNavbar}
-                showArrow={navbar}
-              />
-            </ul>
-            <div className="mt-64 md:hidden">
-              <h2>@2024 CSE ASSOSIATION</h2>
-              <div className="flex justify-between">
+        >
+          <ul className="md:h-auto gap-2 items-center relative justify-center md:flex lg:mt-5 md:text-white text-black">
+            <NavbarItem
+              href="/"
+              label="HOME"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+            />
+            <NavbarItem
+              href="#about"
+              label="ABOUT US"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+            />
+            <NavbarItem
+              href="/acadamics"
+              label="ACADEMICS"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+              hasDropdown={true}
+              dropdownItems={academicsDropdownItems}
+            />
+            <NavbarItem
+              href="#people"
+              label="PEOPLE"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+              hasDropdown={true}
+              dropdownItems={peopleDropdownItems}
+            />
+            <NavbarItem
+              href="#activities"
+              label="ACTIVITIES"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+            />
+            <NavbarItem
+              href="#placements"
+              label="PLACEMENTS"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+            />
+            <NavbarItem
+              href="#contact"
+              label="CONTACT US"
+              setNavbar={setNavbar}
+              showArrow={navbar}
+            />
+          </ul>
+          <div className="mt-72 md:hidden absolute">
+            <h2>@2024 CSE ASSOSIATION</h2>
+            <div className="flex justify-between">
+              <div>
                 <h2 className="">
                   DESIGN AND POWERED BY{" "}
-                  <span className="underline font-semibold">CSE STUDENT</span>
+                  <span className="underline font-semibold">CSE STUDENTS</span>
                 </h2>
-                <div className="flex gap-2">
-                  <p>
-                    <AiFillInstagram className="w-6 h-5" />
-                  </p>
-                  <p>
-                    <FaLinkedin className="w-4 h-5" />
-                  </p>
-                </div>
+              </div>
+              <div className="flex ml-16 gap-1">
+                <p className="hover:scale-95">
+                  <AiFillInstagram className="w-6 h-5 hover:scale-95" />
+                </p>
+                <p className="hover:scale-95">
+                  <FaLinkedin className="w-4 h-5 hover:scale-95" />
+                </p>
               </div>
             </div>
           </div>
