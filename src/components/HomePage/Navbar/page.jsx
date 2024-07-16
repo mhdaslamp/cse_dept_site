@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import NavbarItem from "./NavbarItem/page";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaLinkedin } from "react-icons/fa6";
 
 const peopleDropdownItems = [
   { label: "Teaching Staffs", href: "#teaching-staffs" },
@@ -73,15 +75,13 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="mb-2 h-96 md:h-auto ">
+        <div className="md:mb-2 h-96 md:h-auto ">
           <div
-            className={`flex-1 justify-self-center h-[100px] text-black 
-              bg-blue-300 
-              md:bg-transparent 
+            className={`flex-1 justify-self-center h-[800px] bg-gray-400/40 text-black 
               ${navbar ? "p-12 block" : "hidden"} 
-              md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
+              md:bg-transparent md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
           >
-            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 ">
+            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 md:text-white text-black">
               <NavbarItem
                 href="/"
                 label="HOME"
@@ -129,6 +129,22 @@ function Navbar() {
                 showArrow={navbar}
               />
             </ul>
+            <div className="mt-64">
+              <h2>@2024 CSE ASSOSIATION</h2>
+              <div className="flex justify-between">
+                <h2 className="">
+                  DESIGN AND POWERED BY <span>CSE STUDENT</span>
+                </h2>
+                <div className="flex gap-2">
+                  <p>
+                    <AiFillInstagram className="w-6 h-5" />
+                  </p>
+                  <p>
+                    <FaLinkedin className="w-4 h-5" />
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
