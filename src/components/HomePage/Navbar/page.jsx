@@ -74,7 +74,7 @@ function Navbar() {
         </div>
       </div>
       <div
-        className={`fixed top-20 h-screen p-3 px-6 left-0 right-0 bg-white text-black transition-transform duration-500 ease-in-out ${
+        className={`fixed top-20 h-screen p-3 px-6 left-0 right-0 bg-white text-black transition-transform duration-1000 ease-in-out ${
           open ? "transform translate-x-0" : "transform -translate-x-full"
         } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0`}
       >
