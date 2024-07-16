@@ -75,13 +75,13 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="md:mb-2 h-96 md:h-auto ">
+        <div className="md:mb-2 h-96 md:h-auto m-0">
           <div
-            className={`flex-1 justify-self-center h-[800px] bg-gray-400/40 text-black 
+            className={`flex-1 h-[800px] bg-white text-black 
               ${navbar ? "p-12 block" : "hidden"} 
               md:bg-transparent md:block md:p-0 md:h-auto md:pb-0 md:mt-0`}
           >
-            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5 md:text-white text-black">
+            <ul className="md:h-auto gap-2 items-center justify-center md:flex lg:mt-5   md:text-white text-black">
               <NavbarItem
                 href="/"
                 label="HOME"
@@ -129,11 +129,11 @@ function Navbar() {
                 showArrow={navbar}
               />
             </ul>
-            <div className="mt-64">
+            <div className="mt-64 md:hidden">
               <h2>@2024 CSE ASSOSIATION</h2>
               <div className="flex justify-between">
                 <h2 className="">
-                  DESIGN AND POWERED BY <span>CSE STUDENT</span>
+                  DESIGN AND POWERED BY <span className="underline font-semibold">CSE STUDENT</span>
                 </h2>
                 <div className="flex gap-2">
                   <p>

@@ -14,11 +14,11 @@ function NavbarItem({
 
   return (
     <li
-      className="relative pb-6 text-[18px] text-white py-2 md:px-6 text-left border-b-2 md:border-b-0 md:hover:bg-transparent hover:scale-x-105"
+      className="relative md:pb-6 text-[18px] my-8 md:px-6 text-left border-b-2 md:border-b-0 md:hover:bg-transparent hover:scale-x-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between w-full text-black md:text-white ">
         {isHovered && (
           <div className="dot w-2 h-2 absolute top-5 left-0 lg:bg-white rounded"></div>
         )}
@@ -35,9 +35,18 @@ function NavbarItem({
         )}
       </div>
       {isHovered && hasDropdown && dropdownItems && (
-        <ul style={{ background: 'rgba(255, 255, 255, 0.10)', backdropFilter: 'blur(30px)' }} className="absolute left-0 mt-2  py-2 shadow-lg w-52">
+        <ul
+          style={{
+            background: "rgba(255, 255, 255, 0.10)",
+            backdropFilter: "blur(30px)",
+          }}
+          className="absolute left-0 mt-2  py-2 shadow-lg w-52"
+        >
           {dropdownItems.map((item, index) => (
-            <li key={index} className="py-2 px-4 hover:bg-slate-500 hover:bg-opacity-10 hover:scale-95">
+            <li
+              key={index}
+              className="py-2 px-4 hover:bg-slate-500 hover:bg-opacity-10 hover:scale-95"
+            >
               <Link href={item.href} onClick={() => setNavbar(false)}>
                 {item.label}
               </Link>
