@@ -39,8 +39,8 @@ function Navbar() {
       }
       className="md:flex lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20"
     >
-      <div className="flex items-center justify-between py-3 px-4 md:px-8 h-20 mx-auto">
-        <div className="flex gap-4 items-center">
+      <div className="flex items-center justify-between py-3 px-4 md:px-2 h-20 mx-auto ">
+        <div className="flex gap-4 items-center md:mr-14">
           <Image
             src={open ? "/logo(black).png" : "/logo.png"}
             alt="Logo image"
@@ -78,7 +78,7 @@ function Navbar() {
           open ? "transform translate-x-0" : "transform -translate-x-full"
         } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0`}
       >
-        <ul className="items md:h-20 md:pl-28 gap-2 items-center justify-center md:flex lg:pt-6 md:text-white text-black">
+        <ul className="items md:h-20 md:pl-28 gap-2 items-center justify-center md:flex md:mr-8 lg:pt-6 md:text-white text-black">
           <NavbarItem
             href="/"
             label="HOME"

@@ -45,7 +45,7 @@ function NavbarItem({
           {dropdownItems.map((item, index) => (
             <li
               key={index}
-              className="py-2 px-4 hover:bg-slate-500 hover:bg-opacity-10 hover:scale-95"
+              className="py-2  px-4 hover:bg-slate-500 hover:bg-opacity-10 hover:scale-95"
             >
               <Link href={item.href} onClick={() => setNavbar(false)}>
                 {item.label}
