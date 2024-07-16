@@ -30,24 +30,42 @@ function Navbar() {
 
   return (
     <nav
-      style={{
-        background: "rgba(255, 255, 255, 0.10)",
-        backdropFilter: "blur(30px)",
-      }}
-      className="bg-slate-400 bg-opacity-10 lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20"
+      style={
+        navbar
+          ? { background: "white" }
+          : {
+              background: "rgba(255, 255, 255, 0.10)",
+              backdropFilter: "blur(30px)",
+            }
+      }
+      className={`lg:mt-8 max-w-screen-2xl mx-auto font-bold fixed top-0 left-0 right-0 z-10 h-20`}
     >
       <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8 h-20">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block mb-8 h-20">
             <div className="flex gap-4">
-              {/* LOGO */}
-              <Image
-                src="/logo.png"
-                alt="Logo image"
-                width={80}
-                height={60}
-                className="w-24 h-14"
-              />
+              {/* LOGO white*/}
+              {!navbar ? (
+                <Image
+                  src="/logo.png"
+                  alt="Logo image"
+                  width={80}
+                  height={60}
+                  className={`w-24 h-14 ${
+                    navbar ? "hidden md:block" : "block"
+                  }`}
+                />
+              ) : (
+                <Image
+                  src="/logo(black).png"
+                  alt="Logo image"
+                  width={80}
+                  height={60}
+                  className={`w-24 h-14 md:hidden 
+                  }`}
+                />
+              )}
+
               <p
                 className={`text-sm text-left text-white mt-4 ${
                   navbar ? "hidden md:block" : "block"
@@ -57,7 +75,7 @@ function Navbar() {
               </p>
             </div>
             {/* HAMBURGER BUTTON FOR MOBILE */}
-            <div className="md:hidden">
+            <div className="md:hidden mt-2">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none"
                 onClick={toggleNavbar}
@@ -133,7 +151,8 @@ function Navbar() {
               <h2>@2024 CSE ASSOSIATION</h2>
               <div className="flex justify-between">
                 <h2 className="">
-                  DESIGN AND POWERED BY <span className="underline font-semibold">CSE STUDENT</span>
+                  DESIGN AND POWERED BY{" "}
+                  <span className="underline font-semibold">CSE STUDENT</span>
                 </h2>
                 <div className="flex gap-2">
                   <p>
