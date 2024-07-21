@@ -7,23 +7,23 @@ import Toppers from "@/components/Toppers/Toppers";
 import HomePage from "@/components/HomePage/page";
 import References from "@/components/References";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel";
-import Acadamics from "./acadamics/page";
-import About from "@/components/aboutUs/page";
+import Acadamics from "@/app/acadamics/page";
 
-export default function Home() {
+export default function About() {
   return (
     <main>
-      {/* <HomePage />
+      <HomePage />
       <DeptInfo />
       <DeptLogo />
+      <Acadamics/>
+      
+      {/*
       <HorizontalScrollCarousel />
       <CourseOfferedSection />
       <HodMessage />
-      <Toppers /> */}
-      {/* <Acadamics /> */}
-      {/* <References />
-      <Footer /> */}
-      <About/>
+      <Toppers />
+      <References />
+      */}
     </main>
   );
 }

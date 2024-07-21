@@ -86,7 +86,7 @@ function Navbar() {
             showArrow={open}
           />
           <NavbarItem
-            href="#about"
+            href="/about"
             label="ABOUT US"
             setNavbar={setOpen}
             showArrow={open}
