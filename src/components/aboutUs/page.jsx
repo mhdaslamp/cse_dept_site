@@ -13,11 +13,11 @@ import History from "../History";
 export default function About() {
   return (
     <main>
-      {/* <HomePage />
+      <HomePage />
       <DeptInfo />
       <DeptLogo />
-      <Acadamics/> */}
       <History/>
+      <Acadamics/>
       
       {/*
       <HorizontalScrollCarousel />

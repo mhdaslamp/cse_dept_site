@@ -66,7 +66,7 @@ const DeptInfo = () => {
           <div className="w-5/12 hidden sm:flex justify-center items-center">
             <span style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}>
               <Image
-                src="/Computer.png"
+                src="/computer.png"
                 width={480}
                 height={280}
                 alt="computer"
