@@ -40,15 +40,15 @@ export default function History() {
         </div>
         <div className="w-full md:w-1/2">
           <p className="mt-5 text-start text-xl md:text-2xl text-gray-500">
-            Whether you're fascinated by the intricate dance of data structures
-            or dream of crafting the next generation of software, our curriculum
-            equips you with the essential tools. We delve into the theoretical
-            underpinnings of computer science, providing a rock-solid
-            understanding of algorithms, programming languages, and the
-            principles that govern how information is processed. This knowledge
-            becomes the springboard for practical application. You'll not only
-            learn to code but also to design, analyze, and build complex
-            software systems.
+            Whether you&apos;re fascinated by the intricate dance of data
+            structures or dream of crafting the next generation of software, our
+            curriculum equips you with the essential tools. We delve into the
+            theoretical underpinnings of computer science, providing a
+            rock-solid understanding of algorithms, programming languages, and
+            the principles that govern how information is processed. This
+            knowledge becomes the springboard for practical application.
+            You&apos;ll not only learn to code but also to design, analyze, and
+            build complex software systems.
           </p>
         </div>
       </div>
