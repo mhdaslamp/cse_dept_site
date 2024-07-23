@@ -58,7 +58,7 @@ const DeptLogo = () => {
       gsap.set(firsttext.current,{xPercent:xPercent});
       gsap.set(secondtext.current,{xPercent:xPercent});
       gsap.set(thirdtext.current,{xPercent:xPercent});
-      xPercent+=0.1*direction;
+      xPercent+=0.06*direction;
       requestAnimationFrame(animation);
     }
 
