@@ -19,13 +19,6 @@ export default function About() {
       <History />
       <HorizontalScrollCarousel />
       <Acadamics />
-
-      {/*
-      <Toppers />
-      <CourseOfferedSection />
-      <HodMessage />
-      <References />
-      */}
     </main>
   );
 }
