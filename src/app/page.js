@@ -13,17 +13,16 @@ import About from "@/components/aboutUs/page";
 export default function Home() {
   return (
     <main>
-      {/* <HomePage />
+      <HomePage />
       <DeptInfo />
       <DeptLogo />
       <HorizontalScrollCarousel />
       <CourseOfferedSection />
       <HodMessage />
-      <Toppers /> */}
-      {/* <Acadamics /> */}
-      {/* <References />
-      <Footer /> */}
-      <About/>
+      <Toppers />
+      <Acadamics />
+      <References />
+      {/* <About/> */}
     </main>
   );
 }

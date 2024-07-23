@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function History() {
   return (
-    <div className="mt-24 md:space-y-24 px-4 md:px-28">
+    <div className="mt-10 mb-20 md:space-y-24 px-4 md:px-28">
       <div className="flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10">
         <div className="w-full md:w-1/2">
           <h1 className="font-bold text-3xl">History of the department</h1>

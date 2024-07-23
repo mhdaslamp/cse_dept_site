@@ -7,7 +7,7 @@ import AcadamicsPrograms from "@/components/AcadamicsPrograms";
 const Acadamics = () => {
   return (
     <div className="">
-      <Navbar />
+      {/* <Navbar /> */}
       <AcadamicsIntro />
       <AcadamicsPrograms />
 

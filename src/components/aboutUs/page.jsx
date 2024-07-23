@@ -16,9 +16,9 @@ export default function About() {
       <HomePage />
       <DeptInfo />
       <DeptLogo />
+      <Acadamics />
       <History />
       <HorizontalScrollCarousel />
-      <Acadamics />
     </main>
   );
 }
