@@ -78,7 +78,7 @@ function Navbar() {
           open ? "transform translate-x-0" : "transform -translate-x-full"
         } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0`}
       >
-        <ul className="items md:h-20 md:pl-28 gap-2 items-center justify-center md:flex md:mr-8 lg:pt-6 md:text-white text-black">
+        <ul className="items md:h-20 md:pl-28 items-center justify-center md:flex md:mr-8 lg:pt-6 md:text-white text-black">
           <NavbarItem
             href="/"
             label="HOME"
@@ -86,7 +86,7 @@ function Navbar() {
             showArrow={open}
           />
           <NavbarItem
-            href="#about"
+            href="/about"
             label="ABOUT US"
             setNavbar={setOpen}
             showArrow={open}
@@ -129,13 +129,13 @@ function Navbar() {
         <div className="mt-72 md:hidden absolute">
           <h2>@2024 CSE ASSOCIATION</h2>
           <div className="flex justify-between">
-            <div>
-              <h2>
+            <div className="mt-1">
+              <h2 className="text-[13px]">
                 DESIGN AND POWERED BY{" "}
                 <span className="underline font-semibold">CSE STUDENTS</span>
               </h2>
             </div>
-            <div className="flex ml-24 mr-2 gap-1">
+            <div className="flex ml-28 mr-2 gap-1">
               <AiFillInstagram className="w-6 h-6 hover:scale-95" />
               <FaLinkedin className="w-5 h-6 hover:scale-95" />
             </div>

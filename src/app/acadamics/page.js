@@ -10,7 +10,7 @@ import AcadamicsCoursesBtech from "@/components/AcadamicsCoursesBtech";
 const Acadamics = () => {
   return (
     <div className="">
-      <Navbar />
+      {/* <Navbar /> */}
       <AcadamicsIntro />
       <AcadamicsPrograms />
       <AcadamicsCoursesBtech/>
