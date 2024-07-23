@@ -16,14 +16,14 @@ export default function About() {
       <HomePage />
       <DeptInfo />
       <DeptLogo />
-      <History/>
-      <Acadamics/>
-      
-      {/*
+      <History />
       <HorizontalScrollCarousel />
+      <Acadamics />
+
+      {/*
+      <Toppers />
       <CourseOfferedSection />
       <HodMessage />
-      <Toppers />
       <References />
       */}
     </main>
