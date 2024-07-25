@@ -14,8 +14,10 @@ const AcadamicsPrograms = () => {
   return (
     <section className=" bg-black">
       <div className="sticky inset-0">
-        <Image src={background} alt="department pic" className="object-fill" />
-      </div>
+      <div className="sticky inset-0">
+          <Image src={background} alt="department pic" className="object-fill" />
+        </div>
+     
       <div className="px-6 py-32 text-white">
         <div className="grid grid-cols-[67%_33%] gap-3 container mx-auto  relative z-10">
           <div
@@ -63,6 +65,7 @@ const AcadamicsPrograms = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
