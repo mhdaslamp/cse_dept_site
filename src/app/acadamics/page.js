@@ -218,7 +218,7 @@ const Acadamics = () => {
 
         </div>
       </div> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
