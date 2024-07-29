@@ -9,6 +9,7 @@ import References from "@/components/References";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel";
 import Acadamics from "@/app/acadamics/page";
 import History from "../../components/History";
+import Faculty from "@/components/Faculty";
 
 export default function About() {
   return (
@@ -18,7 +19,8 @@ export default function About() {
       <DeptLogo />
       <Acadamics />
       <History />
-      <HorizontalScrollCarousel />
+      <Faculty/>
+      {/* <HorizontalScrollCarousel /> */}
     </main>
   );
 }
