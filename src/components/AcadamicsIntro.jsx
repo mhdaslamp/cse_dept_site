@@ -3,7 +3,7 @@ import React from 'react'
 const AcadamicsIntro = () => {
 
   return (
-    <section className="bg-white w-full px-6 py-32 md:px-20 xl:px-24 sm:px-10">
+    <section className="bg-white w-full px-6 py-32">
 
         <div className="">
 

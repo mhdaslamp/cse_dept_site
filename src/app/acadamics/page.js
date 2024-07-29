@@ -6,11 +6,13 @@ import AcadamicsPrograms from "@/components/AcadamicsPrograms";
 import AcadamicsLabs from "@/components/AcadamicsLabs";
 import AcadamicsCoursesMtech from "@/components/AcadamicsCoursesMtech";
 import AcadamicsCoursesBtech from "@/components/AcadamicsCoursesBtech";
+import AcadamicsSidebar from "@/components/AcadamicsSidebar";
 
 const Acadamics = () => {
   return (
     <div className="">
       <Navbar />
+      <AcadamicsSidebar />
       <AcadamicsIntro />
       <AcadamicsPrograms />
       <AcadamicsCoursesBtech/>
