@@ -2,8 +2,7 @@
 
 import { DeptConstants } from "@/constants/DeptConstants";
 import Image from "next/image";
-import { useEffect, useState,   useRef } from "react";
-import gsap from "gsap";
+import { useEffect, useState } from "react";
 
 const DeptLogo = () => {
     const [capPosition, setCapPosition] = useState({ left: 0, top: 0 });
@@ -41,30 +40,7 @@ const DeptLogo = () => {
       };
     }, [scroll]);
 
-    const firsttext=useRef(null);
-    const secondtext=useRef(null);
-    const thirdtext=useRef(null);
-    let xPercent=0;
-    let direction=-1;
-    useEffect(()=>{
-        requestAnimationFrame(animation);
-    },[])
 
-    
-    const animation=()=>{
-      if(xPercent<=-100){
-        xPercent=0;
-      }
-      gsap.set(firsttext.current,{xPercent:xPercent});
-      gsap.set(secondtext.current,{xPercent:xPercent});
-      gsap.set(thirdtext.current,{xPercent:xPercent});
-      xPercent+=0.06*direction;
-      requestAnimationFrame(animation);
-    }
-
-   
-     
-   
     return (
         <div className='flex flex-col h-screen px-12 md:px-20 py-8 justify-center items-center'>
 
@@ -118,42 +94,7 @@ const DeptLogo = () => {
                     </div>
                 </div>
             </div>
-
-      
-      <div className="flex relative whitespace-nowrap overflow-hidden w-screen z-10 pt-7"  >
-     
-       
-          <div  className="flex items-center min-w-max  h-auto   " ref={firsttext} >
-            <p className="inline-block lg:text-[56px] lg:px-10 px-5 text-[#9E9E9E] font-extrabold font-bebasneue">NATIONAL BOARD OF ACCREDITATION ACCREDITED</p>
-            <img src="./nba.svg" alt="Description" className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid lg:scale-100 scale-50" />
-            
-          </div>
-
-          <div  className="flex items-center min-w-max h-auto"  ref={secondtext}>
-            <p className="inline-block lg:text-[56px] lg:px-10 px-5 text-[#9E9E9E] font-bebasneue font-extrabold">NATIONAL BOARD OF ACCREDITATION ACCREDITED</p>
-            <img src="./nba.svg" alt="Description" className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid  min-w-max lg:scale-100 scale-50" />
-            
-          </div>
-
-          <div  className="flex items-center min-w-max h-auto"  ref={thirdtext}>
-            <p className="inline-block lg:text-[56px] lg:px-10 px-5 text-[#9E9E9E] font-bebasneue font-extrabold">NATIONAL BOARD OF ACCREDITATION ACCREDITED</p>
-            <img src="./nba.svg" alt="Description" className="inline-block border-x-4 border-[#9E9E9E] px-10 border-solid  min-w-max lg:scale-100 scale-50" />
-            
-          </div>
-          
-       
-      </div>
-{/* 
-      <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px]  max-w-screen">
-      <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue">NATIONAL BOARD OF ACCREDITATION ACCREDITED</p>
-      <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-            <img src="./nba.svg" alt="Description" className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]" />
-      </div>
-            
-      </div> */}
-    </div>
-
-       
+        </div>
     )
 }
 
