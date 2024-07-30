@@ -5,8 +5,10 @@ import React, { useState } from 'react'
 const AcadamicsSidebar = () => {
     const [open, setOpen] = useState(false);
     
+    const isMobile = window.innerWidth <= 640;
+
     return (
-        <div className="sidebar z-10 fixed flex flex-col justify-center h-screen left-0 cursor-pointer">
+        <div className={`sidebar z-10 fixed flex flex-col justify-center h-screen left-0 cursor-pointer  ${isMobile ? 'hidden' : ''}`}>
             {!open && (
                 <div 
                     className="w-[26px] h-[322px] p-[26px_28px_26px_0] gap-0 border border-transparent border-t border-solid justify-center opacity-100  bg-black flex align-middle"
