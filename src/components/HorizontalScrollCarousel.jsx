@@ -1,6 +1,7 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import ColoredSection from "./ColoredSection";
 // import { useMediaQuery } from "react-responsive";
 
 const HorizontalScrollCarousel = () => {
@@ -36,52 +37,54 @@ const HorizontalScroll = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-[#161616]">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-0 h-screen w-auto p-8">
-          <Card
-            card={{
-              url: "/ImageScroll/image1.png",
-              height: "650px",
-              width: "550px",
-              title: "Title 1",
-              id: 1,
-            }}
-            position="top-0 right-0"
-          />
-          <Card
-            card={{
-              url: "/ImageScroll/image2.png",
-              height: "650px",
-              width: "650px",
-              title: "Title 2",
-              id: 2,
-            }}
-            position="bottom-0 right-0"
-          />
-          <Card
-            card={{
-              url: "/ImageScroll/image1.png",
-              height: "650px",
-              width: "550px",
-              title: "Title 3",
-              id: 3,
-            }}
-            position="top-0 right-0"
-          />
-          <Card
-            card={{
-              url: "/ImageScroll/image2.png",
-              height: "650px",
-              width: "650px",
-              title: "Title 4",
-              id: 4,
-            }}
-            position="bottom-0 right-0"
-          />
-        </motion.div>
+    <ColoredSection color="WHITE">
+      <div ref={targetRef} className="relative h-[300vh] bg-[#161616]">
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+          <motion.div style={{ x }} className="flex gap-0 h-screen w-auto p-8">
+            <Card
+              card={{
+                url: "/ImageScroll/image1.png",
+                height: "650px",
+                width: "550px",
+                title: "Title 1",
+                id: 1,
+              }}
+              position="top-0 right-0"
+            />
+            <Card
+              card={{
+                url: "/ImageScroll/image2.png",
+                height: "650px",
+                width: "650px",
+                title: "Title 2",
+                id: 2,
+              }}
+              position="bottom-0 right-0"
+            />
+            <Card
+              card={{
+                url: "/ImageScroll/image1.png",
+                height: "650px",
+                width: "550px",
+                title: "Title 3",
+                id: 3,
+              }}
+              position="top-0 right-0"
+            />
+            <Card
+              card={{
+                url: "/ImageScroll/image2.png",
+                height: "650px",
+                width: "650px",
+                title: "Title 4",
+                id: 4,
+              }}
+              position="bottom-0 right-0"
+            />
+          </motion.div>
+        </div>
       </div>
-    </section>
+    </ColoredSection>
   );
 };
 

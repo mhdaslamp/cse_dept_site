@@ -1,8 +1,12 @@
 import React from "react";
+import ColoredSection from "./ColoredSection";
 
 const AcadamicsIntro = () => {
   return (
-    <section className="bg-white w-full px-6 py-32 md:px-20 xl:px-24 sm:px-10">
+    <ColoredSection
+      color="BLACK"
+      className="bg-white w-full px-6 py-32 md:px-20 xl:px-24 sm:px-10"
+    >
       <div className="">
         <div className="px-20 py-24">
           <h1 className=" text-black text-5.5xl lg:text-5xl font-normal font-bebasneue leading-tight">
@@ -140,7 +144,7 @@ const AcadamicsIntro = () => {
           </ul>
         </div>
       </div>
-    </section>
+    </ColoredSection>
   );
 };
 

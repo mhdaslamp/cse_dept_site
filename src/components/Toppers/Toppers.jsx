@@ -7,6 +7,7 @@ import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import "./Toppers.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ColoredSection from "../ColoredSection";
 
 function StudentCard({ name, batch, sem, cgpa, image, index }) {
   return (
@@ -62,24 +63,25 @@ const Toppers = () => {
   }, []);
 
   return (
-    <div className="mx-auto bg-white w-full px-6 py-8 md:px-20 xl:px-24 sm:px-10">
-      <div
-        className="backgroundColorClass bg-[#e9e9e8] py-8 sm:pb-10 md:pb-10 xl:py-6 lg:py-6 h-auto"
-        data-aos="fade-up"
-      >
-        <div className="flex justify-start mb-4 pl-5">
-          <h1 className="text-black lg:text-5xl text-4xl font-bold font-bebasneue">
-            . TOPPERS
-          </h1>
-        </div>
-
-        <div className="w-full grid grid-cols-1 gap-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 md:gap-8 sm:gap-5 px-[10px] sm:px-[15px] md:px-[20px] lg:px-[20px] justify-items-center">
-          {studentsData.map((student, index) => (
-            <StudentCard key={index} {...student} index={index} />
-          ))}
+    <ColoredSection color="BLACK">
+      <div className="mx-auto bg-white w-full px-6 py-8 md:px-20 xl:px-24 sm:px-10">
+        <div
+          className="backgroundColorClass bg-[#e9e9e8] py-8 sm:pb-10 md:pb-10 xl:py-6 lg:py-6 h-auto"
+          data-aos="fade-up"
+        >
+          <div className="flex justify-start mb-4 pl-5">
+            <h1 className="text-black lg:text-5xl text-4xl font-bold font-bebasneue">
+              . TOPPERS
+            </h1>
+          </div>
+          <div className="w-full grid grid-cols-1 gap-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 md:gap-8 sm:gap-5 px-[10px] sm:px-[15px] md:px-[20px] lg:px-[20px] justify-items-center">
+            {studentsData.map((student, index) => (
+              <StudentCard key={index} {...student} index={index} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </ColoredSection>
   );
 };
 
