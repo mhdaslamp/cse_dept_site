@@ -49,7 +49,7 @@ const ExpandableCards = ({title,year,item})=>{
         <div className={` transition-all duration-[1s] h-auto overflow-hidden  ${isExpanded?'opacity-100 max-h-screen':'opacity-0 max-h-0'}`}>
       <div className='pb-2 pl-5 '>Acadamics Year &nbsp; {year}</div>
       <div className='flex max-h-full'>
-        <div className={`no-scrollbar flex flex-wrap flex-initial max-h-full  overflow-auto justify-center w-max transition-all duration-[1s] ease-in-out gap-3 pb-3 `}>
+        <div className={`no-scrollbar flex flex-wrap flex-initial max-h-full  overflow-auto justify-center w-max transition-all duration-[1s] ease-in-out gap-3 `}>
 
         {item.map((items,key)=>(
           <div key={key} className='bg-white h-[313px] w-[240px]'>
