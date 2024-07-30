@@ -22,7 +22,10 @@ const Footer = () => {
     hoveredIndex === index ? "" : "bg-white"
   } mb-1.5`;
   return (
-    <footer className="flex flex-col sm:flex-row justify-between px-24 py-8 bg-white text-gray-800 w-full font-bebasneue relative">
+    <footer className="flex flex-col gap-10 ">
+      
+      <div className="flex flex-col ">
+        <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 justify-between px-24 py-8 bg-white text-gray-800 w-full font-bebasneue relative">
       <div className="flex-1 mb-4 sm:mb-0">
         <form className="mb-4">
           <h3 className="text-xl font-semibold mb-2 text-gray-500">
@@ -47,15 +50,15 @@ const Footer = () => {
             <MdOutlineArrowOutward className="ml-2 font-bold" />
           </button>
         </form>
-        <p className="text-gray-600">© {currentYear} CSE ASSOCIATION</p>
+        
       </div>
 
       <div className="relative isolate">
-        <h3 className="text-xl font-semibold mb-2 text-gray-500 px-5">
+        <h3 className="text-xl font-semibold mb-2 text-gray-500 px-3 pb-5">
           QUICK LINKS
         </h3>
         
-        <div className="grid grid-cols-2 gap-x-[7.125rem]">
+        <div className="grid   grid-cols-2 grid-rows-3  gap-10 lg:gap-[7.125rem]">
           {[
             "HOME",
             "PEOPLE",
@@ -72,7 +75,7 @@ const Footer = () => {
             >
               <div className={squareBlock(index)}></div>
               <Link
-                className="text-16 block text-gray-600 min-w-[7.5rem] mb-1 ml-2"
+                className="text-16 block text-gray-600 min-w-[7.5rem]"
                 href="#"
               >
                 {link}
@@ -80,7 +83,13 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="absolute bottom-0 w-[120%] flex items-center">
+        </div>
+        </div>
+
+        <div className=" w-[120%]  flex flex-col px-24 ">
+        <p className="text-gray-600">© {currentYear} CSE ASSOCIATION</p>
+
+          <div className="flex ">
           <p className="text-gray-600">
             DESIGN AND POWERED BY{" "}
             <Link className="underline font-bold hover:text-blue-500" href="#">
@@ -91,6 +100,7 @@ const Footer = () => {
             <RiInstagramFill className="text-gray-600 w-5 h-5" />
             <IoLogoLinkedin className="text-gray-600 ml-2 w-5 h-5" />
           </span>
+          </div>
         </div>
       </div>
     </footer>
