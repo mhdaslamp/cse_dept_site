@@ -13,6 +13,13 @@ const peopleDropdownItems = [
   { label: "Alumni", href: "#alumni" },
 ];
 
+const activitiesDrop = [
+  { label: "Blog", href: "/blog" },
+  { label: "Events", href: "/events" },
+  { label: "Magazine/Newsletter", href: "/magazine" },
+  { label: "Students Group", href: "/student_gp" },
+];
+
 const academicsDropdownItems = [
   { label: "PO, PsO and PEO", href: "#po-pso-peo" },
   { label: "Programmes and Syllabi", href: "#programmes-syllabi" },
