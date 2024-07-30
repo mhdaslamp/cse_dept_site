@@ -15,6 +15,7 @@ const AcadamicsPrograms = () => {
     <section className=" bg-black">
       <div className="sticky inset-0">
       <div className="sticky inset-0 brightness-50">
+
           <Image src={background} alt="department pic" className="object-fill" />
         </div>
      
