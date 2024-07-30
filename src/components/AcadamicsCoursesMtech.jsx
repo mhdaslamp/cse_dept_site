@@ -43,7 +43,7 @@ const AcadamicsCoursesMtech = () => {
                 <div className="flex justify-between">
                   <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                     <h1 >MAT102</h1>
-                    <h2>Linear Algebra and Calculus</h2>
+                    <h2>Linear Algebra and Calculus </h2>
                   </div>
                   <button className="font-normal font-montserrat text-[20px]/[24.38px] bg-[#FFFFFF26] text-center p-[10px] ">SYLLABUS</button>
                 </div>
