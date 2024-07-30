@@ -2,33 +2,23 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react'
 import { MdKeyboardArrowDown ,MdKeyboardArrowUp } from "react-icons/md";
+import { FaSquareFull } from "react-icons/fa6";
 
 
-const ExpandableCards = ({year,item})=>{
+const ExpandableCards = ({title,year,item})=>{
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isContentVisible, setIsContentVisible] = useState(false);
-  const [height, setHeight] = useState("50px");
-  const itemsRef = useRef(null);
+
+;
   const toggleExpand = () => {
      if (!isExpanded) {
       setIsExpanded(true);
-      // setHeight(`${50+itemsRef.current.scrollHeight}px`);
+      
     } else {
       setIsExpanded(false);
-      setIsContentVisible(false);
+    
       
     }
   };
-  useEffect(()=>{
-    if(isExpanded){
-      setHeight(`${100+itemsRef.current.offsetHeight}px`);
-    }
-    else{
-      setHeight("50px");
-    }
-  },isExpanded)
-
- 
 
 
   // useEffect(() => {
@@ -40,30 +30,37 @@ const ExpandableCards = ({year,item})=>{
   // }, [isExpanded]);
 
   return (
-    <div className='w-screen mx-10'>
+    <div className='w-screen  flex  justify-center overflow-hidden'>
 
-      <div className={`w-[80%] transition-all duration-[1s] ease-in-out bg-red-500 `} >
+      <div className={`group w-[85%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3 ${isExpanded?"mb-5":""} }`} >
         <div className='flex justify-between'>
-      <p>TECHNICAL STAFFS</p>
+      <div onClick={toggleExpand} className={`font-bold transition-all duration-700 flex group-hover:text-black group-hover:text-2xl pl-5 ${isExpanded?"text-black text-2xl":"text-[#696969]"} cursor-pointer`}>
+      <FaSquareFull className={`translate-y-[19px] duration-1000 transition-all ${isExpanded?"text-[5px] mr-2 ":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
+        </div>
       <div 
         onClick={toggleExpand}
-        className={`transition-transform  ${isExpanded?"rotate-180":''} duration-[1s] ease-in-out`}
+        className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${isExpanded?"rotate-180 opacity-100":''} duration-[1s] ease-in-out z-10`}
       >
-        <MdKeyboardArrowDown className='w-10 h-8' />
+        <MdKeyboardArrowDown className='w-10 h-8 text-[#9E9E9E]' />
         
         </div>
       </div>
     
-        <div className={`transition-all duration-400 ${isExpanded?"h-auto":"max-h-0 "}`}>
-      <div>{year}</div>
-        <div className={`flex flex-wrap w-full transition-all duration-[1s] ease-in-out ${isExpanded?'opacity-100':'opacity-0'}`}>
+        <div className={` transition-all duration-[1s] h-auto overflow-hidden  ${isExpanded?'opacity-100 max-h-screen':'opacity-0 max-h-0'}`}>
+      <div className='pb-2 pl-5 '>Acadamics Year &nbsp; {year}</div>
+      <div className='flex max-h-full'>
+        <div className={`no-scrollbar flex flex-wrap flex-initial max-h-full  overflow-auto justify-center w-max transition-all duration-[1s] ease-in-out gap-3 pb-3 `}>
 
         {item.map((items,key)=>(
-          <div key={key} className='bg-green-400' ref={itemsRef}>
-            <h1>{items.name}</h1>
-            <p>{items.postion}</p>
+          <div key={key} className='bg-white h-[313px] w-[240px]'>
+            <div className='w-full h-[77%] bg-cover bg-no-repeat bg-center' style={{backgroundImage:`url(${items.link})`}}></div>
+            <div className='p-3 leading-3'>
+            <h1 className='text-xl font-bold'>{items.name}</h1>
+            <p className='text-[#9E9E9E]'>{items.postion}</p>
+            </div>
             </div>
         ))}
+        </div>
         </div>
         </div>
 
@@ -75,84 +72,6 @@ const ExpandableCards = ({year,item})=>{
   );
 }
 
-const Accordion = ({ children }) => {
-  const [activeItem, setActiveItem] = useState(null);
-
-  const toggleItem = (item) => {
-    setActiveItem(activeItem === item ? null : item);
-  };
-
-  return (
-    <div className="w-full">
-      {React.Children.map(children, child =>
-        React.cloneElement(child, { activeItem, toggleItem })
-      )}
-    </div>
-  );
-};
-
-// Accordion Item Component
-const AccordionItem = ({ children, value, activeItem, toggleItem }) => {
-  return (
-    <div className="mb-4 border-b border-gray-200">
-      {React.Children.map(children, child =>
-        React.cloneElement(child, { value, activeItem, toggleItem })
-      )}
-    </div>
-  );
-};
-
-// Accordion Trigger Component
-const AccordionTrigger = ({ children, value, activeItem, toggleItem }) => {
-  return (
-    <button
-      className="w-full p-4 text-left bg-gray-100 hover:bg-gray-200 focus:outline-none"
-      onClick={() => toggleItem(value)}
-    >
-      {children}
-    </button>
-  );
-};
-
-// Accordion Content Component
-const AccordionContent = ({ children, value, activeItem }) => {
-  return (
-    <div
-      className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
-        activeItem === value ? 'max-h-screen p-4' : 'max-h-0'
-      }`}
-    >
-      {children}
-    </div>
-  );
-};
-
-// Accordion Demo Component
-const AccordionDemo = () => {
-  return (
-    <Accordion>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that match the other components' aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It's animated by default, but you can disable it if you prefer.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  );
-};
-
 
 
 
@@ -161,19 +80,56 @@ function cardpeople() {
   const item1=[{
     name:"Swaraj K P",
     postion:"Associate Professor",
-    link:""
+    link:"/images/card.jpeg"
   },
   {
     name:"Swaraj K P",
     postion:"Associate Professor",
-    link:"" 
-  }
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },{
+    name:"Swaraj K P",
+    postion:"Associate Professor",
+    link:"/images/card.jpeg"
+  },
 ]
 
   return (
-    <div className='flex items-center justify-center w-screen h-screen'>
-      <ExpandableCards year="2023-24" item={item1}/>
-      {/* <AccordionDemo /> */}
+    <div className='flex flex-col justify-center items-center overflow-hidden'>
+      <div className='w-min'>
+
+      <ExpandableCards title="TEACHING STAFFS" year="2023-24" item={item1} className=""/>
+      <ExpandableCards title="TECHNICAL STAFFS" year="2023-24" item={item1}/>
+      <ExpandableCards title="ASSOCIATION MEMBER" year="2023-24" item={item1}/>
+      <ExpandableCards title="STUDENTS" year="2023-24" item={item1}/>
+      <ExpandableCards title="ALUMNI" year="2023-24" item={item1}/>
+      </div>
+
+
+     
     </div>
   )
 }
