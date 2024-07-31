@@ -107,7 +107,7 @@ function Navbar() {
             dropdownItems={academicsDropdownItems}
           />
           <NavbarItem
-            href="#people"
+            href="/people"
             label="PEOPLE"
             setNavbar={setOpen}
             showArrow={open}
@@ -115,10 +115,12 @@ function Navbar() {
             dropdownItems={peopleDropdownItems}
           />
           <NavbarItem
-            href="#activities"
+            href="/activities"
             label="ACTIVITIES"
             setNavbar={setOpen}
             showArrow={open}
+            hasDropdown={true}
+            dropdownItems={activitiesDrop}
           />
           <NavbarItem
             href="#placements"
@@ -128,7 +130,7 @@ function Navbar() {
           />
           <NavbarItem
             href="#contact"
-            label="CONTACT US"
+            label="NOTIFICATION"
             setNavbar={setOpen}
             showArrow={open}
           />
