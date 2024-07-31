@@ -14,10 +14,10 @@ const peopleDropdownItems = [
 ];
 
 const activitiesDrop = [
-  { label: "Blog", href: "/blog" },
-  { label: "Events", href: "/events" },
-  { label: "Magazine/Newsletter", href: "/magazine" },
-  { label: "Students Group", href: "/student_gp" },
+  { label: "Blog", href: "/activity/blog" },
+  { label: "Events", href: "/activity/events" },
+  { label: "Magazine/Newsletter", href: "/activity/magazin" },
+  { label: "Students Group", href: "/activity/student_gp" },
 ];
 
 const academicsDropdownItems = [
