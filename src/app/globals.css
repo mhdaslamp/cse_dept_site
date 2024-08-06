@@ -52,8 +52,8 @@ body {
 
 @media (min-width: 425px) {
   .student-card:hover .stud-image {
-    width: 200px;
-    height: 170px;
+    width: 220px;
+    height: 190px;
     transition: width 0.3s, height 0.3s;
   }
 }

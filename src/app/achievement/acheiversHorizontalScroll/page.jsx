@@ -1,11 +1,9 @@
 "use client";
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import ColoredSection from "./ColoredSection";
-// import { useMediaQuery } from "react-responsive";
-import HorizontalScroll from "./horizontal-scroll";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import HorizontalScroll from "../../../components/horizontal-scroll.js";
 
-const HorizontalScrollCarousel = () => {
+const AcheiversHorizontalScrollCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -22,7 +20,7 @@ const HorizontalScrollCarousel = () => {
   }, []);
 
   return (
-    <ColoredSection color="WHITE">
+    <>
       <main className="bg-black">
         <section className="relative w-[100%] min-h-[100vh]">
           {isMobile ? (
@@ -30,7 +28,7 @@ const HorizontalScrollCarousel = () => {
               <motion.div>
                 <Card
                   card={{
-                    url: "/ImageScroll/image1.png",
+                    url: "/bg.png",
                     height: "390px",
                     width: "310px",
                     title: "Title 1",
@@ -40,7 +38,7 @@ const HorizontalScrollCarousel = () => {
                 />
                 <Card
                   card={{
-                    url: "/ImageScroll/image2.png",
+                    url: "/bg.png",
                     height: "350px",
                     width: "310px",
                     title: "Title 2",
@@ -50,7 +48,7 @@ const HorizontalScrollCarousel = () => {
                 />
                 <Card
                   card={{
-                    url: "/ImageScroll/image1.png",
+                    url: "/bg.png",
                     height: "390px",
                     width: "310px",
                     title: "Title 3",
@@ -60,7 +58,7 @@ const HorizontalScrollCarousel = () => {
                 />
                 <Card
                   card={{
-                    url: "/ImageScroll/image2.png",
+                    url: "/bg.png",
                     height: "350px",
                     width: "310px",
                     title: "Title 4",
@@ -72,39 +70,39 @@ const HorizontalScrollCarousel = () => {
             </div>
           ) : (
             <HorizontalScroll>
-              <div className="relative h-full pl-[150px] bg-black flex flex-row flex-nowrap justify-start items-center">
-                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[650px] w-[550px] top-0 right-0">
+              <div className="relative h-full pl-[150px] flex bg-[#161616] flex-row flex-nowrap justify-start items-center">
+                <div className="relative h-screen w-[1000px] mr-[40px] flex-shrink-0">
+                  <div className="absolute h-[680px] w-[950px] top-5 right-0">
                     <img
-                      src="/ImageScroll/image1.png"
+                      src="/bg.png"
                       className="w-full h-full object-cover"
                       alt="random image"
                     />
                   </div>
                 </div>
-                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[650px] w-[550px] bottom-0 right-0">
+                <div className="relative h-screen w-[1000px] mr-[40px] flex-shrink-0">
+                  <div className="absolute h-[680px] w-[950px] top-5 left-0">
                     <img
-                      src="/ImageScroll/image2.png"
+                      src="/bg.png"
                       className="w-full h-full object-cover"
                       alt="random image"
                     />
                   </div>
                 </div>
-                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[650px] w-[550px] top-0 right-0">
+                <div className="relative h-screen w-[1000px] mr-[40px] flex-shrink-0">
+                  <div className="absolute h-[680px] w-[950px] bottom-5 right-0">
                     <img
-                      src="/ImageScroll/image1.png"
+                      src="/bg.png"
                       className="w-full h-full object-cover"
                       alt="random image"
                     />
                   </div>
                 </div>
-                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[650px] w-[550px] bottom-0 right-0">
+                <div className="relative h-screen w-[1000px] mr-[40px] flex-shrink-0">
+                  <div className="absolute h-[680px] w-[950px] bottom-5 left-0">
                     <img
-                      src="/ImageScroll/image2.png"
-                      className="w-full h-full object-cover"
+                      src="/bg.png"
+                      className="w-full h-full object-cover "
                       alt="random image"
                     />
                   </div>
@@ -114,11 +112,11 @@ const HorizontalScrollCarousel = () => {
           )}
         </section>
       </main>
-    </ColoredSection>
+    </>
   );
 };
 
-export default HorizontalScrollCarousel;
+export default AcheiversHorizontalScrollCarousel;
 
 const Card = ({ card, position }) => {
   return (
