@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { data } from "./content";
 import Image from "next/image";
 
-export default function Page() {
+export default function Student() {
   return (
     <div>
       <div className="bg-[#e9e8e9]">
