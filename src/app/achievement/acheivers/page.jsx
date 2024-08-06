@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { studentsData } from "../constants/contents";
+import { studentsData } from "../../../constants/contents";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
-import "../app/globals.css";
+import "../../../app/globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -52,13 +52,13 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
   );
 }
 
-const Toppers = () => {
+const Acheivers = () => {
   return (
     <div className="container mx-auto bg-white py-20 px-4 sm:px-6 h-full">
       <div className=" bg-[#e9e9e8] w-full h-full p-4 sm:p-6">
         <div className="flex justify-start w-full h-full">
           <h1 className="text-black font-bold font-bebasneue lg:text-5xl text-4xl ">
-            . TOPPERS
+            . ACHEIVERS
           </h1>
         </div>
 
@@ -67,9 +67,14 @@ const Toppers = () => {
             <StudentCard key={index} {...student} index={index} />
           ))}
         </div>
+        <div className="text-center px-4 ">
+          <p className="text-white font-semibold text-center text-base  w-full bg-[#DD846E] py-[5px]">
+            LOAD MORE
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Toppers;
+export default Acheivers;
