@@ -32,7 +32,7 @@ const academicsDropdownItems = [
 ];
 const placementDropdowns = [
   { label: "Achievement", href: "/achievement" },
-  { label: "Placement", href: "/placement" },
+  { label: "Placement", href: "/placements" },
 ];
 
 function Navbar() {
@@ -145,7 +145,7 @@ function Navbar() {
             dropdownItems={placementDropdowns}
           />
           <NavbarItem
-            href="#contact"
+            href="/notifications"
             label="NOTIFICATION"
             setNavbar={setOpen}
             showArrow={open}
