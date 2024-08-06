@@ -73,8 +73,8 @@ const HorizontalScrollCarousel = () => {
           ) : (
             <HorizontalScroll>
               <div className="relative h-full pl-[150px] bg-black flex flex-row flex-nowrap justify-start items-center">
-                <div className="relative h-[800px] w-[700px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[750px] w-[600px] top-0 right-0">
+                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
+                  <div className="absolute h-[650px] w-[550px] top-0 right-0">
                     <img
                       src="/ImageScroll/image1.png"
                       className="w-full h-full object-cover"
@@ -82,8 +82,8 @@ const HorizontalScrollCarousel = () => {
                     />
                   </div>
                 </div>
-                <div className="relative h-[800px] w-[700px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[750px] w-[680px] bottom-0 right-0">
+                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
+                  <div className="absolute h-[650px] w-[550px] bottom-0 right-0">
                     <img
                       src="/ImageScroll/image2.png"
                       className="w-full h-full object-cover"
@@ -91,8 +91,8 @@ const HorizontalScrollCarousel = () => {
                     />
                   </div>
                 </div>
-                <div className="relative h-[800px] w-[700px] mr-[75px] flex-shrink-0">
-                  <div className="absolute h-[750px] w-[600px] top-0 right-0">
+                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
+                  <div className="absolute h-[650px] w-[550px] top-0 right-0">
                     <img
                       src="/ImageScroll/image1.png"
                       className="w-full h-full object-cover"
@@ -100,8 +100,8 @@ const HorizontalScrollCarousel = () => {
                     />
                   </div>
                 </div>
-                <div className="relative h-[800px] w-[700px] mr-[100px] flex-shrink-0">
-                  <div className="absolute h-[750px] w-[680px] bottom-0 right-0">
+                <div className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0">
+                  <div className="absolute h-[650px] w-[550px] bottom-0 right-0">
                     <img
                       src="/ImageScroll/image2.png"
                       className="w-full h-full object-cover"
