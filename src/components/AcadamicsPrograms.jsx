@@ -13,8 +13,8 @@ const AcadamicsPrograms = () => {
   const ref = useRef(null);
   const boundingClientRect = useBoundingclientrect(ref);
   return (
-    <ColoredSection color="WHITE" className=" bg-black">
-      <div className="sticky inset-0">
+    <ColoredSection color="WHITE" className="bg-black">
+      <div>
         <div className="sticky inset-0">
           <Image
             src={background}

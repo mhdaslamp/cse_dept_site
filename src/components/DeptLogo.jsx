@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import { DeptConstants } from "@/constants/DeptConstants";
 import Image from "next/image";
-import { useEffect, useState,   useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import ColoredSection from "./ColoredSection";
 
@@ -186,4 +186,4 @@ const DeptLogo = () => {
   );
 };
 
-export default DeptLogo
+export default DeptLogo;

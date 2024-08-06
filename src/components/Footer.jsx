@@ -19,9 +19,9 @@ const Footer = () => {
   };
 
   const squareBlock = (index) =>
-  `w-3 h-3 bg-black hover:opacity-100 ${
-    hoveredIndex === index ? "" : "bg-white"
-  } mb-1.5`;
+    `w-3 h-3 bg-black hover:opacity-100 ${
+      hoveredIndex === index ? "" : "bg-white"
+    } mb-1.5`;
   return (
     <ColoredSection color="BLACK">
       <footer className="flex flex-col sm:flex-row justify-between px-24 py-8 bg-white text-gray-800 w-full font-bebasneue relative">

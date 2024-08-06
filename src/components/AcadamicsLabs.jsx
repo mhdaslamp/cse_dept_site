@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import React, { useRef } from "react";
 import useBoundingclientrect from "@rooks/use-boundingclientrect";
 import background from "../../public/bg-acadamic.jpeg";
 import Image from "next/image";
-import { AcadamicsLabsDataForCard } from "@/constants/contents"; 
+import { AcadamicsLabsDataForCard } from "@/constants/contents";
 import ColoredSection from "./ColoredSection";
 
 // {title,description,image,color}
@@ -15,7 +15,7 @@ const AcadamicsPrograms = () => {
   return (
     <ColoredSection color="WHITE" className=" bg-black">
       <div className="sticky ">
-        <div className="sticky inset-0">
+        <div className="sticky inset-0 brightness-50">
           <Image
             src={background}
             alt="department pic"
@@ -80,5 +80,4 @@ const AcadamicsPrograms = () => {
   );
 };
 
-export default AcadamicsPrograms
-
+export default AcadamicsPrograms;

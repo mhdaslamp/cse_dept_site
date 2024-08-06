@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { hodName, sampleText } from "../constants/contents";
+import { hodData } from "../constants/contents";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -28,19 +28,7 @@ const TypingEffect = ({ text, speed }) => {
 };
 
 const HodMessage = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
-  const [typingStarted, setTypingStarted] = useState(false);
-
-  useEffect(() => {
-    const typingTimer = setTimeout(() => {
-      setTypingStarted(true);
-    }, 2000); // Start typing after 2000 milliseconds (2 seconds)
-
-    return () => clearTimeout(typingTimer); // Cleanup function
-  }, []);
+  const hod = hodData[0];
 
   return (
     <ColoredSection color="BLACK">

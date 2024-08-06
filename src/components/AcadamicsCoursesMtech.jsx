@@ -1,4 +1,3 @@
-
 import React from "react";
 import background1 from "../../public/mtech-logo.svg";
 import Image from "next/image";
@@ -219,4 +218,4 @@ const AcadamicsCoursesMtech = () => {
   );
 };
 
-export default AcadamicsCoursesMtech
+export default AcadamicsCoursesMtech;
