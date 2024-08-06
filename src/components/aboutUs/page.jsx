@@ -9,11 +9,11 @@ import AboutusHorizontalScrollCarousel from "./aboutUsHorizontalScroll/page";
 export default function About() {
   return (
     <main>
-      {/* <HomePage />
+      <HomePage />
       <DeptInfo />
       <DeptLogo />
       <Acadamics />
-      <History /> */}
+      <History />
       <AboutusHorizontalScrollCarousel />
     </main>
   );
