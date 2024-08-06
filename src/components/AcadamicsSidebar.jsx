@@ -65,5 +65,5 @@ const AcadamicsSidebar = () => {
     </div>
   );
 };
-
 export default AcadamicsSidebar;
+
