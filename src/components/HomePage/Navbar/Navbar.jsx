@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import NavbarItem from "./NavbarItem/page";
+import NavbarItem from "./NavbarItem/NavbarItem";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa6";
+import { useAtom } from "jotai";
+import { navbarAtom } from "@/atoms/navbarAtom";
+import { twMerge } from "tailwind-merge";
 
 const peopleDropdownItems = [
   { label: "Teaching Staffs", href: "#teaching-staffs" },
@@ -11,6 +14,13 @@ const peopleDropdownItems = [
   { label: "Association Member", href: "#association-member" },
   { label: "Students", href: "#students" },
   { label: "Alumni", href: "#alumni" },
+];
+
+const activitiesDrop = [
+  { label: "Blog", href: "/activity/blog" },
+  { label: "Events", href: "/activity/events" },
+  { label: "Magazine/Newsletter", href: "/activity/magazin" },
+  { label: "Students Group", href: "/activity/student_gp" },
 ];
 
 const academicsDropdownItems = [
@@ -22,7 +32,12 @@ const academicsDropdownItems = [
 ];
 
 function Navbar() {
+  const [isWhite, setIsWhite] = useAtom(navbarAtom);
   const [open, setOpen] = useState(false);
+  const color = isWhite === "WHITE" ? "text-white" : "text-black";
+  const logo = isWhite === "WHITE" ? "/logo.png" : "/logo(black).png";
+  const bg =
+    isWhite === "WHITE" ? "rgba(255, 255, 255, 0.25)" : "rgba(0, 0, 0, 0.03)";
   const toggleNavbar = () => {
     setOpen(!open);
   };
@@ -33,7 +48,7 @@ function Navbar() {
         open
           ? { background: "white" }
           : {
-              background: "rgba(255, 255, 255, 0.10)",
+              background: bg,
               backdropFilter: "blur(30px)",
             }
       }
@@ -42,16 +57,18 @@ function Navbar() {
       <div className="flex items-center justify-between py-3 px-4 md:px-2 h-20 mx-auto">
         <div className="flex gap-4 items-center md:mr-14">
           <Image
-            src={open ? "/logo(black).png" : "/logo.png"}
+            src={open ? "/logo(black).png" : logo}
             alt="Logo image"
             width={80}
             height={60}
             className="w-24 h-14 mb-3"
           />
           <p
-            className={`text-sm text-left text-white mt-2 ${
-              open ? "hidden md:block" : "block"
-            }`}
+            className={twMerge(
+              "text-sm text-left mt-2",
+              open ? "hidden md:block" : "block",
+              color
+            )}
           >
             COMPUTER SCIENCE <br /> AND ENGINEERING
           </p>
@@ -78,7 +95,7 @@ function Navbar() {
           open ? "transform translate-x-0" : "transform -translate-x-full"
         } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0`}
       >
-        <ul className="items md:h-20 md:pl-28 items-center justify-center md:flex md:mr-8 lg:pt-6 md:text-white text-black">
+        <ul className="items md:h-20 md:pl-28 items-center justify-center md:flex md:mr-8 lg:pt-6">
           <NavbarItem
             href="/"
             label="HOME"
@@ -100,7 +117,7 @@ function Navbar() {
             dropdownItems={academicsDropdownItems}
           />
           <NavbarItem
-            href="#people"
+            href="/people"
             label="PEOPLE"
             setNavbar={setOpen}
             showArrow={open}
@@ -108,10 +125,12 @@ function Navbar() {
             dropdownItems={peopleDropdownItems}
           />
           <NavbarItem
-            href="#activities"
+            href="/activities"
             label="ACTIVITIES"
             setNavbar={setOpen}
             showArrow={open}
+            hasDropdown={true}
+            dropdownItems={activitiesDrop}
           />
           <NavbarItem
             href="#placements"
@@ -121,7 +140,7 @@ function Navbar() {
           />
           <NavbarItem
             href="#contact"
-            label="CONTACT US"
+            label="NOTIFICATION"
             setNavbar={setOpen}
             showArrow={open}
           />

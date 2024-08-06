@@ -1,9 +1,13 @@
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
+import ColoredSection from "./ColoredSection";
 
 function CourseOfferedSection() {
   return (
-    <section className="relative bg-[#161616ef] text-white w-full py-20 px-24 min-h-screen flex items-center">
+    <ColoredSection
+      color="WHITE"
+      className="relative bg-[#161616ef] text-white w-full py-20 px-24 min-h-screen flex items-center"
+    >
       <Image
         src="/bg.png"
         alt="department pic"
@@ -35,7 +39,7 @@ function CourseOfferedSection() {
           COURSE OFFERED
         </h2>
       </div>
-    </section>
+    </ColoredSection>
   );
 }
 

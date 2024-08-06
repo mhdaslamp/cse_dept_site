@@ -27,7 +27,15 @@ body {
   top: 0;
   z-index: -1;
 }
-.no-scrollbar{
+
+.nav-clr.white {
+  color: white;
+}
+
+.nav-clr.black {
+  color: black;
+}
+.no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
