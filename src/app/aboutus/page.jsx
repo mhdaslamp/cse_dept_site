@@ -1,9 +1,9 @@
 import React from "react";
 import DeptInfo from "@/components/DeptInfo";
 import DeptLogo from "@/components/DeptLogo";
-import HomePage from "@/components/HomePage/page";
+import HomePage from "@/app/HomePage/page";
 import Acadamics from "@/app/acadamics/page";
-import History from "../History";
+import History from "../../components/History";
 import AboutusHorizontalScrollCarousel from "./aboutUsHorizontalScroll/page";
 
 export default function About() {

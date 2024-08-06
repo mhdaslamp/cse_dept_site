@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@/components/HomePage/Navbar/Navbar";
+import Navbar from "@/app/HomePage/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import AcadamicsIntro from "@/components/AcadamicsIntro";
 import AcadamicsPrograms from "@/components/AcadamicsPrograms";
@@ -8,7 +8,6 @@ import AcadamicsCoursesMtech from "@/components/AcadamicsCoursesMtech";
 import AcadamicsCoursesBtech from "@/components/AcadamicsCoursesBtech";
 import AcadamicsSidebar from "@/components/AcadamicsSidebar";
 
-
 const Acadamics = () => {
   return (
     <div className="">
@@ -16,10 +15,10 @@ const Acadamics = () => {
       <AcadamicsSidebar />
       <AcadamicsIntro />
       <AcadamicsPrograms />
-      <AcadamicsCoursesBtech/>
-      <AcadamicsCoursesMtech/>
+      <AcadamicsCoursesBtech />
+      <AcadamicsCoursesMtech />
       <AcadamicsLabs />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

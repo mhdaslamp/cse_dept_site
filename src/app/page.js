@@ -4,7 +4,7 @@ import DeptLogo from "@/components/DeptLogo";
 import Footer from "@/components/Footer";
 import HodMessage from "@/components/HodMessage";
 import Toppers from "@/components/Toppers";
-import HomePage from "@/components/HomePage/page";
+import HomePage from "@/app/HomePage/page";
 import References from "@/components/References";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel";
 import Acadamics from "./acadamics/page";
