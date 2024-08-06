@@ -20,23 +20,6 @@ body {
 }
 
 .video {
-<<<<<<< HEAD
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
-    position:absolute;
-    top:0;
-    z-index:-1;
-  } 
-
-.nav-clr.white{
-  color: white;
-}
-
-.nav-clr.black{
- color: black;
-}
-=======
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -44,7 +27,15 @@ body {
   top: 0;
   z-index: -1;
 }
-.no-scrollbar{
+
+.nav-clr.white {
+  color: white;
+}
+
+.nav-clr.black {
+  color: black;
+}
+.no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -75,4 +66,3 @@ body {
 .student-card .arrow-buttons {
   display: none;
 }
->>>>>>> main

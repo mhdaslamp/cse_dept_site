@@ -3,6 +3,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import ColoredSection from "./ColoredSection";
 // import { useMediaQuery } from "react-responsive";
+import HorizontalScroll from "./horizontal-scroll";
 
 const HorizontalScrollCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,7 +22,7 @@ const HorizontalScrollCarousel = () => {
   }, []);
 
   return (
-    <>
+    <ColoredSection color="WHITE">
       <main className="bg-black">
         <section className="relative w-[100%] min-h-[100vh]">
           {isMobile ? (
@@ -113,7 +114,7 @@ const HorizontalScrollCarousel = () => {
           )}
         </section>
       </main>
-    </>
+    </ColoredSection>
   );
 };
 
