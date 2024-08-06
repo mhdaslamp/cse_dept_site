@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 import React, { useState } from "react";
 import { upcomingEvents, pastEvents } from "./eventsData";
@@ -118,6 +119,14 @@ export default function Page() {
           <EventsSection title="Past Events" events={pastEvents} />
         </div>
       </div>
+=======
+import React from "react";
+
+export default function Events() {
+  return (
+    <div>
+      <h1>This is the event page</h1>
+>>>>>>> upstream/main
     </div>
   );
 }

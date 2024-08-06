@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 import React, { useState } from "react";
 import { departmentMagazine, pgMagazine, pgNewsLetter } from "./magazin";
@@ -136,4 +137,14 @@ export default function Page() {
       </div>
     </div>
   );
+=======
+import React from 'react'
+
+export default function Magazine() {
+  return (
+    <div>
+      <h1>This is the magazine page</h1>
+    </div>
+  )
+>>>>>>> upstream/main
 }

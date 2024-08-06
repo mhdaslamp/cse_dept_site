@@ -19,7 +19,7 @@ function NavbarItem({
 
   return (
     <li
-      className="relative md:pb-5 text-[18px] my-8 md:my-0 md:px-6 text-left border-b-2 md:border-b-0 md:hover:bg-transparent hover:scale-x-105"
+      className="relative md:pb-5 text-[16px] my-8 md:my-0 md:px-6 text-left border-b-2 md:border-b-0 md:hover:bg-transparent hover:scale-x-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
