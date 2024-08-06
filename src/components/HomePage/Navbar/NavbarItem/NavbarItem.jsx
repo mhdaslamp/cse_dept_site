@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaChevronDown, FaArrowRightLong } from "react-icons/fa6";
+import { navbarAtom } from "@/atoms/navbarAtom";
+import { useAtom } from "jotai";
+import { twMerge } from "tailwind-merge";
 
 function NavbarItem({
   href,
@@ -11,6 +14,8 @@ function NavbarItem({
   dropdownItems,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isWhite, setIsWhite] = useAtom(navbarAtom);
+  const color = isWhite === "WHITE" ? "text-white" : "text-black";
 
   return (
     <li
@@ -18,7 +23,9 @@ function NavbarItem({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex items-center justify-between w-full text-black md:text-white">
+      <div
+        className={twMerge("flex items-center justify-between w-full", color)}
+      >
         {isHovered && (
           <div className="dot w-2 h-2 absolute top-3 left-1 lg:bg-white rounded"></div>
         )}

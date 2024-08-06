@@ -1,7 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import HorizontalScroll from "./horizontal-scroll.js";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import ColoredSection from "./ColoredSection";
+// import { useMediaQuery } from "react-responsive";
 
 const HorizontalScrollCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);

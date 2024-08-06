@@ -2,6 +2,7 @@
 import { DeptConstants } from "@/constants/DeptConstants";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ColoredSection from "./ColoredSection";
 
 const DeptInfo = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -38,42 +39,44 @@ const DeptInfo = () => {
   }
 
   return (
-    <div className="bg-white w-full px-12 md:px-20 py-8 ">
-      <span className={`${showDivs ? "hidden" : ""}`}>
-        <h1 className="font-bold" style={{ fontSize: `${fontSize}px` }}>
-          {DeptConstants.title}
-        </h1>
-      </span>
-      <div className="w-full flex justify-between">
-        <div className="flex flex-col sm:w-6/12">
-          <h1
-            className={`font-bold ${showDivs ? "" : "hidden"}`}
-            style={{ fontSize: `${fontSize}px` }}
-          >
+    <ColoredSection color="BLACK">
+      <div className="bg-white w-full px-12 md:px-20 py-8 ">
+        <span className={`${showDivs ? "hidden" : ""}`}>
+          <h1 className="font-bold" style={{ fontSize: `${fontSize}px` }}>
             {DeptConstants.title}
           </h1>
-          <p
-            className="text-gray-500"
-            style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}
-          >
-            <span className="py-4 text-lg">{DeptConstants.desc}</span>
-            <button className="bg-black text-white p-2 mt-4 w-36 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-              Read More {">"}
-            </button>
-          </p>
-        </div>
-        <div className="w-5/12 hidden sm:flex justify-center items-center">
-          <span style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}>
-            <Image
-              src="/computer.png"
-              width={480}
-              height={280}
-              alt="computer"
-            />
-          </span>
+        </span>
+        <div className="w-full flex justify-between">
+          <div className="flex flex-col sm:w-6/12">
+            <h1
+              className={`font-bold ${showDivs ? "" : "hidden"}`}
+              style={{ fontSize: `${fontSize}px` }}
+            >
+              {DeptConstants.title}
+            </h1>
+            <p
+              className="text-gray-500"
+              style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}
+            >
+              <span className="py-4 text-lg">{DeptConstants.desc}</span>
+              <button className="bg-black text-white p-2 mt-4 w-36 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                Read More {">"}
+              </button>
+            </p>
+          </div>
+          <div className="w-5/12 hidden sm:flex justify-center items-center">
+            <span style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}>
+              <Image
+                src="/computer.png"
+                width={480}
+                height={280}
+                alt="computer"
+              />
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </ColoredSection>
   );
 };
 
