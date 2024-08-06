@@ -30,6 +30,10 @@ const academicsDropdownItems = [
   { label: "Labs", href: "#labs" },
   { label: "Library", href: "#library" },
 ];
+const placementDropdowns = [
+  { label: "Achievement", href: "/achievement" },
+  { label: "Placement", href: "/placement" },
+];
 
 function Navbar() {
   const [isWhite, setIsWhite] = useAtom(navbarAtom);
@@ -133,10 +137,12 @@ function Navbar() {
             dropdownItems={activitiesDrop}
           />
           <NavbarItem
-            href="#placements"
+            href="/placements"
             label="PLACEMENTS"
             setNavbar={setOpen}
             showArrow={open}
+            hasDropdown={true}
+            dropdownItems={placementDropdowns}
           />
           <NavbarItem
             href="#contact"
