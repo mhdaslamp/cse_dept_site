@@ -65,9 +65,4 @@ const AcadamicsSidebar = () => {
     </div>
   );
 };
-
-<<<<<<< HEAD
 export default AcadamicsSidebar;
-=======
-export default AcadamicsSidebar;
->>>>>>> upstream/main
