@@ -20,7 +20,7 @@ const applyScrollListener = (ref, setTranslateX) => {
   });
 };
 
-export default ({ children }) => {
+const MyComponent = ({ children }) => {
   const [dynamicHeight, setDynamicHeight] = useState(null);
   const [translateX, setTranslateX] = useState(0);
 
@@ -40,7 +40,7 @@ export default ({ children }) => {
   return (
     <div className="relative w-full" style={{ height: `${dynamicHeight}px` }}>
       <div
-        className="sticky top-0 h-screen w-full overflow-x-hidden "
+        className="sticky top-0 h-screen w-full overflow-x-hidden"
         ref={containerRef}
       >
         <div
@@ -54,3 +54,7 @@ export default ({ children }) => {
     </div>
   );
 };
+
+MyComponent.displayName = "MyComponent";
+
+export default MyComponent;
