@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import HorizontalScroll from "../../horizontal-scroll.js";
+import HorizontalScroll from "../../../components/horizontal-scroll";
 
 const AboutusHorizontalScrollCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);

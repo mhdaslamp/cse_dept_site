@@ -93,7 +93,7 @@ function Navbar() {
       <div
         className={`fixed top-20 h-screen p-3 px-6 left-0 right-0 bg-white text-black transition-transform duration-1000 ease-in-out ${
           open ? "transform translate-x-0" : "transform -translate-x-full"
-        } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0`}
+        } md:relative md:top-0 md:bg-transparent md:translate-x-0 md:flex md:p-0 md:h-auto md:pb-0 md:mt-0 `}
       >
         <ul className="items md:h-20 md:pl-28 items-center justify-center md:flex md:mr-8 lg:pt-6">
           <NavbarItem
@@ -103,7 +103,7 @@ function Navbar() {
             showArrow={open}
           />
           <NavbarItem
-            href="/about"
+            href="/aboutus"
             label="ABOUT US"
             setNavbar={setOpen}
             showArrow={open}
