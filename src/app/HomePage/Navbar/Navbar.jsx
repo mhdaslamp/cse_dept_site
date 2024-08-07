@@ -41,7 +41,7 @@ function Navbar() {
   const color = isWhite === "WHITE" ? "text-white" : "text-black";
   const logo = isWhite === "WHITE" ? "/logo.png" : "/logo(black).png";
   const bg =
-    isWhite === "WHITE" ? "rgba(255, 255, 255, 0.25)" : "rgba(0, 0, 0, 0.03)";
+    isWhite === "WHITE" ? "rgba(255, 255, 255, 0.10)" : "rgba(0, 0, 0, 0.03)";
   const toggleNavbar = () => {
     setOpen(!open);
   };
