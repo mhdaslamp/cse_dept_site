@@ -1,12 +1,18 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/HomePage/Navbar/page'
 import React from 'react'
+import PlacementIntro from "@/components/PlacementIntro"
+import PlacementRecruiters from '@/components/PlacementRecruiters'
+import PlacmentStatus from '@/components/PlacmentStatus'
+import PlacementGraph from '@/components/PlacementGraph'
+import Footer from '@/components/Footer'
 
 const page = () => {
   return (
     <>
-        <Navbar/>
-        <Footer/>
+        <PlacementIntro/>
+        <PlacementRecruiters/>
+        <PlacmentStatus/>
+        <PlacementGraph/>
+        <Footer />
     </>
   )
 }
