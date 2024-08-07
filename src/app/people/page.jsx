@@ -1,10 +1,8 @@
-import React from 'react'
-import Cardpeople from '@/components/Cardpeople'
+import React from "react";
+import Cardpeople from "@/components/Cardpeople";
 
 function page() {
-  return (
-    <Cardpeople/>
-  )
+  return <Cardpeople />;
 }
 
-export default page
+export default page;
