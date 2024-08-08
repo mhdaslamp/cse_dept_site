@@ -18,7 +18,7 @@ const Acadamics = () => {
       <AcadamicsCoursesBtech />
       <AcadamicsCoursesMtech />
       <AcadamicsLabs />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
