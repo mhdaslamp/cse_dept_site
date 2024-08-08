@@ -17,7 +17,7 @@ export default function Home() {
       <main>
       <HomePage />
       <DeptInfo />
-        {/* <DeptLogo /> */}
+        <DeptLogo />
         <HorizontalScrollCarousel />
       <HodMessage />
         <Toppers />
