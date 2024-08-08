@@ -8,21 +8,22 @@ import HomePage from "@/app/HomePage/page";
 import References from "@/components/References";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel";
 import Acadamics from "./acadamics/page";
+import LenisScroll from "@/components/LenisScroll";
 // import About from "@/components/aboutUs/page";
 
 export default function Home() {
   return (
-    <main>
+    <LenisScroll>
+      <main>
       <HomePage />
       <DeptInfo />
-      <DeptLogo />
-      <HorizontalScrollCarousel />
-      <CourseOfferedSection />
+        {/* <DeptLogo /> */}
+        <HorizontalScrollCarousel />
       <HodMessage />
-      <Toppers />
-      <Acadamics />
+        <Toppers />
       <References />
-      {/* <About /> */}
+        <Footer />
     </main>
+    </LenisScroll>
   );
 }
