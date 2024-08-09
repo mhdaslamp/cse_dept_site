@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import PlacementIntro from "@/components/PlacementIntro";
+import PlacementRecruiters from "@/components/PlacementRecruiters";
+import PlacmentStatus from "@/components/PlacmentStatus";
+import PlacementGraph from "@/components/PlacementGraph";
+import Footer from "@/components/Footer";
 
-export default function Placement() {
+const Placement = () => {
   return (
-    <div>
-      <h1>This is the placement page</h1>
-    </div>
-  )
-}
+    <>
+      <PlacementIntro />
+      <PlacementRecruiters />
+      <PlacmentStatus />
+      <PlacementGraph />
+      <Footer />
+    </>
+  );
+};
+
+export default Placement;

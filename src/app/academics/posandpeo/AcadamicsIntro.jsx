@@ -1,5 +1,5 @@
 import React from "react";
-import ColoredSection from "./ColoredSection";
+import ColoredSection from "../../../components/ColoredSection";
 
 const AcadamicsIntro = () => {
   return (
