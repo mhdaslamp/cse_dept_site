@@ -13,7 +13,7 @@ const Notifications = () => {
         <div className="sticky top-0 h-screen block">
           <Image
             className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-contain"
-            src="/mtech-logo.svg"
+            src="/notify.jpg"
             alt="Background"
             width={500}
             height={600}
@@ -21,9 +21,9 @@ const Notifications = () => {
         </div>
       </div>
 
-      <div className=" bg-black text-white px-6 py-32">
+      <div className=" bg-black text-white px-6 py-10">
         <div className="text-5xl px-20 py-24 gap-8">
-          <h2 className="text-[32px] font-normal font-bebasneue leading-[50px]">
+          <h2 className="text-[32px] font-normal font-bebasneue leading-[50px] mb-16">
             Notifications
           </h2>
           <ol className="mt-6">
