@@ -129,7 +129,7 @@ function Navbar() {
             dropdownItems={peopleDropdownItems}
           />
           <NavbarItem
-            href="/activities"
+            href="/activity"
             label="ACTIVITIES"
             setNavbar={setOpen}
             showArrow={open}
