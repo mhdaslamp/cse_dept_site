@@ -26,13 +26,13 @@ const AboutusHorizontalScrollCarousel = () => {
         <section className="relative w-[100%] min-h-[100vh]">
           {isMobile ? (
             <div className="h-auto w-full">
-              <div className="flex flex-col w-full h-auto px-4 py-8">
+              <div className="flex flex-col w-full h-auto p-4">
                 {images.map((src, index) => (
                   <div
                     key={index}
                     className={`flex w-full h-auto ${
                       index % 2 === 0 ? "justify-start" : "justify-end"
-                    } items-start mb-6`}
+                    } items-start my-6`}
                   >
                     <img
                       src={src}
