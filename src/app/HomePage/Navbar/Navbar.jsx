@@ -24,11 +24,11 @@ const activitiesDrop = [
 ];
 
 const academicsDropdownItems = [
-  { label: "PO, PsO and PEO", href: "#po-pso-peo" },
-  { label: "Programmes and Syllabi", href: "#programmes-syllabi" },
-  { label: "Courses", href: "#courses" },
-  { label: "Labs", href: "#labs" },
-  { label: "Library", href: "#library" },
+  { label: "PO, PsO and PEO", href: "/academics/posandpeo" },
+  { label: "Programmes and Syllabus", href: "/academics/prgmsandsyllabus" },
+  { label: "Courses", href: "/academics/courses" },
+  { label: "Labs", href: "/academics/labs" },
+  { label: "Library", href: "/academics/librarys" },
 ];
 const placementDropdowns = [
   { label: "Achievement", href: "/achievement" },

@@ -1,5 +1,5 @@
-'use client'
-import React from 'react';
+"use client";
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,8 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -22,18 +22,18 @@ ChartJS.register(
 
 const PlacementGraph = () => {
   return (
-    <div className='w-full flex justify-center overflow-hidden py-24'>
+    <div className="w-full flex justify-center overflow-hidden py-24">
       <div className="w-[85%] justify-center bg-[#E9E9E8] p-5">
-        <h1 className='text-[56px] text-[#696969] font-bebas-neue font-normal leading-16'>
+        <h1 className="text-[56px] text-[#696969] font-bebas-neue font-normal leading-16">
           YEAR WISE PLACEMENT OFFERS
         </h1>
-        <div className='w-[526px] px-5 ' >
+        <div className="w-[526px] px-5 ">
           <Bar
             data={{
-              labels: ["2007", "2008", "2009", "2010",2011],
+              labels: ["2007", "2008", "2009", "2010", 2011],
               datasets: [
                 {
-
+                  labels: "placement status ",
                   data: [140, 120, 105, 90, 130],
                   backgroundColor: "#9E9E9E",
                 },
@@ -44,28 +44,27 @@ const PlacementGraph = () => {
               maintainAspectRatio: false,
               scales: {
                 y: {
-                    beginAtZero: false,
-                    min: 60,
-                    ticks: {
-                        stepSize: 20,
-                      },
-                      grid: {
-                        display: false,  
-                      },
+                  beginAtZero: false,
+                  min: 60,
+                  ticks: {
+                    stepSize: 20,
+                  },
+                  grid: {
+                    display: false,
+                  },
                 },
                 x: {
-                    beginAtZero: true,
-                    grid: {
-                      display: false,
-                    },
+                  beginAtZero: true,
+                  grid: {
+                    display: false,
                   },
+                },
               },
               plugins: {
                 legend: {
                   labels: {
                     fontSize: 15,
                   },
-                  
                 },
               },
             }}
@@ -74,6 +73,6 @@ const PlacementGraph = () => {
       </div>
     </div>
   );
-}
+};
 
 export default PlacementGraph;
