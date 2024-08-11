@@ -291,7 +291,7 @@ function DesktopNavbarItem({ link }) {
   const bgColor = isWhite === "WHITE" ? "bg-white" : "bg-black";
   const hasDropdown = !!link.node;
   const arrow =
-    isWhite === "WHITE" ? "down-arrow-white.png" : "down-arrow-black.png";
+    isWhite === "WHITE" ? "/down-arrow-white.png" : "/down-arrow-black.png";
   const pathname = usePathname();
 
   return (
