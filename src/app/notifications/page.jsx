@@ -9,7 +9,7 @@ const Notifications = () => {
       color="WHITE"
       className=" grid grid-cols-[50%_50%] min-h-full"
     >
-      <div className="bg-[#E1E1FC] relative">
+      <div className="bg-[#c5c8fd] relative">
         <div className="sticky top-0 h-screen block">
           <Image
             className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-contain"
@@ -19,6 +19,7 @@ const Notifications = () => {
             height={600}
           />
         </div>
+        <h1 className="absolute bottom-0 font-bebasneue">.UPDATES</h1>
       </div>
 
       <div className=" bg-black text-white px-6 py-10">

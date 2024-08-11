@@ -12,6 +12,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
 import { RiInstagramFill } from "react-icons/ri";
 import { IoLogoLinkedin } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 
 const navbarVariants = {
   open: {
@@ -34,9 +35,34 @@ const links = [
     href: "/aboutus",
     node: [
       {
-        label: "test",
+        label: "About Department",
         type: "sub-main",
-        href: "/",
+        href: "/aboutus",
+      },
+      {
+        label: "Mission & Vision",
+        type: "sub-main",
+        href: "/aboutus",
+      },
+      {
+        label: "Course Offered",
+        type: "sub-main",
+        href: "/aboutus",
+      },
+      {
+        label: "History of Dept",
+        type: "sub-main",
+        href: "/aboutus",
+      },
+      {
+        label: "Advisory Board",
+        type: "sub-main",
+        href: "/aboutus",
+      },
+      {
+        label: "Gallery",
+        type: "sub-main",
+        href: "/aboutus",
       },
     ],
   },
@@ -48,123 +74,103 @@ const links = [
       {
         label: "PO, PsO and PEO",
         type: "sub-main",
-        href: "/",
+        href: "/academics",
       },
       {
         label: "Programmes and Syllabus",
         type: "sub-main",
-        href: "/",
+        href: "/academics",
       },
       {
         label: "Courses",
         type: "sub-main",
-        href: "/",
+        href: "/academics",
       },
       {
         label: "Labs",
         type: "sub-main",
-        href: "/",
+        href: "/academics",
       },
       {
         label: "Library",
         type: "sub-main",
-        href: "/",
+        href: "/academics",
       },
     ],
   },
   {
-    label: "Peoples",
+    label: "People",
     type: "main",
-    href: "/peoples",
+    href: "/people",
     node: [
       {
-        label: "PO, PsO and PEO",
+        label: "Teaching Staffs",
         type: "sub-main",
-        href: "/",
+        href: "/people",
       },
       {
-        label: "Programmes and Syllabus",
+        label: "Technical Staffs",
         type: "sub-main",
-        href: "/",
+        href: "/people",
       },
       {
-        label: "Courses",
+        label: "Association Members",
         type: "sub-main",
-        href: "/",
+        href: "/people",
       },
       {
-        label: "Labs",
+        label: "Students",
         type: "sub-main",
-        href: "/",
+        href: "/people",
       },
       {
-        label: "Library",
+        label: "Alumni",
         type: "sub-main",
-        href: "/",
+        href: "/people",
       },
     ],
   },
   {
     label: "Activities",
     type: "main",
-    href: "/activities",
+    href: "/activity/events",
     node: [
       {
-        label: "PO, PsO and PEO",
+        label: "Events",
         type: "sub-main",
-        href: "/",
+        href: "/activity/events",
       },
       {
-        label: "Programmes and Syllabus",
+        label: "Blogs",
         type: "sub-main",
-        href: "/",
+        href: "/activity/blog",
       },
       {
-        label: "Courses",
+        label: "Magazine/Newsletter",
         type: "sub-main",
-        href: "/",
+        href: "/activity/magazine",
       },
       {
-        label: "Labs",
+        label: "Students Group",
         type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Library",
-        type: "sub-main",
-        href: "/",
+        href: "/activity/student_gp",
       },
     ],
   },
   {
-    label: "Achivement",
+    label: "Achievements",
     type: "main",
     href: "/achievement",
     node: [
       {
-        label: "PO, PsO and PEO",
+        label: "Achievements",
         type: "sub-main",
-        href: "/",
+        href: "/achievement",
       },
       {
-        label: "Programmes and Syllabus",
+        label: "Placement",
         type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Courses",
-        type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Labs",
-        type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Library",
-        type: "sub-main",
-        href: "/",
+        href: "/placements",
       },
     ],
   },
@@ -172,62 +178,9 @@ const links = [
     label: "Notifications",
     type: "main",
     href: "/notifications",
-    node: [
-      {
-        label: "PO, PsO and PEO",
-        type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Programmes and Syllabus",
-        type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Courses",
-        type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Labs",
-        type: "sub-main",
-        href: "/",
-      },
-      {
-        label: "Library",
-        type: "sub-main",
-        href: "/",
-      },
-    ],
   },
 ];
 
-const peopleDropdownItems = [
-  { label: "Teaching Staffs", href: "#teaching-staffs" },
-  { label: "Technical Staffs", href: "#technical-staffs" },
-  { label: "Association Member", href: "#association-member" },
-  { label: "Students", href: "#students" },
-  { label: "Alumni", href: "#alumni" },
-];
-
-const activitiesDrop = [
-  { label: "Blog", href: "/activity/blog" },
-  { label: "Events", href: "/activity/events" },
-  { label: "Magazine/Newsletter", href: "/activity/magazin" },
-  { label: "Students Group", href: "/activity/student_gp" },
-];
-
-const academicsDropdownItems = [
-  { label: "PO, PsO and PEO", href: "/academics/posandpeo" },
-  { label: "Programmes and Syllabus", href: "/academics/prgmsandsyllabus" },
-  { label: "Courses", href: "/academics/courses" },
-  { label: "Labs", href: "/academics/labs" },
-  { label: "Library", href: "/academics/librarys" },
-];
-const placementDropdowns = [
-  { label: "Achievement", href: "/achievement" },
-  { label: "Placement", href: "/placements" },
-];
 
 function Navbar() {
   const [isWhite, setIsWhite] = useAtom(navbarAtom);
@@ -339,6 +292,8 @@ function DesktopNavbarItem({ link }) {
   const hasDropdown = !!link.node;
   const arrow =
     isWhite === "WHITE" ? "down-arrow-white.png" : "down-arrow-black.png";
+  const pathname = usePathname();
+
   return (
     <div className={twMerge("group/main relative", color)}>
       <Link
@@ -346,16 +301,29 @@ function DesktopNavbarItem({ link }) {
         href={link.href}
       >
         {hasDropdown ? (
-          <img
-            className="shrink-0 opacity-0 group-hover/main:opacity-100 transition-transform block w-[15px] -translate-y-[2px]"
-            src={arrow}
-            alt="expand-links"
-          />
+          link.href === pathname ? (
+            <div
+              className={twMerge(
+                "h-[6px] w-[6px] ml-2 shrink-0 -translate-y-[2px]",
+                bgColor
+              )}
+            ></div>
+          ) : (
+            <img
+              className={twMerge(
+                "shrink-0 opacity-0 group-hover/main:opacity-100 transition-transform block w-[15px] -translate-y-[2px]",
+                link.href === pathname && "opacity-1"
+              )}
+              src={arrow}
+              alt="expand-links"
+            />
+          )
         ) : (
           <div
             className={twMerge(
               "h-[6px] w-[6px] ml-2 shrink-0 opacity-0 -translate-y-[2px]  group-hover/main:opacity-100",
-              bgColor
+              bgColor,
+              link.href === pathname && "opacity-1"
             )}
           ></div>
         )}
