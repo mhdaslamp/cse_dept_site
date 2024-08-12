@@ -16,7 +16,7 @@ const Notifications = () => {
             src="/notify.jpg"
             alt="Background"
             width={500}
-            height={600}
+            height={700}
           />
         </div>
       </div>
