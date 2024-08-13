@@ -12,7 +12,7 @@ const Acadamics = () => {
   return (
     <div className="">
       <Navbar />
-      <AcadamicsSidebar />
+      {/* <AcadamicsSidebar /> */}
       <AcadamicsIntro />
       <AcadamicsPrograms />
       <AcadamicsCoursesBtech />
