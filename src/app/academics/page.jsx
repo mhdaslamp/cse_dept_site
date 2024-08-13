@@ -11,6 +11,8 @@ import AcadamicsSidebar from "@/components/AcadamicsSidebar";
 const Acadamics = () => {
   return (
     <div className="">
+     <Navbar />
+      {/* <AcadamicsSidebar /> */}
       <AcadamicsSidebar />
       <AcadamicsIntro />
       <AcadamicsPrograms />

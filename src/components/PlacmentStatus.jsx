@@ -5,6 +5,7 @@ import { MdKeyboardArrowDown ,MdKeyboardArrowUp } from "react-icons/md";
 import { FaSquareFull } from "react-icons/fa6";
 
 
+
 const ExpandableCards = ({title,year,item})=>{
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -41,7 +42,7 @@ const ExpandableCards = ({title,year,item})=>{
             <div className='pb-2 pl-5 text-[#696969]'>Year &nbsp; 2027 &nbsp; Batch</div>
             <button className="w-[151.19px] h-[38px] py-2 px-4 text-white bg-[#696969]">Download</button>
           </div>
-          {/* <table className="w-full mt-5 border-black border-[1px] text-[#696969]">
+          <table className="w-full mt-5 border-black border-[1px] text-[#696969]">
             <thead className=' bg-[#E9E9E8]'>
               <tr >
                 <th className="">SI NO</th>
@@ -66,8 +67,8 @@ const ExpandableCards = ({title,year,item})=>{
                 <td >8</td>
               </tr>
             </tbody>
-          </table> */}
-          <div className="p-10 ">
+          </table>
+          {/* <div className="p-10 ">
             <div className="flex flex-row pb-10 border-b-2 border-black">
               <img src="./student-1.jpg" alt="" className='w-[500px] h-[280px]'/>
               <div className="pl-10">
@@ -87,7 +88,8 @@ const ExpandableCards = ({title,year,item})=>{
               </div>
               </div>
             </div>
-          </div>
+          </div> */}
+
           <div className='flex max-h-full'>
             <div className={`no-scrollbar flex flex-wrap flex-initial max-h-full  overflow-auto justify-center w-max transition-all duration-[1s] ease-in-out gap-3 `}>
             </div>
@@ -121,3 +123,4 @@ function cardpeople() {
 }
 
 export default cardpeople  
+
