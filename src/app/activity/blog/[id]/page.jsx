@@ -29,7 +29,7 @@ export default function DetailsPage() {
             alt="images"
             width={1600}
             height={200}
-            className=""
+            className="mr-64"
           />
         </div>
         <div className="grid grid-flow-col-dense  mt-8 ">
