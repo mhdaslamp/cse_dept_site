@@ -5,7 +5,8 @@ import { data } from "./content";
 import Image from "next/image";
 import ColoredSection from "../../../components/ColoredSection";
 
-export default function page() {
+export default function Page() {
+  // Updated the function name to Page
   const [selectedItem, setSelectedItem] = useState(null);
 
   const closeModal = () => {
