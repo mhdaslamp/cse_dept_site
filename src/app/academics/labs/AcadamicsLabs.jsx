@@ -19,8 +19,9 @@ const AcadamicsPrograms = () => {
             src="/bg-acadamic.jpeg"
             alt="department pic"
             className="object-fill"
-            width={1000}
-            height={1000}
+            width={1920}
+            height={1920}
+
           />
         </div>
 
