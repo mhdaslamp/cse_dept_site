@@ -1,15 +1,25 @@
+// app/activity/event/page.jsx
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter from next/navigation
 import { upcomingEvents, pastEvents } from "./eventsData";
+import ColoredSection from "../../../components/ColoredSection";
 
 const EventCard = ({ event }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter(); // Initialize useRouter
+
+  const handleCardClick = () => {
+    // Navigate to the event details page using the event's id
+    router.push(`/activity/events/${event.id}`);
+  };
 
   return (
     <div
       className="border flex px-10 py-9"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick} // Set up click handler for navigation
     >
       <div className="h-auto w-auto overflow-hidden">
         <img
@@ -105,19 +115,21 @@ const EventsSection = ({ title, events }) => {
 
 export default function Page() {
   return (
-    <div>
-      <div className="bg-[#e9e8e9]">
-        <div className="container mx-auto w-full h-[350px] flex justify-start items-end pb-8">
-          <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
-          <h1 className="uppercase text-[48px] font-bold">Events</h1>
+    <ColoredSection color="BLACK">
+      <div>
+        <div className="bg-[#e9e8e9]">
+          <div className="container mx-auto w-full h-[350px] flex justify-start items-end pb-8">
+            <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
+            <h1 className="uppercase text-[48px] font-bold">Events</h1>
+          </div>
+        </div>
+        <div className="bg-white container mx-auto">
+          <div>
+            <EventsSection title="Upcoming Events" events={upcomingEvents} />
+            <EventsSection title="Past Events" events={pastEvents} />
+          </div>
         </div>
       </div>
-      <div className="bg-white container mx-auto">
-        <div>
-          <EventsSection title="Upcoming Events" events={upcomingEvents} />
-          <EventsSection title="Past Events" events={pastEvents} />
-        </div>
-      </div>
-    </div>
+    </ColoredSection>
   );
 }

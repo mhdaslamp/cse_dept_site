@@ -2,6 +2,7 @@ import { IoPersonCircle } from "react-icons/io5";
 
 export const data = [
   {
+    id: 1,
     img: "/blog.png",
     head: "Embracing Digital Transformation in Education",
     content:
@@ -14,6 +15,7 @@ export const data = [
     date: "July 15,2024",
   },
   {
+    id: 2,
     img: "/blog.png",
     head: "Embracing Digital Transformation in Education",
     content:
@@ -24,6 +26,7 @@ export const data = [
     date: "July 15,2024",
   },
   {
+    id: 3,
     img: "/blog.png",
     head: "Embracing Digital Transformation in Education",
     content:
@@ -34,6 +37,7 @@ export const data = [
     date: "July 15,2024",
   },
   {
+    id: 4,
     img: "/blog.png",
     head: "Embracing Digital Transformation in Education",
     content:
@@ -44,6 +48,7 @@ export const data = [
     date: "July 15,2024",
   },
   {
+    id: 5,
     img: "/blog.png",
     head: "Embracing Digital Transformation in Education",
     content:
@@ -54,6 +59,7 @@ export const data = [
     date: "July 15,2024",
   },
   {
+    id: 6,
     img: "/blog.png",
     head: "Embracing Digital Transformation in Education",
     content:
@@ -64,5 +70,3 @@ export const data = [
     date: "July 15,2024",
   },
 ];
-
-
