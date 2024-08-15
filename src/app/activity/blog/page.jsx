@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { data } from "./content";
 import Image from "next/image";
 
-export default function Blog() {
+export default function page() {
   return (
     <div>
       <div className="bg-[#e9e8e9]">
@@ -12,27 +13,27 @@ export default function Blog() {
           <h1 className="uppercase text-[48px] font-bold">Blogs</h1>
         </div>
       </div>
-      {data.map((item, index) => (
-        <HoverableItem key={index} item={item} />
+      {data.map((item) => (
+        <HoverableItem key={item.id} item={item} />
       ))}
     </div>
   );
 }
-const blogContnet=()=>{
-    setisClick(true)
-}
 
 function HoverableItem({ item }) {
   const [isHover, setHover] = useState(false);
-  // const [isClick, setisClick] =useState(false)
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/activity/blog/${item.id}`);
+  };
 
   return (
-    <div>
+    <div onClick={handleClick}>
       <div
         className="container mx-auto flex flex-row space-x-10 pt-20"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        // onClick={blogContnet}
       >
         <div className="bg-slate-500 relative w-auto h-full">
           <Image
