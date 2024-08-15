@@ -2,20 +2,23 @@
 import React, { useState } from "react";
 import { data } from "./content";
 import Image from "next/image";
+import ColoredSection from "../../../components/ColoredSection";
 
 export default function Student() {
   return (
-    <div>
-      <div className="bg-[#e9e8e9]">
-        <div className="container mx-auto w-full h-[350px] flex justify-start items-end pb-8">
-          <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
-          <h1 className="uppercase text-[48px] font-bold">Student groups</h1>
+    <ColoredSection color="BLACK">
+      <div>
+        <div className="bg-[#e9e8e9]">
+          <div className="container mx-auto w-full h-[350px] flex justify-start items-end pb-8">
+            <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
+            <h1 className="uppercase text-[48px] font-bold">Student groups</h1>
+          </div>
         </div>
+        {data.map((item, index) => (
+          <HoverableItem key={index} item={item} />
+        ))}
       </div>
-      {data.map((item, index) => (
-        <HoverableItem key={index} item={item} />
-      ))}
-    </div>
+    </ColoredSection>
   );
 }
 
@@ -39,8 +42,8 @@ function HoverableItem({ item }) {
           } transition-all duration-300`}
         />
       </div>
-      <div>
-        <div className="flex mb-5 mt-5 justify-start flex-row items-end">
+      <div className="">
+        <div className="flex mb-5 justify-start flex-row items-end">
           <span
             className={`dot w-1 h-1 bg-black mb-2 ${
               isHover ? "block" : "hidden"
@@ -57,7 +60,7 @@ function HoverableItem({ item }) {
         <p
           className={`${
             isHover ? "text-[#dc856e]" : "text-[#000000]"
-          } transition-colors duration-300 text-[20px]`}
+          } transition-colors duration-300 text-[20px] text-justify`}
         >
           {item.content}
         </p>
