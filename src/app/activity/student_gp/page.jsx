@@ -15,7 +15,7 @@ export default function Page() {
 
   return (
     <ColoredSection color="BLACK">
-      <div>
+      <div className="">
         <div className="bg-[#e9e8e9]">
           <div className="container mx-auto w-full h-[350px] flex justify-start items-end pb-8">
             <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
@@ -94,31 +94,28 @@ function HoverableItem({ item, onClick }) {
 function Modal({ item, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white w-[900px] p-8 flex flex-row  rounded-lg relative">
-        <button
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
-          onClick={onClose}
-        >
-          Close
-        </button>
-        <div className="w-1/2 mr-8">
+      <button
+        className="absolute top-14 right-64 bg-white text-black px-2 p-1 hover:text-gray-800"
+        onClick={onClose}
+      >
+        Close
+      </button>
+      <div className="bg-gray-300 w-[700px] p-8 flex flex-row space-x-10  relative">
+        <div className="w-auto ">
           <Image
             src={item.img}
             alt={item.head}
-            width={600}
-            height={300}
-            className="w-full h-auto mb-4"
+            width={300}
+            height={100}
+            className="w-auto h-auto mb-4"
           />
-        </div>
-        <div className="w-1/2">
           <h1 className="text-2xl font-bold mb-4">{item.head}</h1>
-          <p className="text-lg text-gray-700 mb-4">{item.content}</p>
-          <button
-            className="w-full bg-[#dc856e] text-white p-2 rounded-lg hover:bg-[#b0684d] transition-all"
-            onClick={onClose}
-          >
-            {item.btn}
-          </button>
+        </div>
+
+        <div className="w-1/2">
+          <p className="text-lg text-gray-700 mb-2 text-justify">
+            {item.content}
+          </p>
         </div>
       </div>
     </div>
