@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { FaAngleRight } from "react-icons/fa6";
 
@@ -7,9 +5,9 @@ export default function page() {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center min-h-screen text-center md:text-left bg-black text-white">
       <div className="flex flex-col items-center scale-100 ease-in-out duration-300 hover:scale-110">
-        <h1 className="text-5xl font-bold">404 ERROR</h1>
+        <h1 className="text-5xl font-bold">&apos;404 ERROR&apos;</h1>
         <p className="text-gray-400 text-base font-light mt-4">
-          This is not the page you're looking for
+          This is not the page you&apos;re looking for
         </p>
         <div className="flex justify-center md:justify-start mt-6">
           <a
