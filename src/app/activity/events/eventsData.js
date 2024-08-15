@@ -3,8 +3,6 @@ const upcomingEvents = [
   {
     id: 1,
     title: "ML WORKSHOP",
-    description:
-      "Join our hands-on ML workshop to unlock the power of machine learning and transform your data into actionable insights!",
     mode: "Online",
     date: "August 22, 2024",
     time: "7:00 PM IST",
@@ -22,6 +20,8 @@ const upcomingEvents = [
     location: "Online - Google Meet",
     image: "/activity2.png",
     registrationLink: "https://example.com/register",
+    descriptions:
+      "Are you ready to dive into the world of machine learning and unlock its powerful capabilities? Join us for an engaging and interactive learning session where we'll explore the essentials of machine learning, from fundamentals to advanced concepts. Event Details: 📆 Date: 22nd August 2024🕒 Time: 7PM IST 📍 Platform: Google Meet🎯 What to Expect:🤖 Introduction to Machine Learning:Gain insights into the importance of machine learning, understanding its role in transforming data into actionable insights.📊 Key Machine Learning Concepts:Learn about supervised and unsupervised learning, feature engineering, and model evaluation techniques. 🛠️ Building ML Models: Discover best practices for building machine learning models, including data preprocessing, algorithm selection, and hyperparameter tuning.🔍 Monitoring and Model Management: Explore tools and techniques for monitoring ML models, evaluating their performance, and managing model lifecycle effectively.🚀 Advanced Machine Learning Practices: Get an overview of advanced machine learning techniques, such as deep learning, reinforcement learning, and integrating ML into production systems. Register now to embark on a journey filled with machine learning insights and skills! 🌐🤖 #CSEDepartment #MachineLearning #TechLearning #MLWorkshop 4o",
   },
   {
     id: 2,
