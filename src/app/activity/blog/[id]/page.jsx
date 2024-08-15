@@ -5,10 +5,12 @@ import { IoPersonCircle } from "react-icons/io5";
 import { useParams } from "next/navigation";
 import { data } from "../content";
 
-export default function details() {
+export default function DetailsPage() {
   const { id } = useParams();
   const blogItem = data.find((item) => item.id === parseInt(id));
+
   if (!blogItem) return <p>Blog post not found.</p>;
+
   return (
     <div>
       <div className="bg-[#e9e8e9] pb-5 ">
