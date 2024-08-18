@@ -10,9 +10,9 @@ import "aos/dist/aos.css";
 function StudentCard({ name, batch, sem, cgpa, image, index }) {
   return (
     <div>
-      <div className="student-card">
-        <div className="flex flex-row sm:flex-col bg-white justify-start items-center h-[136px] relative sm:h-auto w-auto sm:w-[200px]">
-          <div className="stud-image w-[150px] h-[136px] sm:w-[200px] sm:h-[200px] transition-all duration-[1s]">
+      <div className="student-card h-[350px] w-auto">
+        <div className="flex flex-row sm:flex-col bg-white justify-start items-center h-[156px] relative sm:h-auto w-auto sm:w-[220px]">
+          <div className="stud-image w-[170px] h-[156px] sm:w-[220px] sm:h-[220px] transition-all duration-[1s]">
             <img
               src={image}
               alt={name}
@@ -37,7 +37,7 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
             </p>
           </div>
         </div>
-        <div className="w-[200px] h-2 hidden sm:block ">
+        <div className="w-[220px] h-2 hidden sm:block ">
           <div className="arrow-buttons h-[31px] bg-white flex flex-1 items-center justify-center">
             <p className=" w-full flex py-1 justify-center items-center text-black hover:bg-[#9E9E9E] hover:text-white transition-all ">
               <HiArrowLeft size={22} />
@@ -55,7 +55,7 @@ function StudentCard({ name, batch, sem, cgpa, image, index }) {
 const Toppers = () => {
   return (
     <div className="container mx-auto bg-white py-20 px-4 sm:px-6 h-full">
-      <div className=" bg-[#e9e9e8] w-full h-auto p-4 sm:p-6">
+      <div className=" bg-[#e9e9e8] w-full h-full p-4 sm:p-6">
         <div className="flex justify-start w-full h-full">
           <h1 className="text-black font-bold font-bebasneue lg:text-5xl text-4xl ">
             . TOPPERS
