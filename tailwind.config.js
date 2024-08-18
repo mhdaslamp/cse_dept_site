@@ -33,6 +33,8 @@ module.exports = {
       },
       colors: {
         newblue: "#0D38B1",
+        newgray: "#9E9E9E",
+        
       },
       letterSpacing: {
         "link": "0.64px"
