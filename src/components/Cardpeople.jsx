@@ -1,22 +1,21 @@
 'use client'
-import React from 'react'
+import React, { Fragment } from 'react'
 import { useState,useEffect,useRef } from 'react'
 import { MdKeyboardArrowDown ,MdKeyboardArrowUp } from "react-icons/md";
 import { FaSquareFull } from "react-icons/fa6";
 import { motion } from 'framer-motion'
+import { ImCross } from "react-icons/im";
 
 
 const ExpandableCards = ({title,item})=>{
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDescVisible,setIsDescVisible]=useState(null);
 
-  const anim = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
+  const toggleVisible = (id) => {
+    setIsDescVisible(isDescVisible === id ? null : id);
   };
+  
 
   const toggleExpand = () => {
      if (!isExpanded) {
@@ -69,12 +68,12 @@ const year=sortedRanges.filter((item,index)=>
   // }, [isExpanded]);
 
   return (
-    <div className='w-screen  flex  justify-center overflow-hidden'>
+    <div className='w-screen  flex  justify-center overflow-hidden z-0'>
 
       <div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5":""} }`} >
         <div className='flex justify-between'>
-      <div onClick={toggleExpand} className={`font-bold transition-all duration-700 flex group-hover:text-black group-hover:text-2xl pl-5 ${isExpanded?"text-black text-2xl":"text-[#696969]"} cursor-pointer`}>
-      <FaSquareFull className={`translate-y-[19px] duration-1000 transition-all ${isExpanded?"text-[5px] mr-2 ":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
+      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
+      <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black ":"text-[0px] text-[#696969] mr-0 "}`}/>{title}
         </div>
       <div 
         onClick={toggleExpand}
@@ -94,9 +93,9 @@ const year=sortedRanges.filter((item,index)=>
               {selectedContent} 
         <div 
         onClick={toggleOpen}
-        className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${isOpen?"rotate-180 opacity-100":''} duration-500 ease-in-out z-10`}
+        className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${isOpen?"rotate-180 opacity-100 ":''} duration-500 ease-in-out z-10`}
       >
-        <MdKeyboardArrowDown className='w-10 h-8 text-[#9E9E9E]' />
+        <MdKeyboardArrowDown className={`w-10 h-8 text-[#9E9E9E] `} />
         
         </div>
         
@@ -123,18 +122,105 @@ const year=sortedRanges.filter((item,index)=>
         <div className={`no-scrollbar flex flex-wrap flex-initial max-h-full  overflow-auto justify-items-start w-full transition-all duration-[1s] ease-in-out gap-3 mb-3 px-5 `}>
 
         {items.map((data,key)=>(
-          <motion.div variants={anim} key={key} className='bg-white h-[313px] w-[240px]'>
+          <Fragment  key={key}>
+          <div  className='bg-white h-[313px] w-[240px]'
+            onClick={()=>toggleVisible(key)}
+          >
             <div className='w-full h-[77%] bg-cover bg-no-repeat bg-center' style={{backgroundImage:`url(${data.link})`}}></div>
             <div className='p-3 leading-3'>
             <h1 className='text-xl font-bold'>{data.name}</h1>
             <p className='text-[#9E9E9E]'>{data.postion}</p>
             </div>
-            </motion.div>
-        ))}
-        </div>
-        </div>
-        </div>
+            
+            </div>
+            {(isDescVisible===key) && (
+              <div className='absolute  w-screen h-screen top-0 left-0 flex justify-center items-center z-10'>
+             <motion.div 
+             className='flex gap-5 relative w-2/5 p-5 h-2/4 border-solid z-10 bg-white bg-opacity-20  shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]  backdrop-blur-lg'>
+              <div
+               className='absolute top-[-30px] gap-2 right-0 w-auto flex items-center cursor-pointer bg-white/60 p-1'
+               onClick={toggleVisible}><span>Close</span><ImCross className=''/></div>
+              <div className='w-1/3 h-full bg-cover pr-5  border-solid border-r-2' >
+              <div className=' w-full h-[65%] bg-no-repeat bg-cover bg-center' style={{backgroundImage:`url(${data.link})`}}></div>
+              <div className='w-full pt-3 '>
+              <div className='text-[1.25rem] w-full'>{data.name}</div> 
+              <div className='text-[0.8rem] text-[#696969] w-full'>{data.postion}</div> 
+              <div className='text-[0.rem] text-[#696969] w-full'>{data.email}</div>
+              </div>
+              </div>
+              <div className='pl-3 no-scrollbar overflow-y-auto'>
+                {data.qualification && <div> <h1 className='text-[1.25rem]'>Qualification</h1>
+                <ul className='list-disc py-2'>
+                  {data.qualification.map((item,index)=>(
+                    <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                  ))}
+                </ul>
+                </div>}
+                {data.responsibility &&<div> <h1 className='text-[1.25rem]'>Responsibilities held</h1>
+                <ul className='list-disc py-2'>
+                  {data.responsibility.map((item,index)=>(
+                    <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                  ))}
+                </ul>
+                </div> }
+                {
+                  data.indusexp &&<div> <h1 className='text-[1.25rem]'>Industrial Experience</h1>
+                  <ul className='list-disc py-2'>
+                    {data.indusexp.map((item,index)=>(
+                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                    ))}
+                  </ul>
+                  </div> 
+                }
+                {
+                  data.projects &&<div> <h1 className='text-[1.25rem]'>Projects</h1>
+                  <ul className='list-disc py-2'>
+                    {data.projects.map((item,index)=>(
+                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                    ))}
+                  </ul>
+                  </div> 
+                }
 
+                {
+                  data.liofpub &&<div> <h1 className='text-[1.25rem]'>List of Publications</h1>
+                  <ul className='list-disc py-2'>
+                    {data.liofpub.map((item,index)=>(
+                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                    ))}
+                  </ul>
+                  </div> 
+                }
+                {
+                  data.achieve &&<div> <h1 className='text-[1.25rem]'>Achievements</h1>
+                  <ul className='list-disc py-2'>
+                    {data.achieve.map((item,index)=>(
+                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                    ))}
+                  </ul>
+                  </div> 
+                }
+                {
+                   data.course &&<div> <h1 className='text-[1.25rem]'>Recently taught Courses</h1>
+                   <ul className='list-disc py-2'>
+                     {data.course.map((item,index)=>(
+                       <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                     ))}
+                   </ul>
+                   </div>
+                }
+
+              </div>
+             </motion.div>
+             </div>
+            )}
+            </Fragment>
+        ))}
+        
+        </div>
+        </div>
+        </div>
+        
       </div>
       
     </div>
@@ -146,6 +232,7 @@ const year=sortedRanges.filter((item,index)=>
 function Student({title,item}){
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [dept,setDept]=useState("BTech");
 
   const anim = {
     hidden: { y: 20, opacity: 0 },
@@ -154,6 +241,10 @@ function Student({title,item}){
       opacity: 1
     }
   };
+
+  const toggleDept=(item)=>{
+    setDept(item)
+  }
 
   const toggleExpand = () => {
      if (!isExpanded) {
@@ -192,17 +283,23 @@ const year=sortedRanges.filter((item,index)=>
     setselectedContent(item)
     setIsOpen(false)
   }
-  const items=item.filter((data)=>data.year===selectedContent)
+  const department=["BTech","MTech","PhD"]
+
+  const items=item.filter((data)=>
+    data.year===selectedContent &&
+    data.dept===dept
+    )
  
 
   return (
     <div className='w-screen  flex  justify-center overflow-hidden'>
 
-      <div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5":""} }`} >
+<div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5":""} }`} >
         <div className='flex justify-between'>
-      <div onClick={toggleExpand} className={`font-bold transition-all duration-700 flex group-hover:text-black group-hover:text-2xl pl-5 ${isExpanded?"text-black text-2xl":"text-[#696969]"} cursor-pointer`}>
-      <FaSquareFull className={`translate-y-[19px] duration-1000 transition-all ${isExpanded?"text-[5px] mr-2 ":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
+      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex  text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
+      <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
         </div>
+
       <div 
         onClick={toggleExpand}
         className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${isExpanded?"rotate-180 opacity-100":''} duration-[1s] ease-in-out z-10`}
@@ -212,7 +309,17 @@ const year=sortedRanges.filter((item,index)=>
         </div>
       </div>
     
-        <div className={` transition-all duration-[1s] h-auto   ${isExpanded?'opacity-100 max-h-screen':'opacity-0 max-h-0'}`}>
+        <div className={` transition-all duration-[1s] h-auto   ${isExpanded?('opacity-100 max-h-screen'):'opacity-0 max-h-0'}`}>
+
+        <div className='flex pl-5 gap-3'>
+      {department.map((item,index)=>(
+        <div onClick={()=>toggleDept(item)} className='group/dept flex'>
+        <FaSquareFull className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${dept===item?"text-[3px] text-black":"text-[0px] text-[#696969]"} `}/>
+        <div className={`transition-all duration-500 group-hover/dept:ml-2 ${dept===item?"ml-2 text-black":"ml-0 text-[#696969]"} `}>{item}</div>
+        </div>
+      ))}
+    </div>
+
       <div className='pb-2 pl-5 flex gap-5 text-[#696969] items-center '>Acadamics Year 
         <div>
             <div 
@@ -250,7 +357,7 @@ const year=sortedRanges.filter((item,index)=>
         <div className={`no-scrollbar flex  flex-wrap  flex-initial overflow-auto max-h-screen min-h-max h-auto justify-between w-full  gap-3  px-5 `}>
 
         {items.map((data,key)=>(
-            <div className='leading-9 pt-1'>
+            <div className='leading-9 pt-1' key={key} >
             <h1 className='text-[54px] text-[#696969]'>{data.name}</h1>
             </div>
             
@@ -271,13 +378,30 @@ function cardpeople() {
     name:"Swaraj K P",
     postion:"Associate Professor",
     link:"/images/card.jpeg",
-    year:"2023-24"
+    year:"2023-24",
+    email:"swarajkp@gmail.com",
+    qualification:["Ph. D in Computer Science & Engineering, University of Kerala"," M. Tech. in Computer Science, National Institute of Technology (NIT),Tiruchirappalli, Tamilnadu",
+      "B. Tech. in Computer Science & Engineering,TKM College of Engineering Kollam ( University of Kerala)",
+    ],
+    responsibility:['PSC interview Board member',"Chairman kerala university","Chairman-Kerala Technological University"],
+    indusexp:['1999-till date teaching experience (20 years of teaching experience)'],
+    projects:["Mtech Projects"],
+    liofpub:[' Sabitha S and Dr. M.P Sebastian, “GOS-AODV: A Gossip based Sleep Ad Hoc On Demand Distance Vector Routing Protocol”, Proc. Sixth IASTED International Conference on Communication Systems & Networks, Spain , August 2007, PP 13-18.',
+      '  Sabitha, S., and M. S. Rajasree. "Anonymous-cpabe: Privacy preserved content disclosure for data sharing in cloud." In International Conference on Architecture of Computing Systems, pp. 146-157. Springer International Publishing, 2015.',
+      '  Poison, Deepa Maria, S. Sabitha, and M. S. Rajasree. "Fine grained key computation scheme for secure data sharing in cloud." In Advances in Computing, Communications and Informatics (ICACCI), 2016 International Conference on, pp. 1110-1116. IEEE, 2016.',
+      '  S. Sabitha, M. S. Rajasree: Access control based privacy preserving secure data sharing with hidden access policies in cloud. Journal of Systems Architecture - Embedded Systems Design, Elsevier, 75: 50-58 (2017)',
+      '  Anju Mohandas and Sabitha S. "Privacy preserving content disclosure for enabling sharing of electronic health records in cloud computing." Proceedings of the 7th ACM India Computing Conference. ACM, 2014, pp 1-7.',
+      '  Praveen Kumar and Sabitha S. “ User Authentication using visual cryptography”, Proc. IEEE ICCC 2015',
+      '  Reenu Sara George and Sabitha S, “Survey on data integrity in cloud computing”, International Journal of Advanced Research in Computer Engineering & Technology (IJARCET),Volume 2, Issue 1,pp. 123-125, January 2013.'
+    ],
+    course:["Database Technology","Machine Learning","Database Management Systems","Data Mining and Warehousing"]
   },
   {
     name:"Swaraj K P",
     postion:"Associate Professor",
     link:"/images/card.jpeg",
-    year:"2022-23"
+    year:"2022-23",
+    email:"savitha@gmail.com"
   },
   {
     name:"Swaraj K P",
@@ -341,52 +465,68 @@ function cardpeople() {
 ]
 const studitem=[{
   name:"Muhammed Ali",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Aleena O K",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Nandana A S",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Nandana V S",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Bimal Devasia",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Devadarsh M R",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Aswathy Krishna",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Yamuna Jayakumar",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"BTech"
 },{
   name:"Agnes Davies",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"MTech"
 },{
   name:"Jubuhan TT",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"MTech"
 },{
   name:"Vivek PS",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"MTech"
 },{
   name:"Amal Joseph",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"MTech"
 },{
   name:"Amal Joseph",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"PhD"
 },{
   name:"Sabari Kannan KR",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"PhD"
 },{
   name:"Almir Rimon MP",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"PhD"
 },{
   name:"Devadarsh M R",
-  year:"2023-24"
+  year:"2023-24",
+  dept:"PhD"
 }]
 
   return (

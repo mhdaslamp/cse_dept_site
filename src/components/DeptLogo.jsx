@@ -6,6 +6,10 @@ import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import ColoredSection from "./ColoredSection";
 
+
+
+
+
 const DeptLogo = () => {
   const [capPosition, setCapPosition] = useState({ left: 0, top: 0 });
   const [show, setShow] = useState(false);
@@ -125,7 +129,7 @@ const DeptLogo = () => {
           </div>
         </div>
 
-        <div className="lg:flex relative whitespace-nowrap overflow-hidden lg:w-[1300px] hidden">
+        <div className="lg:flex relative whitespace-nowrap overflow-hidden lg:w-screen hidden">
           <div
             className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  "
             ref={firsttext}
