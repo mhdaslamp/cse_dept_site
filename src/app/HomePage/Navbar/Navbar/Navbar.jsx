@@ -289,6 +289,7 @@ function DesktopNavbarItem({ link }) {
   const [isWhite, setIsWhite] = useAtom(navbarAtom);
   const color = isWhite === "WHITE" ? "text-white" : "text-black";
   const bgColor = isWhite === "WHITE" ? "bg-white" : "bg-black";
+  const blurBg = isWhite === "WHITE" ? "bg-white/10" : "bg-black/10";
   const hasDropdown = !!link.node;
   const arrow =
     isWhite === "WHITE" ? "/down-arrow-white.png" : "/down-arrow-black.png";
@@ -333,7 +334,7 @@ function DesktopNavbarItem({ link }) {
       <ul
         className={twMerge(
           `absolute left-0 mt-2 ml-0   w-52 hidden top-[90%] group-hover/main:block backdrop-blur-[32px]`,
-          "bg-black/10"
+          blurBg
         )}
       >
         {hasDropdown &&

@@ -65,7 +65,7 @@ const DeptLogo = () => {
         ref={containerRef}
         className="flex flex-col px-12 md:px-20 py-8 justify-center items-center min-h-screen"
       >
-        <div className="flex justify-center align-items-center relative">
+        <div className="flex justify-center align-items-center relative px-5 md:px-0">
           <motion.img
             style={{
               y: logoTop,
@@ -75,7 +75,7 @@ const DeptLogo = () => {
             width={480}
             height={280}
             alt="cse Image"
-            className="cse-image"
+            className="cse-image "
           />
           <motion.div
             style={{
@@ -83,18 +83,18 @@ const DeptLogo = () => {
               y: capTop,
               scale: scaleCap,
             }}
-            className="absolute top-[-42%]  left-[-23%]"
+            className="absolute top-[-42%] left-[-10%]  md:left-[-23%]"
           >
             <Image
               src="/cap.png"
               width={200}
               height={200}
               alt="Cap Image"
-              className="cap-image"
+              className="cap-image w-[25vw] md:w-[200px]"
             />
           </motion.div>
         </div>
-        <div className="flex sm:flex-row flex-col w-full justify-around pt-8">
+        <div className="flex sm:flex-row flex-col w-full justify-around pt-8 gap-4 md:gap-0">
           <motion.div
             style={{
               opacity: visionTextOpacity,
@@ -109,7 +109,7 @@ const DeptLogo = () => {
               alt="vision"
               className="w-full"
             />
-            <p className="text-gray-500 text-xl w-10/12">
+            <p className="text-gray-500 text-xl pr-8 md:pr-12 mt-2">
               {DeptConstants.vision}
             </p>
           </motion.div>
@@ -128,7 +128,7 @@ const DeptLogo = () => {
                 alt="mission"
                 className="w-full"
               />
-              <p className="text-gray-500 text-xl w-10/12">
+              <p className="text-gray-500 text-xl pl-8 md:pl-12 mt-2">
                 {DeptConstants.mission}
               </p>
             </div>
