@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/app/HomePage/Navbar/Navbar";
-import Footer from "@/components/Footer";
 import AcadamicsIntro from "@/app/academics/posandpeo/AcadamicsIntro";
 import AcadamicsPrograms from "@/app/academics/prgmsandsyllabus/AcadamicsPrograms";
 import Labs from "@/app/academics/labs/AcadamicsLabs";
@@ -11,7 +9,6 @@ import AcadamicsSidebar from "@/components/AcadamicsSidebar";
 const Acadamics = () => {
   return (
     <div className="">
-     <Navbar />
       {/* <AcadamicsSidebar /> */}
       <AcadamicsSidebar />
       <AcadamicsIntro />
