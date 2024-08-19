@@ -292,82 +292,118 @@ const year=sortedRanges.filter((item,index)=>
  
 
   return (
-    <div className='w-screen  flex  justify-center overflow-hidden'>
-
-<div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5":""} }`} >
-        <div className='flex justify-between'>
-      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex  text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
-      <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
-        </div>
-
-      <div 
-        onClick={toggleExpand}
-        className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${isExpanded?"rotate-180 opacity-100":''} duration-[1s] ease-in-out z-10`}
+    <div className="w-screen  flex  justify-center overflow-hidden">
+      <div
+        className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${
+          isExpanded ? "mb-5" : ""
+        } }`}
       >
-        <MdKeyboardArrowDown className='w-10 h-8 text-[#9E9E9E]' />
-        
-        </div>
-      </div>
-    
-        <div className={` transition-all duration-[1s] h-auto   ${isExpanded?('opacity-100 max-h-screen'):'opacity-0 max-h-0'}`}>
-
-        <div className='flex pl-5 gap-3'>
-      {department.map((item,index)=>(
-        <div onClick={()=>toggleDept(item)} className='group/dept flex'>
-        <FaSquareFull className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${dept===item?"text-[3px] text-black":"text-[0px] text-[#696969]"} `}/>
-        <div className={`transition-all duration-500 group-hover/dept:ml-2 ${dept===item?"ml-2 text-black":"ml-0 text-[#696969]"} `}>{item}</div>
-        </div>
-      ))}
-    </div>
-
-      <div className='pb-2 pl-5 flex gap-5 text-[#696969] items-center '>Acadamics Year 
-        <div>
-            <div 
-            onClick={toggleOpen}
-            className='relative flex items-center group/year px-2 text-[#696969] cursor-pointer'>
-              {selectedContent} 
-        <div 
-        onClick={toggleOpen}
-        className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${isOpen?"rotate-180 opacity-100":''} duration-500 ease-in-out z-10`}
-      >
-        <MdKeyboardArrowDown className='w-10 h-8 text-[#9E9E9E]' />
-        
-        </div>
-        
-        
-         </div>
-         <div className='relative'>
-         <div className={`absolute transition-all duration-500  ${isOpen?'opacity-100 max-h-max':'opacity-0 max-h-0'}`}>
-        {year.map((item,index)=>(
-              <div 
-              onClick={()=>handleyear(item)}
-              key={index}
-              className='px-2 bg-[#E9E9E8] text-[#696969] cursor-pointer'>
-                {item}
-              </div>
-        ))
-          }
+        <div className="flex justify-between">
+          <div
+            onClick={toggleExpand}
+            className={`group font-bold transition-all duration-700 flex  text-2xl pl-5 ${
+              isExpanded ? "text-black" : "text-[#696969]"
+            } cursor-pointer`}
+          >
+            <FaSquareFull
+              className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${
+                isExpanded
+                  ? "text-[5px] mr-2 text-black"
+                  : "text-[0px] mr-0 text-[#696969]"
+              }`}
+            />
+            {title}
           </div>
-         </div>
-        
-        
-        </div>
-        </div>
-      <div className='flex  pb-3'>
-        <div className={`no-scrollbar flex  flex-wrap  flex-initial overflow-auto max-h-screen min-h-max h-auto justify-between w-full  gap-3  px-5 `}>
 
-        {items.map((data,key)=>(
-            <div className='leading-9 pt-1' key={key} >
-            <h1 className='text-[54px] text-[#696969]'>{data.name}</h1>
+          <div
+            onClick={toggleExpand}
+            className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${
+              isExpanded ? "rotate-180 opacity-100" : ""
+            } duration-[1s] ease-in-out z-10`}
+          >
+            <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
+          </div>
+        </div>
+
+        <div
+          className={` transition-all duration-[1s] h-auto   ${
+            isExpanded ? "opacity-100 max-h-screen" : "opacity-0 max-h-0"
+          }`}
+        >
+          <div className="flex pl-5 gap-3">
+            {department.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => toggleDept(item)}
+                className="group/dept flex"
+              >
+                <FaSquareFull
+                  className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${
+                    dept === item
+                      ? "text-[3px] text-black"
+                      : "text-[0px] text-[#696969]"
+                  } `}
+                />
+                <div
+                  className={`transition-all duration-500 group-hover/dept:ml-2 ${
+                    dept === item ? "ml-2 text-black" : "ml-0 text-[#696969]"
+                  } `}
+                >
+                  {item}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="pb-2 pl-5 flex gap-5 text-[#696969] items-center ">
+            Acadamics Year
+            <div>
+              <div
+                onClick={toggleOpen}
+                className="relative flex items-center group/year px-2 text-[#696969] cursor-pointer"
+              >
+                {selectedContent}
+                <div
+                  onClick={toggleOpen}
+                  className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${
+                    isOpen ? "rotate-180 opacity-100" : ""
+                  } duration-500 ease-in-out z-10`}
+                >
+                  <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
+                </div>
+              </div>
+              <div className="relative">
+                <div
+                  className={`absolute transition-all duration-500  ${
+                    isOpen ? "opacity-100 max-h-max" : "opacity-0 max-h-0"
+                  }`}
+                >
+                  {year.map((item, index) => (
+                    <div
+                      onClick={() => handleyear(item)}
+                      key={index}
+                      className="px-2 bg-[#E9E9E8] text-[#696969] cursor-pointer"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            
-        ))}
+          </div>
+          <div className="flex  pb-3">
+            <div
+              className={`no-scrollbar flex  flex-wrap  flex-initial overflow-auto max-h-screen min-h-max h-auto justify-between w-full  gap-3  px-5 `}
+            >
+              {items.map((data, key) => (
+                <div className="leading-9 pt-1" key={key}>
+                  <h1 className="text-[54px] text-[#696969]">{data.name}</h1>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-
       </div>
-      
     </div>
   );
 }
