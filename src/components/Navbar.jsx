@@ -1,13 +1,10 @@
 "use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-// import NavbarItem from "./NavbarItem/NavbarItem";
-import { AiFillInstagram } from "react-icons/ai";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { useState } from "react";
+import { FaGithub } from "react-icons/fa6";
 import { useAtom } from "jotai";
 import { navbarAtom } from "@/atoms/navbarAtom";
 import { twMerge } from "tailwind-merge";
-import { AnimatePresence, motion, useAnimate } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
 import { RiInstagramFill } from "react-icons/ri";
@@ -181,7 +178,6 @@ const links = [
   },
 ];
 
-
 function Navbar() {
   const [isWhite, setIsWhite] = useAtom(navbarAtom);
   const [open, setOpen] = useState(false);
@@ -196,7 +192,7 @@ function Navbar() {
     <div className="z-10 fixed w-screen isolate">
       <div
         className={twMerge(
-          "w-full lgmd:w-[90%] 2xl:w-[80%] max-w-[1400px]  lgmd:mt-[1.875rem]  mx-auto flex justify-between items-center  relative px-4 py-2 mdlg:py-0 font-bebasneue",
+          "w-full nav-lg:w-[90%] 2xl:w-[80%] max-w-[1400px]  nav-lg:mt-[1.875rem]  mx-auto flex justify-between items-center  relative px-4 py-2 nav-md:py-0 font-bebasneue",
           !open && "before:backdrop-hack",
           open ? "bg-white" : bgBlur
         )}
@@ -213,8 +209,9 @@ function Navbar() {
             </h1>
           )}
         </div>
-        <nav className="hidden mdlg:block" id="desktop-nav">
-          <ul className="flex lgmd:gap-8 gap-4">
+        {/* Desktop links */}
+        <nav className="hidden nav-md:block" id="desktop-nav">
+          <ul className="flex nav-lg:gap-8 gap-4">
             {links.map((link) => (
               <li key={link.label}>
                 <DesktopNavbarItem link={link} />
@@ -222,7 +219,8 @@ function Navbar() {
             ))}
           </ul>
         </nav>
-        <div className="block mdlg:hidden" id="mobile-nav">
+        {/* Mobile Menu Button */}
+        <div className="block nav-md:hidden" id="mobile-nav">
           <button
             className={twMerge(
               "p-2 font-montserrat outline-none",
@@ -238,49 +236,52 @@ function Navbar() {
           </button>
         </div>
       </div>
-      <motion.div
-        variants={navbarVariants}
-        animate={open ? "open" : "closed"}
-        initial="closed"
-        transition={{
-          ease: "linear",
-        }}
-        className="fixed w-screen top-0 left-0 h-screen overflow-auto  bg-white z-[-1] "
-      >
-        <nav className="flex flex-col justify-between  min-h-screen pt-20 px-5">
-          <ul className="flex-1">
-            {links.map((link) => (
-              <li key={link.label}>
-                <MobileNavbarItem
-                  link={link}
-                  setOpenedLabel={setOpenedLabel}
-                  openedLabel={openedLabel}
-                  setClose={() => setOpen(false)}
-                />
-              </li>
-            ))}
-          </ul>
-          <div className="w-full flex items-end justify-between py-5 font-bebasneue text-gray-600">
-            <div>
-              <p>&copy;2024 CSE ASSOSIATION</p>
-              <p className=" text-sm h-fit">
-                DESIGN AND POWERED BY{" "}
-                <Link
-                  className="underline font-bold hover:text-blue-500"
-                  href="#"
-                >
-                  CSE STUDENTS
-                </Link>
-              </p>
+      {/* Mobile Sidebar */}
+      {open && (
+        <motion.div
+          variants={navbarVariants}
+          animate={open ? "open" : "closed"}
+          initial="closed"
+          transition={{
+            ease: "linear",
+          }}
+          className="fixed w-screen top-0 left-0 h-screen overflow-auto  bg-white z-[-1] "
+        >
+          <nav className="flex flex-col justify-between  min-h-screen pt-20 px-5">
+            <ul className="flex-1">
+              {links.map((link) => (
+                <li key={link.label}>
+                  <MobileNavbarItem
+                    link={link}
+                    setOpenedLabel={setOpenedLabel}
+                    openedLabel={openedLabel}
+                    setClose={() => setOpen(false)}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className="w-full flex items-end justify-between py-5 font-bebasneue text-gray-600">
+              <div>
+                <p>&copy;2024 CSE ASSOSIATION</p>
+                <p className=" text-sm h-fit">
+                  DESIGN AND POWERED BY{" "}
+                  <Link
+                    className="underline font-bold hover:text-blue-500"
+                    href="#"
+                  >
+                    CSE STUDENTS
+                  </Link>
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <RiInstagramFill className="text-gray-600 w-5 h-5" />
+                <IoLogoLinkedin className="text-gray-600 w-5 h-5" />
+                <FaGithub className="text-gray-600 w-5 h-5" />
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <RiInstagramFill className="text-gray-600 w-5 h-5" />
-              <IoLogoLinkedin className="text-gray-600 w-5 h-5" />
-              <FaGithub className="text-gray-600 w-5 h-5" />
-            </div>
-          </div>
-        </nav>
-      </motion.div>
+          </nav>
+        </motion.div>
+      )}
     </div>
   );
 }
@@ -365,20 +366,33 @@ function DesktopNavbarItem({ link }) {
 function MobileNavbarItem({ link, openedLabel, setOpenedLabel, setClose }) {
   return (
     <div className="border-b border-[#696969]">
-      <button
-        onClick={() =>
-          setOpenedLabel((prev) => (prev === link.label ? "" : link.label))
-        }
-        className="flex justify-between items-center w-full font-bebasneue text-[#656565] [-webkit-text-stroke-width:0.2] [-webkit-text-stroke-color:#FFF] py-4 "
-      >
-        <span>{link.label}</span>
-        <FaArrowRightLong
-          className={twMerge(
-            "text-black transition-transform",
-            openedLabel === link.label && link.node && "rotate-45"
-          )}
-        />
-      </button>
+      {link.node && link.node.length > 0 ? (
+        <button
+          onClick={() =>
+            setOpenedLabel((prev) => (prev === link.label ? "" : link.label))
+          }
+          className="flex justify-between items-center w-full font-bebasneue text-[#656565] [-webkit-text-stroke-width:0.2] [-webkit-text-stroke-color:#FFF] py-4 "
+        >
+          <span>{link.label}</span>
+          <FaArrowRightLong
+            className={twMerge(
+              "text-black transition-transform",
+              openedLabel === link.label && link.node && "rotate-45"
+            )}
+          />
+        </button>
+      ) : (
+        <Link
+          href={link.href}
+          onClick={setClose}
+          className="flex justify-between items-center w-full font-bebasneue text-[#656565] [-webkit-text-stroke-width:0.2] [-webkit-text-stroke-color:#FFF] py-4 "
+        >
+          <span>{link.label}</span>
+          <FaArrowRightLong
+            className={twMerge("text-black transition-transform")}
+          />
+        </Link>
+      )}
       <AnimatePresence>
         {link.node && link.node.length > 0 && openedLabel === link.label && (
           <motion.ul

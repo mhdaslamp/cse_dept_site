@@ -5,11 +5,9 @@ import AcheiversHorizontalScrollCarousel from "./acheiversHorizontalScroll/page"
 
 const page = () => {
   return (
-    <ColoredSection color="BLACK">
-      <div className="mt-20">
-        <Acheivers />
-        <AcheiversHorizontalScrollCarousel />
-      </div>
+    <ColoredSection className="pt-16" color="BLACK">
+      <Acheivers />
+      <AcheiversHorizontalScrollCarousel />
     </ColoredSection>
   );
 };

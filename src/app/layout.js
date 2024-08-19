@@ -1,6 +1,7 @@
 import { Inter, Montserrat, Bebas_Neue } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/HomePage/Navbar/Navbar/Navbar";
+import LenisScroll from "@/components/LenisScroll";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({
@@ -25,8 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} ${montserrat.variable} ${bebasNeue.variable}`}
       >
+        <LenisScroll>
         <Navbar />
         {children}
+
+        </LenisScroll>
       </body>
     </html>
   );
