@@ -65,7 +65,7 @@ function Home() {
             autoPlay
             muted
             loop
-            playsinline
+            playsInline
             preload="metadata"
             _type="video"
             className="w-full h-full object-cover absolute top-0 z-[-1] ease-quart-out transition-opacity duration-100"
