@@ -87,6 +87,7 @@ function HoverableItem({ item, onClick }) {
           {item.btn}
         </button>
       </div>
+      
     </div>
   );
 }
@@ -95,7 +96,7 @@ function Modal({ item, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <button
-        className="absolute top-14 right-64 bg-white text-black px-2 p-1 hover:text-gray-800"
+        className="absolute top-48 right-[530px] bg-white text-black px-2 p-1 hover:text-gray-800"
         onClick={onClose}
       >
         Close

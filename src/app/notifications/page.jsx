@@ -29,7 +29,7 @@ const Notifications = () => {
           <ol className="mt-4 md:mt-6">
             {data.map((item, index) => (
               <li
-                className="flex flex-col md:flex-row my-4 md:my-5 border-b-2 border-[#9E9E9E] hover:scale-95"
+                className="flex flex-col md:flex-row my-4 md:my-5 border-b-2 border-[#9E9E9E]"
                 key={index}
               >
                 <div className="pr-0 md:pr-10 font-normal font-montserrat text-[16px] md:text-[20px]">

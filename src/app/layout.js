@@ -2,6 +2,7 @@ import { Inter, Montserrat, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import LenisScroll from "@/components/LenisScroll";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
         <LenisScroll>
         <Navbar />
         {children}
-
+        <Footer/>
         </LenisScroll>
       </body>
     </html>
