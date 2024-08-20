@@ -26,9 +26,9 @@ const AcadamicsPrograms = () => {
         </div>
 
         <div className="px-6 py-32 text-white">
-          <div className="grid grid-cols-[67%_33%] gap-3 container mx-auto  relative z-">
+          <div className="grid grid-cols-[67%_33%] gap-3 container mx-auto  relative ">
             <div
-              className="space-y-4  bottom-10 sticky top-40 z-10"
+              className="space-y-4  bottom-10 sticky top-40 "
               style={{
                 minHeight: boundingClientRect?.height ?? "fit-content",
                 height: "fit-content",
@@ -44,7 +44,7 @@ const AcadamicsPrograms = () => {
                 ever-evolving field of computer science.
               </p>
             </div>
-            <div className="flex justify-end z-10">
+            <div className="flex justify-end ">
               <div className="space-y-[113px]">
                 {AcadamicsLabsDataForCard.map((item, i) => (
                   <div
@@ -52,9 +52,9 @@ const AcadamicsPrograms = () => {
                     key={i}
                     className="min-h-[813.83px] w-[390px] pl-16"
                   >
-                    <div>
+                    <div >
                       <img
-                        className="w-[390px] h-[525.83px] flex justify-center items-center z-1"
+                        className="w-[390px] h-[525.83px] flex justify-center items-center "
                         src={item.image}
                         alt=""
                       />
