@@ -87,6 +87,7 @@ function HoverableItem({ item, onClick }) {
           {item.btn}
         </button>
       </div>
+      
     </div>
   );
 }
