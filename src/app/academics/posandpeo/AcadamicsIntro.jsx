@@ -33,7 +33,8 @@ const List = ({ items }) => (
     font-montserrat
     font-normal
     text-gray-500
-    text-[20px] sm:text-[22px] md:text-[24px]
+    pt-5
+    text-[16px] sm:text-[22px] md:text-[24px]
     text-left
   ">
     {items.map((item, index) => (
@@ -96,9 +97,9 @@ const AcademicsIntro = () => {
   return (
     <ColoredSection
       color="BLACK"
-      className="bg-white w-full px-6 py-32 md:px-20 xl:px-24 sm:px-10"
+      className="bg-white w-full px-6 py-16 md:px-20 xl:px-24 sm:px-10"
     >
-      <div className="px-10">
+      <div className="">
         {sections.map((section, index) => (
           <Section key={index} {...section} />
         ))}
