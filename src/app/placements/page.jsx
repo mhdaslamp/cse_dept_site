@@ -3,7 +3,6 @@ import PlacementIntro from "@/components/PlacementIntro";
 import PlacementRecruiters from "@/components/PlacementRecruiters";
 import PlacmentStatus from "@/components/PlacmentStatus";
 import PlacementGraph from "@/components/PlacementGraph";
-import Footer from "@/components/Footer";
 
 const Placement = () => {
   return (
@@ -12,7 +11,6 @@ const Placement = () => {
       <PlacementRecruiters />
       <PlacmentStatus />
       <PlacementGraph />
-      <Footer />
     </>
   );
 };

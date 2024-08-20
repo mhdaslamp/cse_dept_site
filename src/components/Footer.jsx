@@ -24,7 +24,7 @@ const Footer = () => {
     } mb-1.5`;
   return (
     <ColoredSection color="BLACK">
-      <footer className="flex flex-col sm:flex-row justify-between px-6 sm:px-24 py-8 pb-12 bg-white text-gray-800 w-full font-bebasneue relative">
+      <footer className="container lg:mx-40 flex flex-col sm:flex-row justify-between px-14 sm:px-0 py-8 pb-12 bg-white text-gray-800 w-auto font-bebasneue relative">
         <div className="flex-1 mb-4 sm:mb-0">
           <form className="mb-4">
             <h3 className="text-xl font-semibold mb-2 text-[#BDBDBD]">
