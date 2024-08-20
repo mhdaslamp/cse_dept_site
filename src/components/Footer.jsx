@@ -24,10 +24,10 @@ const Footer = () => {
     } mb-1.5`;
   return (
     <ColoredSection color="BLACK">
-      <footer className="flex flex-col sm:flex-row justify-between px-24 py-8 bg-white text-gray-800 w-full font-bebasneue relative">
+      <footer className="container lg:mx-40 flex flex-col sm:flex-row justify-between px-14 sm:px-0 py-8 pb-12 bg-white text-gray-800 w-auto font-bebasneue relative">
         <div className="flex-1 mb-4 sm:mb-0">
           <form className="mb-4">
-            <h3 className="text-xl font-semibold mb-2 text-gray-500">
+            <h3 className="text-xl font-semibold mb-2 text-[#BDBDBD]">
               SEND YOUR MESSAGES
             </h3>
             {["YOUR NAME *", "YOUR MAIL *", "SUBJECT *", "MESSAGE *"].map(
@@ -41,16 +41,18 @@ const Footer = () => {
                 </div>
               )
             )}
-            <button className="bg-black text-white p-2 flex items-center">
+            <button className="bg-black text-white p-2 px-3 flex items-center mt-4">
               SEND
               <MdOutlineArrowOutward className="ml-2 font-bold" />
             </button>
           </form>
-          <p className="text-gray-600">© {currentYear} CSE ASSOCIATION</p>
+          <p className="text-[#656565] hidden sm:block">
+            © {currentYear} CSE ASSOCIATION
+          </p>
         </div>
 
         <div className="relative isolate">
-          <h3 className="text-xl font-semibold mb-2 text-gray-500 px-5">
+          <h3 className="text-xl font-semibold mb-2 text-[#BDBDBD] sm:px-5">
             QUICK LINKS
           </h3>
 
@@ -71,7 +73,7 @@ const Footer = () => {
               >
                 <div className={squareBlock(index)}></div>
                 <Link
-                  className="text-16 block text-gray-600 min-w-[7.5rem] mb-1 ml-2"
+                  className="text-16 block text-[#656565] min-w-[7.5rem] mb-1 ml-2"
                   href="#"
                 >
                   {link}
@@ -79,20 +81,25 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          <div className="absolute bottom-0 w-[120%] flex items-center">
-            <p className="text-gray-600">
-              DESIGN AND POWERED BY{" "}
-              <Link
-                className="underline font-bold hover:text-blue-500"
-                href="#"
-              >
-                CSE STUDENTS
-              </Link>
+          <div className="flex flex-col sm:flex-row  sm:items-center mt-8">
+            <p className="text-[#656565] block sm:hidden">
+              © {currentYear} CSE ASSOCIATION
             </p>
-            <span className="ml-10 flex items-center ">
-              <RiInstagramFill className="text-gray-600 w-5 h-5" />
-              <IoLogoLinkedin className="text-gray-600 ml-2 w-5 h-5" />
-            </span>
+            <div className="flex items-center justify-between mt-2.5 w-full sm:absolute bottom-0">
+              <p className="text-[#656565]">
+                DESIGN AND POWERED BY{" "}
+                <Link
+                  className="underline font-bold hover:text-blue-500"
+                  href="#"
+                >
+                  CSE STUDENTS
+                </Link>
+              </p>
+              <div className="flex items-center">
+                <RiInstagramFill className="text-[#666666] w-5 h-5" />
+                <IoLogoLinkedin className="text-[#666666] ml-2 w-5 h-5" />
+              </div>
+            </div>
           </div>
         </div>
       </footer>

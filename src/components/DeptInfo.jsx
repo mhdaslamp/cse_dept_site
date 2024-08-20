@@ -7,87 +7,74 @@ import {
   useInView,
   useMotionValueEvent,
   useScroll,
+  useTransform,
 } from "framer-motion";
 import ColoredSection from "./ColoredSection";
-import { useEffect, useRef } from "react";
-import convertRange from "@/lib/convertRange";
+import { useEffect, useRef, useState } from "react";
 
 const DeptInfo = () => {
-  const [scope, animate] = useAnimate();
   const containerRef = useRef(null);
+  const [width, setWidth] = useState(1024);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"],
   });
 
-  async function animateHeading(latest) {
-    const animationStartPoint = 0;
-    const animationEndPoint = 0.5;
-    const fontSize = convertRange(
-      latest,
-      animationStartPoint,
-      animationEndPoint,
-      6.25,
-      2.5
-    );
-    const top = convertRange(
-      latest,
-      animationStartPoint,
-      animationEndPoint,
-      55,
-      0
-    );
-    console.log(fontSize);
-    await animate(
-      scope.current,
-      {
-        fontSize: `${fontSize}vw`,
-        top: `-${top}%`,
-      },
-      {
-        duration: 0.1,
-        ease: "linear",
-      }
-    );
+  function changeWidth() {
+    setWidth(containerRef.current?.getBoundingClientRect().width ?? 1024);
   }
 
   useEffect(() => {
-    const latest = scrollYProgress.get();
-    animateHeading(latest).then(() =>
-      animate(
-        scope.current,
-        {
-          opacity: 1,
-        },
-        {
-          delay: 0.1,
-        }
-      )
-    );
+    changeWidth();
+    window.addEventListener("resize", changeWidth);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animate, animateHeading, scope]);
+    return () => {
+      window.removeEventListener("resize", changeWidth);
+    };
+  }, []);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) =>
-    animateHeading(latest)
+  const ANIMATION_START = 0.1;
+  const ANIMATION_END = 0.5;
+  const SCALEFACTOR = 512;
+
+  const scaleBy = width / SCALEFACTOR;
+
+  const scale = useTransform(
+    scrollYProgress,
+    [ANIMATION_START, ANIMATION_END],
+    [Math.max(1, scaleBy), 1]
   );
+  const y = useTransform(
+    scrollYProgress,
+    [ANIMATION_START, ANIMATION_END],
+    [-300, 0]
+  );
+
   return (
     <ColoredSection color="BLACK">
-      <div className="bg-white w-full px-12 md:px-20 py-8 min-h-[200vh]">
-        <div ref={containerRef} className="min-h-screen mt-[100vh]">
-          <div className="w-full grid grid-cols-[auto_40%] relative gap-12">
+      <div className="bg-white w-full px-12 md:px-20 py-16 nav-md:py-8 nav-md:min-h-[200vh]">
+        <div
+          ref={containerRef}
+          className="nav-md:min-h-screen nav-md:mt-[100vh]"
+        >
+          <div className="w-full grid grid-cols-1 nav-md:grid-cols-[auto_40%] relative gap-12">
             <div className="">
-              <h1
+              <motion.h1
                 style={{
-                  opacity: 0,
+                  scale: scale,
+                  y: y,
                 }}
-                ref={scope}
-                className={`font-medium absolute leading-[1.1em]`}
+                className={`font-medium text-4xl origin-left absolute leading-[1.1em] hidden nav-md:block`}
+              >
+                The Department of Computer <br /> Science and Engineering
+              </motion.h1>
+              <h1
+                className={`font-medium text-xl sm:text-2xl md:text-3xl leading-[1.1em] block nav-md:hidden`}
               >
                 The Department of Computer <br /> Science and Engineering
               </h1>
               <p
-                className="text-gray-400 pt-[8rem] text-[2vw]"
+                className="text-gray-400  sm:text-2xl md:text-3xl nav-md:pt-28 pt-4 text-xl nav-md:text-3xl"
                 // style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}
               >
                 {DeptConstants.desc}
@@ -96,7 +83,7 @@ const DeptInfo = () => {
                 Read More {">"}
               </button>
             </div>
-            <div className="hidden sm:flex justify-center items-center">
+            <div className="hidden nav-md:flex justify-center items-center">
               <Image
                 className="w-full"
                 src="/computer.png"
