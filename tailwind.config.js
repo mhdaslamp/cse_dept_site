@@ -12,11 +12,11 @@ module.exports = {
 
       'md': '768px',
       // => @media (min-width: 768px) { ... }
-      "mdlg": "950px",
+      "nav-md": "950px",
       'lg': '1024px',
       // => @media (min-width: 1024px) { ... }
 
-      'lgmd': '1150px',
+      'nav-lg': '1150px',
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
 
@@ -33,6 +33,8 @@ module.exports = {
       },
       colors: {
         newblue: "#0D38B1",
+        newgray: "#9E9E9E",
+        
       },
       letterSpacing: {
         "link": "0.64px"
