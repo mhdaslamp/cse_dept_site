@@ -9,13 +9,11 @@ import AcadamicsSidebar from "@/components/AcadamicsSidebar";
 const Acadamics = () => {
   return (
     <div className="">
-      {/* <AcadamicsSidebar /> */}
-      <AcadamicsSidebar />
       <AcadamicsIntro />
       <AcadamicsPrograms />
-      <AcadamicsCoursesBtech />
+      {/* <AcadamicsCoursesBtech />
       <AcadamicsCoursesMtech />
-      <Labs />
+      <Labs /> */}
       {/* <Footer /> */}
     </div>
   );
