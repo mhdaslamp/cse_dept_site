@@ -12,7 +12,7 @@ import LenisScroll from "@/components/LenisScroll";
 
 export default function Home() {
   return (
-    <LenisScroll>
+
       <main>
         <HomePage />
         <DeptInfo />
@@ -22,7 +22,6 @@ export default function Home() {
         {/* <Toppers /> */}
         {/* <References /> */}
         <Footer />
-      </main>
-    </LenisScroll>
+    </main>
   );
 }
