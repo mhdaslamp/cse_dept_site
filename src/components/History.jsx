@@ -3,11 +3,11 @@ import Image from "next/image";
 
 export default function History() {
   return (
-    <div className="mt-10 mb-20 md:space-y-24 px-4 md:px-28">
+    <div className="mt-10 mb-20 md:space-y-24 px-4 md:px-28 mx-8 " id="history">
       <div className="flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10">
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 to">
           <h1 className="font-bold text-3xl">History of the department</h1>
-          <p className="mt-5 text-start text-xl md:text-2xl text-gray-500">
+          <p className="mt-5 text-xl md:text-2xl text-gray-500 text-justify">
             At the heart of the digital revolution lies the computer science
             department. We are the architects of the future, unraveling the
             mysteries of computation and transforming them into groundbreaking
@@ -39,7 +39,7 @@ export default function History() {
           />
         </div>
         <div className="w-full md:w-1/2">
-          <p className="mt-5 text-start text-xl md:text-2xl text-gray-500">
+          <p className="mt-5 text-justify text-xl md:text-2xl text-gray-500">
             Whether you&apos;re fascinated by the intricate dance of data
             structures or dream of crafting the next generation of software, our
             curriculum equips you with the essential tools. We delve into the

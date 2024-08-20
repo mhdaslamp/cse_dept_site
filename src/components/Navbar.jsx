@@ -49,7 +49,7 @@ const links = [
       {
         label: "History of Dept",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#history",
       },
       {
         label: "Advisory Board",
@@ -71,12 +71,12 @@ const links = [
       {
         label: "PO, PsO and PEO",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#acadmicIndro",
       },
       {
         label: "Programmes and Syllabus",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#acad_pgms",
       },
       {
         label: "Courses",
@@ -86,12 +86,12 @@ const links = [
       {
         label: "Labs",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#acad_labs",
       },
       {
         label: "Library",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#history",
       },
     ],
   },

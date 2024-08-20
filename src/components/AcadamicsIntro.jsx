@@ -96,9 +96,10 @@ const AcademicsIntro = () => {
   return (
     <ColoredSection
       color="BLACK"
-      className="bg-white w-full px-6 py-32 md:px-20 xl:px-24 sm:px-10"
+      className="bg-white w-full px-6 py-32 md:px-20 xl:px-24 sm:px-10" 
+      
     >
-      <div className="px-10">
+      <div className="px-10" id="acadmicIndro">
         {sections.map((section, index) => (
           <Section key={index} {...section} />
         ))}
