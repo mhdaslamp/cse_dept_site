@@ -39,7 +39,7 @@ const links = [
       {
         label: "Mission & Vision",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#mission",
       },
       {
         label: "Course Offered",
@@ -71,7 +71,7 @@ const links = [
       {
         label: "PO, PsO and PEO",
         type: "sub-main",
-        href: "/academics#acadmicIndro",
+        href: "/academics#acad_intro",
       },
       {
         label: "Programmes and Syllabus",

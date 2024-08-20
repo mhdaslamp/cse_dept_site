@@ -1,98 +1,83 @@
-import Image from "next/image";
-import { twMerge } from "tailwind-merge";
-import ColoredSection from "./ColoredSection";
+"use client";
 
-function CourseOfferedSection() {
+import React, { useRef } from "react";
+import useBoundingclientrect from "@rooks/use-boundingclientrect";
+import Image from "next/image";
+import { AcadamicsLabsDataForCard } from "@/constants/contents";
+import ColoredSection from "../components/ColoredSection";
+
+const CourseOfferedSection = () => {
+  const ref = useRef(null);
+  const boundingClientRect = useBoundingclientrect(ref);
+
   return (
-    <ColoredSection
-      color="WHITE"
-      className="relative bg-[#161616ef] text-white w-full py-20 px-24 min-h-screen flex items-center"
-    >
-      <Image
-        src="/bg.png"
-        alt="department pic"
-        priority={false}
-        fill
-        className="object-cover -z-10"
-      />
-      <div className="flex items-center mx-auto w-fit xl:gap-32 lg:gap-24 gap-12">
-        <div className="grid grid-cols-3">
-          <Courses
-            title="B.Tech Computer Science And Engineering"
-            year={1999}
-            intake={66}
-            intakeSplit="(6 Regular And 6 LET)"
-          />
-          <Courses
-            title="M.Tech Computational Linguistics"
-            year={1999}
-            intake={66}
-            reverse
-          />
-          <Courses
-            title="PhD Computer Science And Engineering"
-            year={1999}
-            intake={66}
+    <ColoredSection color="WHITE" className="bg-black w-full">
+      <div className="lg:sticky" id="acad_pgms">
+        <div className="brightness-50 hidden lg:sticky inset-0 lg:block">
+          <Image
+            src="/bg-acadamic.jpeg"
+            alt="department pic"
+            className="object-fill"
+            width={1920}
+            height={1920}
           />
         </div>
-        <h2 className="[writing-mode:vertical-rl] font-bebasneue xl:text-5.5xl lg:text-5xl text-4xl">
-          COURSE OFFERED
-        </h2>
+
+        <div className="px-10 py-32 text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-[67%_33%] lg:gap-3 container mx-auto relative z-1">
+            <div
+              className="space-y-4 lg:sticky lg:bottom-10 lg:top-40 z-1"
+              style={{
+                minHeight: "auto",
+                height: "fit-content",
+              }}
+            >
+              <h2 className="text-[24px] lg:text-5xl font-normal font-bebasneue leading-[28.8px] lg:leading-tight lg:text-left">
+                Course Offered
+              </h2>
+              <p className="font-montserrat text-[16px] sm:text-[22px] md:text-[24px]">
+                The Department of Computer Science & Engineering (CSE) offers a
+                comprehensive range of programs designed to equip students with
+                the knowledge and skills necessary to thrive in the
+                ever-evolving field of computer science.
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end z-10 mt-8 lg:mt-0">
+              <div className="space-y-8 lg:space-y-[113px]">
+                {AcadamicsLabsDataForCard.map((item, i) => (
+                  <div
+                    ref={i === 6 ? ref : undefined}
+                    key={i}
+                    className="max-w-[390px] w-full  lg:pl-16"
+                  >
+                    <div className="z-1">
+                      <img
+                        className="w-full h-auto lg:h-[525.83px] object-cover"
+                        src={item.image}
+                        alt=""
+                      />
+                    </div>
+                    <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
+                      SYLLABUS (2015 SCHEME)
+                    </button>
+                    <button className=" font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
+                      SYLLABUS (2019 SCHEME)
+                    </button>
+                    <h2 className="font-medium font-montserrat text-[18px] lg:text-[20px] leading-[24.38px] mt-6">
+                      {item.title}
+                    </h2>
+                    <p className="font-normal font-montserrat text-[14px] lg:text-[16px] leading-[19.5px] mt-6">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </ColoredSection>
   );
-}
-
-function Courses({ title, year, intake, intakeSplit, reverse }) {
-  return (
-    <div className="max-w-[296px]  font-montserrat">
-      <div className="relative isolate pb-12">
-        <img
-          className={twMerge("w-full", reverse && "transform rotate-180")}
-          src="/border-circle.svg"
-          alt=""
-        />
-        <h3 className="absolute top-[50%]  left-[50%] -translate-x-1/2 translate-y-[calc(-50%-1.5rem)] text-center font-medium lg:text-xl md:text-lg sm:text-sm text-xs">
-          {title}
-        </h3>
-       {reverse ? (
-         <Image
-         className="absolute left-1/2 -translate-x-1/2 -bottom-[1%] lg:bottom-0 -z-[9] w-[5%] h-[6.4rem]"
-         src="/circle-line.svg"
-         width={17}
-         height={100}
-         alt=""
-       />
-       ): (
-        <Image
-        className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-[9] w-[5%]"
-        src="/circle-line-half.svg"
-        width={17}
-        height={71}
-        alt=""
-      />
-       )}
-      </div>
-      <div className="text-center">
-        <h3 className="text-xl [leading-trim:both] [text-edge:cap] leading-6">
-          {title}
-        </h3>
-        <div className="h-[2px] my-5 bg-white/10 w-[40%] mx-auto" />
-        <p className="text-white/70 [leading-trim:both] [text-edge:cap]">
-          Year Of Starting : {year}
-        </p>
-        <p className="text-white/70 leading-5 [leading-trim:both] [text-edge:cap]">
-          Approved intake: {intake}
-          {intakeSplit && (
-            <>
-              <br />
-              {intakeSplit}
-            </>
-          )}
-        </p>
-      </div>
-    </div>
-  );
-}
+};
 
 export default CourseOfferedSection;
