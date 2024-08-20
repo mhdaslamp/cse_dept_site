@@ -34,7 +34,7 @@ const links = [
       {
         label: "About Department",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#dept",
       },
       {
         label: "Mission & Vision",
@@ -44,7 +44,7 @@ const links = [
       {
         label: "Course Offered",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#course",
       },
       {
         label: "History of Dept",

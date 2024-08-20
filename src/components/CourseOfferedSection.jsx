@@ -11,8 +11,8 @@ const CourseOfferedSection = () => {
   const boundingClientRect = useBoundingclientrect(ref);
 
   return (
-    <ColoredSection color="WHITE" className="bg-black w-full">
-      <div className="lg:sticky" id="acad_pgms">
+    <ColoredSection color="WHITE" className="bg-black w-full" id="course">
+      <div className="lg:sticky">
         <div className="brightness-50 hidden lg:sticky inset-0 lg:block">
           <Image
             src="/bg-acadamic.jpeg"

@@ -19,9 +19,9 @@ export default function Home() {
         <DeptLogo />
         <HorizontalScrollCarousel />
         <HodMessage />
-        {/* <Toppers /> */}
-        {/* <References /> */}
-        <Footer />
+        <Toppers />
+        <References />
+       
     </main>
   );
 }
