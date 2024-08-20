@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import useBoundingclientrect from "@rooks/use-boundingclientrect";
 import Image from "next/image";
 import { AcadamicsLabsDataForCard } from "@/constants/contents";
-import ColoredSection from "../../../components/ColoredSection";
+import ColoredSection from "./ColoredSection";
 
 // {title,description,image,color}
 
@@ -21,7 +21,6 @@ const AcadamicsPrograms = () => {
             className="object-fill"
             width={1920}
             height={1920}
-
           />
         </div>
 

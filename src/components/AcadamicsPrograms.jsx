@@ -4,15 +4,15 @@ import React, { useRef } from "react";
 import useBoundingclientrect from "@rooks/use-boundingclientrect";
 import Image from "next/image";
 import { AcadamicsLabsDataForCard } from "@/constants/contents";
-import ColoredSection from "../../../components/ColoredSection";
+import ColoredSection from "../components/ColoredSection";
 
 const AcadamicsPrograms = () => {
   const ref = useRef(null);
   const boundingClientRect = useBoundingclientrect(ref);
-  
+
   return (
     <ColoredSection color="WHITE" className="bg-black w-full">
-      <div className="lg:sticky">
+      <div className="lg:sticky" id="acad_pgms">
         <div className="brightness-50 hidden lg:sticky inset-0 lg:block">
           <Image
             src="/bg-acadamic.jpeg"
