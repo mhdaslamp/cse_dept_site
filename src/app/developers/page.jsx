@@ -49,7 +49,7 @@ export default function Developers() {
                   alt="developers"
                   width={500}
                   height={200}
-                  className="rounded-lg w-auto h-[400px] object-cover"
+                  className="rounded-lg w-auto h-[400px] object-cover hover:scale-90"
                 />
                 <div className="mt-4">
                   <h3 className="text-2xl font-semibold">{item.name}</h3>
