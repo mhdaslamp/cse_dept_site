@@ -48,7 +48,7 @@ export default function Developers() {
                   src={item.img}
                   alt="developers"
                   width={500}
-                  height={200}
+                  height={100}
                   className="rounded-lg w-auto h-[400px] object-cover"
                 />
                 <div className="mt-4">
