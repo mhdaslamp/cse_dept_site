@@ -11,6 +11,7 @@ const ExpandableCards = ({title,item})=>{
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isDescVisible,setIsDescVisible]=useState(null);
+  const [isHover,setIsHover]=useState(false);
 
   const toggleVisible = (id) => {
     setIsDescVisible(isDescVisible === id ? null : id);
@@ -59,18 +60,12 @@ const year=sortedRanges.filter((item,index)=>
 
 
 
-  // useEffect(() => {
-  //   if (isExpanded) {
-  //     setTimeout(() => {
-  //       setIsContentVisible(true);
-  //     }, 1000); 
-  //   }
-  // }, [isExpanded]);
+
 
   return (
-    <div className='w-screen  flex  justify-center overflow-hidden z-0'>
+    <div className='  w-screen  flex  justify-center overflow-hidden '>
 
-      <div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5":""} }`} >
+      <div className={` group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5 mt-5":""} }`} >
         <div className='flex justify-between'>
       <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
       <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black ":"text-[0px] text-[#696969] mr-0 "}`}/>{title}
@@ -123,18 +118,20 @@ const year=sortedRanges.filter((item,index)=>
 
         {items.map((data,key)=>(
           <Fragment  key={key}>
-          <div  className='bg-white h-[313px] w-[240px]'
+          <div  className='bg-white group/items  hover:bg-[#DD846E] h-[313px] w-[240px] transition-all duration-800  cursor-pointer'
             onClick={()=>toggleVisible(key)}
+            onMouseEnter={()=>setIsHover(true)} 
+            onMouseLeave={()=>setIsHover(false)}
           >
             <div className='w-full h-[77%] bg-cover bg-no-repeat bg-center' style={{backgroundImage:`url(${data.link})`}}></div>
-            <div className='p-3 leading-3'>
-            <h1 className='text-xl font-bold'>{data.name}</h1>
-            <p className='text-[#9E9E9E]'>{data.postion}</p>
+            <div className='p-3 leading-3 '>
+            <h1 className='text-xl font-bold group-hover/items:text-white'>{data.name}</h1>
+            <p  className='text-[#9E9E9E] group-hover/items:text-white'>{isHover?"Click to know more":`${data.postion}`}</p>
             </div>
             
             </div>
             {(isDescVisible===key) && (
-              <div className='absolute  w-screen h-screen top-0 left-0 flex justify-center items-center z-10'>
+              <div className='fixed  w-screen h-screen group-ho top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex justify-center items-center z-10'>
              <motion.div 
              className='flex gap-5 relative w-2/5 p-5 h-2/4 border-solid z-10 bg-white bg-opacity-20  shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]  backdrop-blur-lg'>
               <div
@@ -233,7 +230,7 @@ function Student({title,item}){
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [dept,setDept]=useState("BTech");
-
+  const [flex,setFlex]=useState(true);
   const anim = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -292,118 +289,90 @@ const year=sortedRanges.filter((item,index)=>
  
 
   return (
-    <div className="w-screen  flex  justify-center overflow-hidden">
-      <div
-        className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${
-          isExpanded ? "mb-5" : ""
-        } }`}
-      >
-        <div className="flex justify-between">
-          <div
-            onClick={toggleExpand}
-            className={`group font-bold transition-all duration-700 flex  text-2xl pl-5 ${
-              isExpanded ? "text-black" : "text-[#696969]"
-            } cursor-pointer`}
-          >
-            <FaSquareFull
-              className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${
-                isExpanded
-                  ? "text-[5px] mr-2 text-black"
-                  : "text-[0px] mr-0 text-[#696969]"
-              }`}
-            />
-            {title}
-          </div>
+    <div className={`w-screen  flex  justify-center overflow-hidden `}>
 
-          <div
-            onClick={toggleExpand}
-            className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${
-              isExpanded ? "rotate-180 opacity-100" : ""
-            } duration-[1s] ease-in-out z-10`}
-          >
-            <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
-          </div>
+<div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3 ${isExpanded?"mb-5 mt-5":""}  }`} >
+        <div className='flex justify-between'>
+      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex  text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
+      <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
         </div>
 
-        <div
-          className={` transition-all duration-[1s] h-auto   ${
-            isExpanded ? "opacity-100 max-h-screen" : "opacity-0 max-h-0"
-          }`}
-        >
-          <div className="flex pl-5 gap-3">
-            {department.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => toggleDept(item)}
-                className="group/dept flex"
-              >
-                <FaSquareFull
-                  className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${
-                    dept === item
-                      ? "text-[3px] text-black"
-                      : "text-[0px] text-[#696969]"
-                  } `}
-                />
-                <div
-                  className={`transition-all duration-500 group-hover/dept:ml-2 ${
-                    dept === item ? "ml-2 text-black" : "ml-0 text-[#696969]"
-                  } `}
-                >
-                  {item}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="pb-2 pl-5 flex gap-5 text-[#696969] items-center ">
-            Acadamics Year
-            <div>
-              <div
-                onClick={toggleOpen}
-                className="relative flex items-center group/year px-2 text-[#696969] cursor-pointer"
-              >
-                {selectedContent}
-                <div
-                  onClick={toggleOpen}
-                  className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${
-                    isOpen ? "rotate-180 opacity-100" : ""
-                  } duration-500 ease-in-out z-10`}
-                >
-                  <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
-                </div>
-              </div>
-              <div className="relative">
-                <div
-                  className={`absolute transition-all duration-500  ${
-                    isOpen ? "opacity-100 max-h-max" : "opacity-0 max-h-0"
-                  }`}
-                >
-                  {year.map((item, index) => (
-                    <div
-                      onClick={() => handleyear(item)}
-                      key={index}
-                      className="px-2 bg-[#E9E9E8] text-[#696969] cursor-pointer"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex  pb-3">
-            <div
-              className={`no-scrollbar flex  flex-wrap  flex-initial overflow-auto max-h-screen min-h-max h-auto justify-between w-full  gap-3  px-5 `}
-            >
-              {items.map((data, key) => (
-                <div className="leading-9 pt-1" key={key}>
-                  <h1 className="text-[54px] text-[#696969]">{data.name}</h1>
-                </div>
-              ))}
-            </div>
-          </div>
+      <div 
+        onClick={toggleExpand}
+        className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${isExpanded?"rotate-180 opacity-100":''} duration-[1s] ease-in-out z-10`}
+      >
+        <MdKeyboardArrowDown className='w-10 h-8 text-[#9E9E9E]' />
+        
         </div>
       </div>
+    
+        <div className={` transition-all duration-[1s] h-auto   ${isExpanded?('opacity-100 max-h-screen'):'opacity-0 max-h-0'}`}>
+
+        <div className='flex pl-5 gap-3 pt-3'>
+      {department.map((item,index)=>(
+        <div onClick={()=>toggleDept(item)} className='group/dept flex cursor-pointer'>
+        <FaSquareFull className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${dept===item?"text-[3px] text-black":"text-[0px] text-[#696969]"} `}/>
+        <div className={`transition-all duration-500 group-hover/dept:ml-2 ${dept===item?"ml-2 text-black":"ml-0 text-[#696969]"} `}>{item}</div>
+        </div>
+      ))}
+    </div>
+
+      <div className='pb-2 pt-2 pl-5 pr-8 flex text-[#696969] items-center '> 
+      Year 
+        <div>
+            <div 
+            onClick={toggleOpen}
+            className='relative flex items-center group/year px-3 text-[#696969] cursor-pointer'>
+              {selectedContent} 
+              
+        <div 
+        onClick={toggleOpen}
+        className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${isOpen?"rotate-180 opacity-100 ":''} duration-500 ease-in-out z-10`}
+      >
+        <MdKeyboardArrowDown className={`w-10 h-8 text-[#9E9E9E] `} />
+        
+        </div>
+          Batch
+        
+         </div>
+         <div className='relative'>
+         <div className={`absolute transition-all duration-500 h-auto overflow-hidden  ${isOpen?'opacity-100 max-h-screen':'opacity-0 max-h-0'}`}>
+        {year.map((item,index)=>(
+              <div 
+              onClick={()=>handleyear(item)}
+              key={index}
+              className='px-2 bg-[#E9E9E8] text-[#696969] cursor-pointer'>
+                {item}
+              </div>
+        ))
+          }
+          </div>
+         </div>
+        
+        
+        </div>
+        
+        </div>
+        <div className=' flex justify-end pr-5 gap-3 pb-3'>
+         <img src="./images/row.svg"  onClick={()=>setFlex(true)}  alt="" />
+          <div className='border-solid border-[1px] h-6 border-[#696969]'></div>
+          <img src="./images/col.svg"  onClick={()=>setFlex(false)} alt="" />
+          </div>
+      <div className='flex  pb-3'>
+        <div className={`no-scrollbar flex  ${flex==true?"flex-row flex-wrap":" flex-col"}  flex-initial overflow-auto max-h-screen min-h-max h-auto justify-between w-full  gap-3  px-5 `}>
+
+        {items.map((data,key)=>(
+            <div className='leading-9 pt-1' key={key} >
+            <div className='text-[54px] h-max w-max text-[#696969] flex gap-1 items-end translate-y-10'> <div className='w-2 h-2 bg-[#696969]'></div>{data.name}</div>
+            </div>
+            
+        ))}
+        </div>
+        </div>
+        </div>
+
+      </div>
+      
     </div>
   );
 }
@@ -573,7 +542,7 @@ const studitem=[{
       <ExpandableCards title="TECHNICAL STAFFS" item={item1}/>
       <ExpandableCards title="ASSOCIATION MEMBER"  item={item1}/>
       <Student title="STUDENTS"  item={studitem}/>
-      <ExpandableCards title="ALUMNI" item={item1}/>
+      <Student title="ALUMNI" item={studitem}/>
       </div>
 
 
