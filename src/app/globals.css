@@ -49,8 +49,6 @@ body {
   display: none;
 }
 
-/* Toppers page section*/
-
 .student-card {
   display: block;
   transition: transform 0.3s;
@@ -73,7 +71,6 @@ body {
   display: none;
 }
 
-/* not-found page section */
 #canvas-container {
   user-select: none;
   touch-action: none;
@@ -88,7 +85,6 @@ body {
 }
 #game {
   width: 100%;
-  /* border: 0.1px solid grey; */
 }
 
 @keyframes marquee {
@@ -103,5 +99,5 @@ body {
 .animate-marquee {
   display: flex;
   animation: marquee 30s linear infinite;
-  width: 200%; 
+  width: 200%;
 }
