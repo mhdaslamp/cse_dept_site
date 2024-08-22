@@ -47,7 +47,7 @@ export default function Developers() {
           Meet our team
         </h1>
         <div className="mt-6 w-full">
-          <div className="flex space-x-6 animate-marquee">
+          <div className="flex space-x-8 animate-marquee">
             {data.concat(data).map((item, index) => (
               <div
                 key={index}
