@@ -2,6 +2,7 @@ import ColoredSection from "@/components/ColoredSection";
 import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { Black_And_White_Picture } from "next/font/google";
 
 export default function Developers() {
   const data = [
@@ -44,9 +45,10 @@ export default function Developers() {
         <div className="mt-6">
           <Marquee
             speed={100}
-            gradient={false}
+            gradient={true}
             direction="left"
             loop={0} // 0 means infinite loop
+            gradientColor={[0,0,0]}
           >
             <div className="flex space-x-6 ml-6">
               {data.map((item, index) => (
