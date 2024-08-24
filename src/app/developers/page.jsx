@@ -65,7 +65,7 @@ export default function Developers() {
                     {item.name}
                   </h3>
                   <div className="flex gap-2 mt-1">
-                    <div className="relative mt-2 w-4 h-4 bg-[#d9d9d9] " />
+                    <div className="relative mt-2 w-4 h-4 bg-[#d9d9d9] rounded-lg" />
                     <h2 className="text-lg md:text-xl font-semibold">
                       {item.position}
                     </h2>
