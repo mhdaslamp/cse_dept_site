@@ -8,20 +8,19 @@ import HomePage from "@/app/HomePage/page";
 import References from "@/components/References";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel";
 import LenisScroll from "@/components/LenisScroll";
-// import Acadamics from "./academics/page";
 
 export default function Home() {
   return (
 
-      <main>
-        <HomePage />
-        <DeptInfo />
-        <DeptLogo />
-        <HorizontalScrollCarousel />
-        <HodMessage />
-        {/* <Toppers /> */}
-        {/* <References /> */}
-        <Footer />
+    <main>
+      <HomePage />
+      <DeptInfo />
+      <DeptLogo />
+      <HorizontalScrollCarousel />
+      <HodMessage />
+      {/* <Toppers /> */}
+      {/* <References /> */}
+      <Footer />
     </main>
   );
 }
