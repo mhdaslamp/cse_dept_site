@@ -12,7 +12,7 @@ const HodMessage = () => {
   const hod = hodData[0];
 
   return (
-    <ColoredSection color="BLACK" className="mb-5">
+    <ColoredSection color="BLACK" className="mb-36">
       <div className="bg-white container mx-auto py-20 px-4 h-full md:h-[70vh]">
         <div className="w-full h-auto text-right">
           <h1 className="text-black w-auto h-auto text-4xl lg:text-5xl font-semibold font-bebasneue">
