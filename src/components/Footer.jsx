@@ -90,7 +90,7 @@ const Footer = () => {
                 DESIGN AND POWERED BY{" "}
                 <Link
                   className="underline font-bold hover:text-blue-500"
-                  href="#"
+                  href="/developers"
                 >
                   CSE STUDENTS
                 </Link>

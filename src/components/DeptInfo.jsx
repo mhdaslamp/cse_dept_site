@@ -52,7 +52,7 @@ const DeptInfo = () => {
 
   return (
     <ColoredSection color="BLACK">
-      <div className="bg-white w-full px-12 md:px-20 py-16 nav-md:py-8 nav-md:min-h-[200vh]">
+      <div className="bg-white w-full px-12 md:px-20 py-16 nav-md:py-8 nav-md:min-h-[200vh]" id="dept">
         <div
           ref={containerRef}
           className="nav-md:min-h-screen nav-md:mt-[100vh]"

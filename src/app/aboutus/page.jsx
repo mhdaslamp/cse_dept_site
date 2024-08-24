@@ -5,6 +5,7 @@ import HomePage from "@/app/HomePage/page";
 import Acadamics from "@/app/academics/page";
 import History from "../../components/History";
 import AboutusHorizontalScrollCarousel from "./aboutUsHorizontalScroll/page";
+import CourseOfferedSection from "@/components/CourseOfferedSection";
 
 export default function About() {
   return (
@@ -12,6 +13,7 @@ export default function About() {
       <HomePage />
       <DeptInfo />
       <DeptLogo />
+      <CourseOfferedSection />
       <History />
       <AboutusHorizontalScrollCarousel />
     </main>
