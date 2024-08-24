@@ -310,7 +310,7 @@ const year=sortedRanges.filter((item,index)=>
 
         <div className='flex pl-5 gap-3 pt-3'>
       {department.map((item,index)=>(
-        <div onClick={()=>toggleDept(item)} className='group/dept flex cursor-pointer'>
+        <div key={index} onClick={()=>toggleDept(item)} className='group/dept flex cursor-pointer'>
         <FaSquareFull className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${dept===item?"text-[3px] text-black":"text-[0px] text-[#696969]"} `}/>
         <div className={`transition-all duration-500 group-hover/dept:ml-2 ${dept===item?"ml-2 text-black":"ml-0 text-[#696969]"} `}>{item}</div>
         </div>
