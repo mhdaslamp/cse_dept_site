@@ -14,6 +14,7 @@ export default function About() {
       <DeptLogo />
       <History />
       <AboutusHorizontalScrollCarousel />
+
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import ColoredSection from "../../../components/ColoredSection";
+import ColoredSection from "@/components/ColoredSection";
 
 const SectionTitle = ({ children, align = "left" }) => (
   <h1 className={`
