@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ColoredSection from "../../components/ColoredSection";
 
+
 function Home() {
   const [isHover, setIsHover] = useState(false);
   const [isVisible, setIsVisible] = useState(false);

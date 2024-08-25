@@ -49,8 +49,6 @@ body {
   display: none;
 }
 
-/* Toppers page section*/
-
 .student-card {
   display: block;
   transition: transform 0.3s;
@@ -71,4 +69,35 @@ body {
 
 .student-card .arrow-buttons {
   display: none;
+}
+
+#canvas-container {
+  user-select: none;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+#game {
+  width: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  width: 200%;
 }
