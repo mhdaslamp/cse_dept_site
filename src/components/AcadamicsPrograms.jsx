@@ -3,16 +3,16 @@
 import React, { useRef } from "react";
 import useBoundingclientrect from "@rooks/use-boundingclientrect";
 import Image from "next/image";
-import { AcadamicsLabsDataForCard } from "@/constants/contents";
-import ColoredSection from "../components/ColoredSection";
+import { AcadamicsDataForCard } from "@/constants/contents";
+import ColoredSection from "@/components/ColoredSection";
 
 const AcadamicsPrograms = () => {
   const ref = useRef(null);
   const boundingClientRect = useBoundingclientrect(ref);
-
+  
   return (
     <ColoredSection color="WHITE" className="bg-black w-full">
-      <div className="lg:sticky" id="acad_pgms">
+      <div className="lg:sticky">
         <div className="brightness-50 hidden lg:sticky inset-0 lg:block">
           <Image
             src="/bg-acadamic.jpeg"
@@ -33,24 +33,21 @@ const AcadamicsPrograms = () => {
               }}
             >
               <h2 className="text-[24px] lg:text-5xl font-normal font-bebasneue leading-[28.8px] lg:leading-tight lg:text-left">
-                LABS AND OTHER FACILITIES
+                PROGRAMMES AND SYLLABI
               </h2>
               <p className="font-montserrat text-[16px] sm:text-[22px] md:text-[24px]">
-                The Department of Computer Science & Engineering (CSE) offers a
-                comprehensive range of programs designed to equip students with
-                the knowledge and skills necessary to thrive in the
-                ever-evolving field of computer science.
+                The Department of Computer Science & Engineering (CSE) offers a comprehensive range of programs designed to equip students with the knowledge and skills necessary to thrive in the ever-evolving field of computer science.
               </p>
             </div>
-            <div className="flex justify-center lg:justify-end z-10 mt-8 lg:mt-0">
+            <div className="flex justify-center lg:justify-end z-1 mt-8 lg:mt-0">
               <div className="space-y-8 lg:space-y-[113px]">
-                {AcadamicsLabsDataForCard.map((item, i) => (
+                {AcadamicsDataForCard.map((item, i) => (
                   <div
                     ref={i === 6 ? ref : undefined}
                     key={i}
                     className="max-w-[390px] w-full  lg:pl-16"
                   >
-                    <div className="z-1">
+                    <div className="">
                       <img
                         className="w-full h-auto lg:h-[525.83px] object-cover"
                         src={item.image}

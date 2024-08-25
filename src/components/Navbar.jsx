@@ -59,7 +59,7 @@ const links = [
       {
         label: "Gallery",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/gallery",
       },
     ],
   },
