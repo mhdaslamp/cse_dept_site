@@ -1,19 +1,17 @@
 import React from "react";
-import AcadamicsIntro from "../../components/AcadamicsIntro";
-import AcadamicsPrograms from "../../components/AcadamicsPrograms";
-import Labs from "../../components/AcadamicsLabs";
-import AcadamicsCoursesMtech from "@/components/AcadamicsCoursesMtech";
-import AcadamicsCoursesBtech from "@/components/AcadamicsCoursesBtech";
-import AcadamicsSidebar from "@/components/AcadamicsSidebar";
+import AcadamicsIntro from "@/components/AcadamicsIntro";
+import AcadamicsPrograms from "@/components/AcadamicsPrograms";
+import AcadamicsLabs from "@/components/AcadamicsLabs";
+import AcadamicsCourses from "@/components/AcadamicsCourses";
+
 
 const Acadamics = () => {
   return (
     <div className="">
       <AcadamicsIntro />
       <AcadamicsPrograms />
-      <AcadamicsCoursesBtech />
-      <AcadamicsCoursesMtech />
-      <Labs />
+      <AcadamicsCourses />
+      <AcadamicsLabs />
     </div>
   );
 };

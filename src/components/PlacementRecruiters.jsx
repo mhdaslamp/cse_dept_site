@@ -66,9 +66,9 @@ const PlacementRecruiters = () => {
   return (
     <section className="bg-white w-full py-32">
       <div className="px-20">
-        <h1 className="text-black text-[56px] font-normal font-bebasneue leading-tight">
-          Our RECRUITERS
-        </h1>
+      <h1 className=" w-auto h-auto text-3xl md:text-4xl lg:text-5xl font-semibold font-bebasneue">
+      . Our RECRUITERS
+      </h1>
         
       </div>
       <div className="overflow-hidden relative pt-20" ref={outerRef}>
