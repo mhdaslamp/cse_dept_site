@@ -2,6 +2,9 @@
 import ColoredSection from "@/components/ColoredSection";
 import Image from "next/image";
 import React from "react";
+import { ImLinkedin2 } from "react-icons/im";
+import { BsTwitterX } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa6";
 
 export default function Developers() {
   const data = [
@@ -9,31 +12,49 @@ export default function Developers() {
       img: "/teams.png",
       name: "Muhammad Ali",
       position: "UI-UX Designer",
+      linkedin: <ImLinkedin2 />,
+      twitter: <BsTwitterX />,
+      github: <FaGithub />,
     },
     {
       img: "/teams.png",
       name: "Muhammad Hashiq",
       position: "Full-Stack Developer",
+      linkedin: <ImLinkedin2 />,
+      twitter: <BsTwitterX />,
+      github: <FaGithub />,
     },
     {
       img: "/teams.png",
       name: "Viswajith vp",
       position: "Full-Stack Developer",
+      linkedin: <ImLinkedin2 />,
+      twitter: <BsTwitterX />,
+      github: <FaGithub />,
     },
     {
       img: "/teams.png",
       name: "Jerald Joyson",
       position: "Full-Stack Developer",
+      linkedin: <ImLinkedin2 />,
+      twitter: <BsTwitterX />,
+      github: <FaGithub />,
     },
     {
       img: "/teams.png",
       name: "Bimal Devasia",
       position: "Full-Stack Developer",
+      linkedin: <ImLinkedin2 />,
+      twitter: <BsTwitterX />,
+      github: <FaGithub />,
     },
     {
       img: "/teams.png",
       name: "Mohammad Nishan",
       position: "Full-Stack Developer",
+      linkedin: <ImLinkedin2 />,
+      twitter: <BsTwitterX />,
+      github: <FaGithub />,
     },
   ];
 
@@ -69,6 +90,11 @@ export default function Developers() {
                     <h2 className="text-lg md:text-xl font-semibold">
                       {item.position}
                     </h2>
+                  </div>
+                  <div className="flex gap-2 mt-1">
+                    <div>{item.linkedin}</div>
+                    <div>{item.twitter}</div>
+                    <div>{item.github}</div>
                   </div>
                 </div>
               </div>
