@@ -44,7 +44,7 @@ const MyComponent = ({ children }) => {
   return (
     <div className="relative w-full" style={{ height: `${dynamicHeight}px` }}>
       <div
-        className="sticky top-0 h-screen w-full overflow-x-hidden"
+        className="sticky top-0 h-screen w-full overflow-hidden "
         ref={containerRef}
       >
         <div

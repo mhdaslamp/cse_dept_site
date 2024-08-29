@@ -49,28 +49,6 @@ body {
   display: none;
 }
 
-.student-card {
-  display: block;
-  transition: transform 0.3s;
-}
-
-@media (min-width: 425px) {
-  .student-card:hover .stud-image {
-    width: 220px;
-    height: 190px;
-    transition: width 0.3s, height 0.3s;
-  }
-}
-
-.student-card:hover .arrow-buttons {
-  display: flex;
-  transition: height 0.5s;
-}
-
-.student-card .arrow-buttons {
-  display: none;
-}
-
 #canvas-container {
   user-select: none;
   touch-action: none;
