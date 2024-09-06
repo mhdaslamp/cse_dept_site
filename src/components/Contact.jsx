@@ -39,8 +39,8 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="bg-yellow-400 w-[350px] h-[350px]"></div>
-      <div className="bg-red-400 w-[350px] h-[350px]"></div>
+      <div className="bg-[#a6e2df] w-[350px] h-[350px]"></div>
+      <div className="bg-[#ded5ec] w-[350px] h-[350px]"></div>
     </div>
   );
 }
