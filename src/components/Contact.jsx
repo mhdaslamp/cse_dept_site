@@ -6,40 +6,41 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <div className="container mx-32">
-      <div>
-        <h1 className="uppercase text-3xl">Contact Us</h1>
-        <div className="flex">  
+    <div className="container mx-32 flex space-x-3 my-12 ">
+      <div className="w-1/4">
+        <h1 className="uppercase text-4xl font-bold">Contact Us</h1>
+        <div className="flex mt-6 space-x-2">
           <div>
-            <FaLocationDot />
+            <FaLocationDot className="w-6 h-7 text-gray-600 mt-1" />
           </div>
           <div>
-            <h2>Our Address</h2>
+            <h2 className="mb-2">Our Address</h2>
             <p>Government Engineering College Sreekrishnapuram,Kerala,678633</p>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex mt-6 space-x-2">
           <div>
-            <MdOutlineEmail />
+            <MdOutlineEmail className="w-6 h-7 text-gray-600 mt-1" />
           </div>
           <div>
+            <h2 className="mb-2">Email Us</h2>
             <p>csehod@gecskp.ac.in</p>
             <p>sabitha@gecskp.ac.in</p>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex mt-6 space-x-2">
           <div>
-            <IoCallOutline />
+            <IoCallOutline className="w-6 h-7 text-gray-600 mt-1" />
           </div>
           <div>
+            <h2 className="mb-2">Call Us</h2>
             <p>91+ 4662260565</p>
             <p>91+ 9497686588</p>
           </div>
-          <p>Government Engineering College Sreekrishnapuram,Kerala,678633</p>
         </div>
       </div>
-      <div className="bg-yellow-400 w-96 h-80"></div>
-      <div className="bg-red-400 w-96 h-80"></div>
+      <div className="bg-yellow-400 w-[350px] h-[350px]"></div>
+      <div className="bg-red-400 w-[350px] h-[350px]"></div>
     </div>
   );
 }
