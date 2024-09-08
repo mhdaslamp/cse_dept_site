@@ -6,7 +6,7 @@ import React from "react";
 export default function Contact() {
   return (
     <div className="container mx-auto lg:mx-24 px-4 my-12">
-      <div className="flex flex-wrap space-y-6 md:space-y-0 md:space-x-3">
+      <div className="flex flex-wrap space-y-6 md:space-y-0 md:space-x-3 lg:ml-10 lg:p-5 lg:pl-20 ">
         <div className="w-full md:w-1/3 ">
           <h1 className="uppercase text-4xl font-bold">Contact Us</h1>
           <div className="flex mt-6 space-x-2">
@@ -36,8 +36,8 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="w-full md:w-[350px] h-[350px] bg-[#a6e2df]"></div>
-        <div className="w-full md:w-[350px] h-[350px] bg-[#ded5ec]"></div>
+        <div className="w-full md:w-[400px] h-[400px] bg-[#a6e2df]"></div>
+        <div className="w-full md:w-[400px] h-[400px] bg-[#ded5ec]"></div>
       </div>
     </div>
   );
