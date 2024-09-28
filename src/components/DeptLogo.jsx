@@ -136,17 +136,8 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
-        {/* <div className="lg:flex relative whitespace-nowrap overflow-hidden lg:w-[1300px] hidden">
-          <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
-            <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
-              NATIONAL BOARD OF ACCREDITATION ACCREDITED
-            </p>
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
-            />
-          </div>
+        <div className="lg:flex relative  overflow-hidden ">
+          
 
           <div className="lg:flex items-center min-w-max h-[100px] hidden">
             <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-bebasneue">
@@ -169,9 +160,9 @@ const DeptLogo = () => {
               className="inline-block border-x-4 border-[#9E9E9E] px-10 border-solid  min-w-max"
             />
           </div>
-        </div> */}
+        </div>
 
-        {/* <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px]  max-w-screen">
+        <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px]  max-w-screen">
           <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue">
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
@@ -182,7 +173,7 @@ const DeptLogo = () => {
               className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
             />
           </div>
-        </div> */}
+        </div>
       </div>
     </ColoredSection>
   );
