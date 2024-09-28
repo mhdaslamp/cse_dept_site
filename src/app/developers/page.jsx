@@ -68,7 +68,7 @@ export default function Developers() {
           Meet our team
         </h1>
         <div className="mt-6 w-full">
-          <div className="flex space-x-8 animate-marquee">
+          <div className="flex space-x-8 ">
             {data.concat(data).map((item, index) => (
               <div
                 key={index}
@@ -79,7 +79,7 @@ export default function Developers() {
                   alt="developer"
                   width={500}
                   height={200}
-                  className="rounded-lg w-auto h-[300px] md:h-[400px] object-cover"
+                  className="rounded-[48px] w-auto h-[300px] md:h-[400px] object-cover"
                 />
                 <div className="mt-4">
                   <h3 className="text-xl md:text-2xl font-semibold">
