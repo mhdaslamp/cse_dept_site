@@ -126,9 +126,9 @@ export default function Developers() {
                   <Image
                     src={item.img}
                     alt="developer"
-                    width={300}
-                    height={600}
-                    className="rounded-[48px] w-auto h-[900px] md:h-[500px] object-cover"
+                    width={400}
+                    height={540}
+                    className="rounded-[48px] w-auto h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
                   />
                   <div className="mt-4">
                     <h3 className="text-2xl md:text-3xl font-semibold">
