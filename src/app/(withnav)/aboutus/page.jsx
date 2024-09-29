@@ -4,6 +4,7 @@ import DeptLogo from "../../../components/DeptLogo";
 import HomePage from "../HomePage/page";
 import Acadamics from "@/app/(withnav)/academics/page";
 import History from "../../../components/History";
+import History from "../../../components/History";
 import AboutusHorizontalScrollCarousel from "./aboutUsHorizontalScroll/page";
 import CourseOfferedSection from "@/components/CourseOfferedSection";
 import Contact from "@/components/Contact";
