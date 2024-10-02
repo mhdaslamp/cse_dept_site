@@ -1,7 +1,3 @@
-Here’s an updated version of the `README.md` file based on your request:
-
----
-
 # CSE Department Website - GEC Sreekrishnapuram
 
 Welcome to the official website of the **Computer Science and Engineering Department** at **GEC Sreekrishnapuram**. This site is designed to provide students, faculty, and visitors with easy access to important information and updates related to the department, fostering a vibrant academic and technical community.
