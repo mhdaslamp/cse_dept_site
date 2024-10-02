@@ -25,10 +25,3 @@ Key features include:
   
 ## Contribution
 We welcome and encourage contributions from students, alumni, and faculty members. If you have suggestions or would like to contribute to the development or content of the website, feel free to open an issue or submit a pull request.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for more details.
-
----
-
-This version adds more depth about the website and removes the deployment and getting started sections as requested. Let me know if you need further changes!
