@@ -23,12 +23,12 @@ ChartJS.register(
 const PlacementGraph = () => {
   return (
     <div className="w-full flex justify-center overflow-hidden py-24">
-      <div className="w-[85%] justify-center bg-[#E9E9E8] p-5">
-      <h1 className="text-[#696969] font-bebas-neue font-normal leading-tight text-2xl sm:text-3xl md:text-[36px] lg:text-[46px] xl:text-[56px] ">
+      <div className="w-[85%] h-[471px] justify-center bg-[#E9E9E8] p-5">
+      <h1 className="text-[#696969] py-5 font-bebas-neue font-normal leading-tight text-2xl sm:text-3xl md:text-[36px] lg:text-[46px] xl:text-[56px] ">
         YEAR WISE PLACEMENT OFFERS
       </h1>
 
-        <div className="w-[526px] p-5 ">
+        <div className="scale-75 w-[526px] lg:scale-100 ">
           <Bar
             data={{
               labels: ["2007", "2008", "2009", "2010", 2011],

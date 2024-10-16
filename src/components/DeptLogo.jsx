@@ -60,10 +60,11 @@ const DeptLogo = () => {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
   return (
-    <ColoredSection color="BLACK">
+    <ColoredSection color="BLACK" >
       <div
         ref={containerRef}
         className="flex flex-col px-12 md:px-20 py-8 justify-center items-center min-h-screen"
+        id="mission"
       >
         <div className="flex justify-center align-items-center relative px-5 md:px-0">
           <motion.img
@@ -135,42 +136,38 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
-        {/* <div className="lg:flex relative whitespace-nowrap overflow-hidden lg:w-[1300px] hidden">
-          <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
-            <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
-              NATIONAL BOARD OF ACCREDITATION ACCREDITED
-            </p>
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
-            />
-          </div>
+        <div className=" hidden overflow-hidden lg:flex items-center w-screen">
+        <motion.div
+        className="flex whitespace-nowrap"
+        initial={{ x: 0 }}
+        animate={{ x: ["0%", "-100%"] }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 10, // Adjust this value for speed
+          ease: "linear",
+        }}
+      >
+        <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  "> 
+          <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue"> NATIONAL BOARD OF ACCREDITATION ACCREDITED </p> 
+          <img src="./nba.svg" alt="Description" className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max" />
+        </div>
 
-          <div className="lg:flex items-center min-w-max h-[100px] hidden">
-            <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-bebasneue">
-              NATIONAL BOARD OF ACCREDITATION ACCREDITED
-            </p>
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid  min-w-max"
-            />
-          </div>
+        <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  "> 
+          <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue"> NATIONAL BOARD OF ACCREDITATION ACCREDITED </p> 
+          <img src="./nba.svg" alt="Description" className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max" />
+        </div>
 
-          <div className="lg:flex items-center min-w-max h-[100px] hidden">
-            <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-bebasneue">
-              NATIONAL BOARD OF ACCREDITATION ACCREDITED
-            </p>
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="inline-block border-x-4 border-[#9E9E9E] px-10 border-solid  min-w-max"
-            />
-          </div>
-        </div> */}
+        <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  "> 
+          <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue"> NATIONAL BOARD OF ACCREDITATION ACCREDITED </p> 
+          <img src="./nba.svg" alt="Description" className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max" />
+        </div>
+      </motion.div>
 
-        {/* <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px]  max-w-screen">
+          
+        </div>
+
+        <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px]  max-w-screen">
           <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue">
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
@@ -181,7 +178,7 @@ const DeptLogo = () => {
               className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
             />
           </div>
-        </div> */}
+        </div>
       </div>
     </ColoredSection>
   );

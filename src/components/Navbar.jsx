@@ -34,22 +34,22 @@ const links = [
       {
         label: "About Department",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#dept",
       },
       {
         label: "Mission & Vision",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#mission",
       },
       {
         label: "Course Offered",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#course",
       },
       {
         label: "History of Dept",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/aboutus#history",
       },
       {
         label: "Advisory Board",
@@ -59,7 +59,7 @@ const links = [
       {
         label: "Gallery",
         type: "sub-main",
-        href: "/aboutus",
+        href: "/gallery",
       },
     ],
   },
@@ -71,12 +71,12 @@ const links = [
       {
         label: "PO, PsO and PEO",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#acad_intro",
       },
       {
         label: "Programmes and Syllabus",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#acad_pgms",
       },
       {
         label: "Courses",
@@ -86,12 +86,12 @@ const links = [
       {
         label: "Labs",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#acad_labs",
       },
       {
         label: "Library",
         type: "sub-main",
-        href: "/academics",
+        href: "/academics#history",
       },
     ],
   },
