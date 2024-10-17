@@ -8,8 +8,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
-import { createFaculty } from "@/actions/faculty.action";
 import { createEvent } from "@/actions/event.action";
+import { useRouter } from "next/navigation";
 
 const eventFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -20,10 +20,12 @@ const eventFormSchema = z.object({
 });
 
 const EventForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -38,8 +40,9 @@ const EventForm = () => {
     mutationFn: async (data) => {
       await createEvent(data)
     },onSuccess: () => {
-        alert("Event created successfully")
-    }
+        router.refresh();
+        reset();
+      },
   });
 
   const onSubmit = (data) => {
