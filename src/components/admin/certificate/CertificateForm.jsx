@@ -33,6 +33,9 @@ const CertificateForm = () => {
   const mutation = useMutation({
     mutationFn: async (data) => {
       await createCertificate(data)
+    },
+    onSuccess: () => {
+        alert("Certificate created successfully")
     }
   });
 
@@ -82,7 +85,7 @@ const CertificateForm = () => {
           />
         )}
       </div>
-      <SubmitButton label="save" type="submit" />
+      <SubmitButton disabled={mutation.isPending} label="save" type="submit" />
     </form>
   );
 };

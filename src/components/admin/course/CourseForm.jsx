@@ -36,6 +36,9 @@ const CourseForm = () => {
   const mutation = useMutation({
     mutationFn: async (data) => {
       await createCourse(data)
+    },
+    onSuccess: () => {
+        alert("Course created successfully")
     }
   });
 
@@ -97,7 +100,7 @@ const CourseForm = () => {
         {pdfUrl === "" ? (
           <>
             <UploadButton
-              endpoint="pdfUploader"
+              endpoint="imageUploader"
               onClientUploadComplete={(res) => {
                 console.log("Files: ", res);
                 setValue("pdfUrl", res[0].url);
@@ -114,7 +117,7 @@ const CourseForm = () => {
           <p>PDF uploaded successfully</p>
         )}
       </div>
-      <SubmitButton label="save" type="submit" />
+      <SubmitButton disabled={mutation.isPending} label="save" type="submit" />
     </form>
   );
 };

@@ -37,6 +37,8 @@ const EventForm = () => {
   const mutation = useMutation({
     mutationFn: async (data) => {
       await createEvent(data)
+    },onSuccess: () => {
+        alert("Event created successfully")
     }
   });
 
@@ -123,7 +125,7 @@ const EventForm = () => {
           <p className="text-red-500">{errors.regLinks.message}</p>
         )}
       </div>
-      <SubmitButton label="Save Event" type="submit" />
+      <SubmitButton disabled={mutation.isPending} label="Save Event" type="submit" />
     </form>
   );
 };

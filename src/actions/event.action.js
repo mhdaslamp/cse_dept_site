@@ -12,7 +12,9 @@ export async function createEvent({ name, date, details, posters, regLinks }) {
         await dbConnect();
         const newEvent = new Event({ name, date, details, posters, regLinks });
         await newEvent.save();
-        return newEvent;
+        return {
+            message: "Event created successfully"
+        };
     } catch (error) {
         console.error('Failed to create event:', error);
         throw new Error('Failed to create event');
