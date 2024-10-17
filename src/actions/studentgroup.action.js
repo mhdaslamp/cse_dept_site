@@ -12,7 +12,9 @@ export async function createStudentGroup({ name, description, logoUrl }) {
         await dbConnect();
         const newStudentGroup = new StudentGroup({ name, description, logoUrl });
         await newStudentGroup.save();
-        return newStudentGroup;
+        return {
+          data: "success",
+        };
     } catch (error) {
         console.error('Failed to create student group:', error);
         throw new Error('Failed to create student group');
