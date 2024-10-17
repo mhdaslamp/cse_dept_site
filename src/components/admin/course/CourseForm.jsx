@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
+import { useMutation } from '@tanstack/react-query';
+import { createFaculty } from "@/actions/faculty.action";
+import { createCourse } from "@/actions/course.action";
 
 const courseFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -29,7 +32,16 @@ const CourseForm = () => {
       pdfUrl: "",
     },
   });
-  const onSubmit = (data) => console.log(data);
+
+  const mutation = useMutation({
+    mutationFn: async (data) => {
+      await createCourse(data)
+    }
+  });
+
+  const onSubmit = (data) => {
+    mutation.mutate(data)
+  };
 
   console.log(errors);
 
