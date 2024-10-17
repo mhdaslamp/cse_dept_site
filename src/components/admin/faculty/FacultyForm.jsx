@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
+import { useMutation } from "@tanstack/react-query";
+import { createFaculty } from "@/actions/faculty.action";
 
 const facultyFormSchema = z.object({
   type: z.string().min(1, { message: "Type is required" }),
@@ -46,7 +48,16 @@ const FacultyForm = () => {
       imageUrl: "",
     },
   });
-  const onSubmit = (data) => console.log(data);
+
+  const mutation = useMutation({
+    mutationFn: async (data) => {
+      await createFaculty(data);
+    },
+  });
+
+  const onSubmit = (data) => {
+    mutation.mutate(data);
+  };
 
   console.log(errors);
 

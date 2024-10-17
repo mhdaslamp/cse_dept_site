@@ -23,7 +23,9 @@ export async function createFacility({ name, description, pdfUrl }) {
         await dbConnect();
         const newFacility = new Facility({ name, description, pdfUrl });
         await newFacility.save();
-        return newFacility;
+        return {
+          message: "Success",
+        };
     } catch (error) {
         console.error('Failed to create facility:', error);
         throw new Error('Failed to create facility');
