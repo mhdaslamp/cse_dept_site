@@ -4,6 +4,84 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
+const links = [
+  {
+    label: "Students",
+    href: "/admin/student/edit",
+    id: "student",
+  },
+  {
+    label: "Faculty",
+    href: "/admin/faculty/edit",
+    id: "faculty",
+  },
+  {
+    label: "Courses",
+    href: "/admin/course/edit",
+    id: "course",
+  },
+  {
+    label: "Certificates",
+    href: "/admin/certificate/edit",
+    id: "certificate",
+  },
+  {
+    label: "Events",
+    href: "/admin/event/edit",
+    id: "event",
+  },
+  {
+    label: "Gallery",
+    href: "/admin/gallery/edit",
+    id: "gallery",
+  },
+  {
+    label: "Recruiter",
+    href: "/admin/recruiter/edit",
+    id: "recruiter",
+  },
+  {
+    label: "Poster",
+    href: "/admin/poster/edit",
+    id: "poster",
+  },
+  {
+    label: "Subject",
+    href: "/admin/subject/edit",
+    id: "subject",
+  },
+  {
+    label: "Syllabus",
+    href: "/admin/syllabus/edit",
+    id: "syllabus",
+  },
+  {
+    label: "Toppers",
+    href: "/admin/toppers/edit",
+    id: "toppers",
+  },
+  {
+    label: "Blog",
+    href: "/admin/blog/edit",
+    id: "blog",
+  },
+  {
+    label: "Association Members",
+    href: "/admin/associationmembers/edit",
+    id: "associationmembers",
+  },
+  {
+    label: "Achiever",
+    href: "/admin/achiever/edit",
+    id: "achiever",
+  },
+  {
+    label: "Advisor Bourd",
+    href: "/admin/advisorbound/edit",
+    id: "advisorbound",
+  },
+];
+
 const AdminNavbar = () => {
   const pathname = usePathname();
   return (
@@ -12,17 +90,17 @@ const AdminNavbar = () => {
         <div className="flex">
           <NavLink
             label="EDIT"
-            link="/admin/edit/accredition"
-            active={pathname.includes("/edit/")}
+            link="./edit"
+            active={pathname.includes("/edit")}
           />
           <NavLink
             label="SAVED"
-            link="/admin/saved/"
+            link="./saved"
             active={pathname === "/admin/saved"}
           />
           <NavLink
             label="REQUEST STATUS"
-            link="/admin/request-status"
+            link="./request-status"
             active={pathname === "/admin/request-status"}
           />
         </div>
@@ -36,15 +114,15 @@ const AdminNavbar = () => {
           </p>
         </div>
       </div>
-      <div className="flex">
-        <NavLink
-          label="Accredition"
-          link="/admin/edit/accredition"
-          active={true}
-        />
-        <NavLink label="Toppers" link="/admin/edit/toppers" active={false} />
-        <NavLink label="Faculty" link="/admin/edit/faculty" active={false} />
-        <NavLink label="Faculty" link="/admin/edit/faculty" active={false} />
+      <div className="flex w-full flex-wrap border-l border-white">
+        {links.map((link) => (
+          <NavLink
+            key={link.id}
+            label={link.label}
+            link={link.href}
+            active={pathname.includes(link.id)}
+          />
+        ))}
       </div>
     </nav>
   );
