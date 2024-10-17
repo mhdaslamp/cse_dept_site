@@ -8,7 +8,9 @@ export async function getGalleries() {
     try {
         await dbConnect();
         const galleries = await Gallery.find({});
-        return galleries;
+        return {
+          message: "Success",
+        };
     } catch (error) {
         console.error('Failed to fetch galleries:', error);
         throw new Error('Failed to fetch galleries');

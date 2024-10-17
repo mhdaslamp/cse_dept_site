@@ -123,7 +123,7 @@ const year=sortedRanges.filter((item,index)=>
             onMouseEnter={()=>setIsHover(true)} 
             onMouseLeave={()=>setIsHover(false)}
           >
-            <div className='w-full h-[77%] bg-cover bg-no-repeat bg-center' style={{backgroundImage:`url(${data.link})`}}></div>
+            <img className=' w-full h-[77%] bg-cover bg-no-repeat bg-center group-hover/items:grayscale'   style={{backgroundImage:`url(${data.link})` }}></img>
             <div className='p-3 leading-3 '>
             <h1 className='text-xl font-bold group-hover/items:text-white'>{data.name}</h1>
             <p  className='text-[#9E9E9E] group-hover/items:text-white'>{isHover?"Click to know more":`${data.postion}`}</p>
@@ -535,8 +535,8 @@ const studitem=[{
 }]
 
   return (
-    <div className='flex flex-col justify-center idata-center overflow-hidden'>
-      <div className='w-min'>
+    <div className='flex flex-col justify-center items-center overflow-hidden min-h-[400px]'>
+      <div className='w-min '>
 
       <ExpandableCards title="TEACHING STAFFS"  item={item1}/>
       <ExpandableCards title="TECHNICAL STAFFS" item={item1}/>

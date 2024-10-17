@@ -30,7 +30,9 @@ export async function createSyllabus({ course, syllabusId, yearOfScheme, pdfUrl 
 
         const newSyllabus = new Syllabus({ course, syllabusId, yearOfScheme, pdfUrl });
         await newSyllabus.save();
-        return newSyllabus;
+        return {
+          message: "Success",
+        };
     } catch (error) {
         console.error('Failed to create syllabus:', error);
         throw new Error('Failed to create syllabus: ' + error.message);

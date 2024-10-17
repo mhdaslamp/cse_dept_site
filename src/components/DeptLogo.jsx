@@ -11,7 +11,9 @@ import {
   useMotionValueEvent,
   cubicBezier,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef,useEffect } from "react";
+import gsap from "gsap";
+
 
 const imageAnimationVariants = {
   invisible: {
@@ -59,6 +61,35 @@ const DeptLogo = () => {
   const missionTextY = useTransform(scrollYProgress, [0.85, 1], [200, 0], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
+
+
+    const item1=useRef(null);
+    const item2=useRef(null);
+    const item3=useRef(null);
+    const item4=useRef(null);
+    let xPercent=0;
+    let direction =-1;
+
+  useEffect(()=>{
+    requestAnimationFrame(animation);
+  },[])
+
+  const animation=()=>{
+    if(xPercent<=-100){
+      xPercent=0; 
+    }
+    gsap.set(item1.current,{xPercent:xPercent})
+    gsap.set(item2.current,{xPercent:xPercent})
+    gsap.set(item3.current,{xPercent:xPercent})
+    gsap.set(item4.current,{xPercent:xPercent})
+    xPercent+=0.15*direction
+    requestAnimationFrame(animation)
+  }
+  
+
+
+
+
   return (
     <ColoredSection color="BLACK">
       <div
@@ -136,6 +167,7 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
+
         <div className=" hidden overflow-hidden lg:flex items-center w-screen mt-24">
           <motion.div
             className="flex whitespace-nowrap"
@@ -188,6 +220,13 @@ const DeptLogo = () => {
 
         <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px] max-w-screen">
           <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue">
+
+            
+
+         <div className="overflow-hidden flex  flex-row items-center w-screen   ">
+
+         <div className="flex items-center whitespace-nowrap gap-5 h-[100px]  max-w-screen " ref={item1}>
+          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
           <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
@@ -198,6 +237,62 @@ const DeptLogo = () => {
             />
           </div>
         </div>
+        
+
+         
+        <div className="flex  items-center whitespace-nowrap gap-5 h-[100px]" ref={item2}>
+          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
+        </div>
+        <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item3}>
+          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item4}>
+          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
+        </div>
+       
+
+        </div>
+        {/* <div className=" flex items-center whitespace-nowrap gap-5 h-[100px] w-screen lg:hidden  justify-center"   >
+          <p className=" text-2xl text-[#9E9E9E] font-extrabold font-bebasneue" >
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
+        </div> */}
       </div>
     </ColoredSection>
   );

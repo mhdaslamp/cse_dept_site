@@ -7,35 +7,18 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from '@tanstack/react-query';
 import { createFaculty } from "@/actions/faculty.action";
+import { createAdvisoryBoardMember } from "@/actions/advisoryboard.action";
 
-const facultyFormSchema = z.object({
-  type: z.string().min(1, { message: "Type is required" }),
+const advisorBoundFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
-  yearOfJoin: z
-    .string()
-    .refine((val) => /^\d+$/.test(val), {
-      message: "Year of Join must be an integer",
-    })
-    .refine((val) => val.length === 4, {
-      message: "Year of Join must be 4 digits year",
-    }),
-  yearOfDept: z
-    .string()
-    .refine((val) => /^\d+$/.test(val), {
-      message: "Year of Department must be an integer",
-    })
-    .refine((val) => val.length === 4, {
-      message: "Year of Department must be 4 digits year",
-    }),
   designation: z.string().min(1, { message: "Designation is required" }),
-  emailId: z.string().email({ message: "Invalid email" }),
-  qualification: z.string().min(1, { message: "Qualification is required" }),
+  position: z.string().min(1, { message: "Position is required" }),
   imageUrl: z.string().min(1, { message: "Image is required" }),
 });
 
-const FacultyForm = () => {
+const AdvisorBoundForm = () => {
   const {
     register,
     handleSubmit,
@@ -43,7 +26,7 @@ const FacultyForm = () => {
     formState: { errors },
     setValue,
   } = useForm({
-    resolver: zodResolver(facultyFormSchema),
+    resolver: zodResolver(advisorBoundFormSchema),
     defaultValues: {
       imageUrl: "",
     },
@@ -51,8 +34,11 @@ const FacultyForm = () => {
 
   const mutation = useMutation({
     mutationFn: async (data) => {
-      await createFaculty(data);
+      await createAdvisoryBoardMember(data)
     },
+    onSuccess: (data) => {
+      alert(data.message);
+    }
   });
 
   const onSubmit = (data) => {
@@ -66,14 +52,6 @@ const FacultyForm = () => {
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
       <Input
-        label="Type"
-        type="text"
-        placeholder="eg. Professor"
-        name="type"
-        {...register("type")}
-        error={errors?.type}
-      />
-      <Input
         label="Name"
         type="text"
         placeholder="eg. John Doe"
@@ -82,44 +60,20 @@ const FacultyForm = () => {
         error={errors?.name}
       />
       <Input
-        label="Year of Join"
-        type="text"
-        placeholder="eg. 2010"
-        name="yearOfJoin"
-        {...register("yearOfJoin")}
-        error={errors?.yearOfJoin}
-      />
-      <Input
-        label="Year of Department"
-        type="text"
-        placeholder="eg. 2015"
-        name="yearOfDept"
-        {...register("yearOfDept")}
-        error={errors?.yearOfDept}
-      />
-      <Input
         label="Designation"
         type="text"
-        placeholder="eg. Head of Department"
+        placeholder="eg. Professor"
         name="designation"
         {...register("designation")}
         error={errors?.designation}
       />
       <Input
-        label="Email ID"
-        type="email"
-        placeholder="eg. john.doe@example.com"
-        name="emailId"
-        {...register("emailId")}
-        error={errors?.emailId}
-      />
-      <Input
-        label="Qualification"
+        label="Position"
         type="text"
-        placeholder="eg. Ph.D. in Computer Science"
-        name="qualification"
-        {...register("qualification")}
-        error={errors?.qualification}
+        placeholder="eg. Advisory Board Member"
+        name="position"
+        {...register("position")}
+        error={errors?.position}
       />
       <div className="space-y-2">
         <h3 className="font-medium capitalize text-2xl">Image(JPEG/JPG)</h3>
@@ -154,4 +108,4 @@ const FacultyForm = () => {
   );
 };
 
-export default FacultyForm;
+export default AdvisorBoundForm;

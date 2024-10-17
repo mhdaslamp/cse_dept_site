@@ -100,8 +100,8 @@ const Footer = () => {
                 </Link>
               </p>
               <div className="flex items-center">
-                <RiInstagramFill className="text-[#666666] w-5 h-5" />
-                <IoLogoLinkedin className="text-[#666666] ml-2 w-5 h-5" />
+               <a href="https://www.instagram.com/cse_gecpkd/"> <RiInstagramFill className="text-[#666666] w-5 h-5 hover:text-blue-700 cursor-pointer" /></a>
+               <a href="https://www.linkedin.com/company/csegecskp/"> <IoLogoLinkedin className="text-[#666666] ml-2 w-5 h-5 hover:text-blue-700 cursor-pointer" /></a>
               </div>
             </div>
           </div>
