@@ -30,7 +30,9 @@ export async function createMagazine({ name, category, date, description, pdfUrl
             frontPageUrl
         });
         await newMagazine.save();
-        return newMagazine;
+        return {
+          message: "Success",
+        };
     } catch (error) {
         console.error('Failed to create magazine:', error);
         throw new Error('Failed to create magazine');
