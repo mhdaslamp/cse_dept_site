@@ -4,11 +4,10 @@ import HodMessage from "@/components/HodMessage";
 import Footer from "@/components/Footer";
 function page() {
   return (
-  <>
-  <HodMessage />
-  <Cardpeople/>
-  <Footer/>
-  </>
+    <>
+      <HodMessage />
+      <Cardpeople />
+    </>
   );
 }
 
