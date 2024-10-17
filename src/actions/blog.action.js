@@ -23,7 +23,9 @@ export async function createBlog({ name, authorName, type, authorPosition, autho
         await dbConnect();
         const newBlog = new Blog({ name, authorName, type, authorPosition, authorImage, authorLinkedin });
         await newBlog.save();
-        return newBlog;
+        return {
+            message: "Blog created successfully"
+        };
     } catch (error) {
         console.error('Failed to create blog:', error);
         throw new Error('Failed to create blog');

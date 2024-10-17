@@ -12,7 +12,9 @@ export async function createAssociationMember({ name, year, designation, mailId,
         await dbConnect();
         const newMember = new AssociationMember({ name, year, designation, mailId, imageUrl });
         await newMember.save();
-        return newMember;
+        return {
+            message: "Association member created successfully"
+        };
     } catch (error) {
         console.error('Failed to create association member:', error);
         throw new Error('Failed to create association member');
