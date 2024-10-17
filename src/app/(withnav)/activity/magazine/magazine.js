@@ -5,6 +5,7 @@ const departmentMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-1.pdf",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const departmentMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-2.pdf",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const departmentMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-1.pdf",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const departmentMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-2.pdf",
   },
 ];
 const pgMagazine = [
@@ -35,6 +39,7 @@ const pgMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-1.pdf",
   },
   {
     id: 2,
@@ -42,6 +47,7 @@ const pgMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-2.pdf",
   },
   {
     id: 3,
@@ -49,6 +55,7 @@ const pgMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-1.pdf",
   },
   {
     id: 4,
@@ -56,6 +63,7 @@ const pgMagazine = [
     description: "Department Magazine of 2023 edition",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-2.pdf",
   },
 ];
 const pgNewsLetter = [
@@ -66,6 +74,7 @@ const pgNewsLetter = [
       "Computational Linguistics in Engineering And Research Journal is an initiative of M.Tech Computer Science and Engineering, GEC Sreekrishnapuram",
     date: "July 15, 2024",
     image: "/activity2.png",
+    pdf: "/pdf/sample-pdf-1.pdf",
   },
 ];
 export { departmentMagazine, pgMagazine, pgNewsLetter };

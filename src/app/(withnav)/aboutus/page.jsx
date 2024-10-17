@@ -1,8 +1,7 @@
 import React from "react";
-import DeptInfo from "@/components/DeptInfo";
-import DeptLogo from "@/components/DeptLogo";
-import HomePage from "@/app/(withnav)/HomePage/page";
-import Acadamics from "@/app/(withnav)/academics/page";
+import DeptInfo from "../../../components/DeptInfo";
+import DeptLogo from "../../../components/DeptLogo";
+import HomePage from "../HomePage/page";
 import History from "../../../components/History";
 import AboutusHorizontalScrollCarousel from "./aboutUsHorizontalScroll/page";
 import CourseOfferedSection from "@/components/CourseOfferedSection";
@@ -17,8 +16,7 @@ export default function About() {
       <CourseOfferedSection />
       <History />
       <AboutusHorizontalScrollCarousel />
-      <Contact/>
-
+      <Contact />
     </main>
   );
 }

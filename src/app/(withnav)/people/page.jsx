@@ -4,11 +4,10 @@ import HodMessage from "@/components/HodMessage";
 
 function page() {
   return (
-  <>
-  <HodMessage />
-  <Cardpeople/>
-
-  </>
+    <>
+      <HodMessage />
+      <Cardpeople />
+    </>
   );
 }
 
