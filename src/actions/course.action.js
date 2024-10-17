@@ -12,7 +12,9 @@ export async function createCourse({ name, description, imageUrl, pdfUrl }) {
         await dbConnect();
         const newCourse = new Course({ name, description, imageUrl, pdfUrl });
         await newCourse.save();
-        return newCourse;
+        return {
+            message: "Course created successfully"
+        };
     } catch (error) {
         console.error('Failed to create course:', error);
         throw new Error('Failed to create course');

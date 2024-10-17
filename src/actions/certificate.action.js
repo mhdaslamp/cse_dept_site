@@ -12,7 +12,9 @@ export async function createCertificate({ name, imageUrl }) {
         await dbConnect();
         const newCertificate = new Certificate({ name, imageUrl });
         await newCertificate.save();
-        return newCertificate;
+        return {
+            message: "Certificate created successfully"
+        };
     } catch (error) {
         console.error('Failed to create certificate:', error);
         throw new Error('Failed to create certificate');
