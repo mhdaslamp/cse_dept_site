@@ -91,7 +91,7 @@ const DeptLogo = () => {
 
 
   return (
-    <ColoredSection color="BLACK" >
+    <ColoredSection color="BLACK">
       <div
         ref={containerRef}
         className="flex flex-col px-12 md:px-20 py-8 justify-center items-center min-h-screen"
@@ -167,6 +167,60 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
+
+        <div className=" hidden overflow-hidden lg:flex items-center w-screen mt-24">
+          <motion.div
+            className="flex whitespace-nowrap"
+            initial={{ x: 0 }}
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 10, // Adjust this value for speed
+              ease: "linear",
+            }}
+          >
+            <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
+              <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
+                {" "}
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED{" "}
+              </p>
+              <img
+                src="./nba.svg"
+                alt="Description"
+                className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
+              />
+            </div>
+
+            <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
+              <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
+                {" "}
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED{" "}
+              </p>
+              <img
+                src="./nba.svg"
+                alt="Description"
+                className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
+              />
+            </div>
+
+            <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
+              <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
+                {" "}
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED{" "}
+              </p>
+              <img
+                src="./nba.svg"
+                alt="Description"
+                className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px] max-w-screen">
+          <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue">
+
             
 
          <div className="overflow-hidden flex  flex-row items-center w-screen   ">
@@ -213,6 +267,7 @@ const DeptLogo = () => {
 
         <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item4}>
           <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
           <div className="border-x-4 border-[#9E9E9E] border-solid px-2">

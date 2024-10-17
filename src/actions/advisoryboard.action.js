@@ -12,7 +12,9 @@ export async function createAdvisoryBoardMember({ name, designation, position, i
         await dbConnect();
         const newMember = new AdvisoryBoard({ name, designation, position, imageUrl });
         await newMember.save();
-        return newMember;
+        return {
+            message: "Advisory board member created successfully"
+        };
     } catch (error) {
         console.error('Failed to create advisory board member:', error);
         throw new Error('Failed to create advisory board member');
