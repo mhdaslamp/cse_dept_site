@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { createStudentGroup } from "@/actions/studentgroup.action";
 import { UploadButton } from "@/components/uploadthing";
+import { useRouter } from "next/navigation";
 
 const studentGroupFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -17,10 +18,12 @@ const studentGroupFormSchema = z.object({
 });
 
 const StudentGroupForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -35,7 +38,8 @@ const StudentGroupForm = () => {
       await createStudentGroup(data);
     },
     onSuccess: () => {
-      alert("Successfully created");
+      router.refresh();
+      reset();
     },
   });
   const onSubmit = (data) => {
