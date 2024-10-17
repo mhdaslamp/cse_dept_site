@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createFaculty } from "@/actions/faculty.action";
 import { createPoster } from "@/actions/poster.action";
+import { useRouter } from "next/navigation";
 
 const posterFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -18,12 +19,14 @@ const posterFormSchema = z.object({
 });
 
 const PosterForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
     setValue,
+    reset,
   } = useForm({
     resolver: zodResolver(posterFormSchema),
     defaultValues: {
@@ -34,6 +37,10 @@ const PosterForm = () => {
   const mutation = useMutation({
     mutationFn: async (data) => {
       await createPoster(data);
+    },
+    onSuccess: () => {
+      router.refresh();
+      reset();
     },
   });
 
