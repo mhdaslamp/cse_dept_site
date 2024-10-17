@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import HorizontalScroll from "../../../../components/horizontal-scroll";
+import Link from "next/link";
 
 const images = ["/bg.png", "/bg.png", "/bg.png", "/bg.png"];
-
+const lastimag = ["/ImageScroll/image1.png","/ImageScroll/image2.png"]
 const AboutusHorizontalScrollCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -66,22 +67,22 @@ const AboutusHorizontalScrollCarousel = () => {
                 ))}
                 <div className="relative h-screen w-[1100px] bg-[#e9e9e8]">
                   <div className="h-full w-full flex flex-row justify-end items-center mr-5">
-                    <div className="group h-[400px] w-[400px] hover:border-3 hover:border-purple-500 rounded-md">
-                      <img
-                        className="h-auto w-[300px] grayscale group-hover:grayscale-0 group-hover:transition-all group-hover:duration-100 group-hover:ease-in-out"
-                        src="/ImageScroll/image1.png"
-                        alt="random image"
-                      />
-                      <div></div>
-                    </div>
-                    <div className="group h-[400px] w-[400px] hover:border-3 hover:border-purple-500 mr-10">
-                      <img
-                        className="h-auto w-[300px] grayscale group-hover:grayscale-0 group-hover:transition-all group-hover:duration-500 group-hover:ease-in-out"
-                        src="/ImageScroll/image2.png"
-                        alt="random image"
-                      />
-                      <div></div>
-                    </div>
+                    {lastimag.map((data,index)=>(
+                    <Link href={"gallery"}>
+                            <div className="group h-[400px] w-[400px] hover:border-3 hover:border-purple-500 rounded-md" key={index}>
+                          <img
+                            className="h-auto w-[300px] grayscale group-hover:grayscale-0 group-hover:transition-all group-hover:duration-100 group-hover:ease-in-out"
+                            src={data}
+                            alt="random image"
+                          />
+                          <div></div>
+                        </div>
+
+                        </Link>
+
+                    ))}
+                
+                  
                   </div>
                 </div>
               </div>
