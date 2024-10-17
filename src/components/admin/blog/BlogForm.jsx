@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
 import { createBlog } from "@/actions/blog.action";
+import { useRouter } from "next/navigation";
 
 const blogFormSchema = z.object({
   name: z.string().min(1, { message: "Blog name is required" }),
@@ -20,10 +21,12 @@ const blogFormSchema = z.object({
 });
 
 const BlogForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -37,8 +40,9 @@ const BlogForm = () => {
     mutationFn: async (data) => {
       await createBlog(data)
     },
-    onSuccess: (data) => {
-      alert(data.message);
+    onSuccess: () => {
+      router.refresh();
+      reset();
     }
   });
 
