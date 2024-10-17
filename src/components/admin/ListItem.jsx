@@ -1,8 +1,19 @@
 "use client";
 
+import { useMutation } from "@tanstack/react-query";
 import SubmitButton from "./SubmitButton";
+import { useRouter } from "next/navigation";
 
-const ListItem = ({ title, type, remark }) => {
+const ListItem = ({ title, type, remark, handleDelete }) => {
+  const router = useRouter();
+  const mutation = useMutation({
+    mutationFn: async () => {
+      await handleDelete();
+    },
+    onSuccess: () => {
+      router.refresh();
+    },
+  });
   return (
     <li className="bg-[#E9E9E8] p-4">
       <div className="flex justify-between items-center">
@@ -14,7 +25,13 @@ const ListItem = ({ title, type, remark }) => {
           {type === "saved" ||
             (type === "request-status" && <SubmitButton label="VIEW" />)}
 
-          {type !== "request-status" && <SubmitButton label="DELETE" />}
+          {type !== "request-status" && (
+            <SubmitButton
+              onClick={mutation.mutate}
+              disabled={mutation.isPending}
+              label="DELETE"
+            />
+          )}
         </div>
       </div>
       {remark && (

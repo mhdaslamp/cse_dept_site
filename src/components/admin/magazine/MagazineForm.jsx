@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createMagazine } from "@/actions/magazine.action";
+import { useRouter } from "next/navigation";
 
 const magazineFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -20,10 +21,12 @@ const magazineFormSchema = z.object({
 });
 
 const MagazineForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -31,6 +34,7 @@ const MagazineForm = () => {
     defaultValues: {
       pdfUrl: "",
       frontPageUrl: "",
+      date: new Date(),
     },
   });
 
@@ -39,7 +43,8 @@ const MagazineForm = () => {
       await createMagazine(data);
     },
     onSuccess: () => {
-      alert("success");
+      reset();
+      router.refresh();
     },
   });
 
@@ -51,6 +56,11 @@ const MagazineForm = () => {
 
   const pdfUrl = watch("pdfUrl");
   const frontPageUrl = watch("frontPageUrl");
+  const date = watch("date");
+  const dateString = `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
+  console.log(dateString);
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
@@ -74,7 +84,8 @@ const MagazineForm = () => {
         label="Date"
         type="date"
         name="date"
-        {...register("date")}
+        value={dateString}
+        onChange={(e) => setValue("date", e.target.valueAsDate)}
         error={errors?.date}
       />
       <Input
@@ -120,7 +131,7 @@ const MagazineForm = () => {
         {frontPageUrl === "" ? (
           <>
             <UploadButton
-              endpoint="frontPageUploader"
+              endpoint="imageUploader"
               onClientUploadComplete={(res) => {
                 // Do something with the response
                 console.log("Files: ", res);
