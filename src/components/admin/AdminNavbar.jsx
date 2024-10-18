@@ -77,8 +77,9 @@ const links = [
   },
 ];
 
-const AdminNavbar = () => {
+const AdminNavbar = ({ email = "hod@gmail.com" }) => {
   const pathname = usePathname();
+  const [name, domain] = email.split("@");
   return (
     <nav className="px-10 bg-black min-h-50 w-full">
       <div className="flex justify-between items-center">
@@ -100,12 +101,13 @@ const AdminNavbar = () => {
           />
         </div>
         <div className="flex gap-2.5 h-full items-center">
-          <NavButton label="SUBMIT ALL" />
-          <NavButton label="LOGOUT" />
+          {/* <NavButton label="SUBMIT ALL" /> */}
+          <Link href="/api/logout">
+            <NavButton label="LOGOUT" />
+          </Link>
           <p className="text-white text-right">
-            hod
-            <br />
-            @gecskp.ac.in
+            {name}
+            <br />@{domain}
           </p>
         </div>
       </div>

@@ -167,7 +167,6 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
-
         <div className=" hidden overflow-hidden lg:flex items-center w-screen mt-24">
           <motion.div
             className="flex whitespace-nowrap"
@@ -219,69 +218,73 @@ const DeptLogo = () => {
         </div>
 
         <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px] max-w-screen">
-          <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue">
+          <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue"></p>
 
-            
+          <div className="overflow-hidden flex  flex-row items-center w-screen   ">
+            <div
+              className="flex items-center whitespace-nowrap gap-5 h-[100px]  max-w-screen "
+              ref={item1}
+            >
+              <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED
+              </p>
+              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+                <img
+                  src="./nba.svg"
+                  alt="Description"
+                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+                />
+              </div>
+            </div>
 
-         <div className="overflow-hidden flex  flex-row items-center w-screen   ">
+            <div
+              className="flex  items-center whitespace-nowrap gap-5 h-[100px]"
+              ref={item2}
+            >
+              <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED
+              </p>
+              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+                <img
+                  src="./nba.svg"
+                  alt="Description"
+                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+                />
+              </div>
+            </div>
+            <div
+              className="flex items-center whitespace-nowrap gap-5 h-[100px] "
+              ref={item3}
+            >
+              <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED
+              </p>
+              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+                <img
+                  src="./nba.svg"
+                  alt="Description"
+                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+                />
+              </div>
+            </div>
 
-         <div className="flex items-center whitespace-nowrap gap-5 h-[100px]  max-w-screen " ref={item1}>
-          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
-            NATIONAL BOARD OF ACCREDITATION ACCREDITED
-          </p>
-          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-            />
+            <div
+              className="flex items-center whitespace-nowrap gap-5 h-[100px] "
+              ref={item4}
+            >
+              <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED
+              </p>
+              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+                <img
+                  src="./nba.svg"
+                  alt="Description"
+                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        
-
-         
-        <div className="flex  items-center whitespace-nowrap gap-5 h-[100px]" ref={item2}>
-          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
-            NATIONAL BOARD OF ACCREDITATION ACCREDITED
-          </p>
-          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-            />
-          </div>
-        </div>
-        <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item3}>
-          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
-            NATIONAL BOARD OF ACCREDITATION ACCREDITED
-          </p>
-          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-            />
-          </div>
-        </div>
-
-        <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item4}>
-          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
-
-            NATIONAL BOARD OF ACCREDITATION ACCREDITED
-          </p>
-          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-            />
-          </div>
-        </div>
-       
-
-        </div>
-        {/* <div className=" flex items-center whitespace-nowrap gap-5 h-[100px] w-screen lg:hidden  justify-center"   >
+          {/* <div className=" flex items-center whitespace-nowrap gap-5 h-[100px] w-screen lg:hidden  justify-center"   >
           <p className=" text-2xl text-[#9E9E9E] font-extrabold font-bebasneue" >
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
@@ -293,6 +296,7 @@ const DeptLogo = () => {
             />
           </div>
         </div> */}
+        </div>
       </div>
     </ColoredSection>
   );
