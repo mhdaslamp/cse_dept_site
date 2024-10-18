@@ -49,7 +49,7 @@ export async function getSubjects() {
   try {
     await dbConnect();
     const subjects = await Subject.find({}).populate("courseId");
-    return subjects;
+    return JSON.parse(JSON.stringify(subjects));
   } catch (error) {
     console.error("Failed to fetch subjects:", error);
     throw new Error("Failed to fetch subjects");

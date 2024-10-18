@@ -25,7 +25,7 @@ export async function getCourses() {
     try {
         await dbConnect();
         const courses = await Course.find({});
-        return courses;
+        return JSON.parse(JSON.stringify(courses));
     } catch (error) {
         console.error('Failed to fetch courses:', error);
         throw new Error('Failed to fetch courses');

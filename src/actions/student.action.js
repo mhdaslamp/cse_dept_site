@@ -12,7 +12,9 @@ export async function createStudent({ name, course, batch }) {
         await dbConnect();
         const newStudent = new Student({ name, course, batch });
         await newStudent.save();
-        return newStudent;
+        return {
+          message: "Created sucessfully",
+        };
     } catch (error) {
         console.error('Failed to create student:', error);
         throw new Error('Failed to create student');

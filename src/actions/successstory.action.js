@@ -23,7 +23,7 @@ export async function getSuccessStories() {
     try {
         await dbConnect();
         const successStories = await SuccessStory.find({});
-        return successStories;
+        return JSON.parse(JSON.stringify(successStories));
     } catch (error) {
         console.error('Failed to fetch success stories:', error);
         throw new Error('Failed to fetch success stories');

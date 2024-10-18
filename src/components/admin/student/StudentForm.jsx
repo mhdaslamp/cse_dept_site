@@ -8,6 +8,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { createStudent } from "@/actions/student.action";
+import { useRouter } from "next/navigation";
 
 const studentFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -18,9 +19,11 @@ const studentFormSchema = z.object({
 });
 
 const StudentForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(studentFormSchema),
@@ -31,7 +34,8 @@ const StudentForm = () => {
       await createStudent(data);
     },
     onSuccess: () => {
-      alert("Successfully created");
+      router.refresh();
+      reset();
     },
   });
 

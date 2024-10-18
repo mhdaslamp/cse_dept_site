@@ -8,7 +8,7 @@ export async function getSyllabi() {
     try {
         await dbConnect();
         const syllabi = await Syllabus.find({}).populate('course');
-        return syllabi;
+        return JSON.parse(JSON.stringify(syllabi));
     } catch (error) {
         console.error('Failed to fetch syllabi:', error);
         throw new Error('Failed to fetch syllabi');

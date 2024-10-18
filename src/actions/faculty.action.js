@@ -8,7 +8,7 @@ export async function getFaculties() {
     try {
         await dbConnect();
         const faculties = await Faculty.find({});
-        return faculties;
+        return JSON.parse(JSON.stringify(faculties));
     } catch (error) {
         console.error('Failed to fetch faculties:', error);
         throw new Error('Failed to fetch faculties');
@@ -23,7 +23,9 @@ export async function createFaculty({ type, name, yearOfJoin, yearOfDept, design
         await dbConnect();
         const newFaculty = new Faculty({ type, name, yearOfJoin, yearOfDept, designation, emailId, qualification, imageUrl });
         await newFaculty.save();
-        return newFaculty;
+        return {
+          message: "Created Succesfully",
+        };
     } catch (error) {
         console.error('Failed to create faculty:', error);
         throw new Error('Failed to create faculty');

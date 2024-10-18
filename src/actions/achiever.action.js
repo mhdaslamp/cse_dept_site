@@ -4,7 +4,9 @@ export const createAchiever = async (achieverData) => {
     try {
         const newAchiever = new Achiever(achieverData);
         await newAchiever.save();
-        return newAchiever;
+        return {
+          message: "Created sucessfully",
+        };
     } catch (error) {
         throw new Error('Failed to create achiever: ' + error.message);
     }
@@ -13,7 +15,7 @@ export const createAchiever = async (achieverData) => {
 export const getAchievers = async () => {
     try {
         const achievers = await Achiever.find();
-        return achievers;
+        return JSON.parse(JSON.stringify(achievers));
     } catch (error) {
         throw new Error('Failed to list achievers: ' + error.message);
     }

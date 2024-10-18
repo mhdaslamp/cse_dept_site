@@ -8,7 +8,7 @@ export async function getPosters() {
   try {
     await dbConnect();
     const posters = await Poster.find({});
-    return posters;
+    return JSON.parse(JSON.stringify(posters));
   } catch (error) {
     console.error("Failed to fetch posters:", error);
     throw new Error("Failed to fetch posters");

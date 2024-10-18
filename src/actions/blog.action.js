@@ -8,7 +8,7 @@ export async function getBlogs() {
     try {
         await dbConnect();
         const blogs = await Blog.find({});
-        return blogs;
+        return JSON.parse(JSON.stringify(blogs));
     } catch (error) {
         console.error('Failed to fetch blogs:', error);
         throw new Error('Failed to fetch blogs');

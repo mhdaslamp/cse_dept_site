@@ -25,7 +25,7 @@ export async function getAdvisoryBoardMembers() {
     try {
         await dbConnect();
         const members = await AdvisoryBoard.find({});
-        return members;
+        return JSON.parse(JSON.stringify(members));
     } catch (error) {
         console.error('Failed to fetch advisory board members:', error);
         throw new Error('Failed to fetch advisory board members');
