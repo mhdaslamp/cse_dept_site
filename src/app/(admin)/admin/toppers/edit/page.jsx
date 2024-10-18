@@ -1,17 +1,17 @@
-import Input from "@/components/admin/Input";
-import SubmitButton from "@/components/admin/SubmitButton";
-import AccreditionForm from "@/components/admin/accredition/AccreditionForm";
-import AccreditionList from "@/components/admin/accredition/AccreditionList";
+import { getTopperList } from "@/actions/topper.action";
+import TopperForm from "@/components/admin/toppers/TopperForm";
+import TopperList from "@/components/admin/toppers/TopperList";
 import React from "react";
 
-const EditAccreditionPage = () => {
+const EditAccreditionPage = async () => {
+  const toppers = await getTopperList();
   return (
     <div className="grid grid-cols-2">
       <div className="py-20 px-20">
-        <AccreditionForm />
+        <TopperForm />
       </div>
       <div className="py-20 px-10">
-        <AccreditionList />
+        <TopperList topperList={toppers} />
       </div>
     </div>
   );

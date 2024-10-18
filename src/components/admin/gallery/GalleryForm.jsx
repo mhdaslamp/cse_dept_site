@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createGallery } from "@/actions/gallery.action";
+import { useRouter } from "next/navigation";
 
 const galleryFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -19,10 +20,12 @@ const galleryFormSchema = z.object({
 });
 
 const GalleryForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -36,6 +39,10 @@ const GalleryForm = () => {
   const mutation = useMutation({
     mutationFn: async (data) => {
       await createGallery(data);
+    },
+    onSuccess: () => {
+      reset();
+      router.refresh();
     },
   });
 
