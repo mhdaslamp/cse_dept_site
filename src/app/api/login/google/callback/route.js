@@ -9,6 +9,9 @@ import { cookies } from "next/headers";
 import User from "@/lib/models/User";
 import dbConnect from "@/lib/db";
 import { generateRandomString, alphabet } from "oslo/crypto";
+import { NextResponse } from "next/server";
+
+const emails = ["mohdhashique10@gmail.com", "viswajithviswa715@gmail.com"];
 
 export async function GET(request) {
   const url = new URL(request.url);
@@ -51,6 +54,12 @@ export async function GET(request) {
   );
   const claims = await response.json();
   const email = claims.email;
+
+  if (!emails.includes(email)) {
+    return NextResponse.json({
+      message: `Not authorised for ${email}, Please contact web administrator`,
+    });
+  }
 
   await dbConnect();
 

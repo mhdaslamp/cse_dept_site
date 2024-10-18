@@ -2,7 +2,6 @@ import { deleteSessionTokenCookie, getSessionToken } from "@/lib/session";
 import { sha256 } from "@oslojs/crypto/sha2";
 import { encodeHexLowerCase } from "@oslojs/encoding";
 import Session from "@/lib/models/Session";
-import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 export const GET = async () => {
   const token = getSessionToken();
