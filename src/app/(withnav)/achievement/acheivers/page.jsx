@@ -44,13 +44,13 @@ const CategoryCarousel = ({ category, students }) => {
       <Slider {...settings}>
         {students.map((student, index) => (
           <div key={index} className="mx-auto">
-            <div className="h-auto sm:h-[350px] w-auto">
-              <div className="flex sm:flex-col bg-white justify-start items-center h-[156px]sm:h-auto w-auto sm:w-[220px] mx-auto">
-                <div className="stud-image w-[170px] h-[156px] sm:w-[220px] sm:h-[220px] transition-all duration-[1s]">
+            <div className="h-auto sm:h-[350px] w-auto ">
+              <div className="flex sm:flex-col bg-white justify-start items-center h-[156px] sm:h-auto w-auto sm:w-[280px] mx-auto">
+                <div className="stud-image w-[200px] h-[156px] sm:w-[268px] sm:h-[220px] transition-all duration-[1s]">
                   <img
                     src={student.image}
                     alt={student.name}
-                    className="w-full h-full object-cover"
+                    className="w-[260px] h-[220px] object-cover"
                   />
                 </div>
                 <div className="stud-details w-full h-auto text-center flex flex-col">
