@@ -10,7 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
 import { createEvent } from "@/actions/event.action";
 import { useRouter } from "next/navigation";
-
+import { useToast } from "@/hooks/use-toast";
 const eventFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   date: z.date({ required_error: "Date is required" }),
@@ -21,6 +21,7 @@ const eventFormSchema = z.object({
 
 const EventForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -43,6 +44,11 @@ const EventForm = () => {
         router.refresh();
         reset();
       },
+      onError: (error) => {
+        toast({
+          description: `Cannot create ${error.message}`
+        })
+      }
   });
 
   const onSubmit = (data) => {

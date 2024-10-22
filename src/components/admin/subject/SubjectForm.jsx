@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createSubject } from "@/actions/subject.action";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 const subjectFormSchema = z.object({
   courseId: z.string().min(1, { message: "Course ID is required" }),
@@ -21,6 +23,8 @@ const subjectFormSchema = z.object({
 });
 
 const SubjectForm = () => {
+  const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -38,6 +42,15 @@ const SubjectForm = () => {
     mutationFn: async (data) => {
       await createSubject(data);
     },
+    onSuccess: () => {
+      reset();
+      router.refresh();
+    },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

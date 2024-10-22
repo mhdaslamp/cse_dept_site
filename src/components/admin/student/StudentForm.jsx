@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { createStudent } from "@/actions/student.action";
 import { useRouter } from "next/navigation";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 const studentFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -20,6 +22,7 @@ const studentFormSchema = z.object({
 
 const StudentForm = ({ courses }) => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -37,6 +40,11 @@ const StudentForm = ({ courses }) => {
       router.refresh();
       reset();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

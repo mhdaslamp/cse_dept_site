@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createTopper } from "@/actions/topper.action"; // Changed from createTopper to createAchiever
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const achieverFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -33,6 +34,7 @@ const achieverFormSchema = z.object({
 
 const TopperForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -55,6 +57,11 @@ const TopperForm = () => {
       reset();
       router.refresh();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {
