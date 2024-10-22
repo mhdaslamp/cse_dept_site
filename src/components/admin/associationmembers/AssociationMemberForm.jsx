@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
 import { createAssociationMember } from "@/actions/associationmembers.action";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const associationMemberFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -28,6 +29,7 @@ const associationMemberFormSchema = z.object({
 
 const AssociationMemberForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -50,6 +52,11 @@ const AssociationMemberForm = () => {
       router.refresh();
       reset();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

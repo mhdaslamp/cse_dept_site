@@ -87,6 +87,12 @@ const EventCard = ({ event, onCardClick }) => {
 };
 
 const EventsSection = ({ title, events, onCardClick }) => {
+  const [visibleEvents, setVisibleEvents] = useState(4);
+
+  const loadMore = () => {
+    setVisibleEvents(prevVisible => Math.min(prevVisible + 4, events.length));
+  };
+
   return (
     <div className="container mx-auto py-8 px-4 md:px-0">
       <div className="w-full h-full flex justify-start items-end pt-8">
@@ -94,15 +100,25 @@ const EventsSection = ({ title, events, onCardClick }) => {
         <h1 className="uppercase text-3xl md:text-[48px] font-bold">{title}</h1>
       </div>
       <div className="grid grid-cols-1 gap-6 md:gap-0 md:grid-cols-2">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} onCardClick={onCardClick} />
+        {events.slice(0, visibleEvents).map((event, index) => (
+          <EventCard 
+            key={event.id} 
+            event={event} 
+            onCardClick={onCardClick} 
+            index={index}
+          />
         ))}
       </div>
-      <div className="text-center mt-6">
-        <button className="bg-gray-500 text-white px-4 py-2 rounded">
-          Load More
-        </button>
-      </div>
+      {visibleEvents < events.length && (
+        <div className="text-center mt-6">
+          <button 
+            className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition duration-300"
+            onClick={loadMore}
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
