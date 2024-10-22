@@ -2,6 +2,7 @@ import { Inter, Montserrat, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import LenisScroll from "@/components/LenisScroll";
 import QueryProvider from "@/components/QueryProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       >
         <QueryProvider>
           <LenisScroll>{children}</LenisScroll>
+          <Toaster />
         </QueryProvider>
       </body>
     </html>
