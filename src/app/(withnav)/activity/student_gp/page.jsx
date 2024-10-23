@@ -14,24 +14,26 @@ export default function Page() {
 
   return (
     <ColoredSection color="BLACK">
-      <div className="container mx-auto px-4 sm:px-0">
-        <div className="bg-[#e9e8e9]">
-          <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] flex justify-start items-end pb-4 sm:pb-6 md:pb-8">
-            <span className="w-2 h-2 sm:w-3 sm:h-3 bg-black mb-3 sm:mb-4 md:mb-5 mr-2 sm:mr-3"></span>
-            <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold">
-              Student groups
-            </h1>
+      <div className="mx-auto px-4 sm:px-0">
+        <div className="container mx-auto px-4 sm:px-0">
+          <div className="bg-[#e9e8e9] md:w-full">
+            <div className="mx-auto w-full h-[250px] md:h-[350px] flex justify-start items-end pb-8 px-4 md:px-8">
+              <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
+              <h1 className="uppercase text-[32px] md:text-[48px] font-bold">
+                Student Groups
+              </h1>
+            </div>
           </div>
-        </div>
-        {data.map((item, index) => (
-          <HoverableItem
-            key={index}
-            item={item}
-            onClick={() => setSelectedItem(item)}
-          />
-        ))}
+          {data.map((item, index) => (
+            <HoverableItem
+              key={index}
+              item={item}
+              onClick={() => setSelectedItem(item)}
+            />
+          ))}
 
-        {selectedItem && <Modal item={selectedItem} onClose={closeModal} />}
+          {selectedItem && <Modal item={selectedItem} onClose={closeModal} />}
+        </div>
       </div>
     </ColoredSection>
   );
@@ -123,3 +125,5 @@ function Modal({ item, onClose }) {
     </div>
   );
 }
+
+// bg-[#e9e8e9]
