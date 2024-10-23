@@ -15,9 +15,9 @@ export default function Page() {
   return (
     <ColoredSection color="BLACK">
       <div className="mx-auto px-4 sm:px-0">
-        <div className="container mx-auto px-4 sm:px-0">
+        <div className="mx-auto px-4 sm:px-0">
           <div className="bg-[#e9e8e9] md:w-full">
-            <div className="mx-auto w-full h-[250px] md:h-[350px] flex justify-start items-end pb-8 px-4 md:px-8">
+            <div className="container mx-auto w-full h-[250px] md:h-[350px] flex justify-start items-end pb-8 px-4 md:px-8">
               <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
               <h1 className="uppercase text-[32px] md:text-[48px] font-bold">
                 Student Groups
@@ -44,7 +44,7 @@ function HoverableItem({ item, onClick }) {
 
   return (
     <div
-      className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 pt-10 sm:pt-15 md:pt-20 cursor-pointer"
+      className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 pt-10 sm:pt-15 md:pt-20 cursor-pointer md:pl-60"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={onClick}
