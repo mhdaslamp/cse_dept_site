@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createFaculty } from "@/actions/faculty.action";
 import { useRouter } from "next/navigation";
+import { toast } from "@/hooks/use-toast";
 
 const facultyFormSchema = z.object({
   type: z.string().min(1, { message: "Type is required" }),
@@ -38,6 +39,7 @@ const facultyFormSchema = z.object({
 
 const FacultyForm = () => {
   const router = useRouter();
+  toast
   const {
     register,
     handleSubmit,
@@ -60,6 +62,11 @@ const FacultyForm = () => {
       reset();
       router.refresh();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

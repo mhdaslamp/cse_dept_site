@@ -11,7 +11,7 @@ import dbConnect from "@/lib/db";
 import { generateRandomString, alphabet } from "oslo/crypto";
 import { NextResponse } from "next/server";
 
-const emails = ["mohdhashique10@gmail.com", "viswajithviswa715@gmail.com"];
+const emails = ["mohdhashique10@gmail.com", "viswajithviswa715@gmail.com","jeraldjoyson21@gmail.com"];
 
 export async function GET(request) {
   const url = new URL(request.url);
@@ -56,9 +56,14 @@ export async function GET(request) {
   const email = claims.email;
 
   if (!emails.includes(email)) {
-    return NextResponse.json({
-      message: `Not authorised for ${email}, Please contact web administrator`,
-    });
+    return new Response(
+      `<html><body>This email ${email} is not authorized <a href="/">Go To Home</a></body></html>`,
+      {
+        headers: {
+          "Content-Type": "text/html",
+        },
+      }
+    );
   }
 
   await dbConnect();

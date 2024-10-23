@@ -9,6 +9,7 @@ export async function createStudentGroup({ name, description, logoUrl }) {
     if (!(await isAuthenticated())) {
       throw new Error("Unauthorized");
     }
+    // throw new Error("Test Error");
     await dbConnect();
     const newStudentGroup = new StudentGroup({ name, description, logoUrl });
     await newStudentGroup.save();

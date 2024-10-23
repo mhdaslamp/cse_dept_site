@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createGallery } from "@/actions/gallery.action";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const galleryFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -21,6 +22,7 @@ const galleryFormSchema = z.object({
 
 const GalleryForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -44,6 +46,11 @@ const GalleryForm = () => {
       reset();
       router.refresh();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

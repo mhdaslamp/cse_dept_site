@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
 import { createBlog } from "@/actions/blog.action";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const blogFormSchema = z.object({
   name: z.string().min(1, { message: "Blog name is required" }),
@@ -22,6 +23,7 @@ const blogFormSchema = z.object({
 
 const BlogForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -43,6 +45,11 @@ const BlogForm = () => {
     onSuccess: () => {
       router.refresh();
       reset();
+    },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
     }
   });
 

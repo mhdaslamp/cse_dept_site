@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { createStudent } from "@/actions/student.action";
 import { useRouter } from "next/navigation";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 const studentFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -18,8 +20,9 @@ const studentFormSchema = z.object({
   }),
 });
 
-const StudentForm = () => {
+const StudentForm = ({ courses }) => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -37,6 +40,11 @@ const StudentForm = () => {
       router.refresh();
       reset();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {
@@ -53,14 +61,21 @@ const StudentForm = () => {
         {...register("name")}
         error={errors?.name}
       />
-      <Input
-        label="Course"
-        type="text"
-        placeholder="eg. Computer Science"
-        name="course"
-        {...register("course")}
-        error={errors?.course}
-      />
+      <Select>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Fruits</SelectLabel>
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+            <SelectItem value="grapes">Grapes</SelectItem>
+            <SelectItem value="pineapple">Pineapple</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
       <Input
         label="Batch"
         type="text"

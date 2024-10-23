@@ -10,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { createStudentGroup } from "@/actions/studentgroup.action";
 import { UploadButton } from "@/components/uploadthing";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const studentGroupFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -19,6 +20,7 @@ const studentGroupFormSchema = z.object({
 
 const StudentGroupForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -41,6 +43,11 @@ const StudentGroupForm = () => {
       router.refresh();
       reset();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
   const onSubmit = (data) => {
     mutate(data);
