@@ -1,7 +1,7 @@
 "use client";
 import ColoredSection from "@/components/ColoredSection";
 import Image from "next/image";
-import React, { useEffect,useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ImLinkedin2 } from "react-icons/im";
 import { BsTwitterX } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa6";
@@ -114,39 +114,39 @@ export default function Developers() {
   let xPercent = 0;
   let direction = -1;
   let isPaused = false; // New flag to control animation state
-  
+
   useEffect(() => {
     requestAnimationFrame(animation);
   }, []);
-  
+
   const animation = () => {
-    if (!isPaused) {  // Only update animation if not paused
+    if (!isPaused) {
+      // Only update animation if not paused
       if (xPercent <= -100) {
         xPercent = 0;
       }
       if (xPercent > 0) {
         xPercent = -100;
       }
-  
+
       gsap.set(item1.current, { xPercent: xPercent });
       gsap.set(item2.current, { xPercent: xPercent });
       gsap.set(item3.current, { xPercent: xPercent });
       gsap.set(item4.current, { xPercent: xPercent });
-  
-      xPercent += 0.05 * direction;
+
+      xPercent += 0.02 * direction;
     }
-  
+
     requestAnimationFrame(animation);
   };
-  
+
   const handleMouseEnter = () => {
-    isPaused = true;  // Pause animation on hover
-  };
-  
-  const handleMouseLeave = () => {
-    isPaused = false;  // Resume animation when hover ends
+    isPaused = true; // Pause animation on hover
   };
 
+  const handleMouseLeave = () => {
+    isPaused = false; // Resume animation when hover ends
+  };
 
   return (
     <ColoredSection>
@@ -158,8 +158,12 @@ export default function Developers() {
           Meet our team
         </h1>
         <div className="mt-6 w-screen flex ">
-
-          <div className="flex space-x-8" ref={item1} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}> 
+          <div
+            className="flex space-x-8"
+            ref={item1}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             {data &&
               [...data].map((item, index) => (
                 <div
@@ -216,10 +220,13 @@ export default function Developers() {
                 </div>
               ))}
           </div>
-          
 
-
-          <div className="flex space-x-8 pl-14" ref={item2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <div
+            className="flex space-x-8 pl-14"
+            ref={item2}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             {data &&
               [...data].map((item, index) => (
                 <div
@@ -276,9 +283,6 @@ export default function Developers() {
                 </div>
               ))}
           </div>
-
-
-
         </div>
       </div>
     </ColoredSection>
