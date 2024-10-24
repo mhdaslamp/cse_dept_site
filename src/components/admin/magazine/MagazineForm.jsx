@@ -10,6 +10,7 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createMagazine } from "@/actions/magazine.action";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const magazineFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -22,6 +23,7 @@ const magazineFormSchema = z.object({
 
 const MagazineForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -46,6 +48,11 @@ const MagazineForm = () => {
       reset();
       router.refresh();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

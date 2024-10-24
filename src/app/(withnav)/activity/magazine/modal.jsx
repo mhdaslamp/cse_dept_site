@@ -6,7 +6,7 @@ const Modal = ({ children, onClose }) => {
       <div className="bg-white p-6 rounded shadow-lg">
         <button
           onClick={onClose}
-          className="absolute top-[8%]  right-[28%] p-3 bg-white text-black rounded-sm"
+          className="absolute top-[12%] right-[4%] md:top-[16%] md:right-[32%] p-3 bg-white text-black rounded-sm"
         >
           Close
         </button>

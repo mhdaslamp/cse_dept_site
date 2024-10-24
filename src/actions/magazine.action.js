@@ -8,7 +8,7 @@ export async function getMagazines() {
     try {
         await dbConnect();
         const magazines = await Magazine.find({}).sort({ date: -1 });
-        return magazines;
+        return JSON.parse(JSON.stringify(magazines));
     } catch (error) {
         console.error('Failed to fetch magazines:', error);
         throw new Error('Failed to fetch magazines');

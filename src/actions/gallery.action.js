@@ -8,9 +8,7 @@ export async function getGalleries() {
     try {
         await dbConnect();
         const galleries = await Gallery.find({});
-        return {
-          message: "Success",
-        };
+        return JSON.parse(JSON.stringify(galleries));
     } catch (error) {
         console.error('Failed to fetch galleries:', error);
         throw new Error('Failed to fetch galleries');
@@ -25,7 +23,9 @@ export async function createGallery({ name, image, imgDescription }) {
         await dbConnect();
         const newGallery = new Gallery({ name, image, imgDescription });
         await newGallery.save();
-        return newGallery;
+        return {
+          message: "Created successfully",
+        };
     } catch (error) {
         console.error('Failed to create gallery:', error);
         throw new Error('Failed to create gallery');

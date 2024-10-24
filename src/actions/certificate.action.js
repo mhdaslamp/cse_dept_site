@@ -25,7 +25,7 @@ export async function getCertificates() {
     try {
         await dbConnect();
         const certificates = await Certificate.find({});
-        return certificates;
+        return JSON.parse(JSON.stringify(certificates));
     } catch (error) {
         console.error('Failed to fetch certificates:', error);
         throw new Error('Failed to fetch certificates');

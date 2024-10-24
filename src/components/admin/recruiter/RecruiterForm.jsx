@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createRecruiter } from "@/actions/recruiter.action";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 const recruiterFormSchema = z.object({
   companyName: z.string().min(1, { message: "Company name is required" }),
@@ -16,6 +18,8 @@ const recruiterFormSchema = z.object({
 });
 
 const RecruiterForm = () => {
+  const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -33,6 +37,15 @@ const RecruiterForm = () => {
     mutationFn: async (data) => {
       await createRecruiter(data);
     },
+    onSuccess: () => {
+      reset();
+      router.refresh();
+    },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

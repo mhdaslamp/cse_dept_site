@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createSyllabus } from "@/actions/syllabus.action";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const syllabusFormSchema = z.object({
   course: z.string().min(1, { message: "Course is required" }),
@@ -24,10 +26,13 @@ const syllabusFormSchema = z.object({
 });
 
 const SyllabusForm = () => {
+  const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -42,8 +47,14 @@ const SyllabusForm = () => {
       await createSyllabus(data);
     },
     onSuccess: () => {
-      alert("Success");
+      router.refresh();
+      reset();
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

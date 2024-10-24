@@ -1,23 +1,44 @@
-import { google } from "@/lib/lucia";
-import { generateState } from "arctic";
+import { generateState, generateCodeVerifier } from "arctic";
+import { google } from "@/lib/auth";
 import { cookies } from "next/headers";
-
-
-
+import { getSessionToken } from "@/lib/session";
 
 export async function GET() {
   const state = generateState();
-  const url = await google.createAuthorizationURL(state);
+  const codeVerifier = generateCodeVerifier();
+  const token = getSessionToken();
+
+  if (token && token.length > 0) {
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: "/admin",
+      },
+    });
+  }
+  const url = await google.createAuthorizationURL(state, codeVerifier, {
+    scopes: ["profile", "email"],
+  });
 
   cookies().set("google_oauth_state", state, {
     path: "/",
-    secure: process.env.NODE_ENV === "production",
     httpOnly: true,
-    maxAge: 60 * 10,
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 60 * 10, // 10 minutes
+    sameSite: "lax",
+  });
+  cookies().set("google_code_verifier", codeVerifier, {
+    path: "/",
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 60 * 10, // 10 minutes
     sameSite: "lax",
   });
 
-  return Response.redirect(url);
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: url.toString(),
+    },
+  });
 }
-
-

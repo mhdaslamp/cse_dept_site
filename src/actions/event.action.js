@@ -25,7 +25,7 @@ export async function getEvents() {
     try {
         await dbConnect();
         const events = await Event.find({});
-        return events;
+        return JSON.parse(JSON.stringify(events));
     } catch (error) {
         console.error('Failed to fetch events:', error);
         throw new Error('Failed to fetch events');

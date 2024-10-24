@@ -25,7 +25,7 @@ export async function getRecruiters() {
   try {
     await dbConnect();
     const recruiters = await Recruiter.find({});
-    return recruiters;
+    return JSON.parse(JSON.stringify(recruiters));
   } catch (error) {
     console.error("Failed to fetch recruiters:", error);
     throw new Error("Failed to fetch recruiters");

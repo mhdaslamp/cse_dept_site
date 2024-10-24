@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
 import { createAssociationMember } from "@/actions/associationmembers.action";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const associationMemberFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -26,10 +28,13 @@ const associationMemberFormSchema = z.object({
 });
 
 const AssociationMemberForm = () => {
+  const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -43,8 +48,14 @@ const AssociationMemberForm = () => {
     mutationFn: async (data) => {
       await createAssociationMember(data)
     },
-    onSuccess: (data) => {
-      alert(data.message);
+    onSuccess: () => {
+      router.refresh();
+      reset();
+    },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
     }
   });
 

@@ -25,7 +25,7 @@ export async function getAssociationMembers() {
     try {
         await dbConnect();
         const members = await AssociationMember.find({});
-        return members;
+        return JSON.parse(JSON.stringify(members));
     } catch (error) {
         console.error('Failed to fetch association members:', error);
         throw new Error('Failed to fetch association members');

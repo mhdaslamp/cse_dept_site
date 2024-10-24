@@ -1,16 +1,17 @@
-import AccreditionList from "@/components/admin/accredition/AccreditionList";
+import { getEvents } from "@/actions/event.action";
 import EventForm from "@/components/admin/event/EventForm";
-import FacultyForm from "@/components/admin/faculty/FacultyForm";
+import EventList from "@/components/admin/event/EventList";
 import React from "react";
 
-const EditAccreditionPage = () => {
+const EditAccreditionPage = async () => {
+  const eventList = await getEvents();
   return (
     <div className="grid grid-cols-2">
       <div className="py-20 px-20">
         <EventForm />
       </div>
       <div className="py-20 px-10">
-        <AccreditionList />
+        <EventList eventList={eventList}/>
       </div>
     </div>
   );

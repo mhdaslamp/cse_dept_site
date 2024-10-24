@@ -183,7 +183,6 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
-
        
 
             
@@ -232,23 +231,23 @@ const DeptLogo = () => {
           </div>
         </div>
 
-        <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item4}>
-          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
-
-            NATIONAL BOARD OF ACCREDITATION ACCREDITED
-          </p>
-          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-            <img
-              src="./nba.svg"
-              alt="Description"
-              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-            />
+            <div
+              className="flex items-center whitespace-nowrap gap-5 h-[100px] "
+              ref={item4}
+            >
+              <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
+                NATIONAL BOARD OF ACCREDITATION ACCREDITED
+              </p>
+              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+                <img
+                  src="./nba.svg"
+                  alt="Description"
+                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-       
-
-        </div>
-        {/* <div className=" flex items-center whitespace-nowrap gap-5 h-[100px] w-screen lg:hidden  justify-center"   >
+          {/* <div className=" flex items-center whitespace-nowrap gap-5 h-[100px] w-screen lg:hidden  justify-center"   >
           <p className=" text-2xl text-[#9E9E9E] font-extrabold font-bebasneue" >
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>

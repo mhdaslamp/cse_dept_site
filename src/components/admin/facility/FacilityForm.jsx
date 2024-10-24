@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from "@tanstack/react-query";
 import { createFacility } from "@/actions/facility.action";
+import { useToast } from "@/hooks/use-toast";
 
 const facilityFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -17,6 +18,7 @@ const facilityFormSchema = z.object({
 });
 
 const FacilityForm = () => {
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -37,6 +39,11 @@ const FacilityForm = () => {
     onSuccess: () => {
       alert("Success");
     },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
+    }
   });
 
   const onSubmit = (data) => {

@@ -10,7 +10,8 @@ import { UploadButton } from "@/components/uploadthing";
 import { useMutation } from '@tanstack/react-query';
 import { createFaculty } from "@/actions/faculty.action";
 import { createAdvisoryBoardMember } from "@/actions/advisoryboard.action";
-
+import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 const advisorBoundFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   designation: z.string().min(1, { message: "Designation is required" }),
@@ -19,10 +20,13 @@ const advisorBoundFormSchema = z.object({
 });
 
 const AdvisorBoundForm = () => {
+  const router = useRouter();
+  const toast = useToast();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     setValue,
   } = useForm({
@@ -36,8 +40,14 @@ const AdvisorBoundForm = () => {
     mutationFn: async (data) => {
       await createAdvisoryBoardMember(data)
     },
-    onSuccess: (data) => {
-      alert(data.message);
+    onSuccess: () => {
+      router.refresh();
+      reset();
+    },
+    onError: (error) => {
+      toast({
+        description: `Cannot create ${error.message}`
+      })
     }
   });
 
