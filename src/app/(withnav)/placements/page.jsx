@@ -12,7 +12,6 @@ const Placement = () => {
       <PlacementRecruiters />
       <PlacmentStatus />
       <PlacementGraph />
-      <Gallery/>
     </>
   );
 };
