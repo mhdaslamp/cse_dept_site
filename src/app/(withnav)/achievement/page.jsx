@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaSquareFull } from "react-icons/fa6";
 import ColoredSection from "../../../components/ColoredSection";
@@ -31,16 +31,16 @@ const placements = [
 ];
 
 const PlacementCard = ({ title, description, name, batch, isActive }) => (
-  <div className="grow shrink basis-0 p-[15px] flex-col justify-end items-start gap-[20px] inline-flex">
+  <div className="w-full p-4 flex-col justify-end items-start gap-4 inline-flex">
     <div
-      className={` text-xl font-medium font-['Montserrat'] uppercase duration-500 transition-all ${
+      className={`text-base font-medium font-['Montserrat'] uppercase duration-500 transition-all ${
         isActive ? "text-[#DD846E]" : "text-black"
       }`}
     >
       {title}
     </div>
     <div
-      className={`self-stretch text-lg font-normal font-['Montserrat'] duration-500 transition-all ${
+      className={`self-stretch text-sm font-normal font-['Montserrat'] duration-500 transition-all ${
         isActive ? "text-[#DD846E]" : "text-[#696969]"
       }`}
     >
@@ -55,14 +55,14 @@ const PlacementCard = ({ title, description, name, batch, isActive }) => (
       <div className="h-[38px] justify-start items-center gap-[10px] flex">
         <div className="w-auto h-[38px] flex-col justify-between items-start inline-flex">
           <div
-            className={`self-stretch text-lg font-normal font-['Montserrat'] tracking-wide duration-500 transition-all ${
+            className={`self-stretch text-sm font-normal font-['Montserrat'] tracking-wide duration-500 transition-all ${
               isActive ? "text-[#DD846E]" : "text-black"
             }`}
           >
             {name}
           </div>
           <div
-            className={`self-stretch  text-base font-normal font-['Montserrat'] duration-500 transition-all tracking-wide ${
+            className={`self-stretch text-xs font-normal font-['Montserrat'] duration-500 transition-all tracking-wide ${
               isActive ? "text-[#DD846E]" : "text-[#696969]"
             }`}
           >
@@ -70,8 +70,8 @@ const PlacementCard = ({ title, description, name, batch, isActive }) => (
           </div>
         </div>
       </div>
-      <div className="p-2.5 bg-[#696969] text-white hover:bg-white hover:text-[#DD846E] hover:border-[#DD846E] border-2 justify-center items-center gap-[15px] flex duration-500 transition-all rounded-md">
-        <p className="origin-top-left text-lg font-medium font-['Montserrat']">
+      <div className="p-2 bg-[#696969] text-white hover:bg-white hover:text-[#DD846E] hover:border-[#DD846E] border-2 justify-center items-center gap-2 flex duration-500 transition-all rounded-md">
+        <p className="origin-top-left text-sm font-medium font-['Montserrat']">
           Read More
         </p>
       </div>
@@ -81,7 +81,28 @@ const PlacementCard = ({ title, description, name, batch, isActive }) => (
 
 const ExpandableCards = ({ title, placements }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [cardWidth, setCardWidth] = useState("100%");
   const [hoverIndex, setHoverIndex] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 620) {
+        setCardWidth("90%");
+      } else if (window.innerWidth < 768) {
+        setCardWidth("90%");
+      } else if (window.innerWidth < 1024) {
+        setCardWidth("85%");
+      } else if (window.innerWidth < 1440) {
+        setCardWidth("80%");
+      } else {
+        setCardWidth("75%");
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleExpand = () => setIsExpanded((prev) => !prev);
 
@@ -94,27 +115,36 @@ const ExpandableCards = ({ title, placements }) => {
   };
 
   return (
-    <div className="container w-screen flex justify-center overflow-hidden mx-auto px-4 sm:px-6 pb-[2px]">
+    <div className="w-full flex justify-center overflow-hidden">
       <div
-        className={`group w-full flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] pt-5 p-3 ${
-          isExpanded ? "mb-5 mt-5" : ""
+        style={{ width: cardWidth }}
+        onClick={toggleExpand}
+        className={`flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-4 sm:p-6 rounded-lg ${
+          isExpanded ? "mb-5" : ""
         }`}
       >
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <div
-            onClick={toggleExpand}
-            className={`group font-bold transition-all duration-700 flex font-bebasneue lg:text-5xl text-4xl pl-5 cursor-pointer ${
-              isExpanded ? "text-black" : "text-[#696969]"
-            }`}
+            className={`font-bold transition-all duration-700 flex items-center group-hover:text-black group-hover:text-lg md:group-hover:text-xl lg:group-hover:text-2xl pl-2 md:pl-5 ${
+              isExpanded
+                ? "text-black text-lg md:text-xl lg:text-2xl lg:pb-8"
+                : "text-black"
+            } cursor-pointer`}
+            style={{
+              fontFamily: "Bebas Neue",
+              fontWeight: 400,
+              lineHeight: "1.2",
+              textAlign: "center",
+            }}
           >
             <FaSquareFull
-              className={`translate-y-[29px] duration-700 transition-all group-hover:text-[8px] group-hover:mr-2 ${
+              className={`translate-y-1 md:translate-y-[19px] duration-1000 transition-all ${
                 isExpanded
-                  ? "text-[8px] mr-2 text-black"
-                  : "text-[0px] text-[#696969] mr-0"
+                  ? "text-[3px] md:text-[4px] lg:text-[5px] mr-1 md:mr-2"
+                  : "text-[0px] mr-0 text-[#696969]"
               }`}
             />
-            {title}
+            <span className="text-[1.5rem]">{title}</span>
           </div>
           <div
             onClick={toggleExpand}
@@ -122,14 +152,13 @@ const ExpandableCards = ({ title, placements }) => {
               isExpanded ? "rotate-180 opacity-100" : ""
             } duration-[1s] ease-in-out z-10`}
           >
-            <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
+            <MdKeyboardArrowDown className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-8 text-[#9E9E9E]" />
           </div>
         </div>
-
         <div
-          className={`transition-all duration-[1s] px-5 overflow-hidden ${
-            isExpanded ? "opacity-100 h-auto" : "opacity-0 h-0"
-          }`}
+          className={`transition-all duration-[1s] h-auto overflow-hidden ${
+            isExpanded ? "opacity-100 max-h-screen" : "opacity-0 max-h-0"
+          } px-2 md:px-5`}
         >
           <div className="w-full flex-col justify-start items-start gap-4 inline-flex mt-4">
             {placements.map((placement, index) => (
@@ -137,6 +166,7 @@ const ExpandableCards = ({ title, placements }) => {
                 <div
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
+                  className="w-full"
                 >
                   <PlacementCard
                     {...placement}

@@ -63,29 +63,45 @@ const DeptLogo = () => {
   });
 
 
-    const item1=useRef(null);
-    const item2=useRef(null);
-    const item3=useRef(null);
-    const item4=useRef(null);
-    let xPercent=0;
-    let direction =-1;
-
-  useEffect(()=>{
-    requestAnimationFrame(animation);
-  },[])
-
-  const animation=()=>{
-    if(xPercent<=-100){
-      xPercent=0; 
-    }
-    gsap.set(item1.current,{xPercent:xPercent})
-    gsap.set(item2.current,{xPercent:xPercent})
-    gsap.set(item3.current,{xPercent:xPercent})
-    gsap.set(item4.current,{xPercent:xPercent})
-    xPercent+=0.15*direction
-    requestAnimationFrame(animation)
-  }
+  const item1 = useRef(null);
+  const item2 = useRef(null);
+  const item3 = useRef(null);
+  const item4 = useRef(null);
+  let xPercent = 0;
+  let direction = -1;
+  let isPaused = false; // New flag to control animation state
   
+  useEffect(() => {
+    requestAnimationFrame(animation);
+  }, []);
+  
+  const animation = () => {
+    if (!isPaused) {  // Only update animation if not paused
+      if (xPercent <= -100) {
+        xPercent = 0;
+      }
+      if (xPercent > 0) {
+        xPercent = -100;
+      }
+  
+      gsap.set(item1.current, { xPercent: xPercent });
+      gsap.set(item2.current, { xPercent: xPercent });
+      gsap.set(item3.current, { xPercent: xPercent });
+      gsap.set(item4.current, { xPercent: xPercent });
+  
+      xPercent += 0.15 * direction;
+    }
+  
+    requestAnimationFrame(animation);
+  };
+  
+  const handleMouseEnter = () => {
+    isPaused = true;  // Pause animation on hover
+  };
+  
+  const handleMouseLeave = () => {
+    isPaused = false;  // Resume animation when hover ends
+  };
 
 
 
@@ -167,106 +183,53 @@ const DeptLogo = () => {
           </motion.div>
         </div>
 
-        <div className=" hidden overflow-hidden lg:flex items-center w-screen mt-24">
-          <motion.div
-            className="flex whitespace-nowrap"
-            initial={{ x: 0 }}
-            animate={{ x: ["0%", "-100%"] }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 10, // Adjust this value for speed
-              ease: "linear",
-            }}
-          >
-            <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
-              <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
-                {" "}
-                NATIONAL BOARD OF ACCREDITATION ACCREDITED{" "}
-              </p>
-              <img
-                src="./nba.svg"
-                alt="Description"
-                className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
-              />
-            </div>
+       
 
-            <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
-              <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
-                {" "}
-                NATIONAL BOARD OF ACCREDITATION ACCREDITED{" "}
-              </p>
-              <img
-                src="./nba.svg"
-                alt="Description"
-                className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
-              />
-            </div>
+            
 
-            <div className="flex items-center min-w-max  h-[100px] lg:justify-normal justify-center  ">
-              <p className="inline-block text-[56px] mx-10 text-[#9E9E9E] font-extrabold font-bebasneue">
-                {" "}
-                NATIONAL BOARD OF ACCREDITATION ACCREDITED{" "}
-              </p>
-              <img
-                src="./nba.svg"
-                alt="Description"
-                className="inline-block border-x-4 border-[#9E9E9E] px-10 text-[#9E9E9E] border-solid min-w-max"
-              />
-            </div>
-          </motion.div>
+         <div className="overflow-hidden flex  flex-row items-center w-screen h-min  "
+         onMouseEnter={handleMouseEnter}
+         onMouseLeave={handleMouseLeave}>
+
+         <div className="flex items-center whitespace-nowrap gap-5 h-[100px]  max-w-screen " ref={item1}>
+          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
         </div>
+        
 
-        <div className="lg:hidden flex items-center whitespace-nowrap gap-2 h-[100px] max-w-screen">
-          <p className=" text-[24px] text-[#9E9E9E] font-extrabold font-bebasneue"></p>
-
-          <div className="overflow-hidden flex  flex-row items-center w-screen   ">
-            <div
-              className="flex items-center whitespace-nowrap gap-5 h-[100px]  max-w-screen "
-              ref={item1}
-            >
-              <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
-                NATIONAL BOARD OF ACCREDITATION ACCREDITED
-              </p>
-              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-                <img
-                  src="./nba.svg"
-                  alt="Description"
-                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-                />
-              </div>
-            </div>
-
-            <div
-              className="flex  items-center whitespace-nowrap gap-5 h-[100px]"
-              ref={item2}
-            >
-              <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
-                NATIONAL BOARD OF ACCREDITATION ACCREDITED
-              </p>
-              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-                <img
-                  src="./nba.svg"
-                  alt="Description"
-                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-                />
-              </div>
-            </div>
-            <div
-              className="flex items-center whitespace-nowrap gap-5 h-[100px] "
-              ref={item3}
-            >
-              <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
-                NATIONAL BOARD OF ACCREDITATION ACCREDITED
-              </p>
-              <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
-                <img
-                  src="./nba.svg"
-                  alt="Description"
-                  className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
-                />
-              </div>
-            </div>
+         
+        <div className="flex  items-center whitespace-nowrap gap-5 h-[100px]" ref={item2}>
+          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
+        </div>
+        <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item3}>
+          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+            NATIONAL BOARD OF ACCREDITATION ACCREDITED
+          </p>
+          <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
+            <img
+              src="./nba.svg"
+              alt="Description"
+              className="  text-[#9E9E9E] min-w-[33px] min-h-[33px]"
+            />
+          </div>
+        </div>
 
             <div
               className="flex items-center whitespace-nowrap gap-5 h-[100px] "
@@ -296,8 +259,8 @@ const DeptLogo = () => {
             />
           </div>
         </div> */}
-        </div>
       </div>
+    
     </ColoredSection>
   );
 };
