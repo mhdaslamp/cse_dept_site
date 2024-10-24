@@ -154,7 +154,7 @@ export default function Developers() {
         id="teams"
         className="bg-[#0a0a0a] h-screen text-white  px-8 pt-8 overflow-hidden"
       >
-        <h1 className="px-8 text-[60px] md:text-[100px] font-semibold">
+        <h1 className="px-8 text-[40px] md:text-[100px] font-semibold">
           Meet our team
         </h1>
         <div className="mt-6 w-screen flex ">
