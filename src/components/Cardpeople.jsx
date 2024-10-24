@@ -5,7 +5,7 @@ import { MdKeyboardArrowDown ,MdKeyboardArrowUp } from "react-icons/md";
 import { FaSquareFull } from "react-icons/fa6";
 import { motion } from 'framer-motion'
 import { ImCross } from "react-icons/im";
-
+import "@/components/nooverflow.css"
 
 const ExpandableCards = ({title,item})=>{
   const [isExpanded, setIsExpanded] = useState(false);
@@ -67,7 +67,7 @@ const year=sortedRanges.filter((item,index)=>
 
       <div className={` group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3  ${isExpanded?"mb-5 mt-5":""} }`} >
         <div className='flex justify-between'>
-      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
+      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex lg:text-2xl text-lg pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
       <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black ":"text-[0px] text-[#696969] mr-0 "}`}/>{title}
         </div>
       <div 
@@ -80,7 +80,7 @@ const year=sortedRanges.filter((item,index)=>
       </div>
     
         <div className={` transition-all duration-[1s] h-auto overflow-hidden  ${isExpanded?'opacity-100 max-h-screen':'opacity-0 max-h-0'}`}>
-      <div className='pb-2 pl-5 flex gap-5 text-[#696969] items-center '>Acadamics Year 
+      <div className='pb-2 pl-5 flex gap-5 text-[#696969] items-center lg:text-base text-xs '>Acadamics Year 
         <div>
             <div 
             onClick={toggleOpen}
@@ -133,75 +133,75 @@ const year=sortedRanges.filter((item,index)=>
             {(isDescVisible===key) && (
               <div className='fixed  w-screen h-screen group-ho top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex justify-center items-center z-10'>
              <motion.div 
-             className='flex gap-5 relative w-2/5 p-5 h-2/4 border-solid z-10 bg-white bg-opacity-20  shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]  backdrop-blur-lg'>
+             className='flex gap-5 relative w-[80%] h-[30%] lg:w-2/5 p-5 lg:h-2/4 border-solid z-10 bg-white bg-opacity-20  shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]  backdrop-blur-lg'>
               <div
                className='absolute top-[-30px] gap-2 right-0 w-auto flex items-center cursor-pointer bg-white/60 p-1'
                onClick={toggleVisible}><span>Close</span><ImCross className=''/></div>
               <div className='w-1/3 h-full bg-cover pr-5  border-solid border-r-2' >
               <div className=' w-full h-[65%] bg-no-repeat bg-cover bg-center' style={{backgroundImage:`url(${data.link})`}}></div>
               <div className='w-full pt-3 '>
-              <div className='text-[1.25rem] w-full'>{data.name}</div> 
-              <div className='text-[0.8rem] text-[#696969] w-full'>{data.postion}</div> 
-              <div className='text-[0.rem] text-[#696969] w-full'>{data.email}</div>
+              <div className='lg:text-[1.25rem] text-[0.55rem] w-full'>{data.name}</div> 
+              <div className='lg:text-[0.8rem] text-[0.3rem] text-[#696969] w-full'>{data.postion}</div> 
+              <div className='lg:text-[0.8rem] text-[0.3rem] text-[#696969] w-full'>{data.email}</div>
               </div>
               </div>
               <div className='pl-3 no-scrollbar overflow-y-auto'>
-                {data.qualification && <div> <h1 className='text-[1.25rem]'>Qualification</h1>
+                {data.qualification && <div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>Qualification</h1>
                 <ul className='list-disc py-2'>
                   {data.qualification.map((item,index)=>(
-                    <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                    <li className="lg:text-[0.8rem] text-[0.3rem] leading-8 text-[#696969]" key={index}>{item}</li> 
                   ))}
                 </ul>
                 </div>}
-                {data.responsibility &&<div> <h1 className='text-[1.25rem]'>Responsibilities held</h1>
+                {data.responsibility &&<div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>Responsibilities held</h1>
                 <ul className='list-disc py-2'>
                   {data.responsibility.map((item,index)=>(
-                    <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                    <li className="lg:text-[0.8rem] text-[0.3rem] leading-8 text-[#696969]" key={index}>{item}</li> 
                   ))}
                 </ul>
                 </div> }
                 {
-                  data.indusexp &&<div> <h1 className='text-[1.25rem]'>Industrial Experience</h1>
+                  data.indusexp &&<div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>Industrial Experience</h1>
                   <ul className='list-disc py-2'>
                     {data.indusexp.map((item,index)=>(
-                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                      <li className="lg:text-[0.8rem] text-[0.3rem]  leading-8 text-[#696969]" key={index}>{item}</li> 
                     ))}
                   </ul>
                   </div> 
                 }
                 {
-                  data.projects &&<div> <h1 className='text-[1.25rem]'>Projects</h1>
+                  data.projects &&<div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>Projects</h1>
                   <ul className='list-disc py-2'>
                     {data.projects.map((item,index)=>(
-                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                      <li className="lg:text-[0.8rem] text-[0.3rem]  leading-8 text-[#696969]" key={index}>{item}</li> 
                     ))}
                   </ul>
                   </div> 
                 }
 
                 {
-                  data.liofpub &&<div> <h1 className='text-[1.25rem]'>List of Publications</h1>
+                  data.liofpub &&<div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>List of Publications</h1>
                   <ul className='list-disc py-2'>
                     {data.liofpub.map((item,index)=>(
-                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                      <li className="lg:text-[0.8rem] text-[0.3rem]  leading-8 text-[#696969]" key={index}>{item}</li> 
                     ))}
                   </ul>
                   </div> 
                 }
                 {
-                  data.achieve &&<div> <h1 className='text-[1.25rem]'>Achievements</h1>
+                  data.achieve &&<div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>Achievements</h1>
                   <ul className='list-disc py-2'>
                     {data.achieve.map((item,index)=>(
-                      <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                      <li className="lg:text-[0.8rem] text-[0.3rem]  leading-8 text-[#696969]" key={index}>{item}</li> 
                     ))}
                   </ul>
                   </div> 
                 }
                 {
-                   data.course &&<div> <h1 className='text-[1.25rem]'>Recently taught Courses</h1>
+                   data.course &&<div> <h1 className='lg:text-[1.25rem] text-[0.65rem]'>Recently taught Courses</h1>
                    <ul className='list-disc py-2'>
                      {data.course.map((item,index)=>(
-                       <li className="text-[0.8rem] leading-8 text-[#696969]" key={index}>{item}</li> 
+                       <li className="lg:text-[0.8rem] text-[0.3rem]  leading-8 text-[#696969]" key={index}>{item}</li> 
                      ))}
                    </ul>
                    </div>
@@ -293,7 +293,7 @@ const year=sortedRanges.filter((item,index)=>
 
 <div className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3 ${isExpanded?"mb-5 mt-5":""}  }`} >
         <div className='flex justify-between'>
-      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex  text-2xl pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
+      <div onClick={toggleExpand} className={`group font-bold transition-all duration-700 flex  lg:text-2xl text-lg  pl-5 ${isExpanded?"text-black":"text-[#696969]"} cursor-pointer`}>
       <FaSquareFull className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${isExpanded?"text-[5px] mr-2 text-black":"text-[0px] mr-0 text-[#696969]"}`}/>{title}
         </div>
 
@@ -535,7 +535,7 @@ const studitem=[{
 }]
 
   return (
-    <div className='flex flex-col justify-center items-center overflow-hidden min-h-[400px]'>
+    <div className='flex flex-col    overflow-hidden min-h-[400px]  mt-[15rem] '>
       <div className='w-min '>
 
       <ExpandableCards title="TEACHING STAFFS"  item={item1}/>
