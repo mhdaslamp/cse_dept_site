@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { FaSquareFull } from "react-icons/fa6";
 
 ChartJS.register(
   CategoryScale,
@@ -23,21 +24,26 @@ ChartJS.register(
 const PlacementGraph = () => {
   const [chartWidth, setChartWidth] = useState(526);
   const [chartHeight, setChartHeight] = useState(400);
+  const [cardWidth, setCardWidth] = useState("100%");
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) {
+      if (window.innerWidth < 620) {
         setChartWidth(300);
         setChartHeight(300);
+        setCardWidth("90%");
       } else if (window.innerWidth < 768) {
         setChartWidth(400);
         setChartHeight(350);
+        setCardWidth("90%");
       } else if (window.innerWidth < 1024) {
         setChartWidth(500);
         setChartHeight(400);
+        setCardWidth("85%");
       } else {
         setChartWidth(526);
         setChartHeight(400);
+        setCardWidth("85%");
       }
     };
 
@@ -47,13 +53,24 @@ const PlacementGraph = () => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center overflow-hidden py-8 sm:py-12 md:py-16 lg:py-24">
-      <div className="w-full sm:w-[90%] md:w-[85%] h-auto sm:h-[471px] bg-[#E9E9E8] p-3 sm:p-5">
-        <h1 className="text-[#696969] py-3 sm:py-5 font-bebas-neue font-normal leading-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[56px]">
-          YEAR WISE PLACEMENT OFFERS
-        </h1>
+    <div className="w-full flex justify-center overflow-hidden my-16">
+      <div
+        style={{ width: cardWidth }}
+        className="flex flex-col justify-center bg-[#E9E9E8] p-3 sm:p-5"
+      >
+        <div className="flex items-center mb-5">
+          <FaSquareFull className="text-[3px] md:text-[4px] lg:text-[5px] mr-1 md:mr-2 text-[#696969]" />
+          <h1 className="text-black py-3 sm:py-5 font-bebas-neue font-normal leading-tight text-[1.5rem]"
+              style={{
+                fontFamily: "Bebas Neue",
+                fontWeight: 400,
+                lineHeight: "1.2",
+              }}>
+            YEAR WISE PLACEMENT OFFERS
+          </h1>
+        </div>
 
-        <div className="w-full flex justify-center items-center">
+        <div className="w-full flex justify-center items-center my-5">
           <div style={{ width: chartWidth, height: chartHeight }}>
             <Bar
               data={{
