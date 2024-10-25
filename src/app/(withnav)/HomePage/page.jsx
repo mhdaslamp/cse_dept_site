@@ -10,6 +10,7 @@ function Home() {
   const [isHover, setIsHover] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const notificationRef = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -31,6 +32,19 @@ function Home() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [notificationRef]);
+
+  useEffect(() => {
+    const video = document.getElementById('backgroundVideo');
+    video.addEventListener('loadeddata', () => {
+      setIsVideoLoaded(true);
+    });
+
+    return () => {
+      video.removeEventListener('loadeddata', () => {
+        setIsVideoLoaded(true);
+      });
+    };
+  }, []);
 
   const handleClick = () => {
     setIsVisible(!isVisible);
@@ -60,15 +74,24 @@ function Home() {
         </div>
 
         <div className="overflow-hidden relative w-full h-screen">
+          <img
+            src="/placeholder-image.jpeg"  // Replace with your placeholder image path
+            alt="Background"
+            className={`w-full h-full object-cover absolute top-0 z-[-2] transition-opacity duration-500 ${
+              isVideoLoaded ? 'opacity-0' : 'opacity-100'
+            }`}
+          />
           <video
+            id="backgroundVideo"
             src="frontVid.mp4"
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
-            _type="video"
-            className="w-full h-full object-cover absolute top-0 z-[-1] ease-quart-out transition-opacity duration-100"
+            preload="auto"
+            className={`w-full h-full object-cover absolute top-0 z-[-1] transition-opacity duration-500 ${
+              isVideoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
           />
 
           <div
