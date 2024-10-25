@@ -18,4 +18,6 @@ const Input = forwardRef(({ label, className, error, ...props }, ref) => {
   );
 });
 
+Input.displayName = "Input";
+
 export default Input;

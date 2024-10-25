@@ -67,9 +67,12 @@ const AboutusHorizontalScrollCarousel = () => {
                 ))}
                 <div className="relative h-screen w-[1100px] bg-[#e9e9e8]">
                   <div className="h-full w-full flex flex-row justify-end items-center mr-5">
-                    {lastimag.map((data,index)=>(
-                    <Link href={"gallery"}>
-                            <div className="group h-[400px] w-[400px] hover:border-3 hover:border-purple-500 rounded-md" key={index}>
+                    {lastimag.map((data, index) => (
+                      <Link key={index} href={"gallery"}>
+                        <div
+                          className="group h-[400px] w-[400px] hover:border-3 hover:border-purple-500 rounded-md"
+                          key={index}
+                        >
                           <img
                             className="h-auto w-[300px] grayscale group-hover:grayscale-0 group-hover:transition-all group-hover:duration-100 group-hover:ease-in-out"
                             src={data}
@@ -77,12 +80,8 @@ const AboutusHorizontalScrollCarousel = () => {
                           />
                           <div></div>
                         </div>
-
-                        </Link>
-
+                      </Link>
                     ))}
-                
-                  
                   </div>
                 </div>
               </div>
