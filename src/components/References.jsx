@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import { gsap } from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ColoredSection from "./ColoredSection";
 export default function References() {
   let imag = [
@@ -22,8 +22,8 @@ export default function References() {
       link: "https://ktu.edu.in/",
     },
     {
-      org: "../images/4.jpg",
-      hvr: "../images/4h.svg",
+      org: "../images/4.png",
+      hvr: "../images/4h.png",
       link: "http://gecskp.ac.in/",
     },
     {
@@ -39,17 +39,17 @@ export default function References() {
     {
       org: "../images/7.jpg",
       hvr: "../images/7h.svg",
-      link: "http://gecskp.ac.in/",
+      link: "https://digipay.dtekerala.gov.in/",
     },
     {
       org: "../images/8.jpg",
       hvr: "../images/8h.svg",
-      link: "http://gecskp.ac.in/",
+      link: "https://gecskp.etlab.in/",
     },
     {
       org: "../images/9.jpg",
       hvr: "../images/9h.svg",
-      link: "http://gecskp.ac.in/",
+      link: "https://gecskp.etlab.in/",
     },
   ];
 
