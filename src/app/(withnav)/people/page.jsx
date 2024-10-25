@@ -5,6 +5,7 @@ import HodMessage from "@/components/HodMessage";
 function page() {
   return (
     <>
+      <div className="h-20"></div>
       <HodMessage />
       <Cardpeople />
     </>
