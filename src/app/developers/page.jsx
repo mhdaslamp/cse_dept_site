@@ -29,7 +29,7 @@ export default function Developers() {
       socialmediaimg3: "FaGithub",
     },
     {
-      img: "/ali.jpeg",
+      img: "/hashiq.jpg",
       name: "Muhammad Hashiq",
       position: "Full-Stack Developer",
       socialmedia1: "https://www.linkedin.com/in/muhammad-hashiq",
@@ -95,7 +95,7 @@ export default function Developers() {
       socialmediaimg3: "FaGithub",
     },
     {
-      img: "/ali.jpeg",
+      img: "/rohini.jpg",
       name: "Rohini Kanth",
       position: "ML Developer",
       socialmedia1: "https://www.linkedin.com/in/mohammad-nishan",
