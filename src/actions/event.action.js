@@ -30,7 +30,9 @@ export async function getEvents() {
         console.error('Failed to fetch events:', error);
         throw new Error('Failed to fetch events');
     }
-}
+}NEXT_PUBLIC_EMAILJS_SERVICE_ID="service_2he9cxm"
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID="template_8k14bo4"
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY="Zew9Cp60gbBzkcXy-"
 
 export async function deleteEvent(eventId) {
     try {
