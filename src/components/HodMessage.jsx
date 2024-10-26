@@ -12,15 +12,15 @@ const HodMessage = () => {
   const hod = hodData[0];
 
   return (
-    <ColoredSection color="BLACK" className="mb-36">
-      <div className="bg-white container mx-auto py-20 px-4 h-full md:h-[70vh]">
+    <ColoredSection color="BLACK">
+      {/* <div className="bg-white container mx-auto py-20 px-4 h-full md:h-[70vh]">
         <div className="w-full h-auto text-right">
           <h1 className="text-black w-auto h-auto text-4xl lg:text-5xl font-semibold font-bebasneue">
             . HOD MESSAGE
           </h1>
         </div>
         <div className="grid md:grid-cols-[330px_auto] grid-cols-1 gap-[8px] md:gap-[70px] md:flex-row md:justify-between w-full h-auto md:p-5 md:pl-0 xl:p-10 xl:pl-0">
-          {/* Image of hod and its desigination */}
+          {/* Image of hod and its desigination 
           <div className=" w-full pt-5 md:pt-0  grid grid-cols-2 md:grid-cols-1">
             <div className="w-full">
               <img
@@ -39,14 +39,14 @@ const HodMessage = () => {
               </p>
             </div>
           </div>
-          {/* message of hod */}
+          {/* message of hod 
           <div className="flex-auto justify-start w-full  pt-5 md:pt-0 md:pl-5">
             <p className="text-gray-500 text-[16px] sm:text-[17px] lg:text-[20px] xl:text-[24px] leading-[28px] md:leading-[30px] lg:leading-[185%] transition duration-300 ease-in-out">
               {hod.message}
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </ColoredSection>
   );
 };
