@@ -84,7 +84,7 @@ export default function Developers() {
       socialmediaimg3: "FaGithub",
     },
     {
-      img: "/ali.jpeg",
+      img: "/amal.jpg",
       name: "Amal Joseph",
       position: "ML Developer",
       socialmedia1: "https://www.linkedin.com/in/bimal-devasia",

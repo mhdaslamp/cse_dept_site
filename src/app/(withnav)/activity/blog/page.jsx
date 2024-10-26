@@ -63,13 +63,13 @@ function HoverableItem({ item }) {
               {item.head}
             </h1>
           </div>
-          <p
+          <pre
             className={`${
               isHover ? "text-[#dc856e]" : "text-[#000000]"
             } transition-colors duration-300 text-[16px] md:text-[20px]`}
           >
             {item.content}
-          </p>
+          </pre>
           <div className="bg-black w-full border border-black mt-6"> </div>
           <div className="flex flex-col md:flex-row justify-between mt-5">
             <div className="flex gap-5">
