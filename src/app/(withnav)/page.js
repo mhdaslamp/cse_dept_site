@@ -17,7 +17,7 @@ export default function Home() {
       <DeptInfo />
       <DeptLogo />
       <HorizontalScrollCarousel />
-      {/* <HodMessage /> */}
+      <HodMessage />
       <Acheivers />
       <References />
     </main>
