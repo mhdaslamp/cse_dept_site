@@ -29,12 +29,6 @@ const PlacementRecruiters = () => {
     "./Descript.svg",
     "./Discord.svg",
     "./Dropbox.svg",
-    "./ust.jpg",
-    "./tata.jpg",
-    "./qburst.jpg",
-    "./pennyflo.jpg",
-    "./keltron.jpg",
-    "./LandT.jpg",
   ];
 
   const images2 = [
@@ -45,12 +39,6 @@ const PlacementRecruiters = () => {
     "./LinkedIn.svg",
     "./IBM.svg",
     "./GitLab.svg",
-    "./experion.jpg",
-    "./s.jpg",
-    "./cognizant.jpg",
-    "./tataConsult.jpg",
-    "./xyvin.jpg",
-    "./cognizant.jpg",
   ];
 
   const ScrollingRow = ({ direction, innerRef, images }) => (

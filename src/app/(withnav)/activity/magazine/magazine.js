@@ -4,8 +4,8 @@ const departmentMagazine = [
     title: "QUANTA'23",
     description: "Department Magazine of 2023 edition",
     date: "December 21, 2022",
-    image: "/activity2.png",
-    pdf: "https://www.ignaciouriarte.com/works/18/pdfs/A100page30.pdf",
+    image: "/quanta'22.png",
+    pdf: "/pdf/Quanta22.pdf",
   },
   //   {
   //     id: 2,
