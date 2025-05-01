@@ -1,4 +1,7 @@
 // import CourseOfferedSection from "@/components/CourseOfferedSection";
+
+"use client"
+import { useState } from "react";
 import DeptInfo from "@/components/DeptInfo";
 import DeptLogo from "@/components/DeptLogo";
 import Footer from "@/components/Footer";

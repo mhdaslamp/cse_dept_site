@@ -19,13 +19,13 @@ const EventCard = ({ event }) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
     >
-      <div className="h-auto w-full md:w-auto overflow-hidden">
+      <div className="h-auto w-full md:w-auto overflow-hidden bg-no-repeat bg-cover " >
         <img
           src={event.image}
           alt={event.title}
-          width={1000}
-          height={500}
-          className={`object-cover transition duration-300 w-full md:w-[500px] ${
+        
+          className={`object-cover transition duration-300 w-full md:w-[500px] bg-no-repeat  '
+             ${
             isHovered ? "" : "grayscale"
           }`}
         />
@@ -58,7 +58,7 @@ const EventCard = ({ event }) => {
         </p>
         <div>
           <hr
-            className="w-full my-4 border-black transition duration-500"
+            className="w-[50%] my-4 border-black transition duration-500"
             style={{ borderColor: isHovered ? "red" : "black" }}
           />
         </div>
