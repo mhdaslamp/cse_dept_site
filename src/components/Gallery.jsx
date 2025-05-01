@@ -4,67 +4,67 @@ import ColoredSection from "./ColoredSection";
 import { ImageGallery } from "react-image-grid-gallery";
 
 const imagesArray = [
-    {
-      alt: "Image1's alt text",
-      caption: "Image1's description",
-      src: "/gallery3.png",
-    },
-    {
-      alt: "Image2's alt text",
-      caption: "Image2's description",
-      src: "/gallery1.png",
-    },
-    {
-      alt: "Image3's alt text",
-      caption: "Image3's description",
-      src: "/gallery2.png",
-    },
-    {
-      alt: "Image1's alt text",
-      caption: "Image1's description",
-      src: "/gallery1.png",
-    },
-    {
-      alt: "Image2's alt text",
-      caption: "Image2's description",
-      src: "/gallery2.png",
-    },
-    {
-      alt: "Image3's alt text",
-      caption: "Image3's description",
-      src: "/gallery3.png",
-    },
-    {
-      alt: "Image1's alt text",
-      caption: "Image1's description",
-      src: "/gallery2.png",
-    },
-    {
-      alt: "Image2's alt text",
-      caption: "Image2's description",
-      src: "/gallery3.png",
-    },
-    {
-      alt: "Image3's alt text",
-      caption: "Image3's description",
-      src: "/gallery1.png",
-    },
-    {
-      alt: "Image1's alt text",
-      caption: "Image1's description",
-      src: "/gallery2.png",
-    },
-    {
-      alt: "Image2's alt text",
-      caption: "Image2's description",
-      src: "/gallery3.png",
-    },
-    {
-      alt: "Image3's alt text",
-      caption: "Image3's description",
-      src: "/gallery1.png",
-    }
-  ];
+  {
+    alt: "Image1's alt text",
+    caption: "Image1's description",
+    src: "/1.jpg",
+  },
+  {
+    alt: "Image2's alt text",
+    caption: "Image2's description",
+    src: "/2.jpg",
+  },
+  {
+    alt: "Image3's alt text",
+    caption: "Image3's description",
+    src: "/3.jpg",
+  },
+  {
+    alt: "Image1's alt text",
+    caption: "Image1's description",
+    src: "/4.jpg",
+  },
+  {
+    alt: "Image2's alt text",
+    caption: "Image2's description",
+    src: "/5.jpg",
+  },
+  {
+    alt: "Image3's alt text",
+    caption: "Image3's description",
+    src: "/gallery3.jpg",
+  },
+  {
+    alt: "Image1's alt text",
+    caption: "Image1's description",
+    src: "/gallery2.png",
+  },
+  {
+    alt: "Image2's alt text",
+    caption: "Image2's description",
+    src: "/gallery3.png",
+  },
+  {
+    alt: "Image3's alt text",
+    caption: "Image3's description",
+    src: "/gallery1.png",
+  },
+  {
+    alt: "Image1's alt text",
+    caption: "Image1's description",
+    src: "/gallery2.png",
+  },
+  {
+    alt: "Image2's alt text",
+    caption: "Image2's description",
+    src: "/gallery3.png",
+  },
+  {
+    alt: "Image3's alt text",
+    caption: "Image3's description",
+    src: "/gallery1.png",
+  },
+];
 
 const Gallery = () => {
   const [columnCount, setColumnCount] = React.useState(4);
@@ -88,10 +88,10 @@ const Gallery = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-    
+
   return (
     <ColoredSection color="WHITE" id="gallery">
       <div className="bg-black py-12 sm:py-20 md:py-32 lg:py-56 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-96 h-auto">
