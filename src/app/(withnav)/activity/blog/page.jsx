@@ -1,10 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { data } from "./content";
 import Image from "next/image";
+import { getBlogs } from "@/actions/blog.action"; // Import the server action
 
 export default function Page() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const blogsData = await getBlogs();
+        setData(blogsData);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchBlogs();
+  }, []);
+
   return (
     <div>
       <div className="bg-[#e9e8e9]">
@@ -15,9 +33,18 @@ export default function Page() {
           </h1>
         </div>
       </div>
-      {data.map((item) => (
-        <HoverableItem key={item.id} item={item} />
-      ))}
+
+      {loading ? (
+        <div className="container mx-auto py-20 text-center">
+          <p className="text-xl">Loading blogs...</p>
+        </div>
+      ) : data.length === 0 ? (
+        <div className="container mx-auto py-20 text-center">
+          <p className="text-xl">No blogs found</p>
+        </div>
+      ) : (
+        data.map((item) => <HoverableItem key={item._id} item={item} />)
+      )}
     </div>
   );
 }
@@ -27,7 +54,7 @@ function HoverableItem({ item }) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/activity/blog/${item.id}`);
+    router.push(`/activity/blog/${item._id}`);
   };
 
   return (
@@ -39,8 +66,8 @@ function HoverableItem({ item }) {
       >
         <div className="bg-slate-500 relative w-full md:w-1/2 h-auto">
           <Image
-            src={item.img}
-            alt={item.head}
+            src={item.authorImage || "/placeholder-image.jpg"}
+            alt={item.name}
             width={800}
             height={400}
             className={`${
@@ -60,7 +87,7 @@ function HoverableItem({ item }) {
                 isHover ? "translate-x-3" : ""
               } transition-transform duration-300`}
             >
-              {item.head}
+              {item.name}
             </h1>
           </div>
           <pre
@@ -68,7 +95,7 @@ function HoverableItem({ item }) {
               isHover ? "text-[#dc856e]" : "text-[#000000]"
             } transition-colors duration-300 text-[16px] md:text-[20px]`}
           >
-            {item.content}
+            {item.type}
           </pre>
           <div className="bg-black w-full border border-black mt-6"> </div>
           <div className="flex flex-col md:flex-row justify-between mt-5">
@@ -78,18 +105,17 @@ function HoverableItem({ item }) {
                   isHover ? "text-[#dc856e]" : "text-[#000000]"
                 }`}
               >
-                {React.cloneElement(item.icon, {
-                  className: "w-8 h-8 md:w-12 md:h-12",
-                })}
+                {/* Simple text icon based on type */}
+                {item.type.charAt(0).toUpperCase()}
               </div>
               <div className="mt-3">
-                <h1 className="text-sm md:text-base">{item.name}</h1>
+                <h1 className="text-sm md:text-base">{item.authorName}</h1>
                 <p
                   className={`${
                     isHover ? "text-[#dc856e]" : "text-[#000000]"
                   } text-xs md:text-sm`}
                 >
-                  {item.year}
+                  {item.authorPosition}
                 </p>
               </div>
             </div>
@@ -98,7 +124,7 @@ function HoverableItem({ item }) {
                 isHover ? "text-[#dc856e]" : "text-[#000000]"
               } text-sm md:text-base`}
             >
-              {item.date}
+              {new Date(item.createdAt).toLocaleDateString()}
             </div>
           </div>
         </div>

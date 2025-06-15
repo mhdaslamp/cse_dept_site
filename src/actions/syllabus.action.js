@@ -15,7 +15,7 @@ export async function getSyllabi() {
     }
 }
 
-export async function createSyllabus({ course, syllabusId, yearOfScheme, pdfUrl }) {
+export async function createSyllabus({ course,sem,yearOfScheme,syllabusId, pdfUrl }) {
     try {
         if (!(await isAuthenticated())) {
             throw new Error('Unauthorized');
@@ -28,7 +28,7 @@ export async function createSyllabus({ course, syllabusId, yearOfScheme, pdfUrl 
             throw new Error('Syllabus with this ID already exists');
         }
 
-        const newSyllabus = new Syllabus({ course, syllabusId, yearOfScheme, pdfUrl });
+        const newSyllabus = new Syllabus({ course,sem,yearOfScheme,syllabusId, pdfUrl });
         await newSyllabus.save();
         return {
           message: "Success",

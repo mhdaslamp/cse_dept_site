@@ -349,70 +349,59 @@ function Student({ title, item }) {
   const [isOpen, setIsOpen] = useState(false);
   const [dept, setDept] = useState("BTech");
   const [flex, setFlex] = useState(true);
-  const anim = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
 
-  const toggleDept = (item) => {
-    setDept(item);
+  const toggleDept = (deptName) => {
+    setDept(deptName);
   };
 
   const toggleExpand = () => {
-    if (!isExpanded) {
-      setIsExpanded(true);
-    } else {
-      setIsExpanded(false);
-    }
+    setIsExpanded(!isExpanded);
   };
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
 
-  const ranges = Object.values(item).map((item) => item.year);
-
-  const sortedRanges = ranges.sort((a, b) => {
-    const [startA] = a.split("-").map(Number);
-    const [startB] = b.split("-").map(Number);
-
-    return startB - startA;
-  });
-  const year = sortedRanges.filter(
-    (item, index) => sortedRanges.indexOf(item) === index
+  // Extract unique years from items
+  const years = [...new Set(item.map((student) => student.year))].sort(
+    (a, b) => {
+      const [startA] = a.split("-").map(Number);
+      const [startB] = b.split("-").map(Number);
+      return startB - startA;
+    }
   );
 
-  const [selectedContent, setselectedContent] = useState(year[0]);
+  const [selectedYear, setSelectedYear] = useState(years[0] || "");
 
-  const handleyear = (item) => {
-    setselectedContent(item);
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
     setIsOpen(false);
   };
-  const department = ["BTech", "MTech", "PhD"];
 
-  const items = item.filter(
-    (data) => data.year === selectedContent && data.dept === dept
+  // Get unique departments
+  const departments = [...new Set(item.map((student) => student.dept))];
+
+  // Filter students based on selected department and year
+  const filteredStudents = item.filter(
+    (student) => student.year === selectedYear && student.dept === dept
   );
 
   return (
-    <div className={`w-screen  flex  justify-center overflow-hidden `}>
+    <div className="w-screen flex justify-center overflow-hidden">
       <div
         className={`group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3 ${
           isExpanded ? "mb-5 mt-5" : ""
-        }  }`}
+        }`}
       >
         <div className="flex justify-between">
           <div
             onClick={toggleExpand}
-            className={`group font-bold transition-all duration-700 flex  lg:text-2xl text-lg  pl-5 ${
+            className={`group font-bold transition-all duration-700 flex lg:text-2xl text-lg pl-5 ${
               isExpanded ? "text-black" : "text-[#696969]"
             } cursor-pointer`}
           >
             <FaSquareFull
-              className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2   ${
+              className={`translate-y-[19px] duration-700 transition-all group-hover:text-[5px] group-hover:mr-2 ${
                 isExpanded
                   ? "text-[5px] mr-2 text-black"
                   : "text-[0px] mr-0 text-[#696969]"
@@ -432,89 +421,90 @@ function Student({ title, item }) {
         </div>
 
         <div
-          className={` transition-all duration-[1s] h-auto   ${
+          className={`transition-all duration-[1s] h-auto ${
             isExpanded ? "opacity-100" : "opacity-0 max-h-0"
           }`}
         >
           <div className="flex pl-5 gap-3 pt-3">
-            {department.map((item, index) => (
+            {departments.map((deptName, index) => (
               <div
                 key={index}
-                onClick={() => toggleDept(item)}
+                onClick={() => toggleDept(deptName)}
                 className="group/dept flex cursor-pointer"
               >
                 <FaSquareFull
-                  className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px]  text-[0px] ${
-                    dept === item
+                  className={`transition-all duration-500 translate-y-[13.5px] group-hover/dept:text-[3px] text-[0px] ${
+                    dept === deptName
                       ? "text-[3px] text-black"
                       : "text-[0px] text-[#696969]"
                   } `}
                 />
                 <div
                   className={`transition-all duration-500 group-hover/dept:ml-2 ${
-                    dept === item ? "ml-2 text-black" : "ml-0 text-[#696969]"
+                    dept === deptName
+                      ? "ml-2 text-black"
+                      : "ml-0 text-[#696969]"
                   } `}
                 >
-                  {item}
+                  {deptName}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="pb-2 pt-2 pl-5 pr-8 flex text-[#696969] items-center ">
+          <div className="pb-2 pt-2 pl-5 pr-8 flex text-[#696969] items-center">
             Year
             <div>
               <div
                 onClick={toggleOpen}
                 className="relative flex items-center group/year px-3 text-[#696969] cursor-pointer"
               >
-                {selectedContent}
+                {selectedYear}
                 <div
                   onClick={toggleOpen}
                   className={`transition-transform opacity-0 group-hover/year:opacity-100 cursor-pointer ${
                     isOpen ? "rotate-180 opacity-100 " : ""
                   } duration-500 ease-in-out z-10`}
                 >
-                  <MdKeyboardArrowDown className={`w-10 h-8 text-[#9E9E9E] `} />
+                  <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
                 </div>
                 Batch
               </div>
               <div className="relative">
                 <div
-                  className={`absolute transition-all duration-500 h-auto overflow-hidden  ${
+                  className={`absolute transition-all duration-500 h-auto overflow-hidden ${
                     isOpen ? "opacity-100" : "opacity-0 max-h-0"
                   }`}
                 >
-                  {year.map((item, index) => (
+                  {years.map((year, index) => (
                     <div
-                      onClick={() => handleyear(item)}
+                      onClick={() => handleYearChange(year)}
                       key={index}
                       className="px-2 bg-[#E9E9E8] text-[#696969] cursor-pointer"
                     >
-                      {item}
+                      {year}
                     </div>
                   ))}
                 </div>
               </div>
             </div>
           </div>
-          <div className=" flex justify-end pr-5 gap-3 pb-3">
+          <div className="flex justify-end pr-5 gap-3 pb-3">
             <img src="./images/row.svg" onClick={() => setFlex(true)} alt="" />
             <div className="border-solid border-[1px] h-6 border-[#696969]"></div>
             <img src="./images/col.svg" onClick={() => setFlex(false)} alt="" />
           </div>
-          <div className="flex  pb-3">
+          <div className="flex pb-3">
             <div
-              className={`no-scrollbar flex  ${
-                flex == true ? "flex-row flex-wrap" : " flex-col"
-              }  flex-initial overflow-auto  min-h-max h-auto justify-between w-full  gap-3  px-5 `}
+              className={`no-scrollbar flex ${
+                flex ? "flex-row flex-wrap" : "flex-col"
+              } flex-initial overflow-auto min-h-max h-auto justify-between w-full gap-3 px-5`}
             >
-              {items.map((data, key) => (
+              {filteredStudents.map((student, key) => (
                 <div className="leading-9 pt-1" key={key}>
                   <div className="text-[54px] h-max w-max text-[#696969] flex gap-1 items-end translate-y-10">
-                    {" "}
                     <div className="w-2 h-2 bg-[#696969]"></div>
-                    {data.name}
+                    {student.name}
                   </div>
                 </div>
               ))}
