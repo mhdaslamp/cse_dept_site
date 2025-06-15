@@ -42,7 +42,7 @@ export default function EventDetails() {
             <img
               src={event.image || "https://via.placeholder.com/600x400"}
               alt={event.title}
-              className="w-[80%] md:w-[70%] h-auto object-cover"
+              className="w-[80%] md:w-[70%] h-auto object-cover bg-cover bg-no-repeat "
             />
           </div>
           <div className="w-full lg:w-[50%] h-[300px] overflow-y-auto text-justify pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">

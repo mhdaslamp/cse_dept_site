@@ -2,72 +2,70 @@
 const upcomingEvents = [
   {
     id: 1,
-    title: "ML WORKSHOP",
-    mode: "Online",
-    date: "August 22, 2024",
-    time: "7:00 PM IST",
-    platform: "Google Meet",
+    title: "IDEA INTO PRODUCT",
+    mode: "Offline",
+    date: "October 26, 2024",
+    time: "11 AM IST",
+    platform: " ",
     topics: [
-      "Introduction to Machine Learning",
-      "Supervised vs Unsupervised Learning",
-      "Neural Networks and Deep Learning",
-      "Model Evaluation and Tuning",
+      "UI/UX Designing",
+      "Ideas  for product",
+    
     ],
     speakers: [
-      { name: "Dr. Jane Doe", title: "ML Expert, Tech Institute" },
-      { name: "John Smith", title: "Data Scientist, AI Labs" },
+      { name: "Rajesh E M", title: "LEAD UI/UX Designer" },
+     
     ],
-    location: "Online - Google Meet",
-    image: "/activity2.png",
+    location: "Offline  - PG Seminar Hall",
+    image: "/ideaintoproduct.jpeg",
     registrationLink: "https://example.com/register",
-    descriptions:
-      "Are you ready to dive into the world of machine learning and unlock its powerful capabilities? Join us for an engaging and interactive learning session where we'll explore the essentials of machine learning, from fundamentals to advanced concepts. Event Details: 📆 Date: 22nd August 2024🕒 Time: 7PM IST 📍 Platform: Google Meet🎯 What to Expect:🤖 Introduction to Machine Learning:Gain insights into the importance of machine learning, understanding its role in transforming data into actionable insights.📊 Key Machine Learning Concepts:Learn about supervised and unsupervised learning, feature engineering, and model evaluation techniques. 🛠️ Building ML Models: Discover best practices for building machine learning models, including data preprocessing, algorithm selection, and hyperparameter tuning.🔍 Monitoring and Model Management: Explore tools and techniques for monitoring ML models, evaluating their performance, and managing model lifecycle effectively.🚀 Advanced Machine Learning Practices: Get an overview of advanced machine learning techniques, such as deep learning, reinforcement learning, and integrating ML into production systems. Register now to embark on a journey filled with machine learning insights and skills! 🌐🤖 #CSEDepartment #MachineLearning #TechLearning #MLWorkshop 4o",
+    description:
+      "Having a great idea is just the beginning. The real challenge is transforming that idea into a market-ready product. ALGORHYTHM'24 will help you to turn them into reality , Idea Into Product, led by Rajesh EM, Lead UI/UX Designer at Speridian Technologies.",
   },
   {
     id: 2,
-    title: "AI in Healthcare",
-    description:
-      "Explore how artificial intelligence is revolutionizing healthcare with real-world applications and case studies.",
-    mode: "Hybrid",
-    date: "September 10, 2024",
-    time: "5:00 PM IST",
-    platform: "Zoom & Onsite",
+    title: "HARDWARE AND PROJECT EXPO",
+    mode: "Offline",
+    date: "October 26, 2024",
+    time: "11:30 AM IST",
+    platform: " ",
     topics: [
-      "AI in Diagnostics",
-      "Predictive Analytics in Healthcare",
-      "AI-Powered Treatment Plans",
-      "Ethics in AI for Healthcare",
+      "Hardware Expo",
+      "ML Project Expo",
+    
     ],
     speakers: [
-      { name: "Dr. Alan Turing", title: "Professor, AI and Medicine" },
-      { name: "Emily Watson", title: "Clinical Data Analyst, HealthTech" },
+    
+     
     ],
-    location: "Tech Convention Center, Room 101 & Online",
-    image: "/activity_healthcare.png",
+    location: "Offline  - Room No : 108",
+    image: "/expo.jpeg",
     registrationLink: "https://example.com/register",
+    description:
+      "Catch the buzz at our Project Expo by ALGORHYTHM'24 featuring the ML Learning Group and Void Minds ! Check out the projects that are set to shake things up. "
   },
   {
     id: 3,
-    title: "Data Science Bootcamp",
-    description:
-      "A comprehensive bootcamp covering everything from data preprocessing to advanced machine learning techniques.",
-    mode: "Onsite",
-    date: "October 5, 2024",
+    title: "CODE RELAY",
+    mode: "Offline",
+    date: "October 26, 2024",
     time: "10:00 AM IST",
-    platform: "Onsite Only",
+    platform: " ",
     topics: [
-      "Data Wrangling and Preprocessing",
-      "Exploratory Data Analysis",
-      "Machine Learning Algorithms",
-      "Deployment of ML Models",
+      "Competition",
+      "Network",
+      "Coding"
+    
     ],
     speakers: [
-      { name: "Samantha Carter", title: "Lead Data Scientist, DataCorp" },
-      { name: "Dr. Mike Ross", title: "Senior Researcher, BigData Labs" },
+    
+     
     ],
-    location: "Tech Convention Center, Room 205",
-    image: "/activity_datascience.png",
+    location: "Offline  - Network Lab",
+    image: "/coderelay.jpeg",
     registrationLink: "https://example.com/register",
+    description:
+      "ALGORHYTHM'24 is set to ignite your coding skills with an epic Code Relay on 26th October  "
   },
   {
     id: 4,
