@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const syllabusSchema = new mongoose.Schema({
   course: {
@@ -10,13 +10,21 @@ const syllabusSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sem: {
+    type: String,
+    required: true,
+  },
+  syllabus: {
+    type: String,
+    required: true,
+  },
   pdfUrl: {
     type: String,
     required: true,
   },
 });
 
-const Syllabus = mongoose.models.Syllabus || mongoose.model('Syllabus', syllabusSchema);
+const Syllabus =
+  mongoose.models.Syllabus || mongoose.model("Syllabus", syllabusSchema);
 
 export default Syllabus;
-
