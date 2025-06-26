@@ -24,17 +24,17 @@ export default function References() {
     {
       org: "../images/4.png",
       hvr: "../images/4h.png",
-      link: "http://gecskp.ac.in/",
+      link: "https://www.ktunotes.in/ktu-2019-scheme-question-papers/",
     },
     {
       org: "../images/5.jpg",
       hvr: "../images/5h.svg",
-      link: "http://gecskp.ac.in/",
+      link: "https://ktu.edu.in/academics/scheme",
     },
     {
       org: "../images/6.jpg",
       hvr: "../images/6h.svg",
-      link: "http://gecskp.ac.in/",
+      link: "https://ktu.edu.in/academics/scheme",
     },
     {
       org: "../images/7.jpg",
