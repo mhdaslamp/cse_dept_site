@@ -131,16 +131,16 @@ export default function References() {
                     <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
                     <img
                       className="h-full w-full object-cover transition-all"
-                      src="../images/Frame 80.jpg"
+                      src="../blog/image1.jpeg"
                       alt=""
                     />
                     <div className="absolute inset-0">
                       <p className="absolute inset-x-5 top-6 text-white font-montserrat text-4xl font-bold">
-                        TO DO LISTING
+                        Project showcase
                       </p>
                       <div className="absolute inset-x-5 bottom-6">
                         <div className="text-white">
-                          Lorem ipsum dolor sit amet
+                          
                           <style>
                             {`.parent:hover svg {
                         fill: black;
@@ -178,15 +178,15 @@ export default function References() {
                     <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
                     <img
                       className="h-full w-full object-cover transition-all"
-                      src="../images/Frame77 .jpg"
+                      src="../blog/image2.jpeg"
                       alt=""
                     />
                     <div className="absolute inset-0">
                       <div className="absolute text-white font-montserrat text-4xl font-bold inset-x-5 top-6">
-                        DIGI SITE
+                        World Map
                       </div>
                       <div className="absolute inset-x-5 bottom-6 text-white">
-                        <p className="text-gray-300">Lorem ipsum dolor si</p>
+                        <p className="text-gray-300"></p>
                         <div className="parent mt-[7px] cursor-pointer hover:bg-white duration-[0.8s] hover:text-black bg-black font-bold w-[9rem] flex justify-center gap-[0.8rem]">
                           READ MORE
                           <svg
@@ -211,15 +211,15 @@ export default function References() {
                     <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
                     <img
                       className="h-full w-full object-cover transition-all"
-                      src="../images/Frame81.jpg"
+                      src="../blog/image3.jpeg"
                       alt=""
                     />
                     <div className="absolute inset-0">
                       <div className="absolute text-white font-bold font-montserrat text-4xl inset-x-5 top-6">
-                        MORE
+                        Attitude Probe
                       </div>
                       <div className="absolute inset-x-5 bottom-6 text-white">
-                        <p className="text-gray-300">Lorem ipsum, dolor sit</p>
+                        <p className="text-gray-300"></p>
                         <div className="parent mt-[7px] cursor-pointer hover:bg-white duration-[0.5s] hover:text-black bg-black font-bold w-[9rem] flex justify-center gap-[0.8rem]">
                           READ MORE
                           <svg
