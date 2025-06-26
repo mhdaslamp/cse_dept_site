@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import useBoundingclientrect from "@rooks/use-boundingclientrect";
 import Image from "next/image";
-import { AcadamicsLabsDataForCard } from "@/constants/contents";
+import { AcadamicsDataForCard } from "@/constants/contents";
 import ColoredSection from "../components/ColoredSection";
 
 const CourseOfferedSection = () => {
@@ -44,7 +44,7 @@ const CourseOfferedSection = () => {
             </div>
             <div className="flex justify-center lg:justify-end z-10 mt-8 lg:mt-0">
               <div className="space-y-8 lg:space-y-[113px]">
-                {AcadamicsLabsDataForCard.map((item, i) => (
+                {AcadamicsDataForCard.map((item, i) => (
                   <div
                     ref={i === 6 ? ref : undefined}
                     key={i}
@@ -57,12 +57,12 @@ const CourseOfferedSection = () => {
                         alt=""
                       />
                     </div>
-                    <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
+                    {/* <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
                       SYLLABUS (2015 SCHEME)
                     </button>
                     <button className=" font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
                       SYLLABUS (2019 SCHEME)
-                    </button>
+                    </button> */}
                     <h2 className="font-medium font-montserrat text-[18px] lg:text-[20px] leading-[24.38px] mt-6">
                       {item.title}
                     </h2>
