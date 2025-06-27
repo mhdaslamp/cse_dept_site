@@ -11,6 +11,7 @@ function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const notificationRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [hasAutoOpened, setHasAutoOpened] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -34,6 +35,15 @@ function Home() {
   }, [notificationRef]);
 
   useEffect(() => {
+    if (!hasAutoOpened) {
+      setIsVisible(true);
+      setHasAutoOpened(true);
+      setTimeout(() => {
+        setIsVisible(false);
+      }, 3000);
+    }
+  }, [hasAutoOpened]);
+  useEffect(() => {
     const video = document.getElementById('backgroundVideo');
     video.addEventListener('loadeddata', () => {
       setIsVideoLoaded(true);
@@ -47,12 +57,7 @@ function Home() {
   }, []);
 
   const handleClick = () => {
-    setIsVisible(!isVisible);
-    // if (!isVisible) {
-    //   setTimeout(() => {
-    //     setIsVisible(false);
-    //   }, 5000);
-    // }
+    setIsVisible((prev) => !prev);
   };
 
   return (
@@ -83,7 +88,7 @@ function Home() {
           />
           <video
             id="backgroundVideo"
-            src="frontVid.mp4"
+            src="frontVid.mp4"  // Replace with your video path
             autoPlay
             muted
             loop

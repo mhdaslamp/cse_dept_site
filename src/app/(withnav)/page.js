@@ -21,7 +21,7 @@ export default function Home() {
       <DeptLogo />
       <HorizontalScrollCarousel />
       <HodMessage />
-      <Acheivers />
+      {/* <Acheivers /> */}
       <References />
     </main>
   );

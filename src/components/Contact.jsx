@@ -51,7 +51,7 @@ export default function Contact() {
 
         <div className="w-full md:w-1/3 h-[300px] sm:h-[450px] border-2 border-black rounded-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.7925904290955!2d76.43187407594881!3d10.903361589253265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7d635151d9b73%3A0xecf06761ecf4f56c!2sGovt.%20Engineering%20College%20Sreekrishnapuram!5e0!3m2!1sen!2sin!4v1725817327408!5m2!1sen!2sin"
+            src="https://app.mappedin.com/map/65fbc2aa7c0c4fe5b4cc4683/directions?floor=m_c235d70c9e691132&location=s_fca685ba2c784ab7&departure=s_c0ed60b6daeada7c"
             width="400"
             height="400"
             style={{ border: 0 }}

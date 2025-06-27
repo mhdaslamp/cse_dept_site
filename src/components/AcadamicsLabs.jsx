@@ -3,13 +3,13 @@
 import React, { useRef } from "react";
 import useBoundingclientrect from "@rooks/use-boundingclientrect";
 import Image from "next/image";
-import { AcadamicsDataForCard } from "@/constants/contents";
+import { AcadamicsLabsDataForCard } from "@/constants/contents";
 import ColoredSection from "@/components/ColoredSection";
 
 const AcadamicsPrograms = () => {
   const ref = useRef(null);
   const boundingClientRect = useBoundingclientrect(ref);
-  
+
   return (
     <ColoredSection color="WHITE" className="bg-black w-full">
       <div className="lg:sticky">
@@ -28,7 +28,7 @@ const AcadamicsPrograms = () => {
             <div
               className="space-y-4 lg:sticky lg:bottom-10 lg:top-40 z-1"
               style={{
-                minHeight: 'auto',
+                minHeight: "auto",
                 height: "fit-content",
               }}
             >
@@ -36,30 +36,33 @@ const AcadamicsPrograms = () => {
                 LABS and Other Facilities
               </h2>
               <p className="font-montserrat text-[16px] sm:text-[22px] md:text-[24px]">
-              The Department of Computer Science & Engineering (CSE) offers a comprehensive range of programs designed to equip students with the knowledge and skills necessary to thrive in the ever-evolving field of computer science.
+                The Department of Computer Science & Engineering (CSE) offers a
+                comprehensive range of programs designed to equip students with
+                the knowledge and skills necessary to thrive in the
+                ever-evolving field of computer science.
               </p>
             </div>
             <div className="flex justify-center lg:justify-end z-1 mt-8 lg:mt-0">
               <div className="space-y-8 lg:space-y-[113px]">
-                {AcadamicsDataForCard.map((item, i) => (
+                {AcadamicsLabsDataForCard.map((item, i) => (
                   <div
                     ref={i === 6 ? ref : undefined}
                     key={i}
                     className="max-w-[390px] w-full  lg:pl-16"
                   >
-                    <div className="">
+                    <div className="z-1">
                       <img
                         className="w-full h-auto lg:h-[525.83px] object-cover"
                         src={item.image}
                         alt=""
                       />
                     </div>
-                    <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
+                    {/* <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
                       SYLLABUS (2015 SCHEME)
                     </button>
                     <button className=" font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
                       SYLLABUS (2019 SCHEME)
-                    </button>
+                    </button> */}
                     <h2 className="font-medium font-montserrat text-[18px] lg:text-[20px] leading-[24.38px] mt-6">
                       {item.title}
                     </h2>

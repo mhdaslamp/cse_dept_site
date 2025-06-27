@@ -4,11 +4,12 @@ import ColoredSection from "./ColoredSection";
 import HorizontalScroll from "./horizontal-scroll";
 
 const images = [
+  "/ImageScroll/s82025.jpeg",
+  "/ImageScroll/s72024.jpeg",
+  "/ImageScroll/image5.jpeg",
+  "/ImageScroll/image6.jpeg",
   "/ImageScroll/image1.png",
   "/ImageScroll/image2.png",
-  "/ImageScroll/image1.png",
-  "/ImageScroll/image2.png",
-  "/bg.png",
 ];
 
 const HorizontalScrollCarousel = () => {
