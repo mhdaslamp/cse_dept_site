@@ -6,26 +6,53 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { RiInstagramFill } from "react-icons/ri";
 import { IoLogoLinkedin } from "react-icons/io";
 import ColoredSection from "./ColoredSection";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
+
+const routes = [
+  {
+    name: "HOME",
+    urlPath: "/",
+  },
+  {
+    name: "PEOPLE",
+    urlPath: "/people",
+  },
+  {
+    name: "PLACEMENTS",
+    urlPath: "/placements",
+  },
+  {
+    name: "ABOUT US",
+    urlPath: "/aboutus",
+  },
+  {
+    name: "ACTIVITIES",
+    urlPath: "/activity/events",
+  },
+  // { // NO SEPERATE ROUTE EXISTS
+  //   name: "CONTACT US",
+  //   urlPath: "#contact-us",
+  // },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -71,14 +98,14 @@ const Footer = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       );
       console.log(result.text);
       toast({
         title: "Success",
         description: "Message sent successfully!",
       });
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.log(error.text);
       toast({
@@ -107,15 +134,15 @@ const Footer = () => {
     <ColoredSection color="BLACK">
       <footer className="container lg:mx-40 flex flex-col sm:flex-row justify-between px-14 sm:px-0 py-8 pb-12 bg-white text-gray-800 w-auto font-bebasneue relative">
         <div className="flex-1 mb-4 sm:mb-0">
-          <form onSubmit={handleSubmit} className="mb-4">
+          <form id="contact-us" onSubmit={handleSubmit} className="mb-4">
             <h3 className="text-xl font-semibold mb-2 text-[#BDBDBD]">
               SEND YOUR MESSAGES
             </h3>
             {[
-              { name: 'name', placeholder: 'YOUR NAME *', type: 'text' },
-              { name: 'email', placeholder: 'YOUR MAIL *', type: 'email' },
-              { name: 'subject', placeholder: 'SUBJECT *', type: 'text' },
-              { name: 'message', placeholder: 'MESSAGE *', type: 'text' }
+              { name: "name", placeholder: "YOUR NAME *", type: "text" },
+              { name: "email", placeholder: "YOUR MAIL *", type: "email" },
+              { name: "subject", placeholder: "SUBJECT *", type: "text" },
+              { name: "message", placeholder: "MESSAGE *", type: "text" },
             ].map((field, index) => (
               <div key={index} className="mb-2 max-w-md">
                 <input
@@ -129,8 +156,8 @@ const Footer = () => {
                 />
               </div>
             ))}
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="inline-flex items-center group bg-black hover:bg-white text-white hover:text-black text-md border-2 border-black p-1 mt-4 transition-all duration-300 ease-in-out transform hover:pr-3"
               disabled={isLoading}
             >
@@ -161,14 +188,7 @@ const Footer = () => {
           </h3>
 
           <div className="grid grid-cols-2 gap-x-[7.125rem]">
-            {[
-              "HOME",
-              "PEOPLE",
-              "PLACEMENTS",
-              "ABOUT US",
-              "ACTIVITIES",
-              "CONTACT US",
-            ].map((link, index) => (
+            {routes.map((eachRoute, index) => (
               <div
                 key={index}
                 className="flex items-center"
@@ -178,9 +198,9 @@ const Footer = () => {
                 <div className={squareBlock(index)}></div>
                 <Link
                   className="text-16 block text-[#656565] min-w-[7.5rem] mb-1 ml-2"
-                  href="#"
+                  href={eachRoute.urlPath}
                 >
-                  {link}
+                  {eachRoute.name}
                 </Link>
               </div>
             ))}
@@ -200,8 +220,14 @@ const Footer = () => {
                 </Link>
               </p>
               <div className="flex items-center">
-               <a href="https://www.instagram.com/cse_gecpkd/"> <RiInstagramFill className="text-[#666666] w-5 h-5 hover:text-blue-700 cursor-pointer" /></a>
-               <a href="https://www.linkedin.com/company/csegecskp/"> <IoLogoLinkedin className="text-[#666666] ml-2 w-5 h-5 hover:text-blue-700 cursor-pointer" /></a>
+                <a href="https://www.instagram.com/cse_gecpkd/">
+                  {" "}
+                  <RiInstagramFill className="text-[#666666] w-5 h-5 hover:text-blue-700 cursor-pointer" />
+                </a>
+                <a href="https://www.linkedin.com/company/csegecskp/">
+                  {" "}
+                  <IoLogoLinkedin className="text-[#666666] ml-2 w-5 h-5 hover:text-blue-700 cursor-pointer" />
+                </a>
               </div>
             </div>
           </div>
