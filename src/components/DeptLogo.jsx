@@ -70,41 +70,66 @@ const DeptLogo = () => {
     const item2 = useRef(null);
     const item3 = useRef(null);
     const item4 = useRef(null);
-    let xPercent = 0;
-    let direction = -1;
-    let isPaused = false; // New flag to control animation state
+
+    const xPercent = useRef(0);
+    const direction = useRef(-1);
+    const isPaused = useRef(false);
+    const animationFrame = useRef(null);
 
     useEffect(() => {
-        requestAnimationFrame(animation);
+        const animate = () => {
+            if (
+                !item1.current ||
+                !item2.current ||
+                !item3.current ||
+                !item4.current
+            ) {
+                animationFrame.current = requestAnimationFrame(animate);
+                return;
+            }
+
+            if (!isPaused.current) {
+                if (xPercent.current <= -100) {
+                    xPercent.current = 0;
+                }
+
+                if (xPercent.current > 0) {
+                    xPercent.current = -100;
+                }
+
+                gsap.set(
+                    [
+                        item1.current,
+                        item2.current,
+                        item3.current,
+                        item4.current,
+                    ],
+                    {
+                        xPercent: xPercent.current,
+                    }
+                );
+
+                xPercent.current += 0.15 * direction.current;
+            }
+
+            animationFrame.current = requestAnimationFrame(animate);
+        };
+
+        animationFrame.current = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationFrame.current) {
+                cancelAnimationFrame(animationFrame.current);
+            }
+        };
     }, []);
 
-    const animation = () => {
-        if (!isPaused) {
-            // Only update animation if not paused
-            if (xPercent <= -100) {
-                xPercent = 0;
-            }
-            if (xPercent > 0) {
-                xPercent = -100;
-            }
-
-            gsap.set(item1.current, { xPercent: xPercent });
-            gsap.set(item2.current, { xPercent: xPercent });
-            gsap.set(item3.current, { xPercent: xPercent });
-            gsap.set(item4.current, { xPercent: xPercent });
-
-            xPercent += 0.15 * direction;
-        }
-
-        requestAnimationFrame(animation);
-    };
-
     const handleMouseEnter = () => {
-        isPaused = true; // Pause animation on hover
+        isPaused.current = true;
     };
 
     const handleMouseLeave = () => {
-        isPaused = false; // Resume animation when hover ends
+        isPaused.current = false;
     };
 
     return (
