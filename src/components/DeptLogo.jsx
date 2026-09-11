@@ -136,7 +136,7 @@ const DeptLogo = () => {
         <ColoredSection color="BLACK">
             <div
                 ref={containerRef}
-                className="flex flex-col px-12 md:px-20 py-8 md:py-0 justify-center items-center min-h-screen"
+                className="flex flex-col px-12 py-8 md:py-0 justify-center items-center"
                 id="mission"
             >
                 <div className="flex justify-center align-items-center relative px-5 md:px-0">
