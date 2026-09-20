@@ -161,11 +161,6 @@ const links = [
             },
         ],
     },
-    {
-        label: 'Notifications',
-        type: 'main',
-        href: '/notifications',
-    },
 ];
 
 function Navbar() {
