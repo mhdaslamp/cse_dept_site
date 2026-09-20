@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-const { uploadthingPlugin } = require('uploadthing/tw');
+const { withUt } = require('uploadthing/tw');
 
-module.exports = {
+module.exports = withUt({
     darkMode: ['class'],
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -81,5 +81,5 @@ module.exports = {
             },
         },
     },
-    plugins: [require('tailwindcss-animate'), uploadthingPlugin],
-};
+    plugins: [require('tailwindcss-animate')],
+});
